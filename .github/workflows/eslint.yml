@@ -1,16 +1,12 @@
-name: Lint
-on: [pull_request]
+name: Test
+on: push
 jobs:
-  eslint:
-    name: runner / eslint
+  test:
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      pull-requests: write 
     steps:
-      - uses: actions/checkout@v2
-      - uses: reviewdog/action-eslint@v1
-        with:
-          github_token: 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
-          reporter: github-check
-          eslint_flags: 'src/'
+      - name: Get repository code
+        uses: actions/checkout@v3
+      - name: Install dependecies
+        run: npm ci
+      - name: Eslint test
+        run: npm run lint
