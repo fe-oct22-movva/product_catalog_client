@@ -11,7 +11,7 @@
     "lint": "eslint . --ignore-path .gitignore --fix",
     "fix-style": "npm run format && npm run lint",
     "prepare": "husky install",
-    "deploy": "gh-pages -d dist"
+    "deploy": "npm run build && gh-pages -d dist"
   },
   "dependencies": {
     "gh-pages": "^5.0.0",
