@@ -1,9 +1,9 @@
-@import "../../../styles/mixins";
+@import '../../../styles/mixins';
 
 .slick {
   @include ForTablet {
     &-prev,
-    &-next{
+    &-next {
       font-size: 0;
       line-height: 0;
 
@@ -16,7 +16,7 @@
 
       width: 32px;
 
-      border: 1px solid #B4BDC4;
+      border: 1px solid #b4bdc4;
       border-radius: 48px;
       padding: 14px;
 
@@ -25,15 +25,14 @@
 
       cursor: pointer;
 
-      transition: border .3s;
-
+      transition: border 0.3s;
 
       color: transparent;
       outline: none;
       background: transparent;
 
       &:hover {
-        border: 1px solid #0F0F11;
+        border: 1px solid #0f0f11;
       }
     }
 
@@ -47,7 +46,7 @@
         display: block;
         width: 6px;
         height: 10px;
-        background-image: url("../../../images/prev-arrow.svg");
+        background-image: url('../../../images/prev-arrow.svg');
         background-repeat: no-repeat;
         background-position: center;
         background-size: contain;
@@ -62,7 +61,7 @@
         display: block;
         width: 6px;
         height: 10px;
-        background-image: url("../../../images/next-arrow.svg");
+        background-image: url('../../../images/next-arrow.svg');
         background-repeat: no-repeat;
         background-position: center;
         background-size: contain;
@@ -71,12 +70,12 @@
   }
 
   &-dot {
-    background: #E2E6E9;
-    transition: opacity .3s, background .3s;
+    background: #e2e6e9;
+    transition: opacity 0.3s, background 0.3s;
 
     &:hover {
-      background: #0F0F11;
-      opacity: .3;
+      background: #0f0f11;
+      opacity: 0.3;
     }
   }
 
@@ -100,7 +99,6 @@
 
       margin-right: 14px;
 
-
       cursor: pointer;
 
       & button {
@@ -120,13 +118,11 @@
         background: transparent;
       }
     }
-
-
   }
 
   &-active {
     .slick-dot {
-      background: #0F0F11;
+      background: #0f0f11;
     }
   }
 
@@ -181,49 +177,39 @@
 
     content: '';
   }
-  &-track:after
-  {
+  &-track:after {
     clear: both;
   }
-  &-loading &-track
-  {
+  &-loading &-track {
     visibility: hidden;
   }
 
-  &-slide
-  {
+  &-slide {
     display: none;
     float: left;
 
     height: 100%;
     min-height: 1px;
   }
-  [dir='rtl'] &-slide
-  {
+  [dir='rtl'] &-slide {
     float: right;
   }
-  &-slide img
-  {
+  &-slide img {
     display: block;
   }
-  &-slide &-loading img
-  {
+  &-slide &-loading img {
     display: none;
   }
-  &-slide.dragging img
-  {
+  &-slide.dragging img {
     pointer-events: none;
   }
-  &-initialized &-slide
-  {
+  &-initialized &-slide {
     display: block;
   }
-  &-loading &-slide
-  {
+  &-loading &-slide {
     visibility: hidden;
   }
-  &-vertical &-slide
-  {
+  &-vertical &-slide {
     display: block;
 
     height: auto;

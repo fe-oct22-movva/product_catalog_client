@@ -1,8 +1,7 @@
-import { React } from 'react';
-import '../../../styles/main.scss';
-import logo from '../../../images/Logo.svg';
+import React from 'react';
+import logo from '../../../assets/images/Logo.svg';
 
-export const Header = () => {
+export const Header: React.FC = () => {
   return (
     <header className="page__section header">
       <div className="header__content">
@@ -33,7 +32,7 @@ export const Header = () => {
             </li>
           </ul>
         </nav>
-        
+
         <a href="#favourites" className="icon icon--favourites"></a>
         <a href="#cart" className="icon icon--cart"></a>
         <a href="#menu" className="icon icon--menu"></a>
