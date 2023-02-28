@@ -1,0 +1,27 @@
+* {
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: Mont_Regular;
+  src: url('./fonts/Mont-Regular.oft');
+}
+
+@font-face {
+  font-family: Mont_Bold;
+  font-weight: bold;
+  src: url('./fonts/Mont-Bold.otf');
+}
+
+@font-face {
+  font-family: Mont_SemiBold;
+  src: url('./fonts/Mont-SemiBold');
+}
+
+html {
+  font-family: 'Mont_Regular', sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  color: #0f0f11;
+}
