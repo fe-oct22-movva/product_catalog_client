@@ -1,7 +1,8 @@
-import { Header } from './components/HomePage/Header';
-import { HomePage } from './components/HomePage/HomePage';
-import { Route, Routes, Navigate} from 'react-router-dom';
+import {Header} from './components/HomePage/Header';
+import {HomePage} from './components/HomePage/HomePage';
+import {Route, Routes, Navigate} from 'react-router-dom';
 import './styles/main.scss';
+import { PageNotFound } from './components/PageNotFound';
 
 function App() {
   return (
@@ -12,7 +13,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="home" element={<Navigate to="/" replace />} />
-          <Route path="*" element={<h1>Page not found</h1>} />
+          <Route path="*" element={<PageNotFound />} />
         </Routes>
       </div>
     </div>

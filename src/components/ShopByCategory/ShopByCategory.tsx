@@ -2,9 +2,7 @@ export const ShopByCategory: React.FC = () => {
   return (
     <section className="page__section shop-by-category" id="shop-by-category">
       <div className="container">
-        <h2 className="page__section-title">
-          Shop by category
-        </h2>
+        <h2 className="page__section-title">Shop by category</h2>
 
         <div className="grid-shop-by grid-shop-by--tablet grid-shop-by--desktop">
           <div className="shop-by-category__item grid-shop-by__item grid-shop-by__item--tablet-1-4 grid-shop-by__item--desktop-1-8">
@@ -16,12 +14,12 @@ export const ShopByCategory: React.FC = () => {
               />
 
               <h4 className="category__name">
-                <a href="#" className="category__link">Mobile phones</a>
+                <a href="#" className="category__link">
+                  Mobile phones
+                </a>
               </h4>
 
-              <p className="category__description">
-                95 models
-              </p>
+              <p className="category__description">95 models</p>
             </div>
           </div>
 
@@ -34,12 +32,12 @@ export const ShopByCategory: React.FC = () => {
               />
 
               <h4 className="category__name">
-                <a href="#" className="category__link">Tablets</a>
+                <a href="#" className="category__link">
+                  Tablets
+                </a>
               </h4>
 
-              <p className="category__description">
-                24 models
-              </p>
+              <p className="category__description">24 models</p>
             </div>
           </div>
 
@@ -52,12 +50,12 @@ export const ShopByCategory: React.FC = () => {
               />
 
               <h4 className="category__name">
-                <a href="#" className="category__link">Accessories</a>
+                <a href="#" className="category__link">
+                  Accessories
+                </a>
               </h4>
 
-              <p className="category__description">
-                100 models
-              </p>
+              <p className="category__description">100 models</p>
             </div>
           </div>
         </div>
