@@ -1,20 +1,20 @@
-import React from 'react';
 import { Header } from './components/HomePage/Header';
-import { Banner } from './components';
-import { Cards } from './ProductCard';
-import { ShopByCategory } from './components/ShopByCategory'
 import { HomePage } from './components/HomePage/HomePage';
-
+import { Route, Routes, Navigate} from 'react-router-dom';
 import './styles/main.scss';
 
 function App() {
   return (
     <div className="App">
       <Header />
-      <Banner />
-      <Cards />
-      <ShopByCategory />
-      <HomePage />
+
+      <div className="sections">
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="home" element={<Navigate to="/" replace />} />
+          <Route path="*" element={<h1>Page not found</h1>} />
+        </Routes>
+      </div>
     </div>
   );
 }

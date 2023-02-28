@@ -1,4 +1,7 @@
+import cn from 'classnames';
 import React from 'react';
+import { NavLink } from 'react-router-dom';
+import heart from '../../../assets/images/Home.svg';
 import logo from '../../../assets/images/Logo.svg';
 
 export const Header: React.FC = () => {
@@ -16,34 +19,73 @@ export const Header: React.FC = () => {
         <nav className="nav">
           <ul className="nav__list">
             <li className="nav__item">
-              <a href="#home" className="nav__link nav__link--active">
+              <NavLink to="/"
+                className={
+                  ({ isActive }) => cn(
+                    'nav__link',
+                    { 'nav__link--active': isActive }
+                  )
+                }>
                 Home
-              </a>
+              </NavLink>
             </li>
 
             <li className="nav__item">
-              <a href="#phones" className="nav__link">
+              <NavLink to="/phones"
+                className={
+                  ({ isActive }) => cn(
+                    'nav__link',
+                    { 'nav__link--active': isActive }
+                  )
+                }>
                 Phones
-              </a>
+              </NavLink>
             </li>
 
             <li className="nav__item">
-              <a href="#tablets" className="nav__link">
+              <NavLink to="/tablets"
+                className={
+                  ({ isActive }) => cn(
+                    'nav__link',
+                    { 'nav__link--active': isActive }
+                  )
+                }>
                 Tablets
-              </a>
+              </NavLink>
             </li>
 
             <li className="nav__item">
-              <a href="#accessories" className="nav__link">
+              <NavLink to="/accessories"
+                className={
+                  ({ isActive }) => cn(
+                    'nav__link',
+                    { 'nav__link--active': isActive }
+                  )
+                }>
                 Accessories
-              </a>
+              </NavLink>
             </li>
           </ul>
         </nav>
 
-        <a href="#favourites" className="icon icon--favourites"></a>
-        <a href="#cart" className="icon icon--cart"></a>
-        <a href="#menu" className="icon icon--menu"></a>
+        <div className="header__aside-container">
+          <div className="icon">
+            <a href="#favourites" className="icon--favourites">
+              <img src={heart} alt="" />
+            </a>
+
+          </div>
+          <div className="icon">
+            <a href="#cart" className="icon--cart">
+            </a>
+          </div>
+          {false && (
+            <div>
+              <a href="#menu" className="icon icon--menu">
+              </a>
+            </div>
+          )}
+        </div>
       </div>
     </header>
   );
