@@ -43,7 +43,11 @@ export const Footer: React.FC = () => {
 
               <div className="scrollTop__block">
                 <a className="scrollTop__link">
-                  <img src={arrowUp} alt="arrowUp" className="scrollTop__icon" />
+                  <img
+                    src={arrowUp}
+                    alt="arrowUp"
+                    className="scrollTop__icon"
+                  />
                 </a>
               </div>
             </div>
