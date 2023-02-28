@@ -1,14 +1,14 @@
 import React, {useState} from 'react';
 import './Cards.scss';
 
-import whiteMobile from '../ProductCard/images/white.jpg';
-import purpleMobile from '../ProductCard/images/purple.jpg';
-import goldMobile from '../ProductCard/images/gold.jpg';
-import redMobile from '../ProductCard/images/red.jpg';
-import imgLike from '../ProductCard/images/likeEmpty.png';
-import arrowRight from '../ProductCard/images/arrowRigthDef.png';
-import arrowLeft from '../ProductCard/images/arrowLeftDef.png';
-import yellowLike from '../ProductCard/images/Unionyellow.png';
+import whiteMobile from './images/white.jpg';
+import purpleMobile from './images/purple.jpg';
+import goldMobile from './images/gold.jpg';
+import redMobile from './images/red.jpg';
+import imgLike from './images/likeEmpty.png';
+import arrowRight from './images/arrowRigthDef.png';
+import arrowLeft from './images/arrowLeftDef.png';
+import yellowLike from './images/Unionyellow.png';
 
 export const Cards: React.FC = () => {
   const [like, setLike] = useState(false);
@@ -61,7 +61,7 @@ export const Cards: React.FC = () => {
               </div>
 
               <div className="card__link">
-                <a className="card__button" href="#addToCart">
+                <a className="card__button" href="src/components/ProductCard#addToCart">
                   Add to cart
                 </a>
 
@@ -105,7 +105,7 @@ export const Cards: React.FC = () => {
               </div>
 
               <div className="card__link">
-                <a className="card__button" href="#addToCart">
+                <a className="card__button" href="src/components/ProductCard#addToCart">
                   Add to cart
                 </a>
 
@@ -149,7 +149,7 @@ export const Cards: React.FC = () => {
               </div>
 
               <div className="card__link">
-                <a className="card__button" href="#addToCart">
+                <a className="card__button" href="src/components/ProductCard#addToCart">
                   Add to cart
                 </a>
 
@@ -189,7 +189,7 @@ export const Cards: React.FC = () => {
               </div>
 
               <div className="card__link">
-                <a className="card__button" href="#addToCart">
+                <a className="card__button" href="src/components/ProductCard#addToCart">
                   Add to cart
                 </a>
 
