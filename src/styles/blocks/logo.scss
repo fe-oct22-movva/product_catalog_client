@@ -1,0 +1,14 @@
+.logo {
+  &__img {
+    display: block;
+    height: 21px;
+
+    @include onTablet {
+      height: 21px;
+    }
+
+    @include onDesktop {
+      height: 26px;
+    }
+  }
+}
