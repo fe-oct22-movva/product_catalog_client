@@ -26,12 +26,12 @@
 
     @include onTablet {
       display: block;
-      background-image: url("./Favourites.svg");
+      background-image: url('./Favourites.svg');
     }
 
     @include onDesktop {
       display: block;
-      background-image: url("./Favourites.svg");
+      background-image: url('./Favourites.svg');
     }
   }
 
@@ -40,17 +40,17 @@
 
     @include onTablet {
       display: block;
-      background-image: url("./Cart.svg");
+      background-image: url('./Cart.svg');
     }
 
     @include onDesktop {
       display: block;
-      background-image: url("./Cart.svg");
+      background-image: url('./Cart.svg');
     }
   }
 
   &--menu {
-    background-image: url("./Menu.svg");
+    background-image: url('./Menu.svg');
 
     @include onTablet {
       display: none;
