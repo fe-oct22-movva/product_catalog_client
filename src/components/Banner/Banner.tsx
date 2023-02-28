@@ -37,7 +37,7 @@ export const Banner = () => {
   return (
     <section className="banner">
       <div className="grid-shop-by grid-shop-by--tablet grid-shop-by--desktop">
-        <h1 className="banner__title grid-shop-by__item grid-shop-by__item--tablet-1-9">
+        <h1 className="banner__title grid-shop-by__item grid-shop-by__item--tablet-1-9 grid-shop-by__item--desktop-1-24">
           Welcome to Nice Gadgets store!
         </h1>
 
