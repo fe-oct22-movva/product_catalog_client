@@ -4,6 +4,7 @@ h1,
 h2,
 h3,
 h4,
+h5,
 ul,
 p {
   margin: 0;
@@ -16,4 +17,13 @@ a {
 
 ul {
   list-style: none;
+}
+
+button {
+  padding: 0;
+  border: none;
+  font: inherit;
+  color: inherit;
+  background-color: transparent;
+  cursor: pointer;
 }

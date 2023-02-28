@@ -61,7 +61,9 @@ export const Cards: React.FC = () => {
               </div>
 
               <div className="card__link">
-                <a className="card__button" href="src/components/ProductCard#addToCart">
+                <a
+                  className="card__button"
+                  href="src/components/ProductCard#addToCart">
                   Add to cart
                 </a>
 
@@ -105,7 +107,9 @@ export const Cards: React.FC = () => {
               </div>
 
               <div className="card__link">
-                <a className="card__button" href="src/components/ProductCard#addToCart">
+                <a
+                  className="card__button"
+                  href="src/components/ProductCard#addToCart">
                   Add to cart
                 </a>
 
@@ -149,7 +153,9 @@ export const Cards: React.FC = () => {
               </div>
 
               <div className="card__link">
-                <a className="card__button" href="src/components/ProductCard#addToCart">
+                <a
+                  className="card__button"
+                  href="src/components/ProductCard#addToCart">
                   Add to cart
                 </a>
 
@@ -189,7 +195,9 @@ export const Cards: React.FC = () => {
               </div>
 
               <div className="card__link">
-                <a className="card__button" href="src/components/ProductCard#addToCart">
+                <a
+                  className="card__button"
+                  href="src/components/ProductCard#addToCart">
                   Add to cart
                 </a>
 
