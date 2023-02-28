@@ -7,6 +7,5 @@ function App() {
       <Cards />
     </div>
   );
-}
-
+  
 export default App;
