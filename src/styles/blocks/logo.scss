@@ -10,5 +10,9 @@
     @include onDesktop {
       height: 26px;
     }
+
+    &--footer {
+      height: 30px;
+    }
   }
 }

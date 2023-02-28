@@ -4,9 +4,13 @@
   &__body {
     margin: 0;
   }
-  
+
   &__section {
     margin-bottom: 57px;
+
+    &--footer {
+      margin-bottom: 0;
+    }
   }
 
   &__section-title {
@@ -15,7 +19,7 @@
     font-weight: 800;
     font-size: 22px;
     line-height: 140%;
-    color: #0F0F11;
+    color: #0f0f11;
 
     @include onDesktop {
       font-size: 32px;
