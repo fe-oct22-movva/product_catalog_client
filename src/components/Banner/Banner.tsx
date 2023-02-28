@@ -5,7 +5,6 @@ import Slider from 'react-slick';
 import './styles/banner.scss';
 import '../../styles/grid.scss';
 
-
 export const Banner = () => {
   const settings = {
     dots: true,
@@ -17,7 +16,8 @@ export const Banner = () => {
     arrows: true,
     draggable: true,
     customPaging: () => (
-      <div className="slick-dot"
+      <div
+        className="slick-dot"
         style={{
           width: '14px',
           height: '4px',
@@ -29,24 +29,21 @@ export const Banner = () => {
         breakpoint: 640,
         settings: {
           arrows: false,
-        }
+        },
       },
-    ]
+    ],
   };
 
   return (
     <section className="banner">
       <div className="grid grid--responsive">
-        <h1
-          className="banner__title grid--responsive--tablet--1-9"
-        >
+        <h1 className="banner__title grid--responsive--tablet--1-9">
           Welcome to Nice Gadgets store!
         </h1>
 
         <Slider
           className="grid--responsive--tablet--2-11 grid--responsive--desktop--2-23"
-          {...settings}
-        >
+          {...settings}>
           <img
             className="banner__image"
             src="src/images/banner.jpg"
@@ -69,4 +66,3 @@ export const Banner = () => {
     </section>
   );
 };
-

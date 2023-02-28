@@ -1,5 +1,5 @@
 @import './slider.scss';
-@import "../../../styles/main";
+@import '../../../styles/main';
 
 .banner {
   &__title {
@@ -8,15 +8,15 @@
     line-height: 41px;
     font-weight: 800;
     letter-spacing: -0.01em;
-    color: #0F0F11;
+    color: #0f0f11;
 
     width: 288px;
 
-    @include ForMobile{
+    @include ForMobile {
       margin: 0 0 24px 16px;
     }
 
-    @include ForTablet{
+    @include ForTablet {
       margin: 0 0 32px 0;
       font-size: 48px;
       line-height: 56px;
@@ -24,38 +24,35 @@
       width: 500px;
     }
 
-    @include ForDesktop{
+    @include ForDesktop {
       margin: 0 0 56px 0;
 
       width: 100%;
     }
   }
 
-
   &__image {
     display: block;
     object-fit: cover;
 
-    @include ForMobile{
+    @include ForMobile {
       & {
-        content:url("../../../images/banner.jpg");
+        content: url('../../../images/banner.jpg');
       }
     }
 
-    @include ForTablet{
+    @include ForTablet {
       border-radius: 8px;
 
       & {
-        content:url("../../../images/banner-tablet.jpg");
+        content: url('../../../images/banner-tablet.jpg');
       }
     }
 
-    @include ForDesktop{
+    @include ForDesktop {
       & {
-        content:url("../../../images/banner-desktop.jpg");
+        content: url('../../../images/banner-desktop.jpg');
       }
     }
   }
 }
-
-

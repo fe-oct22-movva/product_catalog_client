@@ -13,4 +13,3 @@
 `lint` - apply linter to your files
 
 `fix-style` - to use prettier and eslint together
-
