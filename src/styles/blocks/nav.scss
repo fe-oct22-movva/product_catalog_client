@@ -1,0 +1,86 @@
+@font-face {
+  font-family: "Mont";
+  src: url('./fonts/Mont-Regular.otf') format('otf');
+}
+
+@font-face {
+  font-family: "Mont";
+  font-weight: bold;
+  src: url('../../../public/fonts/Mont-Bold.otf') format('otf');
+}
+
+@font-face {
+  font-family: "Mont";
+  src: url('../../../public/fonts/Mont-SemiBold.otf') format('otf');
+}
+
+.nav {
+  display: none;
+
+  @include onTablet {
+    display: block;
+  }
+
+  @include onDesktop {
+    display: block;
+  }
+
+  &__list {
+    display: flex;
+    flex-wrap: nowrap;
+
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  &__item:not(:first-of-type) {
+    margin-left: 32px;
+  
+    @include onDesktop {
+      margin-left: 64px;
+    }
+  }
+
+  &__link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 48px;
+
+    font-family: "Mont";
+    font-weight: 800;
+    font-size: 12px;
+    line-height: 11px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: $secondary;
+    white-space: nowrap;
+    cursor: pointer;
+
+    @include onDesktop {
+      height: 64px;
+    }
+
+    &:hover {
+      color: $primary;
+    }
+
+    &--active {
+      position: relative;
+      color: $primary;
+
+      &:after {
+        position: absolute;
+        bottom: 0;
+
+        height: 4px;
+        width: 100%;
+        content: "";
+        background-color: $primary;
+      }
+    }
+  }
+}

@@ -1,0 +1,66 @@
+.icon {
+  display: block;
+  width: 14px;
+  height: 9px;
+  padding: 17px;
+
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  transition: all 0.5s;
+
+  box-shadow: -1px 0px 0px $elements;
+
+  @include onTablet {
+    width: $bigIconSide;
+    height: $bigIconSide;
+  }
+
+  @include onDesktop {
+    width: $bigIconSide;
+    height: $bigIconSide;
+
+    padding: 25px;
+  }
+
+  &--favourites {
+    display: none;
+
+    @include onTablet {
+      display: block;
+      background-image: url(../../assets/Favourites.svg);
+    }
+
+    @include onDesktop {
+      display: block;
+      background-image: url(../../assets/Favourites.svg);
+    }
+  }
+
+  &--cart {
+    display: none;
+
+    @include onTablet {
+      display: block;
+      background-image: url(../../assets/Cart.svg);
+    }
+
+    @include onDesktop {
+      display: block;
+      background-image: url(../../assets/Cart.svg);
+    }
+  }
+
+  &--menu {
+    background-image: url(../../assets/Menu.svg);
+
+    @include onTablet {
+      display: none;
+    }
+
+    @include onDesktop {
+      display: none;
+    }
+  }
+}
