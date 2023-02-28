@@ -12,11 +12,9 @@
 
     width: 288px;
 
-    @include ForMobile {
-      margin: 0 0 24px 16px;
-    }
+    margin: 0 0 24px 16px;
 
-    @include ForTablet {
+    @include onTablet {
       margin: 0 0 32px 0;
       font-size: 48px;
       line-height: 56px;
@@ -24,7 +22,7 @@
       width: 500px;
     }
 
-    @include ForDesktop {
+    @include onDesktop {
       margin: 0 0 56px 0;
 
       width: 100%;
@@ -35,13 +33,9 @@
     display: block;
     object-fit: cover;
 
-    @include ForMobile {
-      & {
-        content: url('../../../images/banner.jpg');
-      }
-    }
+    content: url('../../../images/banner.jpg');
 
-    @include ForTablet {
+    @include onTablet {
       border-radius: 8px;
 
       & {
@@ -49,7 +43,7 @@
       }
     }
 
-    @include ForDesktop {
+    @include onDesktop {
       & {
         content: url('../../../images/banner-desktop.jpg');
       }

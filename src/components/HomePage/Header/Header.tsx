@@ -40,10 +40,23 @@ export const Header: React.FC = () => {
             </li>
           </ul>
         </nav>
+        
+        <div className='top-icons'>
+          <div className='top-icons iconPair'>
+            <a href="#favourites" className="icon icon--favourites"></a>
+          </div>
 
-        <a href="#favourites" className="icon icon--favourites"></a>
+          <div className='top-icons iconPair'>
+            <a href="#cart" className="icon icon--cart"></a>
+          </div>
+        </div>
+
+        {/* <div className>
+          <a href="#menu" className="icon icon--menu"></a>
+        </div> */}
+        {/* <a href="#favourites" className="icon icon--favourites"></a>
         <a href="#cart" className="icon icon--cart"></a>
-        <a href="#menu" className="icon icon--menu"></a>
+        <a href="#menu" className="icon icon--menu"></a> */}
       </div>
     </header>
   );
