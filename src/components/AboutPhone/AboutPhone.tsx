@@ -63,23 +63,37 @@ export const AboutPhone: React.FC = () => {
             <div className="about__spec">
               <div className="about__spec-names">
                 <p className="about__info">Screen</p>
+
                 <p className="about__info">Resolution</p>
+
                 <p className="about__info">Processor</p>
+
                 <p className="about__info">RAM</p>
+
                 <p className="about__info">Built in memory</p>
+
                 <p className="about__info">Camera</p>
+
                 <p className="about__info">Zoom</p>
+
                 <p className="about__info">Cell</p>
               </div>
 
               <div className="about__spec-specs">
                 <p className="about__info">6.1” OLED</p>
+
                 <p className="about__info">2688x1242</p>
+
                 <p className="about__info">Apple A12 Bionic</p>
+
                 <p className="about__info">3 GB</p>
+
                 <p className="about__info">64 GB</p>
+
                 <p className="about__info">12 Mp + 12 Mp + 12 Mp (Triple)</p>
+
                 <p className="about__info">Optical, 2x</p>
+                
                 <p className="about__info">GSM, LTE, UMTS</p>
               </div>
             </div>

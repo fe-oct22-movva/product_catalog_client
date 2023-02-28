@@ -1,7 +1,17 @@
 import React from 'react';
 import logo from '../../../assets/images/Logo.svg';
 
-export const Header: React.FC = () => {
+export interface Props {
+  isBurger: boolean,
+  setIsBurger: (v: boolean) => void;
+}
+
+export const Header: React.FC<Props> = ({ isBurger, setIsBurger }) => {
+
+  const toggleMenu = () => {
+    setIsBurger(!isBurger);
+  };
+  
   return (
     <header className="page__section header">
       <div className="header__content">
@@ -43,7 +53,11 @@ export const Header: React.FC = () => {
 
         <a href="#favourites" className="icon icon--favourites"></a>
         <a href="#cart" className="icon icon--cart"></a>
-        <a href="#menu" className="icon icon--menu"></a>
+        <a
+          href="#menu"
+          className="icon icon--menu"
+          onClick={toggleMenu}
+        ></a>
       </div>
     </header>
   );

@@ -1,38 +1,6 @@
-@import './utils/_mixins.scss';
+@import '../styles/utils/_mixins.scss';
+@import '../styles/main.scss';
 
-iframe {
-  display: none;
-}
-
-html {
-  font-family: 'Montserrat', sans-serif;
-  font-style: normal;
-  margin: 0;
-  padding: 0;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-h1,
-h2,
-h3,
-h4,
-a,
-p,
-ul,
-li,
-body {
-  text-decoration: none;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.page__section {
-  margin: 0 auto;
-}
 
 .scroll {
   display: flex;
@@ -44,17 +12,18 @@ body {
     margin-bottom: 24px;
     width: 136px;
 
+
     font-weight: 700;
     font-size: 22px;
     line-height: 30px;
 
-    @include forTablets {
+    @include onTablet {
       width: fit-content;
-
+  
       font-size: 32px;
       line-height: 41px;
     }
-  }
+} 
 
   &__block {
     display: flex;
@@ -96,16 +65,16 @@ body {
   margin-right: 16px;
   max-height: 500px;
 
-  @include forTablets {
+  @include onTablet {
     width: 248px;
   }
 
-  @include forDesktop {
+  @include onDesktop {
     width: 290px;
     margin-right: 0;
   }
 
-  border: 1px solid #e2e6e9;
+  border: 1px solid #E2E6E9;
   border-radius: 8px;
 
   &__icon {
@@ -113,12 +82,12 @@ body {
     margin-bottom: 24px;
     min-height: 129px;
 
-    @include forTablets {
+    @include onTablet {
       height: 180px;
       width: 180px;
     }
 
-    @include forDesktop {
+    @include onDesktop {
       width: 210px;
     }
   }
@@ -132,6 +101,7 @@ body {
 
     color: #0f0f11;
   }
+
 
   &__price {
     position: relative;
@@ -148,11 +118,12 @@ body {
     margin-bottom: 16px;
     width: 100%;
 
-    border: 1px solid #e2e6e9;
+    border: 1px solid #E2E6E9;
   }
 
   &__name {
     display: flex;
+
   }
 
   &__features {
@@ -160,13 +131,14 @@ body {
     margin-bottom: 8px;
     flex-direction: row;
     justify-content: space-between;
+
   }
 
   &__names {
     font-size: 15px;
     line-height: 17px;
 
-    color: #89939a;
+    color: #89939A;
   }
 
   &__chars {
@@ -180,6 +152,7 @@ body {
     margin-bottom: 8px;
   }
 
+
   &__link {
     display: flex;
     justify-content: space-between;
@@ -192,9 +165,9 @@ body {
     height: 40px;
     width: 100%;
 
-    border: 1px solid #4219d0;
-    background-color: #4219d0;
-    color: #ffffff;
+    border: 1px solid #4219D0;
+    background-color: #4219D0;
+    color: #FFFFFF;
     border-radius: 45px;
     text-decoration: none;
 
@@ -207,8 +180,8 @@ body {
     }
 
     &:active {
-      background-color: #ffffff;
-      color: #4219d0;
+      background-color: #FFFFFF;
+      color: #4219D0;
       box-shadow: none;
     }
   }
@@ -226,7 +199,7 @@ body {
       height: 40px;
 
       &:hover {
-        background-image: url('./images/borderHover.png');
+        background-image: url('./images/borderHover.png')
       }
 
       &:active {
@@ -239,7 +212,7 @@ body {
 .grid {
   display: flex;
 
-  @include forDesktop {
+  @include onDesktop {
     display: grid;
     grid-template-columns: repeat(24, 1fr);
     column-gap: 16px;
@@ -249,7 +222,7 @@ body {
     @for $start from 1 through 24 {
       @for $end from $start through 24 {
         &--desktop-#{$start}-#{$end} {
-          @include forDesktop {
+          @include onDesktop {
             grid-column: #{$start} / #{$end + 1};
           }
         }

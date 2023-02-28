@@ -31,18 +31,24 @@ export const Cards: React.FC = () => {
               <img src={arrowRight} alt="arrow" className="scroll__icon" />
             </a>
           </div>
+
         </div>
 
         <div className="grid">
           <div className="grid__item--desktop-1-6">
             <div className="card">
-              <img className="card__icon" src={whiteMobile} />
+              <img
+                className="card__icon"
+                src={whiteMobile}
+              />
 
               <h3 className="card__title">
                 Apple iPhone 14 Pro 128GB Silver (MQ023)
               </h3>
 
-              <p className="card__price">$999</p>
+              <p className="card__price">
+                $999
+              </p>
 
               <p className="card__break-line"></p>
 
@@ -61,17 +67,19 @@ export const Cards: React.FC = () => {
               </div>
 
               <div className="card__link">
-                <a className="card__button" href="#addToCart">
+                <a
+                  className="card__button"
+                  href="#addToCart"
+
+                >
                   Add to cart
                 </a>
 
                 <div className="button">
                   <a className="button__like" onClick={handeLike}>
-                    {like === false ? (
-                      <img src={imgLike} alt="Like" />
-                    ) : (
-                      <img src={yellowLike} alt="Like" />
-                    )}
+                    {like === false
+                      ? <img src={imgLike} alt="Like" />
+                      : <img src={yellowLike} alt="Like" />}
                   </a>
                 </div>
               </div>
@@ -80,13 +88,18 @@ export const Cards: React.FC = () => {
 
           <div className="grid__item--desktop-7-12">
             <div className="card">
-              <img className="card__icon" src={purpleMobile} />
+              <img
+                className="card__icon"
+                src={purpleMobile}
+              />
 
               <h3 className="card__title">
                 Apple iPhone 14 Pro 128GB Deep Purple (MQ0G3)
               </h3>
 
-              <p className="card__price">$999</p>
+              <p className="card__price">
+                $999
+              </p>
 
               <p className="card__break-line"></p>
 
@@ -105,17 +118,19 @@ export const Cards: React.FC = () => {
               </div>
 
               <div className="card__link">
-                <a className="card__button" href="#addToCart">
+                <a
+                  className="card__button"
+                  href="#addToCart"
+
+                >
                   Add to cart
                 </a>
 
                 <div className="button">
                   <a className="button__like" onClick={handeLike}>
-                    {like === false ? (
-                      <img src={imgLike} alt="Like" />
-                    ) : (
-                      <img src={yellowLike} alt="Like" />
-                    )}
+                    {like === false
+                      ? <img src={imgLike} alt="Like" />
+                      : <img src={yellowLike} alt="Like" />}
                   </a>
                 </div>
               </div>
@@ -124,13 +139,18 @@ export const Cards: React.FC = () => {
 
           <div className="grid__item--desktop-13-18">
             <div className="card">
-              <img className="card__icon" src={goldMobile} />
+              <img
+                className="card__icon"
+                src={goldMobile}
+              />
 
               <h3 className="card__title">
                 Apple iPhone 14 Pro 128GB Gold (MQ083)
               </h3>
 
-              <p className="card__price">$999</p>
+              <p className="card__price">
+                $999
+              </p>
 
               <p className="card__break-line"></p>
 
@@ -149,7 +169,11 @@ export const Cards: React.FC = () => {
               </div>
 
               <div className="card__link">
-                <a className="card__button" href="#addToCart">
+                <a
+                  className="card__button"
+                  href="#addToCart"
+
+                >
                   Add to cart
                 </a>
 
@@ -164,13 +188,18 @@ export const Cards: React.FC = () => {
 
           <div className="grid__item--desktop-19-24">
             <div className="card">
-              <img className="card__icon" src={redMobile} />
+              <img
+                className="card__icon"
+                src={redMobile}
+              />
 
               <h3 className="card__title">
                 Apple iPhone 14 Plus 128GB PRODUCT Red (MQ513)
               </h3>
 
-              <p className="card__price">$859</p>
+              <p className="card__price">
+                $859
+              </p>
 
               <p className="card__break-line"></p>
 
@@ -189,7 +218,11 @@ export const Cards: React.FC = () => {
               </div>
 
               <div className="card__link">
-                <a className="card__button" href="#addToCart">
+                <a
+                  className="card__button"
+                  href="#addToCart"
+
+                >
                   Add to cart
                 </a>
 

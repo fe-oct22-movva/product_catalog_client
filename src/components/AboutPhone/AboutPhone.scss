@@ -3,7 +3,6 @@
 @import '../../styles/blocks/grid-shop-by.scss';
 
 .about {
-  display: block;
   margin: auto;
   color: $primary;
   font-weight: 600;
@@ -85,12 +84,10 @@
 }
 
 .grid-shop-by {
-  display: flex;
-
+  
   @include onDesktop {
     display: grid;
     grid-template-columns: repeat(24, 1fr);
-    grid-template-rows: repeat(2, 1fr);
     column-gap: 16px;
   }
 }
