@@ -66,9 +66,11 @@ export const Header: React.FC = () => {
               <img src={heart} alt="" />
             </a>
           </div>
+
           <div className="icon">
             <a href="#cart" className="icon--cart"></a>
           </div>
+          
           {false && (
             <div>
               <a href="#menu" className="icon icon--menu"></a>
