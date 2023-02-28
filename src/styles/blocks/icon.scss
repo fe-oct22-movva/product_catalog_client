@@ -1,15 +1,6 @@
-.top-icons {
-  display: flex;
-} 
-// .iconPair {
-
-// }
-
 .icon {
   display: block;
-  width: 14px;
-  height: 9px;
-  padding: 17px;
+  padding: 24px;
 
   background-position: center;
   background-repeat: no-repeat;
@@ -17,15 +8,11 @@
   box-shadow: -1px 0px 0px $elements;
 
   @include onTablet {
-    width: $bigIconSide;
-    height: $bigIconSide;
+    padding: 24px;
   }
 
   @include onDesktop {
-    width: $bigIconSide;
-    height: $bigIconSide;
-
-    padding: 25px;
+    padding: 32px;
   }
 
   &--favourites {

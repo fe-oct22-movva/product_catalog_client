@@ -1,4 +1,4 @@
-import './shopByCategory.module.scss'
-import './ShopByCategory.tsx'
+import './shopByCategory.module.scss';
+import './ShopByCategory.tsx';
 
 export * from './ShopByCategory';
