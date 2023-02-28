@@ -1,5 +1,6 @@
 @import "utils/_variables.scss";
 @import "utils/_mixins.scss";
+@import "./mixins.scss";
 @import "blocks/page.scss";
 @import "blocks/header.scss";
 @import "blocks/container.scss";
@@ -8,5 +9,8 @@
 @import "blocks/icon.scss";
 @import "./reset.scss";
 @import "./fonts.scss";
-@import "./mixins.scss";
 @import "./grid.scss";
+@import "blocks/category.scss";
+@import "blocks/grid-shop-by.scss";
+@import "blocks/shop-by-category.scss";
+
