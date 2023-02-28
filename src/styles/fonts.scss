@@ -1,0 +1,25 @@
+$roboto-font-path: "./utils/fonts/Mono";
+
+@font-face {
+  font-family: "Mont-Bold";
+  src: url('../fonts/Mont-Bold.eot') format('eot');
+  src: url('../fonts/Mont-Bold.ttf') format('ttf');
+  src: url('../fonts/Mont-Bold.woff') format('woff');
+  src: url('../fonts/Mont-Bold.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: "Mont-SemiBold";
+  src: url('../fonts/Mont-SemiBold.eot') format('eot');
+  src: url('../fonts/Mont-SemiBold.ttf') format('ttf');
+  src: url('../fonts/Mont-SemiBold.woff') format('woff');
+  src: url('../fonts/Mont-SemiBold.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: "Mont-Regular";
+  src: url('../fonts/Mont-Regular.eot') format('eot');
+  src: url('../fonts/Mont-Regular.ttf') format('ttf');
+  src: url('../fonts/Mont-Regular.woff') format('woff');
+  src: url('../fonts/Mont-Regular.woff2') format('woff2');
+}
