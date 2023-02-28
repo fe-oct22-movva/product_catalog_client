@@ -1,4 +1,4 @@
-@import '_mixins.scss';
+@import './utils/mixins';
 
 .grid {
   display: grid;
@@ -8,7 +8,7 @@
   &--responsive {
     display: block;
 
-    @include ForTablet {
+    @include onTablet {
       display: grid;
       grid-template-columns: repeat(12, 1fr);
       column-gap: 16px;
@@ -24,7 +24,7 @@
       }
     }
 
-    @include ForDesktop {
+    @include onDesktop {
       display: grid;
       grid-template-columns: repeat(24, 1fr);
       column-gap: 16px;
