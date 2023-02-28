@@ -1,7 +1,8 @@
-@import '../../../styles/mixins';
+@import '../../../styles/utils/mixins';
+
 
 .slick {
-  @include ForTablet {
+  @include onTablet {
     &-prev,
     &-next {
       font-size: 0;
