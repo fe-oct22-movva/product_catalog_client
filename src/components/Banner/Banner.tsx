@@ -3,7 +3,7 @@
 import React from 'react';
 import Slider from 'react-slick';
 import './styles/banner.scss';
-import '../../styles/grid.scss';
+import '../../styles/blocks/grid-shop-by.scss';
 
 export const Banner = () => {
   const settings = {
@@ -36,13 +36,13 @@ export const Banner = () => {
 
   return (
     <section className="banner">
-      <div className="grid grid--responsive">
-        <h1 className="banner__title grid--responsive--tablet--1-9">
+      <div className="grid-shop-by grid-shop-by--tablet grid-shop-by--desktop">
+        <h1 className="banner__title grid-shop-by__item grid-shop-by__item--tablet-1-9 grid-shop-by__item--desktop-1-24">
           Welcome to Nice Gadgets store!
         </h1>
 
         <Slider
-          className="grid--responsive--tablet--2-11 grid--responsive--desktop--2-23"
+          className=" grid-shop-by__item grid-shop-by__item--tablet-2-11 grid-shop-by__item--desktop-2-23"
           {...settings}>
           <img
             className="banner__image"

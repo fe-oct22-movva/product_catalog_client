@@ -1,17 +1,18 @@
 @import './slider.scss';
-@import '../../../styles/main';
+@import '../../../styles/utils/mixins.scss';
+@import "../../../styles/normalize";
 
 .banner {
   &__title {
-    font-family: 'Mont-Bold', sans-serif;
+    font-family: 'Mont_Bold', sans-serif;
     font-size: 32px;
     line-height: 41px;
     font-weight: 800;
     letter-spacing: -0.01em;
     color: #0f0f11;
+    margin: 0 0 24px 16px;
 
     width: 288px;
-
     margin: 0 0 24px 16px;
 
     @include onTablet {
