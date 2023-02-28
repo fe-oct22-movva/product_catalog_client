@@ -1,13 +1,8 @@
-import {Cards} from '../../ProductCard';
-import {Banner} from '../Banner/Banner';
-import {Header} from './Header';
+import { React } from 'react';
 
-export const HomePage = () => {
+const HomePage = () => {
   return (
-    <>
-      <Header />
-      <Banner />
-      <Cards />
-    </>
+    <div className="page__body">
+    </div>
   );
 };
