@@ -18,7 +18,7 @@ export const Cards: React.FC = () => {
   };
 
   return (
-    <section className="page__section">
+    <section className="page__section page__section-scroll">
       <div className="scroll">
         <h2 className="scroll__title">Brand new models</h2>
 
