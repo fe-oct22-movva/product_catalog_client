@@ -20,7 +20,7 @@ export const PhoneSpecs = () => {
       return (
         <img
           className="slick-image"
-          src={`src/images/phoneSpecs-gallery-${i}.jpg`}
+          src={`src/assets/images/phoneSpecs-gallery-${i}.jpg`}
           alt="phone image"
         />
       );
@@ -46,31 +46,31 @@ export const PhoneSpecs = () => {
           {...sliderSetting}>
           <img
             className="phone__specs-main__photos-item"
-            src="src/images/phoneSpecs-gallery-0.jpg"
+            src="src/assets/images/phoneSpecs-gallery-0.jpg"
             alt="phone image"
           />
 
           <img
             className="phone__specs-main__photos-item"
-            src="src/images/phoneSpecs-gallery-1.jpg"
+            src="src/assets/images/phoneSpecs-gallery-1.jpg"
             alt="phone image"
           />
 
           <img
             className="phone__specs-main__photos-item"
-            src="src/images/phoneSpecs-gallery-2.jpg"
+            src="src/assets/images/phoneSpecs-gallery-2.jpg"
             alt="phone image"
           />
 
           <img
             className="phone__specs-main__photos-item"
-            src="src/images/phoneSpecs-gallery-3.jpg"
+            src="src/assets/images/phoneSpecs-gallery-3.jpg"
             alt="phone image"
           />
 
           <img
             className="phone__specs-main__photos-item"
-            src="src/images/phoneSpecs-gallery-4.jpg"
+            src="src/assets/images/phoneSpecs-gallery-4.jpg"
             alt="phone image"
           />
         </Slider>
