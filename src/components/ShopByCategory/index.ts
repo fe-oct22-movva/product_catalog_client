@@ -1,3 +1,3 @@
-import './ShopByCategory.tsx'
+import './ShopByCategory.tsx';
 
 export * from './ShopByCategory';

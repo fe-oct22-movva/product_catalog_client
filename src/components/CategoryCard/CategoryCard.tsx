@@ -1,14 +1,14 @@
 import styles from './CategoryCard.module.scss';
 
 interface Props {
-  imageUrl: string,
-  imageAlt: string,
-  categoryLink: string,
-  categoryName: string,
-  numOfModels: string,
+  imageUrl: string;
+  imageAlt: string;
+  categoryLink: string;
+  categoryName: string;
+  numOfModels: string;
 }
 
-export const CategoryCard: React.FC<Props> = ({ 
+export const CategoryCard: React.FC<Props> = ({
   imageUrl,
   categoryName,
   categoryLink,
@@ -17,24 +17,15 @@ export const CategoryCard: React.FC<Props> = ({
 }) => {
   return (
     <div className={styles.category}>
-        <img
-          src={imageUrl}
-          alt={imageAlt}
-          className={styles.category__photo}
-        />
+      <img src={imageUrl} alt={imageAlt} className={styles.category__photo} />
 
-        <h4 className={styles.category__name}>
-          <a 
-            href={categoryLink}
-            className={styles.category__link}
-          >
-            {categoryName}
-          </a>
-        </h4>
+      <h4 className={styles.category__name}>
+        <a href={categoryLink} className={styles.category__link}>
+          {categoryName}
+        </a>
+      </h4>
 
-        <p className={styles.category__description}>
-          {numOfModels}
-        </p>
-      </div>
+      <p className={styles.category__description}>{numOfModels}</p>
+    </div>
   );
 };

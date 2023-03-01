@@ -1,3 +1,3 @@
-import './CategoryCard.tsx'
+import './CategoryCard.tsx';
 
 export * from './CategoryCard';
