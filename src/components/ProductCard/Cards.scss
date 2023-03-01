@@ -1,38 +1,5 @@
-@import './utils/_mixins.scss';
-
-iframe {
-  display: none;
-}
-
-html {
-  font-family: 'Montserrat', sans-serif;
-  font-style: normal;
-  margin: 0;
-  padding: 0;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-h1,
-h2,
-h3,
-h4,
-a,
-p,
-ul,
-li,
-body {
-  text-decoration: none;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.page__section {
-  margin: 0 auto;
-}
+@import '../../styles/utils/_mixins.scss';
+@import '../../styles/main.scss';
 
 .scroll {
   display: flex;
@@ -48,7 +15,7 @@ body {
     font-size: 22px;
     line-height: 30px;
 
-    @include forTablets {
+    @include onTablet {
       width: fit-content;
 
       font-size: 32px;
@@ -96,11 +63,11 @@ body {
   margin-right: 16px;
   max-height: 500px;
 
-  @include forTablets {
+  @include onTablet {
     width: 248px;
   }
 
-  @include forDesktop {
+  @include onDesktop {
     width: 290px;
     margin-right: 0;
   }
@@ -113,12 +80,12 @@ body {
     margin-bottom: 24px;
     min-height: 129px;
 
-    @include forTablets {
+    @include onTablet {
       height: 180px;
       width: 180px;
     }
 
-    @include forDesktop {
+    @include onDesktop {
       width: 210px;
     }
   }
@@ -239,7 +206,7 @@ body {
 .grid {
   display: flex;
 
-  @include forDesktop {
+  @include onDesktop {
     display: grid;
     grid-template-columns: repeat(24, 1fr);
     column-gap: 16px;
@@ -249,7 +216,7 @@ body {
     @for $start from 1 through 24 {
       @for $end from $start through 24 {
         &--desktop-#{$start}-#{$end} {
-          @include forDesktop {
+          @include onDesktop {
             grid-column: #{$start} / #{$end + 1};
           }
         }
