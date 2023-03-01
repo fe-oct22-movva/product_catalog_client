@@ -1,6 +1,7 @@
 import {Banner} from '../Banner';
 import {Cards} from '../ProductCard';
 import {ShopByCategory} from '../ShopByCategory';
+import {PhoneSpecs} from '../PhoneSpecs/PhoneSpecs';
 
 export const HomePage = () => {
   return (
@@ -8,6 +9,7 @@ export const HomePage = () => {
       <Banner />
       <Cards />
       <ShopByCategory />
+      <PhoneSpecs />
     </div>
   );
 };
