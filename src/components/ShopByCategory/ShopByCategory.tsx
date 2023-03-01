@@ -8,7 +8,7 @@ export const ShopByCategory: React.FC = () => {
           <div className="shop-by-category__item grid-shop-by__item grid-shop-by__item--tablet-1-4 grid-shop-by__item--desktop-1-8">
             <div className="category">
               <img
-                src="src/images/categories/phones.png"
+                src="src/assets/images/categories/phones.png"
                 alt="Mobile phones category"
                 className="category__photo"
               />
@@ -26,7 +26,7 @@ export const ShopByCategory: React.FC = () => {
           <div className="shop-by-category__item grid-shop-by__item grid-shop-by__item--tablet-5-8 grid-shop-by__item--desktop-9-16">
             <div className="category">
               <img
-                src="src/images/categories/tablets.png"
+                src="src/assets/images/categories/tablets.png"
                 alt="Tablets category"
                 className="category__photo"
               />
@@ -44,7 +44,7 @@ export const ShopByCategory: React.FC = () => {
           <div className="shop-by-category__item grid-shop-by__item grid-shop-by__item--tablet-9-12 grid-shop-by__item--desktop-17-24">
             <div className="category">
               <img
-                src="src/images/categories/accessoires.png"
+                src="src/assets/images/categories/accessoires.png"
                 alt="Tablets category"
                 className="category__photo"
               />

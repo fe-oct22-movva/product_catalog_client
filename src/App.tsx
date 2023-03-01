@@ -10,15 +10,18 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <Footer />
 
-      <div className="sections">
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="home" element={<Navigate to="/" replace />} />
-          <Route path="*" element={<PageNotFound />} />
-        </Routes>
+      <div className="main-container">
+        <div className="sections">
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="home" element={<Navigate to="/" replace />} />
+            <Route path="*" element={<PageNotFound />} />
+          </Routes>
+        </div>
       </div>
+
+      <Footer />
     </div>
   );
 }
