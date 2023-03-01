@@ -9,10 +9,12 @@ export const PageNotFound = () => {
             <strong>404</strong> <br /> PAGE NOT FOUND
             <span className="glitch-effect-text-clr1">
               <strong>404</strong>
-              <br /> PAGE NOT FOUND</span>
+              <br /> PAGE NOT FOUND
+            </span>
             <span className="glitch-effect-text-clr2">
               <strong>404</strong>
-              <br /> PAGE NOT FOUND</span>
+              <br /> PAGE NOT FOUND
+            </span>
           </h1>
         </div>
       </div>
