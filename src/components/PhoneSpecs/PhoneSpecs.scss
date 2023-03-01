@@ -3,6 +3,16 @@
 @import '../../styles/normalize';
 
 .phone__specs {
+  margin-bottom: 56px;
+
+  @include onTablet {
+    margin-bottom: 64px;
+  }
+
+  @include onDesktop {
+    margin-bottom: 80px;
+  }
+
   &-title {
     font-family: Mont_Bold, sans-serif;
     font-weight: 800;
@@ -31,8 +41,6 @@
 
   &-main {
     &__photos {
-      margin-bottom: 112px;
-
       &-item {
         width: max-content !important;
         height: 274px;
@@ -138,7 +146,7 @@
         }
 
         @include onTablet {
-          width: 320px;
+          max-width: 320px;
         }
       }
 
