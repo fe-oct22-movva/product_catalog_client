@@ -38,7 +38,7 @@ export const Cards: React.FC = () => {
             <img className="card__icon" src={whiteMobile} />
 
             <h3 className="card__title">
-                Apple iPhone 14 Pro 128GB Silver (MQ023)
+              Apple iPhone 14 Pro 128GB Silver (MQ023)
             </h3>
 
             <p className="card__price">$999</p>
@@ -63,7 +63,7 @@ export const Cards: React.FC = () => {
               <a
                 className="card__button"
                 href="src/components/ProductCard#addToCart">
-                  Add to cart
+                Add to cart
               </a>
 
               <div className="button">
@@ -84,7 +84,7 @@ export const Cards: React.FC = () => {
             <img className="card__icon" src={purpleMobile} />
 
             <h3 className="card__title">
-                Apple iPhone 14 Pro 128GB Deep Purple (MQ0G3)
+              Apple iPhone 14 Pro 128GB Deep Purple (MQ0G3)
             </h3>
 
             <p className="card__price">$999</p>
@@ -109,7 +109,7 @@ export const Cards: React.FC = () => {
               <a
                 className="card__button"
                 href="src/components/ProductCard#addToCart">
-                  Add to cart
+                Add to cart
               </a>
 
               <div className="button">
@@ -130,7 +130,7 @@ export const Cards: React.FC = () => {
             <img className="card__icon" src={goldMobile} />
 
             <h3 className="card__title">
-                Apple iPhone 14 Pro 128GB Gold (MQ083)
+              Apple iPhone 14 Pro 128GB Gold (MQ083)
             </h3>
 
             <p className="card__price">$999</p>
@@ -155,7 +155,7 @@ export const Cards: React.FC = () => {
               <a
                 className="card__button"
                 href="src/components/ProductCard#addToCart">
-                  Add to cart
+                Add to cart
               </a>
 
               <div className="button">
@@ -172,7 +172,7 @@ export const Cards: React.FC = () => {
             <img className="card__icon" src={redMobile} />
 
             <h3 className="card__title">
-                Apple iPhone 14 Plus 128GB PRODUCT Red (MQ513)
+              Apple iPhone 14 Plus 128GB PRODUCT Red (MQ513)
             </h3>
 
             <p className="card__price">$859</p>
@@ -197,7 +197,7 @@ export const Cards: React.FC = () => {
               <a
                 className="card__button"
                 href="src/components/ProductCard#addToCart">
-                  Add to cart
+                Add to cart
               </a>
 
               <div className="button">
