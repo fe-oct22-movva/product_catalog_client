@@ -1,4 +1,4 @@
-@import '../../styles/main.scss';
+@import '../../styles/utils/mixins';
 
 .category {
   &__photo {
@@ -8,10 +8,10 @@
     height: auto;
     margin: 0 auto 24px;
     border-radius: 8px;
-
     @include onTablet {
       max-width: 187px;
     }
+
 
     @include onDesktop {
       max-width: 368px;
@@ -24,6 +24,16 @@
     &:visited {
       color: #0f0f11;
     }
+  }
+
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 21px;
+  color: #89939A;
+
+  &__name {
+    line-height: 26px;
+    margin-bottom: 4px;
   }
 
   &__description {
