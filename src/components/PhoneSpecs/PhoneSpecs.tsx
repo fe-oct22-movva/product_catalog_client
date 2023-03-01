@@ -6,8 +6,15 @@ import './PhoneSpecs.scss';
 import './PhoneSpecsSlider.scss';
 import '../../styles/blocks/grid-shop-by.scss';
 import {ColorSelector} from '../ColorSelector/ColorSelector';
+import phone1 from '../../assets/images/phoneSpecs-gallery-0.jpg';
+import phone2 from '../../assets/images/phoneSpecs-gallery-1.jpg';
+import phone3 from '../../assets/images/phoneSpecs-gallery-2.jpg';
+import phone4 from '../../assets/images/phoneSpecs-gallery-3.jpg';
+import phone5 from '../../assets/images/phoneSpecs-gallery-4.jpg';
+import favourite from '../../assets/images/Favourites.svg';
 
 export const PhoneSpecs = () => {
+  const phonePhotos = [phone1, phone2, phone3, phone4, phone5];
   const phoneFeature: React.CSSProperties[] = [
     {background: '#FCDBC1'},
     {background: '#5F7170'},
@@ -20,7 +27,7 @@ export const PhoneSpecs = () => {
       return (
         <img
           className="slick-image"
-          src={`src/assets/images/phoneSpecs-gallery-${i}.jpg`}
+          src={phonePhotos[i]}
           alt="phone image"
         />
       );
@@ -46,31 +53,31 @@ export const PhoneSpecs = () => {
           {...sliderSetting}>
           <img
             className="phone__specs-main__photos-item"
-            src="src/assets/images/phoneSpecs-gallery-0.jpg"
+            src={phone1}
             alt="phone image"
           />
 
           <img
             className="phone__specs-main__photos-item"
-            src="src/assets/images/phoneSpecs-gallery-1.jpg"
+            src={phone2}
             alt="phone image"
           />
 
           <img
             className="phone__specs-main__photos-item"
-            src="src/assets/images/phoneSpecs-gallery-2.jpg"
+            src={phone3}
             alt="phone image"
           />
 
           <img
             className="phone__specs-main__photos-item"
-            src="src/assets/images/phoneSpecs-gallery-3.jpg"
+            src={phone4}
             alt="phone image"
           />
 
           <img
             className="phone__specs-main__photos-item"
-            src="src/assets/images/phoneSpecs-gallery-4.jpg"
+            src={phone5}
             alt="phone image"
           />
         </Slider>
@@ -127,7 +134,7 @@ export const PhoneSpecs = () => {
               <button className="phone__specs-main__feature__order-cart__favourite">
                 <img
                   className="phone__specs-main__feature__order-cart__favourite-img"
-                  src="src/assets/images/Favourites.svg"
+                  src={favourite}
                   alt="favourites"
                 />
               </button>
