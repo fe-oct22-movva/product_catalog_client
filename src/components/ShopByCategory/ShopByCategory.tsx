@@ -1,3 +1,8 @@
+import React from 'react';
+import phones from '../../assets/images/categories/phones.png';
+import tablets from '../../assets/images/categories/tablets.png';
+import accessoires from '../../assets/images/categories/accessoires.png';
+
 export const ShopByCategory: React.FC = () => {
   return (
     <section className="page__section shop-by-category" id="shop-by-category">
@@ -8,7 +13,7 @@ export const ShopByCategory: React.FC = () => {
           <div className="shop-by-category__item grid-shop-by__item grid-shop-by__item--tablet-1-4 grid-shop-by__item--desktop-1-8">
             <div className="category">
               <img
-                src="src/assets/images/categories/phones.png"
+                src={phones}
                 alt="Mobile phones category"
                 className="category__photo"
               />
@@ -26,7 +31,7 @@ export const ShopByCategory: React.FC = () => {
           <div className="shop-by-category__item grid-shop-by__item grid-shop-by__item--tablet-5-8 grid-shop-by__item--desktop-9-16">
             <div className="category">
               <img
-                src="src/assets/images/categories/tablets.png"
+                src={tablets}
                 alt="Tablets category"
                 className="category__photo"
               />
@@ -44,7 +49,7 @@ export const ShopByCategory: React.FC = () => {
           <div className="shop-by-category__item grid-shop-by__item grid-shop-by__item--tablet-9-12 grid-shop-by__item--desktop-17-24">
             <div className="category">
               <img
-                src="src/assets/images/categories/accessoires.png"
+                src={accessoires}
                 alt="Tablets category"
                 className="category__photo"
               />
