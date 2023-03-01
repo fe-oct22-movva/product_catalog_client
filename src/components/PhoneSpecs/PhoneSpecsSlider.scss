@@ -1,16 +1,15 @@
-@import "../../styles/utils/mixins";
+@import '../../styles/utils/mixins';
 
 .slick {
   &-image {
     width: 100%;
 
-    border: 1px solid #C4C4C4;
+    border: 1px solid #c4c4c4;
     border-radius: 4px;
 
     padding: 5px;
 
-    transition: border .3s, opacity .3s, transform .3s;
-
+    transition: border 0.3s, opacity 0.3s, transform 0.3s;
   }
 
   &-image:hover {
@@ -66,8 +65,7 @@
     outline: none;
   }
 
-  &-dots li button:before
-  {
+  &-dots li button:before {
     font-size: 6px;
     line-height: 20px;
 
@@ -81,7 +79,7 @@
     content: '•';
     text-align: center;
 
-    opacity: .25;
+    opacity: 0.25;
     color: black;
 
     -webkit-font-smoothing: antialiased;
@@ -92,8 +90,7 @@
   }
 
   /* Slider */
-  &-slider
-  {
+  &-slider {
     position: relative;
 
     display: block;
@@ -111,8 +108,7 @@
     -webkit-tap-highlight-color: transparent;
   }
 
-  &-list
-  {
+  &-list {
     position: relative;
 
     display: block;
@@ -121,19 +117,16 @@
     margin: 0;
     padding: 0;
   }
-  &-list:focus
-  {
+  &-list:focus {
     outline: none;
   }
-  &-list.dragging
-  {
+  &-list.dragging {
     cursor: pointer;
     cursor: hand;
   }
 
   &-slider &-track,
-  &-slider &-list
-  {
+  &-slider &-list {
     -webkit-transform: translate3d(0, 0, 0);
     -moz-transform: translate3d(0, 0, 0);
     -ms-transform: translate3d(0, 0, 0);
@@ -141,8 +134,7 @@
     transform: translate3d(0, 0, 0);
   }
 
-  &-track
-  {
+  &-track {
     position: relative;
     top: 0;
     left: 0;
@@ -152,57 +144,46 @@
     margin-right: auto;
   }
   &-track:before,
-  &-track:after
-  {
+  &-track:after {
     display: table;
 
     content: '';
   }
-  &-track:after
-  {
+  &-track:after {
     clear: both;
   }
-  &-loading &-track
-  {
+  &-loading &-track {
     visibility: hidden;
   }
 
-  &-slide
-  {
+  &-slide {
     display: none;
     float: left;
 
     height: 100%;
     min-height: 1px;
   }
-  [dir='rtl'] &-slide
-  {
+  [dir='rtl'] &-slide {
     float: right;
   }
-  &-slide img
-  {
+  &-slide img {
     display: block;
   }
-  &-slide &-loading img
-  {
+  &-slide &-loading img {
     display: none;
   }
-  &-slide.dragging img
-  {
+  &-slide.dragging img {
     pointer-events: none;
   }
-  &-initialized &-slide
-  {
+  &-initialized &-slide {
     display: flex !important;
 
     justify-content: center;
   }
-  &-loading &-slide
-  {
+  &-loading &-slide {
     visibility: hidden;
   }
-  &-vertical &-slide
-  {
+  &-vertical &-slide {
     display: block;
 
     height: auto;
@@ -212,8 +193,6 @@
   &-arrow &-hidden {
     display: none;
   }
-
-
 }
 
 .phone__specs .phone__specs-main .slick-slider .slick-dots li {
@@ -227,7 +206,7 @@
   }
 }
 
-.phone__specs .phone__specs-main .slick-slider .slick-dots{
+.phone__specs .phone__specs-main .slick-slider .slick-dots {
   display: flex !important;
   justify-content: center;
   gap: 8px;
@@ -246,4 +225,3 @@
     gap: 16px;
   }
 }
-

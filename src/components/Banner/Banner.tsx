@@ -16,6 +16,8 @@ export const Banner = () => {
     adaptiveHeight: true,
     arrows: true,
     draggable: true,
+    autoplay: true,
+    autoplaySpeed: 4000,
     customPaging: () => (
       <div
         className="slick-dot"

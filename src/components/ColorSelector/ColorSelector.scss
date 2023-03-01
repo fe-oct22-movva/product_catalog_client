@@ -5,12 +5,12 @@ $selector-circle-width: 24px;
   width: $selector-width;
   height: $selector-width;
 
-  border: 1px solid #E2E6E9;
+  border: 1px solid #e2e6e9;
   border-radius: 50%;
 
   position: relative;
 
-  transition: border-color .3s;
+  transition: border-color 0.3s;
 
   &__inside {
     content: '';
@@ -23,13 +23,14 @@ $selector-circle-width: 24px;
     top: 50%;
     left: 50%;
 
-    margin: calc($selector-circle-width / -2) 0px 0px calc($selector-circle-width / -2);
+    margin: calc($selector-circle-width / -2) 0px 0px
+      calc($selector-circle-width / -2);
 
-    transition: transform .3s;
+    transition: transform 0.3s;
   }
 
   &:hover {
-    border-color: #B4BDC4;
+    border-color: #b4bdc4;
   }
 
   &:hover &__inside {

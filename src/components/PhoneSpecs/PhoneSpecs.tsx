@@ -21,7 +21,8 @@ export const PhoneSpecs = () => {
         <img
           className="slick-image"
           src={`src/images/phoneSpecs-gallery-${i}.jpg`}
-          alt="phone image"/>
+          alt="phone image"
+        />
       );
     },
     dots: true,
@@ -42,8 +43,7 @@ export const PhoneSpecs = () => {
       <div className="phone__specs-main grid-shop-by grid-shop-by--tablet grid-shop-by--desktop">
         <Slider
           className="phone__specs-main__photos grid-shop-by__item grid-shop-by__item--tablet-1-7 grid-shop-by__item--desktop-1-12"
-          {...sliderSetting}
-        >
+          {...sliderSetting}>
           <img
             className="phone__specs-main__photos-item"
             src="src/images/phoneSpecs-gallery-0.jpg"
@@ -78,19 +78,16 @@ export const PhoneSpecs = () => {
         <div className="phone__specs-main__feature grid-shop-by__item grid-shop-by__item--tablet-8-12 grid-shop-by__item--desktop-14-24">
           <div className="phone__specs-main__feature__title">
             <h5 className="phone__specs-main__feature__title-available">
-                Available colors
+              Available colors
             </h5>
 
-            <p className="phone__specs-main__feature__title-id">
-                ID: 802390
-            </p>
+            <p className="phone__specs-main__feature__title-id">ID: 802390</p>
           </div>
 
           <div className="phone__specs-main__feature__select">
-            {
-              phoneFeature.map(color => (
-                <ColorSelector color={color} key={phoneFeature.indexOf(color)} />
-              ))}
+            {phoneFeature.map((color) => (
+              <ColorSelector color={color} key={phoneFeature.indexOf(color)} />
+            ))}
           </div>
 
           <div className="phone__specs-main__feature__capacity">
@@ -135,51 +132,49 @@ export const PhoneSpecs = () => {
                 />
               </button>
             </div>
-
           </div>
 
           <div className="phone__specs-main__feature__characteristics">
             <div className="phone__specs-main__feature__characteristics-item">
               <p className="phone__specs-main__feature__characteristics-item__name">
-                  Screen
+                Screen
               </p>
 
               <p className="phone__specs-main__feature__characteristics-item__value">
-                  6.5” OLED
+                6.5” OLED
               </p>
             </div>
 
             <div className="phone__specs-main__feature__characteristics-item">
               <p className="phone__specs-main__feature__characteristics-item__name">
-                  Resolution
+                Resolution
               </p>
 
               <p className="phone__specs-main__feature__characteristics-item__value">
-                  2688x1242
+                2688x1242
               </p>
             </div>
 
             <div className="phone__specs-main__feature__characteristics-item">
               <p className="phone__specs-main__feature__characteristics-item__name">
-                  Processor
+                Processor
               </p>
 
               <p className="phone__specs-main__feature__characteristics-item__value">
-                  Apple A12 Bionic
+                Apple A12 Bionic
               </p>
             </div>
 
             <div className="phone__specs-main__feature__characteristics-item">
               <p className="phone__specs-main__feature__characteristics-item__name">
-                  RAM
+                RAM
               </p>
 
               <p className="phone__specs-main__feature__characteristics-item__value">
-                  3 GB
+                3 GB
               </p>
             </div>
           </div>
-
         </div>
       </div>
     </article>
