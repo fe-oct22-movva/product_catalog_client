@@ -1,0 +1,127 @@
+@import '../../styles/utils/mixins';
+
+.card {
+  display: flex;
+  flex-direction: column;
+
+  min-width: 220px;
+  max-width: 288px;
+  padding: 32px 32px;
+  margin-right: 16px;
+  max-height: 500px;
+
+  @include onTablet {
+  }
+
+  @include onDesktop {
+    margin-right: 0;
+  }
+
+  border: 1px solid #e2e6e9;
+  border-radius: 8px;
+
+  &__icon {
+    margin: 0 auto;
+    margin-bottom: 24px;
+    min-height: 129px;
+
+    @include onTablet {
+      height: 180px;
+      width: 180px;
+    }
+
+    @include onDesktop {
+      width: 210px;
+    }
+  }
+
+  &__title {
+    margin-bottom: 8px;
+
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 21px;
+
+    color: #0f0f11;
+  }
+
+  &__price {
+    position: relative;
+    margin-bottom: 8px;
+
+    font-weight: 800;
+    font-size: 22px;
+    line-height: 30px;
+
+    color: #0f0f11;
+  }
+
+  &__breakLine {
+    margin-bottom: 16px;
+    width: 100%;
+
+    border: 1px solid #e2e6e9;
+  }
+
+  &__name {
+    display: flex;
+  }
+
+  &__features {
+    display: flex;
+    margin-bottom: 8px;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  &__names {
+    font-size: 15px;
+    line-height: 17px;
+
+    color: #89939a;
+  }
+
+  &__chars {
+    text-align: end;
+
+    font-size: 15px;
+    line-height: 16px;
+  }
+
+  &__info {
+    margin-bottom: 8px;
+  }
+
+  &__link {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    width: 100%;
+
+    border: 1px solid #4219d0;
+    background-color: #4219d0;
+    color: #ffffff;
+    border-radius: 45px;
+    text-decoration: none;
+
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 21px;
+
+    &:hover {
+      box-shadow: 0 3px 13px rgba(23, 32, 49, 0.4);
+    }
+
+    &:active {
+      background-color: #ffffff;
+      color: #4219d0;
+      box-shadow: none;
+    }
+  }
+}
