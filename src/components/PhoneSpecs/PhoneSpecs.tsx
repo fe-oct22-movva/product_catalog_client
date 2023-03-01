@@ -25,11 +25,7 @@ export const PhoneSpecs = () => {
   const sliderSetting = {
     customPaging: (i = 0) => {
       return (
-        <img
-          className="slick-image"
-          src={phonePhotos[i]}
-          alt="phone image"
-        />
+        <img className="slick-image" src={phonePhotos[i]} alt="phone image" />
       );
     },
     dots: true,

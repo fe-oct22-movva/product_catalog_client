@@ -195,6 +195,14 @@
   }
 }
 
+.phone__specs .phone__specs-main .slick-slider {
+  margin-bottom: 112px;
+
+  @include onTablet {
+    margin-bottom: 0;
+  }
+}
+
 .phone__specs .phone__specs-main .slick-slider .slick-dots li {
   margin-right: 0;
   width: 50px;
