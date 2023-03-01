@@ -1,22 +1,21 @@
-import React from 'react';
 import {Header} from './components/HomePage/Header';
-import {Banner} from './components/Banner';
-import {Cards} from './components/ProductCard';
-import {ShopByCategory} from './components/ShopByCategory';
 import {HomePage} from './components/HomePage/HomePage';
-
+import {Route, Routes, Navigate} from 'react-router-dom';
 import './styles/main.scss';
-import {PhoneSpecs} from './components/PhoneSpecs/PhoneSpecs';
+import { PageNotFound } from './components/PageNotFound';
 
 function App() {
   return (
     <div className="App">
       <Header />
-      <Banner />
-      <Cards />
-      <ShopByCategory />
-      <HomePage />
-      <PhoneSpecs />
+
+      <div className="sections">
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="home" element={<Navigate to="/" replace />} />
+          <Route path="*" element={<PageNotFound />} />
+        </Routes>
+      </div>
     </div>
   );
 }
