@@ -4,7 +4,7 @@ import React from 'react';
 import Slider from 'react-slick';
 import './PhoneSpecs.scss';
 import './PhoneSpecsSlider.scss';
-import '../../styles/blocks/grid-shop-by.scss';
+import '../../styles/grid.scss';
 import {ColorSelector} from '../ColorSelector/ColorSelector';
 import phone1 from '../../assets/images/phoneSpecs-gallery-0.jpg';
 import phone2 from '../../assets/images/phoneSpecs-gallery-1.jpg';
@@ -47,9 +47,9 @@ export const PhoneSpecs = () => {
       <h1 className="phone__specs-title">
         Apple iPhone 11 Pro Max 64GB Gold (iMT9G2FS/A)
       </h1>
-      <div className="phone__specs-main grid-shop-by grid-shop-by--tablet grid-shop-by--desktop">
+      <div className="phone__specs-main grid grid--tablet grid--desktop">
         <Slider
-          className="phone__specs-main__photos grid-shop-by__item grid-shop-by__item--tablet-1-7 grid-shop-by__item--desktop-1-12"
+          className="phone__specs-main__photos grid__item grid__item--tablet-1-7 grid__item--desktop-1-12"
           {...sliderSetting}>
           <img
             className="phone__specs-main__photos-item"
@@ -82,7 +82,7 @@ export const PhoneSpecs = () => {
           />
         </Slider>
 
-        <div className="phone__specs-main__feature grid-shop-by__item grid-shop-by__item--tablet-8-12 grid-shop-by__item--desktop-14-24">
+        <div className="phone__specs-main__feature grid__item grid__item--tablet-8-12 grid__item--desktop-14-24">
           <div className="phone__specs-main__feature__title">
             <h5 className="phone__specs-main__feature__title-available">
               Available colors

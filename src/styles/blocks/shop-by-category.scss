@@ -6,4 +6,25 @@
       margin-bottom: 0;
     }
   }
+
+  &__section {
+    margin-bottom: 57px;
+  }
+
+  &__title {
+    margin: 0 0 24px;
+
+    font-weight: 800;
+    font-size: 22px;
+    line-height: 140%;
+    color: #0f0f11;
+
+    @include onDesktop {
+      font-size: 32px;
+    }
+
+    @include onTablet {
+      font-size: 32px;
+    }
+  }
 }

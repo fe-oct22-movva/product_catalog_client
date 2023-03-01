@@ -4,8 +4,8 @@ import './AboutPhone.scss';
 export const AboutPhone: React.FC = () => {
   return (
     <div className="about">
-      <div className="grid-shop-by grid-shop-by--desktop">
-        <div className="grid-shop-by__item grid-shop-by__item--desktop-1-10">
+      <div className="grid grid--desktop">
+        <div className="grid__item grid__item--desktop-1-10">
           <h2 className="about__header">About</h2>
 
           <div className="about__brake-line"></div>
@@ -55,7 +55,7 @@ export const AboutPhone: React.FC = () => {
           </section>
         </div>
 
-        <div className="grid-shop-by__item grid-shop-by__item--desktop-13-24">
+        <div className="grid__item grid__item--desktop-13-24">
           <section>
             <h3 className="about__title">Tech specs</h3>
 
