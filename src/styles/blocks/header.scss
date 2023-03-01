@@ -10,10 +10,6 @@
     padding-left: 24px;
   }
 
-  &__aside-container {
-    display: flex;
-  }
-
   &__content {
     display: flex;
     justify-content: space-between;
@@ -22,15 +18,19 @@
 
     @include onTablet {
       display: grid;
-      grid-template-columns: 96px 1fr 48px 48px;
+      grid-template-columns: 96px 1fr 96px;
       align-items: center;
     }
 
     @include onDesktop {
       display: grid;
-      grid-template-columns: 128px 1fr 64px 64px;
+      grid-template-columns: 128px 1fr 128px;
       align-items: center;
     }
+  }
+
+  &__aside-container {
+    display: flex;
   }
 }
 

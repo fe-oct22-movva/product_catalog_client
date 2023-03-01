@@ -1,0 +1,22 @@
+.aside-container {
+  &__list {
+    display: flex;
+    flex-wrap: nowrap;
+
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  &__item {
+    margin: 17px;
+
+    @include onTablet {
+      margin: 16px;
+    }
+
+    @include onDesktop {
+      margin: 25px;
+    }
+  }
+}

@@ -1,8 +1,10 @@
-import cn from 'classnames';
 import React from 'react';
-import {NavLink} from 'react-router-dom';
 import heart from '../../../assets/images/Home.svg';
+import cart from '../../../assets/images/Cart.svg';
+import menu from '../../../assets/images/Menu.svg';
 import logo from '../../../assets/images/Logo.svg';
+import { HeaderNavLink } from './HeaderNavLink';
+import { HeaderIconNavLink } from './HeaderIconNavLink';
 
 export const Header: React.FC = () => {
   return (
@@ -19,61 +21,54 @@ export const Header: React.FC = () => {
         <nav className="nav">
           <ul className="nav__list">
             <li className="nav__item">
-              <NavLink
-                to="/"
-                className={({isActive}) =>
-                  cn('nav__link', {'nav__link--active': isActive})
-                }>
-                Home
-              </NavLink>
+              <HeaderNavLink to="/" textToDisplay="Home" />
             </li>
 
             <li className="nav__item">
-              <NavLink
-                to="/phones"
-                className={({isActive}) =>
-                  cn('nav__link', {'nav__link--active': isActive})
-                }>
-                Phones
-              </NavLink>
+              <HeaderNavLink to="/phones" textToDisplay="Phones" />
             </li>
 
             <li className="nav__item">
-              <NavLink
-                to="/tablets"
-                className={({isActive}) =>
-                  cn('nav__link', {'nav__link--active': isActive})
-                }>
-                Tablets
-              </NavLink>
+              <HeaderNavLink to="/tablets" textToDisplay="Tablets" />
             </li>
 
             <li className="nav__item">
-              <NavLink
-                to="/accessories"
-                className={({isActive}) =>
-                  cn('nav__link', {'nav__link--active': isActive})
-                }>
-                Accessories
-              </NavLink>
+              <HeaderNavLink to="/accessories" textToDisplay="Accessories" />
             </li>
           </ul>
         </nav>
 
-        <div className="header__aside-container">
-          <div className="icon">
-            <a href="#favourites" className="icon--favourites">
-              <img src={heart} alt="" />
-            </a>
-          </div>
-          <div className="icon">
-            <a href="#cart" className="icon--cart"></a>
-          </div>
-          {false && (
-            <div>
-              <a href="#menu" className="icon icon--menu"></a>
-            </div>
-          )}
+        <div className="aside-container">
+          <ul className="aside-container__list">
+            <HeaderIconNavLink
+              to="/favourites"
+              textToDisplay={(
+                <li className="aside-container__item">
+                  <img src={heart} alt="favourite items" />
+                </li>
+              )}
+            />
+
+            <HeaderIconNavLink
+              to="/cart"
+              textToDisplay={(
+                <li className="aside-container__item">
+                  <img src={cart} alt="cart" />
+                </li>
+              )}
+            />
+
+            {false && (
+              <HeaderIconNavLink
+                to="/menu"
+                textToDisplay={(
+                  <li className="aside-container__item">
+                    <img src={menu} alt="menu" />
+                  </li>
+                )}
+              />
+            )}
+          </ul>
         </div>
       </div>
     </header>
