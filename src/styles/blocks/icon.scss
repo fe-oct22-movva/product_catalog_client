@@ -1,5 +1,7 @@
 .icon {
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 14px;
   height: 9px;
   padding: 17px;
@@ -40,12 +42,14 @@
 
     @include onTablet {
       display: block;
-      background-image: url('./Cart.svg');
+      background-image: url('../../assets/images/Cart.svg');
+      width: 20px;
+      height: 20px;
     }
 
     @include onDesktop {
       display: block;
-      background-image: url('./Cart.svg');
+      background-image: url('../../assets/images/Cart.svg');
     }
   }
 

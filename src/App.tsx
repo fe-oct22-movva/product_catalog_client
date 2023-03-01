@@ -1,20 +1,27 @@
 import React from 'react';
-import { Header } from './components/HomePage/Header';
-import { Banner } from './components';
-import { Cards } from './ProductCard';
-import { ShopByCategory } from './components/ShopByCategory'
-import { HomePage } from './components/HomePage/HomePage';
-
+import {Header} from './components/HomePage/Header';
+import {Footer} from './components/Footer';
+import {HomePage} from './components/HomePage/HomePage';
+import {Route, Routes, Navigate} from 'react-router-dom';
 import './styles/main.scss';
+import {PageNotFound} from './components/PageNotFound';
 
 function App() {
   return (
     <div className="App">
       <Header />
-      <Banner />
-      <Cards />
-      <ShopByCategory />
-      <HomePage />
+
+      <div className="main-container">
+        <div className="sections">
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="home" element={<Navigate to="/" replace />} />
+            <Route path="*" element={<PageNotFound />} />
+          </Routes>
+        </div>
+      </div>
+
+      <Footer />
     </div>
   );
 }

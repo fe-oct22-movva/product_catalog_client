@@ -12,17 +12,17 @@
     @include onTablet {
       max-width: 187px;
     }
-  
+
     @include onDesktop {
       max-width: 368px;
     }
   }
 
   &__link {
-    color: #0F0F11;
+    color: #0f0f11;
 
     &:visited {
-      color: #0F0F11;
+      color: #0f0f11;
     }
   }
 
@@ -31,7 +31,7 @@
     font-weight: 600;
     font-size: 14px;
     line-height: 21px;
-    color: #89939A;
+    color: #89939a;
   }
 
   &__name {

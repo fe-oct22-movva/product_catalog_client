@@ -3,6 +3,7 @@
 import React from 'react';
 import Slider from 'react-slick';
 import './styles/banner.scss';
+import './styles/slider.scss';
 import '../../styles/blocks/grid-shop-by.scss';
 
 export const Banner = () => {
@@ -15,6 +16,8 @@ export const Banner = () => {
     adaptiveHeight: true,
     arrows: true,
     draggable: true,
+    autoplay: true,
+    autoplaySpeed: 4000,
     customPaging: () => (
       <div
         className="slick-dot"
@@ -42,23 +45,23 @@ export const Banner = () => {
         </h1>
 
         <Slider
-          className=" grid-shop-by__item grid-shop-by__item--tablet-2-11 grid-shop-by__item--desktop-2-23"
+          className="grid-shop-by__item grid-shop-by__item--tablet-2-11 grid-shop-by__item--desktop-2-23"
           {...settings}>
           <img
             className="banner__image"
-            src="src/images/banner.jpg"
+            src="src/assets/images/banner.jpg"
             alt="Banner"
           />
 
           <img
             className="banner__image"
-            src="src/images/banner.jpg"
+            src="src/assets/images/banner.jpg"
             alt="Banner"
           />
 
           <img
             className="banner__image"
-            src="src/images/banner.jpg"
+            src="src/assets/images/banner.jpg"
             alt="Banner"
           />
         </Slider>

@@ -1,8 +1,10 @@
 @import './slider.scss';
 @import '../../../styles/utils/mixins.scss';
-@import "../../../styles/normalize";
+@import '../../../styles/normalize';
 
 .banner {
+  margin-bottom: 112px;
+
   &__title {
     font-family: 'Mont_Bold', sans-serif;
     font-size: 32px;
@@ -33,19 +35,19 @@
     display: block;
     object-fit: cover;
 
-    content: url('../../../images/banner.jpg');
+    content: url('../../../assets/images/banner.jpg');
 
     @include onTablet {
       border-radius: 8px;
 
       & {
-        content: url('../../../images/banner-tablet.jpg');
+        content: url('../../../assets/images/banner-tablet.jpg');
       }
     }
 
     @include onDesktop {
       & {
-        content: url('../../../images/banner-desktop.jpg');
+        content: url('../../../assets/images/banner-desktop.jpg');
       }
     }
   }
