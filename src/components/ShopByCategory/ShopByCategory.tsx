@@ -2,12 +2,14 @@ import React from 'react';
 import phones from '../../assets/images/categories/phones.png';
 import tablets from '../../assets/images/categories/tablets.png';
 import accessoires from '../../assets/images/categories/accessoires.png';
+import {CategoryCard} from '../CategoryCard';
+import styles from './ShopByCategory.module.scss';
 
 export const ShopByCategory: React.FC = () => {
   return (
-    <section className="page__section shop-by-category" id="shop-by-category">
+    <section className={styles.shopByCategory} id="shop-by-category">
       <div className="container">
-        <h2 className="page__section-title">Shop by category</h2>
+        <h2 className={styles.shopByCategory__title}>Shop by category</h2>
 
         <div className="grid-shop-by grid-shop-by--tablet grid-shop-by--desktop">
           <div className="shop-by-category__item grid-shop-by__item grid-shop-by__item--tablet-1-4 grid-shop-by__item--desktop-1-8">
