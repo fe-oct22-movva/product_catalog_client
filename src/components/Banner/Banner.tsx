@@ -49,19 +49,19 @@ export const Banner = () => {
           {...settings}>
           <img
             className="banner__image"
-            src="src/images/banner.jpg"
+            src="../../assets/images/banner.jpg"
             alt="Banner"
           />
 
           <img
             className="banner__image"
-            src="src/images/banner.jpg"
+            src="../../assets/images/banner.jpg"
             alt="Banner"
           />
 
           <img
             className="banner__image"
-            src="src/images/banner.jpg"
+            src="../../assets/images/banner.jpg"
             alt="Banner"
           />
         </Slider>

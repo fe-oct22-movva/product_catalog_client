@@ -1,5 +1,40 @@
 @import '../../styles/utils/_mixins.scss';
 @import '../../styles/main.scss';
+@import '../../styles/utils/mixins';
+
+iframe {
+  display: none;
+}
+
+html {
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+a,
+p,
+ul,
+li,
+body {
+  text-decoration: none;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.page__section {
+  margin: 0 auto;
+}
 
 .scroll {
   display: flex;
@@ -170,7 +205,7 @@
     line-height: 21px;
 
     &:hover {
-      box-shadow: 0px 3px 13px rgba(23, 32, 49, 0.4);
+      box-shadow: 0 3px 13px rgba(23, 32, 49, 0.4);
     }
 
     &:active {
