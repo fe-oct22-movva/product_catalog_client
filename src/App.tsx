@@ -2,7 +2,7 @@ import {Header} from './components/HomePage/Header';
 import {HomePage} from './components/HomePage/HomePage';
 import {Route, Routes, Navigate} from 'react-router-dom';
 import './styles/main.scss';
-import { PageNotFound } from './components/PageNotFound';
+import {PageNotFound} from './components/PageNotFound';
 
 function App() {
   return (
