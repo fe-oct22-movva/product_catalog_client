@@ -18,6 +18,11 @@
   src: url('../assets/fonts/Mont-SemiBold.otf');
 }
 
+.main-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
 html {
   font-family: 'Mont_Regular', sans-serif;
   font-style: normal;
