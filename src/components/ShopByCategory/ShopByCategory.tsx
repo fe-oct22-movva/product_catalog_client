@@ -1,5 +1,5 @@
 import {CategoryCard} from '../CategoryCard';
-import styles from './ShopByCategory.module.scss';
+import styles from '../ShopByCategory/ShopByCategory.module.scss';
 
 import Phones from '../../assets/images/categories/phones.png';
 import Tablets from '../../assets/images/categories/tablets.png';
