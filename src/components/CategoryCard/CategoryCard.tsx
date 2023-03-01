@@ -1,4 +1,4 @@
-import styles from './CategoryCard.module.scss';
+import './CategoryCard.scss';
 
 interface Props {
   imageUrl: string;
@@ -16,16 +16,16 @@ export const CategoryCard: React.FC<Props> = ({
   numOfModels,
 }) => {
   return (
-    <div className={styles.category}>
-      <img src={imageUrl} alt={imageAlt} className={styles.category__photo} />
+    <div className="category">
+      <img src={imageUrl} alt={imageAlt} className="category__photo" />
 
-      <h4 className={styles.category__name}>
-        <a href={categoryLink} className={styles.category__link}>
+      <h4 className="category__name">
+        <a href={categoryLink} className="category__link">
           {categoryName}
         </a>
       </h4>
 
-      <p className={styles.category__description}>{numOfModels}</p>
+      <p className="category__description">{numOfModels}</p>
     </div>
   );
 };
