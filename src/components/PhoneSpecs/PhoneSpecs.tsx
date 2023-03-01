@@ -1,5 +1,3 @@
 export const PhoneSpecs = () => {
-  return (
-    <div>PhoneSpecs</div>
-  );
+  return <div>PhoneSpecs</div>;
 };

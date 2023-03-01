@@ -9,7 +9,7 @@ jobs:
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v3
-        
+
       - name: node install
         uses: actions/setup-node@v3
         with:
