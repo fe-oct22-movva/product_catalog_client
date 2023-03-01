@@ -10,7 +10,6 @@ export const ShopByCategory: React.FC = () => {
     <section className="shopByCategory" id="shop-by-category">
       <div className="container">
         <h2 className="shopByCategory__title">Shop by category</h2>
-        
         <div className="grid-shop-by grid-shop-by--tablet grid-shop-by--desktop">
           <div className="shop-by-category__item grid-shop-by__item grid-shop-by__item--tablet-1-4 grid-shop-by__item--desktop-1-8">
             <div className="category">

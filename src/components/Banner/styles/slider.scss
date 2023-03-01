@@ -37,7 +37,7 @@
     }
 
     &-prev {
-      left: -39px;
+      left: -45px;
       position: absolute;
       z-index: 1;
 
@@ -54,7 +54,7 @@
     }
 
     &-next {
-      right: -39px;
+      right: -45px;
 
       &::before {
         content: '';
