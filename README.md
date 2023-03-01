@@ -15,5 +15,3 @@
 `lint` - apply linter to your files
 
 `fix-style` - to use prettier and eslint together
-
-`deploy` - this is the combined npm run build and deploy command
