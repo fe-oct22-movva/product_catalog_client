@@ -6,16 +6,15 @@
     position: relative;
     justify-content: center;
     align-items: center;
-    background-image: url('./images/borderStock.png');
+
     width: 40px;
     height: 40px;
 
-    &:hover {
-      background-image: url('./images/borderHover.png');
-    }
+    border: 1px solid #B4BDC4;
+    border-radius: 48px;
 
-    &:active {
-      background-image: url('./images/borderActive.png');
+    &:hover {
+      border-color: #0F0F11;
     }
   }
 

@@ -9,12 +9,6 @@
   padding: 32px 32px;
   max-height: 500px;
 
-  @include onTablet {
-  }
-
-  @include onDesktop {
-  }
-
   border: 1px solid #e2e6e9;
   border-radius: 8px;
 
@@ -39,8 +33,14 @@
     font-weight: 400;
     font-size: 15px;
     line-height: 21px;
+  }
 
+  &__link {
     color: #0f0f11;
+
+    &:visited {
+      color: #0f0f11;
+    }
   }
 
   &__price {

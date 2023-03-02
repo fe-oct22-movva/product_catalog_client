@@ -1,12 +1,12 @@
+import { ArrowLeft } from '../ArrowLeft';
+import { ArrowRight } from '../ArrowRight';
 import styles from '../Pagination/Pagination.module.scss';
 
 export const Pagination: React.FC = () => {
   return (
     <div className={styles.pagination}>
       <div className={styles.pagination__list}>
-        <div className={styles.pagination__item}>
-          <a href="#" className={styles.pagination__link}></a>
-        </div>
+        <ArrowLeft />
 
         <div className={styles.pagination__item}>
           <a href="#" className={styles.pagination__link}>
@@ -32,9 +32,7 @@ export const Pagination: React.FC = () => {
           </a>
         </div>
 
-        <div className={styles.pagination__item}>
-          <a href="#" className={styles.pagination__link}></a>
-        </div>
+        <ArrowRight />
       </div>
     </div>
   );
