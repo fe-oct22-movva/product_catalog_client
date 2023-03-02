@@ -3,6 +3,12 @@ import logo from '../../assets/images/Logo.svg';
 import arrowUp from '../../assets/images/DefaultUp.svg';
 
 export const Footer: React.FC = () => {
+  const scrollTop = () => {
+    window.scrollTo({
+      top: 0,
+    });
+  };
+
   return (
     <footer className="page__section page__section--footer footer">
       <div className="footer__container">
@@ -41,7 +47,10 @@ export const Footer: React.FC = () => {
             <div className="scrollTop__container">
               <p className="scrollTop__title">Back to top</p>
 
-              <div className="scrollTop__block">
+              <div
+                className="scrollTop__block"
+                onClick={scrollTop}
+              >
                 <a className="scrollTop__link">
                   <img
                     src={arrowUp}

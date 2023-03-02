@@ -49,7 +49,7 @@ export const Banner = () => {
           {...settings}>
           <img
             className="banner__image"
-            src="../../assets/images/banner.jpg"
+            src="https://raw.githubusercontent.com/fe-oct22-movva/images_for_product_catalog_api/master/img/banner-phones.png"
             alt="Banner"
           />
 

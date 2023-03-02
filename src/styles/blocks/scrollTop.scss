@@ -24,9 +24,10 @@
     height: 32px;
     border-radius: 48px;
     border: 1px solid $icons;
+    transition: border-color .3s;
 
     &:hover {
-      border: 1px solid $primary;
+      border-color: $primary;
     }
   }
 
