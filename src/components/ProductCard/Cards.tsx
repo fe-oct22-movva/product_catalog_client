@@ -9,7 +9,6 @@ import imgLike from './images/likeEmpty.png';
 import arrowRight from './images/arrowRigthDef.png';
 import arrowLeft from './images/arrowLeftDef.png';
 import yellowLike from './images/Unionyellow.png';
-import { CategoryCard } from '../CategoryCard';
 import array from '../../phones.json';
 
 export const Cards: React.FC = () => {

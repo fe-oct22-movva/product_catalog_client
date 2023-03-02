@@ -1,6 +1,6 @@
 import React from 'react';
-import { Pagination } from '../../components/Pagination';
-import { ProductCardSingle } from '../../components/ProductCardSingle';
+import {Pagination} from '../../components/Pagination';
+import {ProductCardSingle} from '../../components/ProductCardSingle';
 import styles from './MobilePhones.module.scss';
 
 export const MobilePhones: React.FC = () => (
@@ -10,21 +10,18 @@ export const MobilePhones: React.FC = () => (
       <p className={styles.phonesCategory__description}>95 models</p>
 
       <div className={`${styles.filter} grid grid--tablet grid--desktop`}>
-        <div className={`
+        <div
+          className={`
         ${styles.filter__sortBy}
         grid__item
         grid__item--tablet-1-4 
         grid__item--desctop-1-4
       `}>
-          <p className={styles.filter__sortBy__description}>
-          Sort by
-          </p>
+          <p className={styles.filter__sortBy__description}>Sort by</p>
 
           <div className={styles.dropdown}>
             <button className={styles.dropdown__header}>
-              <div className={styles.dropdown__title}>
-              Newest
-              </div>
+              <div className={styles.dropdown__title}>Newest</div>
             </button>
 
             <div className={styles.dropdown__items}>
@@ -35,22 +32,19 @@ export const MobilePhones: React.FC = () => (
           </div>
         </div>
 
-        <div className={`
+        <div
+          className={`
         ${styles.filter__sortBy}
         grid__item
         grid__item--tablet-5-7 
         grid__item--desctop-57
 
       `}>
-          <p className={styles.filter__sortBy__description}>
-          Items on page
-          </p>
-        
+          <p className={styles.filter__sortBy__description}>Items on page</p>
+
           <div className={styles.dropdown}>
             <button className={styles.dropdown__header}>
-              <div className={styles.dropdown__title}>
-              16
-              </div>
+              <div className={styles.dropdown__title}>16</div>
             </button>
 
             <div className={styles.dropdown__items}>

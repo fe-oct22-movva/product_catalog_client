@@ -9,19 +9,27 @@ export const Pagination: React.FC = () => {
         </div>
 
         <div className={styles.pagination__item}>
-          <a href="#" className={styles.pagination__link}>1</a>
+          <a href="#" className={styles.pagination__link}>
+            1
+          </a>
         </div>
 
         <div className={styles.pagination__item}>
-          <a href="#" className={styles.pagination__link}>2</a>
+          <a href="#" className={styles.pagination__link}>
+            2
+          </a>
         </div>
 
         <div className={styles.pagination__item}>
-          <a href="#" className={styles.pagination__link}>3</a>
+          <a href="#" className={styles.pagination__link}>
+            3
+          </a>
         </div>
 
         <div className={styles.pagination__item}>
-          <a href="#" className={styles.pagination__link}>4</a>
+          <a href="#" className={styles.pagination__link}>
+            4
+          </a>
         </div>
 
         <div className={styles.pagination__item}>
@@ -31,5 +39,3 @@ export const Pagination: React.FC = () => {
     </div>
   );
 };
-
-

@@ -3,9 +3,9 @@ import heart from '../../../assets/images/Home.svg';
 import cart from '../../../assets/images/Cart.svg';
 import menu from '../../../assets/images/Menu.svg';
 import logo from '../../../assets/images/Logo.svg';
-import { HeaderNavLink } from './HeaderNavLink';
-import { HeaderIconNavLink } from './HeaderIconNavLink';
-import { NavLink } from 'react-router-dom';
+import {HeaderNavLink} from './HeaderNavLink';
+import {HeaderIconNavLink} from './HeaderIconNavLink';
+import {NavLink} from 'react-router-dom';
 
 export const Header: React.FC = () => {
   return (
@@ -43,30 +43,30 @@ export const Header: React.FC = () => {
           <ul className="aside-container__list">
             <HeaderIconNavLink
               to="/favourites"
-              textToDisplay={(
+              textToDisplay={
                 <li className="aside-container__item">
                   <img src={heart} alt="favourite items" />
                 </li>
-              )}
+              }
             />
 
             <HeaderIconNavLink
               to="/cart"
-              textToDisplay={(
+              textToDisplay={
                 <li className="aside-container__item">
                   <img src={cart} alt="cart" />
                 </li>
-              )}
+              }
             />
 
             {false && (
               <HeaderIconNavLink
                 to="/menu"
-                textToDisplay={(
+                textToDisplay={
                   <li className="aside-container__item">
                     <img src={menu} alt="menu" />
                   </li>
-                )}
+                }
               />
             )}
           </ul>

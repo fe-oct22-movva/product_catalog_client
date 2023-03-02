@@ -1,16 +1,16 @@
-import { FC } from 'react';
+import {FC} from 'react';
 import yellowLike from './images/Unionyellow.png';
 import imgLike from './images/likeEmpty.png';
 
 type Props = {
-  img: string,
-  name: string,
-  price: number,
-  screen: string,
-  capacity: string,
-  ram: string,
-  like: boolean,
-  handleLike: () => void,
+  img: string;
+  name: string;
+  price: number;
+  screen: string;
+  capacity: string;
+  ram: string;
+  like: boolean;
+  handleLike: () => void;
 };
 
 export const Card: FC<Props> = ({
@@ -27,9 +27,7 @@ export const Card: FC<Props> = ({
     <>
       <img className="card__icon" src={img} />
 
-      <h3 className="card__title">
-        {name}
-      </h3>
+      <h3 className="card__title">{name}</h3>
 
       <p className="card__price">${price}</p>
 
@@ -50,9 +48,7 @@ export const Card: FC<Props> = ({
       </div>
 
       <div className="card__link">
-        <a
-          className="card__button"
-          href="src/components/ProductCard#addToCart">
+        <a className="card__button" href="src/components/ProductCard#addToCart">
           Add to cart
         </a>
 
