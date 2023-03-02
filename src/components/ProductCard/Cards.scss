@@ -214,25 +214,3 @@
   display: flex;
   gap: 16px;
 }
-
-// .grid {
-//   display: flex;
-
-//   @include onDesktop {
-//     display: grid;
-//     grid-template-columns: repeat(24, 1fr);
-//     column-gap: 16px;
-//   }
-
-//   &__item {
-//     @for $start from 1 through 24 {
-//       @for $end from $start through 24 {
-//         &--desktop-#{$start}-#{$end} {
-//           @include onDesktop {
-//             grid-column: #{$start} / #{$end + 1};
-//           }
-//         }
-//       }
-//     }
-//   }
-// }
