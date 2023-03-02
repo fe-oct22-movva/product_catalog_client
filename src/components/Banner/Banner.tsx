@@ -39,32 +39,34 @@ export const Banner = () => {
 
   return (
     <section className="banner">
-      <div className="grid grid--tablet grid--desktop">
-        <h1 className="banner__title grid__item grid__item--tablet-1-9 grid__item--desktop-1-24">
-          Welcome to Nice Gadgets store!
-        </h1>
+      <div className="banner-container">
+        <div className="grid grid--tablet grid--desktop">
+          <h1 className="banner__title grid__item grid__item--tablet-1-9 grid__item--desktop-1-24">
+            Welcome to Nice Gadgets store!
+          </h1>
 
-        <Slider
-          className="grid__item grid__item--tablet-2-11 grid__item--desktop-2-23"
-          {...settings}>
-          <img
-            className="banner__image"
-            src="../../assets/images/banner.jpg"
-            alt="Banner"
-          />
+          <Slider
+            className="grid__item grid__item--tablet-2-11 grid__item--desktop-2-23"
+            {...settings}>
+            <img
+              className="banner__image"
+              src="https://raw.githubusercontent.com/fe-oct22-movva/images_for_product_catalog_api/master/img/banner-phones.png"
+              alt="Banner"
+            />
 
-          <img
-            className="banner__image"
-            src="../../assets/images/banner.jpg"
-            alt="Banner"
-          />
+            <img
+              className="banner__image"
+              src="../../assets/images/banner.jpg"
+              alt="Banner"
+            />
 
-          <img
-            className="banner__image"
-            src="../../assets/images/banner.jpg"
-            alt="Banner"
-          />
-        </Slider>
+            <img
+              className="banner__image"
+              src="../../assets/images/banner.jpg"
+              alt="Banner"
+            />
+          </Slider>
+        </div>
       </div>
     </section>
   );
