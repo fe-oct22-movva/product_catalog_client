@@ -1,4 +1,4 @@
-import { serverResponse } from '../types/types';
+import {serverResponse} from '../types/types';
 import {client} from '../utils/fetchClient';
 
 export const getPhones = () => {
