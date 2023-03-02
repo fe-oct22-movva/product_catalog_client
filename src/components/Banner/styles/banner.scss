@@ -35,20 +35,20 @@
     display: block;
     object-fit: cover;
 
-    //content: url('../../../assets/images/banner.jpg');
-    //
-    //@include onTablet {
-    //  border-radius: 8px;
-    //
-    //  & {
-    //    content: url('../../../assets/images/banner-tablet.jpg');
-    //  }
-    //}
-    //
-    //@include onDesktop {
-    //  & {
-    //    content: url('../../../assets/images/banner-desktop.jpg');
-    //  }
-    //}
+    content: url('../../../assets/images/banner.jpg');
+
+    @include onTablet {
+      border-radius: 8px;
+
+      & {
+        content: url('../../../assets/images/banner-tablet.jpg');
+      }
+    }
+
+    @include onDesktop {
+      & {
+        content: url('../../../assets/images/banner-desktop.jpg');
+      }
+    }
   }
 }

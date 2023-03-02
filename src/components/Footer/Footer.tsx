@@ -47,10 +47,7 @@ export const Footer: React.FC = () => {
             <div className="scrollTop__container">
               <p className="scrollTop__title">Back to top</p>
 
-              <div
-                className="scrollTop__block"
-                onClick={scrollTop}
-              >
+              <div className="scrollTop__block" onClick={scrollTop}>
                 <a className="scrollTop__link">
                   <img
                     src={arrowUp}

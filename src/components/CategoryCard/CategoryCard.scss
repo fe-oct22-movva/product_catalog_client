@@ -9,7 +9,7 @@
     margin: 0 auto 24px;
     border-radius: 8px;
 
-    transition: transform .3s;
+    transition: transform 0.3s;
     @include onTablet {
       max-width: 187px;
     }

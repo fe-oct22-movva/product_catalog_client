@@ -24,7 +24,7 @@
     height: 32px;
     border-radius: 48px;
     border: 1px solid $icons;
-    transition: border-color .3s;
+    transition: border-color 0.3s;
 
     &:hover {
       border-color: $primary;
