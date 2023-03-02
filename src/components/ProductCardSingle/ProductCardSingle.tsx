@@ -1,16 +1,26 @@
 import styles from '../ProductCardSingle/ProductCardSingle.module.scss';
-import React, { useState } from 'react';
+import React from 'react';
 
-import whiteMobile from '../../components/ProductCard/images/white.jpg';
-import { Button_addToCart } from '../Button_addToCart';
+import {Button_addToCart} from '../Button_addToCart';
 
-export const ProductCardSingle: React.FC = () => {
+interface Props {
+  imgUrl: string,
+}
+
+export const ProductCardSingle: React.FC<Props> = ({
+  imgUrl,
+}) => {
   return (
     <div className={styles.card}>
-      <img className={styles.card__icon} src={whiteMobile} />
+      <img className={styles.card__icon} src={imgUrl} />
 
       <h3 className={styles.card__title}>
-        Apple iPhone 14 Pro 128GB Silver (MQ023)
+        <a
+          href="#"
+          className={styles.card__link}
+        >
+          Apple iPhone 14 Pro 128GB Silver (MQ023)
+        </a>
       </h3>
 
       <p className={styles.card__price}>$999</p>
@@ -30,7 +40,7 @@ export const ProductCardSingle: React.FC = () => {
           <p className={styles.card__info}>6 GB</p>
         </div>
       </div>
-      
+
       <Button_addToCart />
     </div>
   );

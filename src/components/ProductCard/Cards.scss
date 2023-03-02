@@ -2,10 +2,6 @@
 @import '../../styles/main.scss';
 @import '../../styles/utils/mixins';
 
-iframe {
-  display: none;
-}
-
 .page__section-scroll {
   overflow: hidden;
   margin-bottom: 57px;
@@ -17,32 +13,6 @@ iframe {
   @include onDesktop {
     margin-bottom: 80px;
   }
-}
-
-html {
-  font-family: 'Montserrat', sans-serif;
-  font-style: normal;
-  margin: 0;
-  padding: 0;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-h1,
-h2,
-h3,
-h4,
-a,
-p,
-ul,
-li,
-body {
-  text-decoration: none;
-  list-style: none;
-  margin: 0;
-  padding: 0;
 }
 
 .scroll {
@@ -94,11 +64,6 @@ body {
   }
 }
 
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
 .card {
   display: flex;
   flex-direction: column;
@@ -124,12 +89,11 @@ body {
     min-height: 129px;
 
     @include onTablet {
-      height: 180px;
-      width: 180px;
+      height: 173px;
     }
 
     @include onDesktop {
-      width: 210px;
+      height: 200px;
     }
   }
 
@@ -246,24 +210,7 @@ body {
   }
 }
 
-.grid {
+.flex {
   display: flex;
-
-  @include onDesktop {
-    display: grid;
-    grid-template-columns: repeat(24, 1fr);
-    column-gap: 16px;
-  }
-
-  &__item {
-    @for $start from 1 through 24 {
-      @for $end from $start through 24 {
-        &--desktop-#{$start}-#{$end} {
-          @include onDesktop {
-            grid-column: #{$start} / #{$end + 1};
-          }
-        }
-      }
-    }
-  }
+  gap: 16px;
 }

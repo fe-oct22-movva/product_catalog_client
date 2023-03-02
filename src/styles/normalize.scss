@@ -6,18 +6,18 @@
 
 @font-face {
   font-family: Mont_Regular;
-  src: url('../assets/fonts/Mont-Regular.otf');
+  src: url('src/assets/fonts/Mont-Regular.otf');
 }
 
 @font-face {
   font-family: Mont_Bold;
   font-weight: bold;
-  src: url('../assets/fonts/Mont-Bold.otf');
+  src: url('src/assets/fonts/Mont-Bold.otf');
 }
 
 @font-face {
   font-family: Mont_SemiBold;
-  src: url('../assets/fonts/Mont-SemiBold.otf');
+  src: url('src/assets/fonts/Mont-SemiBold.otf');
 }
 
 .main-container {
@@ -35,6 +35,7 @@
 }
 
 html {
+  scroll-behavior: smooth;
   font-family: 'Mont_Regular', sans-serif;
   font-style: normal;
   font-weight: 600;

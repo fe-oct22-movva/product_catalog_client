@@ -1,5 +1,10 @@
 import React, {useEffect, useState} from 'react';
 import styles from './MobilePhones.module.scss';
+
+import whiteMobile from '../../assets/images/phones/white.jpg';
+import purpleMobile from '../../assets/images/phones/purple.jpg';
+import goldMobile from '../../assets/images/phones/gold.jpg';
+import redMobile from '../../assets/images/phones/red.jpg';
 import {ProductCardSingle} from '../../components/ProductCardSingle';
 import {Pagination} from '../../components/Pagination';
 import {getPhones} from '../../api/phones';
@@ -71,38 +76,58 @@ export const MobilePhones: React.FC = () => {
           </div>
         </div>
 
-        <div className={styles.catalog}>
-          <div className={styles.catalog__item}>
-            <ProductCardSingle />
-          </div>
-          <div className={styles.catalog__item}>
-            <ProductCardSingle />
-          </div>
-          <div className={styles.catalog__item}>
-            <ProductCardSingle />
-          </div>
-          <div className={styles.catalog__item}>
-            <ProductCardSingle />
-          </div>
-          <div className={styles.catalog__item}>
-            <ProductCardSingle />
-          </div>
-          <div className={styles.catalog__item}>
-            <ProductCardSingle />
-          </div>
-          <div className={styles.catalog__item}>
-            <ProductCardSingle />
-          </div>
-          <div className={styles.catalog__item}>
-            <ProductCardSingle />
-          </div>
-          <div className={styles.catalog__item}>
-            <ProductCardSingle />
-          </div>
-          <div className={styles.catalog__item}>
-            <ProductCardSingle />
-          </div>
+      <div className={styles.catalog}>
+        <div className={styles.catalog__item}>
+          <ProductCardSingle
+            imgUrl={goldMobile}
+          />
         </div>
+        <div className={styles.catalog__item}>
+          <ProductCardSingle
+            imgUrl={purpleMobile}
+          />
+        </div>
+        <div className={styles.catalog__item}>
+          <ProductCardSingle
+            imgUrl={redMobile}
+          />
+        </div>
+        <div className={styles.catalog__item}>
+          <ProductCardSingle
+            imgUrl={whiteMobile}
+          />
+        </div>
+        <div className={styles.catalog__item}>
+          <ProductCardSingle
+            imgUrl={goldMobile}
+          />
+        </div>
+        <div className={styles.catalog__item}>
+          <ProductCardSingle
+            imgUrl={purpleMobile}
+          />
+        </div>
+        <div className={styles.catalog__item}>
+          <ProductCardSingle
+            imgUrl={redMobile}
+          />
+        </div>
+        <div className={styles.catalog__item}>
+          <ProductCardSingle
+            imgUrl={whiteMobile}
+          />
+        </div>
+        <div className={styles.catalog__item}>
+          <ProductCardSingle
+            imgUrl={goldMobile}
+          />
+        </div>
+        <div className={styles.catalog__item}>
+          <ProductCardSingle
+            imgUrl={purpleMobile}
+          />
+        </div>
+      </div>
 
         <Pagination />
       </div>
