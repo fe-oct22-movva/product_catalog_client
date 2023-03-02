@@ -4,6 +4,11 @@ import {ShopByCategory} from '../ShopByCategory';
 import {PhoneSpecs} from '../PhoneSpecs/PhoneSpecs';
 import {AboutPhone} from '../AboutPhone';
 
+interface Props {
+  isBurgerActivated: boolean,
+  setIsBurgerActivated: React.Dispatch<React.SetStateAction<boolean>>
+}
+
 export const HomePage = () => {
   return (
     <div>

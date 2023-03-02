@@ -4,21 +4,16 @@ import React from 'react';
 import {Button_addToCart} from '../Button_addToCart';
 
 interface Props {
-  imgUrl: string,
+  imgUrl: string;
 }
 
-export const ProductCardSingle: React.FC<Props> = ({
-  imgUrl,
-}) => {
+export const ProductCardSingle: React.FC<Props> = ({imgUrl}) => {
   return (
     <div className={styles.card}>
       <img className={styles.card__icon} src={imgUrl} />
 
       <h3 className={styles.card__title}>
-        <a
-          href="#"
-          className={styles.card__link}
-        >
+        <a href="#" className={styles.card__link}>
           Apple iPhone 14 Pro 128GB Silver (MQ023)
         </a>
       </h3>

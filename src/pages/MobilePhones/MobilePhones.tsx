@@ -9,13 +9,14 @@ import goldMobile from '../../assets/images/phones/gold.jpg';
 import redMobile from '../../assets/images/phones/red.jpg';
 
 export const MobilePhones: React.FC = () => (
-  <div>
+  <div className="main-container">
     <div className={`${styles.phonesCategory} `}>
       <h1 className={styles.phonesCategory__title}>Mobile phones</h1>
       <p className={styles.phonesCategory__description}>95 models</p>
 
       <div className={`${styles.filter} grid grid--tablet grid--desktop`}>
-        <div className={`
+        <div
+          className={`
           ${styles.filter__sortBy}
           grid__item
           grid__item--tablet-1-4 
@@ -36,7 +37,8 @@ export const MobilePhones: React.FC = () => (
           </div>
         </div>
 
-        <div className={`
+        <div
+          className={`
           ${styles.filter__sortBy}
           grid__item
           grid__item--tablet-5-7 
@@ -60,54 +62,34 @@ export const MobilePhones: React.FC = () => (
 
       <div className={styles.catalog}>
         <div className={styles.catalog__item}>
-          <ProductCardSingle
-            imgUrl={goldMobile}
-          />
+          <ProductCardSingle imgUrl={goldMobile} />
         </div>
         <div className={styles.catalog__item}>
-          <ProductCardSingle
-            imgUrl={purpleMobile}
-          />
+          <ProductCardSingle imgUrl={purpleMobile} />
         </div>
         <div className={styles.catalog__item}>
-          <ProductCardSingle
-            imgUrl={redMobile}
-          />
+          <ProductCardSingle imgUrl={redMobile} />
         </div>
         <div className={styles.catalog__item}>
-          <ProductCardSingle
-            imgUrl={whiteMobile}
-          />
+          <ProductCardSingle imgUrl={whiteMobile} />
         </div>
         <div className={styles.catalog__item}>
-          <ProductCardSingle
-            imgUrl={goldMobile}
-          />
+          <ProductCardSingle imgUrl={goldMobile} />
         </div>
         <div className={styles.catalog__item}>
-          <ProductCardSingle
-            imgUrl={purpleMobile}
-          />
+          <ProductCardSingle imgUrl={purpleMobile} />
         </div>
         <div className={styles.catalog__item}>
-          <ProductCardSingle
-            imgUrl={redMobile}
-          />
+          <ProductCardSingle imgUrl={redMobile} />
         </div>
         <div className={styles.catalog__item}>
-          <ProductCardSingle
-            imgUrl={whiteMobile}
-          />
+          <ProductCardSingle imgUrl={whiteMobile} />
         </div>
         <div className={styles.catalog__item}>
-          <ProductCardSingle
-            imgUrl={goldMobile}
-          />
+          <ProductCardSingle imgUrl={goldMobile} />
         </div>
         <div className={styles.catalog__item}>
-          <ProductCardSingle
-            imgUrl={purpleMobile}
-          />
+          <ProductCardSingle imgUrl={purpleMobile} />
         </div>
       </div>
 

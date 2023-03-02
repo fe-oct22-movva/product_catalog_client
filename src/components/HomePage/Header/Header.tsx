@@ -1,5 +1,5 @@
-import React from 'react';
-import heart from '../../../assets/images/Home.svg';
+import React, {useRef} from 'react';
+import heart from '../../../assets/images/Favourites.svg';
 import cart from '../../../assets/images/Cart.svg';
 import menu from '../../../assets/images/Menu.svg';
 import logo from '../../../assets/images/Logo.svg';
@@ -7,7 +7,13 @@ import {HeaderNavLink} from './HeaderNavLink';
 import {HeaderIconNavLink} from './HeaderIconNavLink';
 import {NavLink} from 'react-router-dom';
 
-export const Header: React.FC = () => {
+interface Props {
+  setIsBurgerActivated: React.Dispatch<React.SetStateAction<boolean>>
+}
+
+export const Header: React.FC<Props> = ({
+  setIsBurgerActivated,
+}) => {
   return (
     <header className="page__section header">
       <div className="header__content">
@@ -40,6 +46,20 @@ export const Header: React.FC = () => {
         </nav>
 
         <div className="aside-container">
+          <div
+            className="aside-container--burger"
+            onClick={() => setIsBurgerActivated}
+          >
+            <HeaderIconNavLink
+              to="/menu"
+              textToDisplay={
+                <li className="aside-container__item">
+                  <img src={menu} alt="menu" />
+                </li>
+              }
+            />
+          </div>
+
           <ul className="aside-container__list">
             <HeaderIconNavLink
               to="/favourites"
@@ -58,17 +78,6 @@ export const Header: React.FC = () => {
                 </li>
               }
             />
-
-            {false && (
-              <HeaderIconNavLink
-                to="/menu"
-                textToDisplay={
-                  <li className="aside-container__item">
-                    <img src={menu} alt="menu" />
-                  </li>
-                }
-              />
-            )}
           </ul>
         </div>
       </div>
