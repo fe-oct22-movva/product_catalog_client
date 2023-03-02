@@ -7,6 +7,7 @@ import './styles/main.scss';
 import { PageNotFound } from './components/PageNotFound';
 import { Phone } from './types/Phone';
 import { getPhones } from './api/phones';
+import { MobilePhones } from './pages/MobilePhones';
 
 export const App: React.FC = () => {
   const [phones, setPhones] = useState<Phone[]>([]);
@@ -25,6 +26,7 @@ export const App: React.FC = () => {
         <div className="sections">
           <Routes>
             <Route path="/" element={<HomePage />} />
+            <Route path="/phones" element={<MobilePhones />} />
             <Route path="home" element={<Navigate to="/" replace />} />
             <Route path="*" element={<PageNotFound />} />
           </Routes>

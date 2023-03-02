@@ -9,13 +9,19 @@ import imgLike from './images/likeEmpty.png';
 import arrowRight from './images/arrowRigthDef.png';
 import arrowLeft from './images/arrowLeftDef.png';
 import yellowLike from './images/Unionyellow.png';
+import { CategoryCard } from '../CategoryCard';
+import array from '../../phones.json';
 
 export const Cards: React.FC = () => {
   const [like, setLike] = useState(false);
+  const arrayPhones = array;
+  arrayPhones.length = 14;
 
   const handeLike = () => {
     setLike(!like);
   };
+
+  console.log(array);
 
   return (
     <section className="page__section page__section-scroll">

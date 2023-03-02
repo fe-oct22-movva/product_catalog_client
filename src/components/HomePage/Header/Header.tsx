@@ -5,18 +5,19 @@ import menu from '../../../assets/images/Menu.svg';
 import logo from '../../../assets/images/Logo.svg';
 import { HeaderNavLink } from './HeaderNavLink';
 import { HeaderIconNavLink } from './HeaderIconNavLink';
+import { NavLink } from 'react-router-dom';
 
 export const Header: React.FC = () => {
   return (
     <header className="page__section header">
       <div className="header__content">
-        <a href="/" className="logo">
+        <NavLink to="/" className="logo">
           <img
             className="logo__img"
             src={logo}
             alt="Welcome to the Nice Gadgets"
           />
-        </a>
+        </NavLink>
 
         <nav className="nav">
           <ul className="nav__list">

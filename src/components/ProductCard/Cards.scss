@@ -124,12 +124,11 @@ body {
     min-height: 129px;
 
     @include onTablet {
-      height: 180px;
-      width: 180px;
+      height: 173px;
     }
 
     @include onDesktop {
-      width: 210px;
+      height: 200px;
     }
   }
 
