@@ -1,14 +1,20 @@
 .shop-by-category {
+  margin-bottom: 57px;
+
+  @include onTablet {
+    margin-bottom: 64px;
+  }
+
+  @include onDesktop {
+    margin-bottom: 80px;
+  }
+
   &__item {
     margin-bottom: 32px;
 
     &:last-child {
       margin-bottom: 0;
     }
-  }
-
-  &__section {
-    margin-bottom: 57px;
   }
 
   &__title {

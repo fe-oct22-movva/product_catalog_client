@@ -1,0 +1,92 @@
+@import '../../styles/utils/mixins';
+
+.card {
+  display: flex;
+  flex-direction: column;
+
+  min-width: 220px;
+  max-width: 288px;
+  padding: 32px 32px;
+  max-height: 500px;
+
+  @include onTablet {
+  }
+
+  @include onDesktop {
+  }
+
+  border: 1px solid #e2e6e9;
+  border-radius: 8px;
+
+  &__icon {
+    margin: 0 auto;
+    margin-bottom: 24px;
+    min-height: 129px;
+
+    @include onTablet {
+      height: 180px;
+      width: 180px;
+    }
+
+    @include onDesktop {
+      width: 210px;
+    }
+  }
+
+  &__title {
+    margin-bottom: 8px;
+
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 21px;
+
+    color: #0f0f11;
+  }
+
+  &__price {
+    position: relative;
+    margin-bottom: 8px;
+
+    font-weight: 800;
+    font-size: 22px;
+    line-height: 30px;
+
+    color: #0f0f11;
+  }
+
+  &__breakLine {
+    margin-bottom: 16px;
+    width: 100%;
+
+    border: 1px solid #e2e6e9;
+  }
+
+  &__name {
+    display: flex;
+  }
+
+  &__features {
+    display: flex;
+    margin-bottom: 8px;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  &__names {
+    font-size: 15px;
+    line-height: 17px;
+
+    color: #89939a;
+  }
+
+  &__chars {
+    text-align: end;
+
+    font-size: 15px;
+    line-height: 16px;
+  }
+
+  &__info {
+    margin-bottom: 8px;
+  }
+}

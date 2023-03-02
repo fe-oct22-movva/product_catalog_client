@@ -6,6 +6,19 @@ iframe {
   display: none;
 }
 
+.page__section-scroll {
+  overflow: hidden;
+  margin-bottom: 57px;
+
+  @include onTablet {
+    margin-bottom: 64px;
+  }
+
+  @include onDesktop {
+    margin-bottom: 80px;
+  }
+}
+
 html {
   font-family: 'Montserrat', sans-serif;
   font-style: normal;
@@ -91,7 +104,6 @@ body {
   flex-direction: column;
   width: 220px;
   padding: 32px 32px;
-  margin-right: 16px;
   max-height: 500px;
 
   @include onTablet {
