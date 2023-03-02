@@ -1,7 +1,7 @@
 import React from 'react';
+import {Pagination} from '../../components/Pagination';
+import {ProductCardSingle} from '../../components/ProductCardSingle';
 import styles from './MobilePhones.module.scss';
-import { ProductCardSingle } from '../../components/ProductCardSingle';
-import { Pagination } from '../../components/Pagination';
 
 import whiteMobile from '../../assets/images/phones/white.jpg';
 import purpleMobile from '../../assets/images/phones/purple.jpg';
