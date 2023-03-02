@@ -1,4 +1,4 @@
-import React, {useRef} from 'react';
+import React from 'react';
 import heart from '../../../assets/images/Favourites.svg';
 import cart from '../../../assets/images/Cart.svg';
 import menu from '../../../assets/images/Menu.svg';
@@ -8,12 +8,10 @@ import {HeaderIconNavLink} from './HeaderIconNavLink';
 import {NavLink} from 'react-router-dom';
 
 interface Props {
-  setIsBurgerActivated: React.Dispatch<React.SetStateAction<boolean>>
+  setIsBurgerActivated: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-export const Header: React.FC<Props> = ({
-  setIsBurgerActivated,
-}) => {
+export const Header: React.FC<Props> = ({setIsBurgerActivated}) => {
   return (
     <header className="page__section header">
       <div className="header__content">
@@ -48,8 +46,7 @@ export const Header: React.FC<Props> = ({
         <div className="aside-container">
           <div
             className="aside-container--burger"
-            onClick={() => setIsBurgerActivated}
-          >
+            onClick={() => setIsBurgerActivated}>
             <HeaderIconNavLink
               to="/menu"
               textToDisplay={

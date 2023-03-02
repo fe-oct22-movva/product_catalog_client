@@ -1,4 +1,4 @@
-@import "../normalize";
+@import '../normalize';
 
 .aside-container {
   &--burger {
@@ -32,6 +32,5 @@
     @include onDesktop {
       margin: 25px;
     }
-
   }
 }

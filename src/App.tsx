@@ -25,14 +25,22 @@ export const App: React.FC = () => {
 
   return (
     <div className="App">
-      <Header setIsBurgerActivated={setIsBurgerActivated}/>
+      <Header setIsBurgerActivated={setIsBurgerActivated} />
 
       <div className="sections">
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/phones" element={<MobilePhones />} />
           <Route path="/favourites" element={<Favourites />} />
-          <Route path="/menu" element={<BurgerMenu isBurger={isBurgerActivated} setIsBurger={setIsBurgerActivated} />} />
+          <Route
+            path="/menu"
+            element={
+              <BurgerMenu
+                isBurger={isBurgerActivated}
+                setIsBurger={setIsBurgerActivated}
+              />
+            }
+          />
           <Route path="home" element={<Navigate to="/" replace />} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>
