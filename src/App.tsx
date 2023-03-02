@@ -1,12 +1,22 @@
-import React from 'react';
-import {Header} from './components/HomePage/Header';
-import {Footer} from './components/Footer';
-import {HomePage} from './components/HomePage/HomePage';
-import {Route, Routes, Navigate} from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Header } from './components/HomePage/Header';
+import { Footer } from './components/Footer';
+import { HomePage } from './components/HomePage/HomePage';
+import { Route, Routes, Navigate } from 'react-router-dom';
 import './styles/main.scss';
-import {PageNotFound} from './components/PageNotFound';
+import { PageNotFound } from './components/PageNotFound';
+import { Phone } from './types/Phone';
+import { getPhones } from './api/phones';
 
-function App() {
+export const App: React.FC = () => {
+  const [phones, setPhones] = useState<Phone[]>([]);
+
+  useEffect(() => {
+    getPhones()
+      .then(setPhones)
+      .catch((error: string) => console.log(error));
+  }, []);
+
   return (
     <div className="App">
       <Header />
@@ -24,6 +34,4 @@ function App() {
       <Footer />
     </div>
   );
-}
-
-export default App;
+};
