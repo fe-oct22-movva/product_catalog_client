@@ -6,12 +6,14 @@ import {AboutPhone} from '../AboutPhone';
 
 export const HomePage = () => {
   return (
-    <div className="homa-page_container">
+    <div>
       <Banner />
-      <Cards />
-      <ShopByCategory />
-      <PhoneSpecs />
-      <AboutPhone />
+      <div className="main-container">
+        <Cards />
+        <ShopByCategory />
+        <PhoneSpecs />
+        <AboutPhone />
+      </div>
     </div>
   );
 };
