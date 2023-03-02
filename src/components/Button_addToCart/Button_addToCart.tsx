@@ -7,8 +7,7 @@ export const Button_addToCart: React.FC = () => {
     <div className={styles.addToCart__link}>
       <a
         className={styles.addToCart__button}
-        href="src/components/ProductCard#addToCart"
-      >
+        href="src/components/ProductCard#addToCart">
         Add to cart
       </a>
 
@@ -25,5 +24,3 @@ export const Button_addToCart: React.FC = () => {
     </div>
   );
 };
-
-

@@ -1,8 +1,8 @@
 import styles from '../ProductCardSingle/ProductCardSingle.module.scss';
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 
 import whiteMobile from '../../components/ProductCard/images/white.jpg';
-import { Button_addToCart } from '../Button_addToCart';
+import {Button_addToCart} from '../Button_addToCart';
 
 export const ProductCardSingle: React.FC = () => {
   return (
@@ -30,7 +30,7 @@ export const ProductCardSingle: React.FC = () => {
           <p className={styles.card__info}>6 GB</p>
         </div>
       </div>
-      
+
       <Button_addToCart />
     </div>
   );
