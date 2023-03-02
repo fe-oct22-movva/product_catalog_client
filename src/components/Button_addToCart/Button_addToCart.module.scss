@@ -1,4 +1,4 @@
-.button {
+.addToCart {
   padding-left: 8px;
 
   &__like {
@@ -16,6 +16,39 @@
 
     &:active {
       background-image: url('./images/borderActive.png');
+    }
+  }
+
+  &__link {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    width: 100%;
+
+    border: 1px solid #4219d0;
+    background-color: #4219d0;
+    color: #ffffff;
+    border-radius: 45px;
+    text-decoration: none;
+
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 21px;
+
+    &:hover {
+      box-shadow: 0 3px 13px rgba(23, 32, 49, 0.4);
+    }
+
+    &:active {
+      background-color: #ffffff;
+      color: #4219d0;
+      box-shadow: none;
     }
   }
 }

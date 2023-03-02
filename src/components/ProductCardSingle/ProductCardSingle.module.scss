@@ -7,14 +7,12 @@
   min-width: 220px;
   max-width: 288px;
   padding: 32px 32px;
-  margin-right: 16px;
   max-height: 500px;
 
   @include onTablet {
   }
 
   @include onDesktop {
-    margin-right: 0;
   }
 
   border: 1px solid #e2e6e9;
@@ -90,38 +88,5 @@
 
   &__info {
     margin-bottom: 8px;
-  }
-
-  &__link {
-    display: flex;
-    justify-content: space-between;
-  }
-
-  &__button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 40px;
-    width: 100%;
-
-    border: 1px solid #4219d0;
-    background-color: #4219d0;
-    color: #ffffff;
-    border-radius: 45px;
-    text-decoration: none;
-
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 21px;
-
-    &:hover {
-      box-shadow: 0 3px 13px rgba(23, 32, 49, 0.4);
-    }
-
-    &:active {
-      background-color: #ffffff;
-      color: #4219d0;
-      box-shadow: none;
-    }
   }
 }
