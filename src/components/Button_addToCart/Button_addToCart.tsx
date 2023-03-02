@@ -4,15 +4,26 @@ import imgLike from '../../components/ProductCard/images/likeEmpty.png';
 
 export const Button_addToCart: React.FC = () => {
   return (
-    <div className={styles.button}>
-      <a className={styles.button__like}>
-        {/* {like === false ? (
+    <div className={styles.addToCart__link}>
+      <a
+        className={styles.addToCart__button}
+        href="src/components/ProductCard#addToCart"
+      >
+        Add to cart
+      </a>
+
+      <div className={styles.addToCart}>
+        <a className={styles.addToCart__like}>
+          {/* {like === false ? (
           <img src={imgLike} alt="Like" />
         ) : (
           <img src={yellowLike} alt="Like" />
         )} */}
-        <img src={imgLike} alt="Like" />
-      </a>
+          <img src={imgLike} alt="Like" />
+        </a>
+      </div>
     </div>
   );
 };
+
+

@@ -11,7 +11,6 @@ export const HomePage = () => {
       <Banner />
       <Cards />
       <ShopByCategory />
-      <Cards />
       <PhoneSpecs />
       <AboutPhone />
       <MobilePhones />
