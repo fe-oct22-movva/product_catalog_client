@@ -8,12 +8,12 @@ import {PageNotFound} from './components/PageNotFound';
 import {Phone} from './types/Phone';
 import {getPhones} from './api/phones';
 import {MobilePhones} from './pages/MobilePhones';
-import './assets/fonts/Mont-Bold.otf';
-import './assets/fonts/Mont-SemiBold.otf';
-import './assets/fonts/Mont-Regular.otf';
+import {Favourites} from './components/Favourites/Favourites';
+import {BurgerMenu} from './components/BurgerMenu';
 
 export const App: React.FC = () => {
   const [phones, setPhones] = useState<Phone[]>([]);
+  const [isBurgerActivated, setIsBurgerActivated] = useState<boolean>(false);
 
   console.log(phones);
 
@@ -25,12 +25,22 @@ export const App: React.FC = () => {
 
   return (
     <div className="App">
-      <Header />
+      <Header setIsBurgerActivated={setIsBurgerActivated} />
 
       <div className="sections">
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/phones" element={<MobilePhones />} />
+          <Route path="/favourites" element={<Favourites />} />
+          <Route
+            path="/menu"
+            element={
+              <BurgerMenu
+                isBurger={isBurgerActivated}
+                setIsBurger={setIsBurgerActivated}
+              />
+            }
+          />
           <Route path="home" element={<Navigate to="/" replace />} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>

@@ -1,5 +1,5 @@
-import { ArrowLeft } from '../ArrowLeft';
-import { ArrowRight } from '../ArrowRight';
+import {ArrowLeft} from '../ArrowLeft';
+import {ArrowRight} from '../ArrowRight';
 import styles from '../Pagination/Pagination.module.scss';
 
 export const Pagination: React.FC = () => {
