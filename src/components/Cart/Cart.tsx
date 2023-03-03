@@ -1,26 +1,43 @@
 import './Cart.scss';
-import {useState} from 'react';
+import {useCallback, useState} from 'react';
 import {cartItem} from '../../types/types';
 import {CartItem} from '../CartItem/CartItem';
 
 export const Cart = () => {
   const [isCartExist] = useState<string | null>(localStorage.getItem('Cart'));
+  const [cartItems] = useState<cartItem[]>([]);
+  // const [visibleItemsIds, setVisibleItemsIds] = useState<string[]>([]);
 
-  const cartItems = isCartExist === null ? null : JSON.parse(isCartExist);
+  // useEffect(() => {
+  //   setCartItems(isCartExist === null
+  //     ? null
+  //     : JSON.parse(isCartExist));
+  //
+  //   cartItems.forEach((item) => {
+  //     setVisibleItemsIds(prevState => {
+  //       prevState.push(item.id);
+  //
+  //       return prevState;
+  //     });
+  //   });
+  //   console.log(visibleItemsIds);
+  // }, []);
 
-  const handleDelete = (id: string) => {
+  const handleDelete = useCallback((id: string) => {
     const cartItemToDelete = cartItems.find(
       (cartItem: cartItem) => cartItem.id === id
     );
 
-    cartItems.splice(cartItems.indexOf(cartItemToDelete), 1);
+    if (cartItemToDelete !== undefined) {
+      cartItems.splice(cartItems.indexOf(cartItemToDelete), 1);
+    }
 
     localStorage.setItem('Cart', JSON.stringify(cartItems));
 
     if (cartItems.length === 0) {
       localStorage.removeItem('Cart');
     }
-  };
+  }, [cartItems]);
 
   return (
     <div className="cart">
@@ -31,18 +48,20 @@ export const Cart = () => {
 
             <div className="cart-main">
               <section className="cart__items">
-                {cartItems.map((cartItem: cartItem) => (
-                  <CartItem
-                    cartItem={cartItem}
-                    handleDelete={handleDelete}
-                    key={cartItem.id}
-                  />
-                ))}
+                {cartItems.map((cartItem: cartItem) => {
+                  return (
+                    <CartItem
+                      cartItem={cartItem}
+                      handleDelete={handleDelete}
+                      key={cartItem.id}
+                    />
+                  );
+                })}
               </section>
 
               <div className="cart__total">
                 <h1 className="cart__total-title">
-                  $2657
+                  0
                 </h1>
 
                 <h1 className="cart__total-subtitle">

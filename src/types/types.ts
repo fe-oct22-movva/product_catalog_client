@@ -32,4 +32,5 @@ export interface cartItem {
   img: string;
   name: string;
   price: number;
+  amount: number;
 }

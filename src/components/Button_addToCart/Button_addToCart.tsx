@@ -2,7 +2,7 @@ import styles from '../Button_addToCart/Button_addToCart.module.scss';
 
 import likeEmpty from '../../assets/images/icons/like-empty.png';
 import likeYellow from '../../assets/images/icons/like-yellow.png';
-import React, {useState} from 'react';
+import React, {useCallback, useState} from 'react';
 
 interface Props {
   id: string;
@@ -14,12 +14,13 @@ interface Props {
 export const Button_addToCart: React.FC<Props> = ({id, img, name, price}) => {
   const [isLike, setIsLike] = useState(false);
 
-  const handleAddToCart = () => {
+  const handleAddToCart = useCallback(() => {
     const data = {
       id,
       img,
       name,
       price,
+      amount: 1,
     };
 
     const existingPhonesFromLocalStorage = localStorage.getItem('Cart');
@@ -35,7 +36,7 @@ export const Button_addToCart: React.FC<Props> = ({id, img, name, price}) => {
     phonesFromLocalStorageToObj.push(data);
 
     localStorage.setItem('Cart', JSON.stringify(phonesFromLocalStorageToObj));
-  };
+  }, []);
 
   const handeLike = () => {
     setIsLike(!isLike);
