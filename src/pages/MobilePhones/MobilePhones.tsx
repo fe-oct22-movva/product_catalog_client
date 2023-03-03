@@ -1,4 +1,5 @@
 import styles from './MobilePhones.module.scss';
+import gold from '../../assets/images/phones/gold.jpg'
 
 // import React, {useEffect, useState} from 'react';
 import {Pagination} from '../../components/Pagination';
@@ -46,72 +47,72 @@ export const MobilePhones: React.FC = () => {
             ))} */}
 
             <ProductCardSingle
-              imgUrl=""
-              name="{phone.name}"
-              price={2}
-              screen="{phone.screen}"
-              capacity="{phone.capacity}"
-              ram="{phone.ram}"
+              imgUrl={gold}
+              name="Apple iPhone 14 Pro 128GB Silver (MQ023)"
+              price={999}
+              screen="6.1” OLED"
+              capacity="128 GB"
+              ram="6 GB"
             />
           </div>
           <div className={styles.catalog__item}>
             <ProductCardSingle
-              imgUrl=""
-              name="{phone.name}"
-              price={2}
-              screen="{phone.screen}"
-              capacity="{phone.capacity}"
-              ram="{phone.ram}"
+              imgUrl={gold}
+              name="Apple iPhone 14 Pro 128GB Silver (MQ023)"
+              price={999}
+              screen="6.1” OLED"
+              capacity="128 GB"
+              ram="6 GB"
             />
           </div>
           <div className={styles.catalog__item}>
             <ProductCardSingle
-              imgUrl=""
-              name="{phone.name}"
-              price={2}
-              screen="{phone.screen}"
-              capacity="{phone.capacity}"
-              ram="{phone.ram}"
+              imgUrl={gold}
+              name="Apple iPhone 14 Pro 128GB Silver (MQ023)"
+              price={999}
+              screen="6.1” OLED"
+              capacity="128 GB"
+              ram="6 GB"
             />
           </div>
           <div className={styles.catalog__item}>
             <ProductCardSingle
-              imgUrl=""
-              name="{phone.name}"
-              price={2}
-              screen="{phone.screen}"
-              capacity="{phone.capacity}"
-              ram="{phone.ram}"
+              imgUrl={gold}
+              name="Apple iPhone 14 Pro 128GB Silver (MQ023)"
+              price={999}
+              screen="6.1” OLED"
+              capacity="128 GB"
+              ram="6 GB"
             />
           </div>
           <div className={styles.catalog__item}>
             <ProductCardSingle
-              imgUrl=""
-              name="{phone.name}"
-              price={2}
-              screen="{phone.screen}"
-              capacity="{phone.capacity}"
-              ram="{phone.ram}"
+              imgUrl={gold}
+              name="Apple iPhone 14 Pro 128GB Silver (MQ023)"
+              price={999}
+              screen="6.1” OLED"
+              capacity="128 GB"
+              ram="6 GB"
             />
           </div>
           <div className={styles.catalog__item}>
             <ProductCardSingle
-              imgUrl=""
-              name="{phone.name}"
-              price={2}
-              screen="{phone.screen}"
-              capacity="{phone.capacity}"
-              ram="{phone.ram}"
+              imgUrl={gold}
+              name="Apple iPhone 14 Pro 128GB Silver (MQ023)"
+              price={999}
+              screen="6.1” OLED"
+              capacity="128 GB"
+              ram="6 GB"
             />
           </div>
           <div className={styles.catalog__item}>
             <ProductCardSingle
-              imgUrl=""
-              name="{phone.name}"
-              price={2}
-              screen="{phone.screen}"
-              capacity="{phone.capacity}"
-              ram="{phone.ram}"
+              imgUrl={gold}
+              name="Apple iPhone 14 Pro 128GB Silver (MQ023)"
+              price={999}
+              screen="6.1” OLED"
+              capacity="128 GB"
+              ram="6 GB"
             />
           </div>
         </div>

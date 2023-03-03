@@ -14,12 +14,12 @@ export const ItemsOnPage: React.FC = () => {
   return (
     <div
       className={`
-      ${styles.sortBy}
+      ${styles.itemsOnPage}
       grid__item--mobile-3-4
       grid__item--tablet-5-7 
-      grid__item--desctop-57
+      grid__item--desctop-5-7
     `}>
-      <p className={styles.sortBy__description}>Items on page</p>
+      <p className={styles.itemsOnPage__description}>Items on page</p>
 
       <div className={styles.dropdown}>
         <button className={styles.dropdown__header} onClick={handleItemsOnPage}>
