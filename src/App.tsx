@@ -13,7 +13,7 @@ import {BurgerMenu} from './components/BurgerMenu';
 import {Cart} from './components/Cart/Cart';
 
 export const App: React.FC = () => {
-  const [phones, setPhones] = useState<Phone[]>([]);
+  // const [phones, setPhones] = useState<Phone[]>([]);
   const [isBurgerActivated, setIsBurgerActivated] = useState<boolean>(false);
 
   useEffect(() => {

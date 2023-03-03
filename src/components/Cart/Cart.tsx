@@ -5,12 +5,12 @@ import {CartItem} from '../CartItem/CartItem';
 
 export const Cart = () => {
   const [isCartExist] = useState<string | null>(localStorage.getItem('Cart'));
-  const [deletedItem, setDeletedItem] = useState<string>('0');
+  // const [deletedItem, setDeletedItem] = useState<string>('0');
 
   const cartItems = isCartExist === null ? null : JSON.parse(isCartExist);
 
   const handleDelete = (id: string) => {
-    setDeletedItem(id);
+    // setDeletedItem(id);
     const cartItemToDelete = cartItems.find(
       (cartItem: cartItem) => cartItem.id === id
     );
