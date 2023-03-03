@@ -3,21 +3,15 @@ import styles from '../Button_addToCart/Button_addToCart.module.scss';
 import likeEmpty from '../../assets/images/icons/like-empty.png';
 import React, {useCallback, useState} from 'react';
 import likeYellow from '../../assets/images/icons/like-yellow.png';
-import {Phone} from '../../types/types';
 
 interface Props {
-  id: string,
-  img: string,
-  price: number
-  name: string,
+  id: string;
+  img: string;
+  price: number;
+  name: string;
 }
 
-export const Button_addToCart: React.FC<Props> = ({
-  id,
-  img,
-  price,
-  name,
-}) => {
+export const Button_addToCart: React.FC<Props> = ({id, img, price, name}) => {
   const [isLike, setIsLike] = useState(false);
 
   const handleAddToCart = useCallback(() => {
@@ -49,7 +43,7 @@ export const Button_addToCart: React.FC<Props> = ({
       id,
       img,
       name,
-      price
+      price,
     };
 
     setIsLike(!isLike);

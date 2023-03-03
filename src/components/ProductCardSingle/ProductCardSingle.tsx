@@ -4,7 +4,7 @@ import React from 'react';
 import {Button_addToCart} from '../Button_addToCart';
 
 interface Props {
-  id:string,
+  id: string;
   img: string;
   name: string;
   price: number;
@@ -55,12 +55,7 @@ export const ProductCardSingle: React.FC<Props> = ({
         </div>
       </div>
 
-      <Button_addToCart
-        id={id}
-        img={img}
-        price={price}
-        name={name}
-      />
+      <Button_addToCart id={id} img={img} price={price} name={name} />
     </div>
   );
 };

@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import './Cards.scss';
 
 import gold from '../../assets/images/phones/gold.jpg';
-import { CardHomePage } from './CardHomePage';
+import {CardHomePage} from './CardHomePage';
 import arrowLeft from './images/arrowLeftDef.png';
 import arrowRight from './images/arrowRigthDef.png';
 

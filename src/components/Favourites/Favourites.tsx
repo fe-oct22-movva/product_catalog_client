@@ -1,6 +1,6 @@
 import './Favourites.scss';
 import {ProductCardSingle} from '../ProductCardSingle';
-import {favouriteItem, Phone} from '../../types/types';
+import {favouriteItem} from '../../types/types';
 import {useEffect, useState} from 'react';
 //import {Breadcrumbs} from '../Breadcrumbs';
 
