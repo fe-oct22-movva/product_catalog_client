@@ -17,13 +17,15 @@ export const ShopByCategory: React.FC = () => {
               grid__item
               grid__item--tablet-1-4
               grid__item--desktop-1-8">
-            <CategoryCard
-              imageUrl={Phones}
-              imageAlt="Mobile phones category"
-              categoryName="Mobile phones"
-              numOfModels="95 models"
-              categoryLink="#"
-            />
+            <a href="/#/phones">
+              <CategoryCard
+                imageUrl={Phones}
+                imageAlt="Mobile phones category"
+                categoryName="Mobile phones"
+                numOfModels="95 models"
+                categoryLink="/#/phones"
+              />
+            </a>
           </div>
 
           <div

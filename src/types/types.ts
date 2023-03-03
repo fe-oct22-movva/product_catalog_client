@@ -26,3 +26,11 @@ export interface serverResponse {
   prev: NextAndPrev;
   result: Phone[];
 }
+
+export interface cartItem {
+  id: string;
+  img: string;
+  name: string;
+  price: number;
+  amount: number;
+}

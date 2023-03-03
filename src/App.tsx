@@ -8,6 +8,7 @@ import {PageNotFound} from './components/PageNotFound';
 import {MobilePhones} from './pages/MobilePhones';
 import {Favourites} from './components/Favourites/Favourites';
 import {BurgerMenu} from './components/BurgerMenu';
+import {Cart} from './components/Cart/Cart';
 import {Phone} from './types/types';
 import {getPhones} from './api/phones';
 
@@ -32,6 +33,7 @@ export const App: React.FC = () => {
           <Route path="/" element={<HomePage />} />
           <Route path="/phones" element={<MobilePhones />} />
           <Route path="/favourites" element={<Favourites />} />
+          <Route path="/cart" element={<Cart />} />
           <Route
             path="/menu"
             element={
