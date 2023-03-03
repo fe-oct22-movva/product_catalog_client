@@ -2,16 +2,15 @@ import styles from '../ProductCardSingle/ProductCardSingle.module.scss';
 import React from 'react';
 
 import {Button_addToCart} from '../Button_addToCart';
-import {Phone} from '../../types/types';
 
 interface Props {
-  img: string,
-  name: string,
-  price: number,
-  fullPrice: number,
-  screen: string,
-  capacity: string,
-  ram: string,
+  img: string;
+  name: string;
+  price: number;
+  fullPrice: number;
+  screen: string;
+  capacity: string;
+  ram: string;
 }
 
 export const ProductCardSingle: React.FC<Props> = ({
@@ -35,7 +34,6 @@ export const ProductCardSingle: React.FC<Props> = ({
 
       <div className={styles.card__prices}>
         <p className={styles.card__price}>{price}</p>
-
         <p className={styles.card__fullprice}>{fullPrice}</p>
       </div>
 

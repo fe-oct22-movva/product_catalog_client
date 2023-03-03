@@ -1,15 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import styles from './MobilePhones.module.scss';
 
-import { Pagination } from '../../components/Pagination';
-import { ProductCardSingle } from '../../components/ProductCardSingle';
-import { SortBy } from '../../components/SortBy/SortBy';
-import { ItemsOnPage } from '../../components/ItemsOnPage/ItemsOnPage';
+import {Pagination} from '../../components/Pagination';
+import {ProductCardSingle} from '../../components/ProductCardSingle';
+import {SortBy} from '../../components/SortBy/SortBy';
+import {ItemsOnPage} from '../../components/ItemsOnPage/ItemsOnPage';
 
-import { Phone } from '../../types/types';
-import { getPhones } from '../../api/phones';
-import { Breadcrumbs } from '../../components/Breadcrumbs';
-import { CardHomePage } from '../../components/ProductCard/CardHomePage';
+import {Phone} from '../../types/types';
+import {getPhones} from '../../api/phones';
+import {Breadcrumbs} from '../../components/Breadcrumbs';
+import {CardHomePage} from '../../components/ProductCard/CardHomePage';
 
 export const MobilePhones: React.FC = () => {
   const [phones, setPhones] = useState<Phone[]>([]);
@@ -52,7 +52,7 @@ export const MobilePhones: React.FC = () => {
 
         <div className={styles.catalog}>
           <CardHomePage
-            img='https://fe-oct22-movva.github.io/product_catalog_client/assets/gold-c923c67c.jpg'
+            img="https://fe-oct22-movva.github.io/product_catalog_client/assets/gold-c923c67c.jpg"
             name={'Test product'}
             price={'$859'}
             screen={'6.7” OLED'}
