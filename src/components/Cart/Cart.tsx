@@ -10,7 +10,6 @@ export const Cart = () => {
   const cartItems = isCartExist === null ? null : JSON.parse(isCartExist);
 
   const handleDelete = (id: string) => {
-    // setDeletedItem(id);
     const cartItemToDelete = cartItems.find(
       (cartItem: cartItem) => cartItem.id === id
     );

@@ -8,7 +8,7 @@ interface Props {
   setSelectedPhonesPerPage: (selectedPhonesPerPage: number) => void;
 }
 
-export const ItemsOnPage: React.FC<Props> = ({ setSelectedPhonesPerPage }) => {
+export const ItemsOnPage: React.FC<Props> = ({setSelectedPhonesPerPage}) => {
   const [isItemsOnPageOpen, setIsItemsOnPageOpen] = useState(false);
 
   const handleItemsOnPage = () => {
@@ -41,8 +41,7 @@ export const ItemsOnPage: React.FC<Props> = ({ setSelectedPhonesPerPage }) => {
               <button
                 key={option}
                 className={styles.dropdown__option}
-                onClick={() => setSelectedPhonesPerPage(option)}
-              >
+                onClick={() => setSelectedPhonesPerPage(option)}>
                 {option}
               </button>
             ))}

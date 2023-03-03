@@ -8,7 +8,7 @@ interface Props {
   setSelectedSortBy: (selectedSortBy: string) => void;
 }
 
-export const SortBy: React.FC<Props> = ({ setSelectedSortBy }) => {
+export const SortBy: React.FC<Props> = ({setSelectedSortBy}) => {
   const [isSortByOpen, setIsSortByOpen] = useState(false);
 
   const handleSortBy = () => {
@@ -29,10 +29,8 @@ export const SortBy: React.FC<Props> = ({ setSelectedSortBy }) => {
 
       <div className={styles.dropdown}>
         <button className={styles.dropdown__header} onClick={handleSortBy}>
-          <div className={styles.dropdown__title}>
-            {options1[0]}
-          </div>
-          
+          <div className={styles.dropdown__title}>{options1[0]}</div>
+
           <img className={styles.dropdown__arrow} src={arrowDown} />
         </button>
 
@@ -44,8 +42,7 @@ export const SortBy: React.FC<Props> = ({ setSelectedSortBy }) => {
               <button
                 key={option}
                 className={styles.dropdown__option}
-                onClick={() => setSelectedSortBy(option)}
-              >
+                onClick={() => setSelectedSortBy(option)}>
                 {option}
               </button>
             ))}

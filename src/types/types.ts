@@ -20,8 +20,16 @@ export interface NextAndPrev {
 }
 
 export interface serverResponse {
+  totalPhones: number;
   next: NextAndPrev;
   pages: number;
   prev: NextAndPrev;
   result: Phone[];
+}
+
+export interface cartItem {
+  id: string;
+  img: string;
+  name: string;
+  price: number;
 }
