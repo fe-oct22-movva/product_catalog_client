@@ -12,7 +12,14 @@ export const Favourites = () => {
 
         <div className="favourites__items">
           <div className="favourites__item">
-            <ProductCardSingle imgUrl={goldMobile} capacity="256 Gb" name="Apple iphone pro 14" price="999$" ram="6 Gb" screen="6.5 OLED" />
+            <ProductCardSingle
+              imgUrl={goldMobile}
+              capacity="256 Gb"
+              name="Apple iphone pro 14"
+              price={999}
+              ram="6 Gb"
+              screen="6.5 OLED"
+            />
           </div>
         </div>
       </section>
