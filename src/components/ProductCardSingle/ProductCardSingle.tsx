@@ -2,27 +2,39 @@ import styles from '../ProductCardSingle/ProductCardSingle.module.scss';
 import React from 'react';
 
 import {Button_addToCart} from '../Button_addToCart';
-import {Phone} from '../../types/types';
 
 interface Props {
-  phone: Phone;
+  img: string;
+  name: string;
+  price: number;
+  fullPrice: number;
+  screen: string;
+  capacity: string;
+  ram: string;
 }
 
-export const ProductCardSingle: React.FC<Props> = ({phone}) => {
+export const ProductCardSingle: React.FC<Props> = ({
+  img,
+  name,
+  price,
+  fullPrice,
+  screen,
+  capacity,
+  ram,
+}) => {
   return (
     <div className={styles.card}>
-      <img className={styles.card__icon} src={phone.image} />
+      <img className={styles.card__icon} src={img} />
 
       <h3 className={styles.card__title}>
         <a href="#" className={styles.card__link}>
-          {phone.name}
+          {name}
         </a>
       </h3>
 
       <div className={styles.card__prices}>
-        <p className={styles.card__price}>{`$${phone.price}`}</p>
-
-        <p className={styles.card__fullprice}>{`$${phone.fullPrice}`}</p>
+        <p className={styles.card__price}>{price}</p>
+        <p className={styles.card__fullprice}>{fullPrice}</p>
       </div>
 
       <p className={styles.card__breakLine}></p>
@@ -35,17 +47,17 @@ export const ProductCardSingle: React.FC<Props> = ({phone}) => {
         </div>
 
         <div className={styles.card__chars}>
-          <p className={styles.card__info}>{phone.screen}</p>
-          <p className={styles.card__info}>{phone.capacity}</p>
-          <p className={styles.card__info}>{phone.ram}</p>
+          <p className={styles.card__info}>{screen}</p>
+          <p className={styles.card__info}>{capacity}</p>
+          <p className={styles.card__info}>{ram}</p>
         </div>
       </div>
 
       <Button_addToCart
-        id={phone.id}
-        img={phone.image}
-        price={phone.price}
-        name={phone.name}
+        id={id}
+        img={image}
+        price={price}
+        name={name}
       />
     </div>
   );

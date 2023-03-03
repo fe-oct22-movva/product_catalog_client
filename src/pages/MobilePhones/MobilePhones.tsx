@@ -6,9 +6,10 @@ import {ProductCardSingle} from '../../components/ProductCardSingle';
 import {SortBy} from '../../components/SortBy/SortBy';
 import {ItemsOnPage} from '../../components/ItemsOnPage/ItemsOnPage';
 
-import { Phone } from '../../types/types';
-import { getPhones } from '../../api/phones';
-import { Breadcrumbs } from '../../components/Breadcrumbs';
+import {Phone} from '../../types/types';
+import {getPhones} from '../../api/phones';
+import {Breadcrumbs} from '../../components/Breadcrumbs';
+import {CardHomePage} from '../../components/ProductCard/CardHomePage';
 
 export const MobilePhones: React.FC = () => {
   const [phones, setPhones] = useState<Phone[]>([]);
@@ -50,9 +51,26 @@ export const MobilePhones: React.FC = () => {
         </div>
 
         <div className={styles.catalog}>
+          <CardHomePage
+            img="https://fe-oct22-movva.github.io/product_catalog_client/assets/gold-c923c67c.jpg"
+            name={'Test product'}
+            price={'$859'}
+            screen={'6.7” OLED'}
+            capacity={'128 GB'}
+            ram={'6 GB'}
+          />
+
           {phones.map((phone) => (
             <div key={phone.id} className={styles.catalog__item}>
-              <ProductCardSingle phone={phone} />
+              <ProductCardSingle
+                img={phone.image}
+                name={phone.name}
+                price={phone.price}
+                fullPrice={phone.fullPrice}
+                screen={phone.screen}
+                capacity={phone.capacity}
+                ram={phone.ram}
+              />
             </div>
           ))}
         </div>
