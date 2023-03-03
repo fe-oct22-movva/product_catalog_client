@@ -6,9 +6,10 @@ import {ProductCardSingle} from '../../components/ProductCardSingle';
 import {SortBy} from '../../components/SortBy/SortBy';
 import {ItemsOnPage} from '../../components/ItemsOnPage/ItemsOnPage';
 
-import {Phone} from '../../types/types';
-import {getPhones} from '../../api/phones';
-import {Breadcrumbs} from '../../components/Breadcrumbs';
+import { Phone } from '../../types/types';
+import { getPhones } from '../../api/phones';
+import { Breadcrumbs } from '../../components/Breadcrumbs';
+
 import {CardHomePage} from '../../components/ProductCard/CardHomePage';
 
 export const MobilePhones: React.FC = () => {

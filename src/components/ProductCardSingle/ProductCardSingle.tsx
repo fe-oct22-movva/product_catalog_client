@@ -1,6 +1,7 @@
 import styles from '../ProductCardSingle/ProductCardSingle.module.scss';
 import React from 'react';
 
+import {Phone} from '../../types/types';
 import {Button_addToCart} from '../Button_addToCart';
 
 interface Props {

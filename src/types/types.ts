@@ -29,8 +29,8 @@ export interface serverResponse {
 
 export interface cartItem {
   id: string;
-  img: string;
+  image: string;
   name: string;
-  price: number;
   amount: number;
+  price: number;
 }
