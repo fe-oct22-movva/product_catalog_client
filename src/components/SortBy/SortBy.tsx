@@ -2,9 +2,13 @@ import {useState} from 'react';
 import styles from '../SortBy/SortBy.module.scss';
 import arrowDown from '../../assets/images/ArrowDown.svg';
 
-const options1 = ['Newest', 'Lowest price', 'Highest price'];
+const options1 = ['Newest', 'Alphabetically', 'Cheapest'];
 
-export const SortBy: React.FC = () => {
+interface Props {
+  setSelectedSortBy: (selectedSortBy: string) => void;
+}
+
+export const SortBy: React.FC<Props> = ({ setSelectedSortBy }) => {
   const [isSortByOpen, setIsSortByOpen] = useState(false);
 
   const handleSortBy = () => {
@@ -25,7 +29,10 @@ export const SortBy: React.FC = () => {
 
       <div className={styles.dropdown}>
         <button className={styles.dropdown__header} onClick={handleSortBy}>
-          <div className={styles.dropdown__title}>{options1[0]}</div>
+          <div className={styles.dropdown__title}>
+            {options1[0]}
+          </div>
+          
           <img className={styles.dropdown__arrow} src={arrowDown} />
         </button>
 
@@ -34,7 +41,11 @@ export const SortBy: React.FC = () => {
         ) : (
           <div className={styles.dropdown__items}>
             {options1.map((option) => (
-              <button className={styles.dropdown__option} key={option}>
+              <button
+                key={option}
+                className={styles.dropdown__option}
+                onClick={() => setSelectedSortBy(option)}
+              >
                 {option}
               </button>
             ))}

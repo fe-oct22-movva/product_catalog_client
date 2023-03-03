@@ -1,15 +1,15 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import {Header} from './components/HomePage/Header';
 import {Footer} from './components/Footer';
 import {HomePage} from './components/HomePage/HomePage';
 import {Route, Routes, Navigate} from 'react-router-dom';
 import './styles/main.scss';
 import {PageNotFound} from './components/PageNotFound';
-import {Phone} from './types/Phone';
-import {getPhones} from './api/phones';
 import {MobilePhones} from './pages/MobilePhones';
 import {Favourites} from './components/Favourites/Favourites';
 import {BurgerMenu} from './components/BurgerMenu';
+import { Phone } from './types/types';
+import { getPhones } from './api/phones';
 
 export const App: React.FC = () => {
   const [phones, setPhones] = useState<Phone[]>([]);
@@ -19,7 +19,7 @@ export const App: React.FC = () => {
 
   useEffect(() => {
     getPhones()
-      .then(setPhones)
+      .then((data) => setPhones(data.result))
       .catch((error: string) => console.log(error));
   }, []);
 

@@ -43,15 +43,28 @@
     }
   }
 
+  &__prices {
+    display: flex;
+    margin-bottom: 8px;
+  }
+
   &__price {
     position: relative;
-    margin-bottom: 8px;
+    margin-right: 8px;
 
     font-weight: 800;
     font-size: 22px;
     line-height: 30px;
 
     color: #0f0f11;
+  }
+
+  &__fullprice {
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 28px;
+    text-decoration-line: line-through;
+    color: #89939a;
   }
 
   &__breakLine {
