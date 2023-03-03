@@ -5,7 +5,6 @@ import {HomePage} from './components/HomePage/HomePage';
 import {Route, Routes, Navigate} from 'react-router-dom';
 import './styles/main.scss';
 import {PageNotFound} from './components/PageNotFound';
-import {Phone} from './types/types';
 import {getPhones} from './api/phones';
 import {MobilePhones} from './pages/MobilePhones';
 import {Favourites} from './components/Favourites/Favourites';
