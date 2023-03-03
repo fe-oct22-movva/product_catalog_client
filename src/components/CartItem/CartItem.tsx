@@ -10,10 +10,7 @@ interface Props {
   handleDelete: (id: string) => void;
 }
 
-export const CartItem: React.FC<Props> = ({
-  cartItem,
-  handleDelete,
-}) => {
+export const CartItem: React.FC<Props> = ({cartItem, handleDelete}) => {
   const handlePlus = () => {
     const existingPhonesFromLocalStorage = localStorage.getItem('Cart');
     const phonesFromLocalStorageToObj
@@ -22,13 +19,18 @@ export const CartItem: React.FC<Props> = ({
         : null;
 
     if (phonesFromLocalStorageToObj) {
-      const phoneInclude = phonesFromLocalStorageToObj.find((phone: Phone) => phone.id === cartItem.id);
+      const phoneInclude = phonesFromLocalStorageToObj.find(
+        (phone: Phone) => phone.id === cartItem.id
+      );
       const phoneIndex = phonesFromLocalStorageToObj.indexOf(phoneInclude);
 
       if (phoneInclude) {
         phonesFromLocalStorageToObj[phoneIndex].amount++;
 
-        localStorage.setItem('Cart', JSON.stringify(phonesFromLocalStorageToObj));
+        localStorage.setItem(
+          'Cart',
+          JSON.stringify(phonesFromLocalStorageToObj)
+        );
       }
     }
   };
@@ -59,14 +61,9 @@ export const CartItem: React.FC<Props> = ({
             <img src={minus} alt="minus item" />
           </button>
 
-          <p className="cart__item-price__count-value">
-            {cartItem.amount}
-          </p>
+          <p className="cart__item-price__count-value">{cartItem.amount}</p>
 
-          <button
-            className="cart__item-price__count-plus"
-            onClick={handlePlus}
-          >
+          <button className="cart__item-price__count-plus" onClick={handlePlus}>
             <img src={plus} alt="plus item" />
           </button>
         </div>
