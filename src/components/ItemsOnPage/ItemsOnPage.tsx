@@ -4,7 +4,11 @@ import arrowDown from '../../assets/images/ArrowDown.svg';
 
 const options2 = [12, 16, 20];
 
-export const ItemsOnPage: React.FC = () => {
+interface Props {
+  setSelectedPhonesPerPage: (selectedPhonesPerPage: number) => void;
+}
+
+export const ItemsOnPage: React.FC<Props> = ({ setSelectedPhonesPerPage }) => {
   const [isItemsOnPageOpen, setIsItemsOnPageOpen] = useState(false);
 
   const handleItemsOnPage = () => {
@@ -34,7 +38,11 @@ export const ItemsOnPage: React.FC = () => {
         ) : (
           <div className={styles.dropdown__items}>
             {options2.map((option) => (
-              <button className={styles.dropdown__option} key={option}>
+              <button
+                key={option}
+                className={styles.dropdown__option}
+                onClick={() => setSelectedPhonesPerPage(option)}
+              >
                 {option}
               </button>
             ))}

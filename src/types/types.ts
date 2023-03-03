@@ -13,3 +13,16 @@ export interface Phone {
   year: number;
   image: string;
 }
+
+export interface NextAndPrev {
+  page: number;
+  limit: number;
+}
+
+export interface serverResponse {
+  totalPhones: number;
+  next: NextAndPrev;
+  pages: number;
+  prev: NextAndPrev;
+  result: Phone[];
+}
