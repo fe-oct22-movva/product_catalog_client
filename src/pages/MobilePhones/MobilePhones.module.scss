@@ -22,72 +22,23 @@
 
 .filter {
   margin-bottom: 24px;
-
-  &__sortBy {
-    display: inline-block;
-    margin-right: 16px;
-    min-width: 100px;
-
-    &__description {
-      font-weight: 700;
-      font-size: 12px;
-      line-height: 15px;
-      color: $secondary;
-
-      margin-bottom: 4px;
-    }
-  }
-}
-
-.dropdown {
-  min-width: 128px;
-
-  &__header {
-    width: 100%;
-    min-height: 40px;
-    display: block;
-    border: 1px solid #b4bdc4;
-    border-radius: 8px;
-    margin-bottom: 4px;
-  }
-
-  &__title {
-    text-align: left;
-    padding: 0 12px;
-    font-weight: 700;
-    font-size: 14px;
-    line-height: 21px;
-    color: #0f0f11;
-  }
-
-  &__items {
-    width: 100%;
-    background: #ffffff;
-    border: 1px solid #e2e6e9;
-    box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.05);
-    border-radius: 8px;
-    padding: 8px 12px;
-  }
-
-  &__option {
-    display: block;
-    text-align: left;
-    height: 32px;
-  }
 }
 
 .catalog {
   display: grid;
   justify-content: center;
   align-items: center;
-  grid-template-columns: repeat(auto-fill, minmax(229px, 1fr));
   gap: 40px 16px;
 
-  &__item {
-    display: flex;
-    justify-content: center;
+  @include onTablet {
+    grid-template-columns: repeat(auto-fill, minmax(229px, 1fr));
+  }
 
-    box-sizing: border-box;
+  @include onDesktop {
+    grid-template-columns: repeat(auto-fill, minmax(229px, 1fr));
+  }
+
+  &__item {
     width: 100%;
     max-width: 288px;
 
