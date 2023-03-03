@@ -2,6 +2,8 @@
 @import '../../styles/normalize';
 
 .cart {
+  padding-bottom: 56px;
+
   &__title {
     font-family: Mont_Bold, sans-serif;
     font-weight: 800;
@@ -22,5 +24,69 @@
 
   &__items {
     margin-bottom: 32px;
+  }
+
+  &__total {
+    border: 1px solid #E2E6E9;
+    border-radius: 16px;
+    padding: 24px;
+
+    @include onDesktop {
+      width: 368px;
+      height: 206px;
+    }
+
+    &-title {
+      font-weight: 800;
+      font-size: 32px;
+      line-height: 41px;
+
+      text-align: center;
+      letter-spacing: -0.01em;
+
+      color: #0F0F11;
+    }
+
+    &-subtitle {
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 21px;
+
+      text-align: center;
+
+      color: #89939A;
+      border-bottom: 1px solid #E2E6E9;
+
+      padding-bottom: 16px;
+      margin-bottom: 16px;
+    }
+
+    &-checkout {
+      width: 100%;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 21px;
+
+      text-align: center;
+
+      color: #FFFFFF;
+
+      padding: 14px 86px;
+
+      background: #4219D0;
+      border-radius: 48px;
+    }
+  }
+
+  &-main {
+    @include onDesktop {
+      display: flex;
+      gap: 16px;
+    }
   }
 }

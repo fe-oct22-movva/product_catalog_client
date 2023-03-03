@@ -5,7 +5,6 @@ import {CartItem} from '../CartItem/CartItem';
 
 export const Cart = () => {
   const [isCartExist] = useState<string | null>(localStorage.getItem('Cart'));
-  // const [deletedItem, setDeletedItem] = useState<string>('0');
 
   const cartItems = isCartExist === null ? null : JSON.parse(isCartExist);
 
@@ -27,19 +26,35 @@ export const Cart = () => {
     <div className="cart">
       <div className="main-container">
         {isCartExist ? (
-          <div>
+          <>
             <h1 className="cart__title">Cart</h1>
 
-            <section className="cart__items">
-              {cartItems.map((cartItem: cartItem) => (
-                <CartItem
-                  cartItem={cartItem}
-                  handleDelete={handleDelete}
-                  key={cartItem.id}
-                />
-              ))}
-            </section>
-          </div>
+            <div className="cart-main">
+              <section className="cart__items">
+                {cartItems.map((cartItem: cartItem) => (
+                  <CartItem
+                    cartItem={cartItem}
+                    handleDelete={handleDelete}
+                    key={cartItem.id}
+                  />
+                ))}
+              </section>
+
+              <div className="cart__total">
+                <h1 className="cart__total-title">
+                  $2657
+                </h1>
+
+                <h1 className="cart__total-subtitle">
+                  Total for 3 items
+                </h1>
+
+                <button className="cart__total-checkout">
+                  Checkout
+                </button>
+              </div>
+            </div>
+          </>
         ) : (
           <h1>No content yet</h1>
         )}
