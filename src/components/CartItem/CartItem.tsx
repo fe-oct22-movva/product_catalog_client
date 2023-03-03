@@ -47,7 +47,7 @@ export const CartItem: React.FC<Props> = ({cartItem, handleDelete}) => {
         </button>
 
         <img
-          src={cartItem.img}
+          src={cartItem.image}
           className="cart__item-phone__photo"
           alt="phone"
         />

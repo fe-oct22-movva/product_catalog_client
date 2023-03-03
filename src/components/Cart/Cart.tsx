@@ -9,9 +9,7 @@ export const Cart = () => {
   // const [visibleItemsIds, setVisibleItemsIds] = useState<string[]>([]);
 
   useEffect(() => {
-    setCartItems(isCartExist === null
-      ? null
-      : JSON.parse(isCartExist));
+    setCartItems(isCartExist === null ? null : JSON.parse(isCartExist));
   }, []);
 
   const handleDelete = useCallback(

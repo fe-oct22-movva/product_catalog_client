@@ -3,21 +3,26 @@ import styles from '../Button_addToCart/Button_addToCart.module.scss';
 import likeEmpty from '../../assets/images/icons/like-empty.png';
 import likeYellow from '../../assets/images/icons/like-yellow.png';
 import React, {useCallback, useState} from 'react';
+import {Phone} from '../../types/types';
 
 interface Props {
-  id: string;
-  img: string;
-  name: string;
-  price: number;
+  phone: Phone;
 }
 
-export const Button_addToCart: React.FC<Props> = ({id, img, name, price}) => {
+export const Button_addToCart: React.FC<Props> = ({phone}) => {
   const [isLike, setIsLike] = useState(false);
 
   const handleAddToCart = useCallback(() => {
+    const {
+      id,
+      image,
+      name,
+      price,
+    } = phone;
+
     const data = {
       id,
-      img,
+      image,
       name,
       price,
       amount: 1,
@@ -38,9 +43,23 @@ export const Button_addToCart: React.FC<Props> = ({id, img, name, price}) => {
     localStorage.setItem('Cart', JSON.stringify(phonesFromLocalStorageToObj));
   }, []);
 
-  const handeLike = () => {
+  const handleLike = useCallback(() => {
     setIsLike(!isLike);
-  };
+
+    const existingPhonesFromLocalStorage = localStorage.getItem('Favourites');
+    const phonesFromLocalStorageToObj
+      = existingPhonesFromLocalStorage !== null
+        ? JSON.parse(existingPhonesFromLocalStorage)
+        : null;
+
+    if (!phonesFromLocalStorageToObj) {
+      localStorage.setItem('Favourites', JSON.stringify([phone]));
+    }
+
+    phonesFromLocalStorageToObj.push(phone);
+
+    localStorage.setItem('Favourites', JSON.stringify(phonesFromLocalStorageToObj));
+  }, []);
 
   return (
     <div className={styles.addToCart}>
@@ -49,7 +68,7 @@ export const Button_addToCart: React.FC<Props> = ({id, img, name, price}) => {
       </button>
 
       <div className={styles.addToCart}>
-        <button className={styles.addToCart__like} onClick={handeLike}>
+        <button className={styles.addToCart__like} onClick={handleLike} >
           {!isLike ? (
             <img src={likeEmpty} alt="Like" />
           ) : (
