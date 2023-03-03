@@ -1,14 +1,28 @@
+@import '../normalize';
+
 .aside-container {
+  &--burger {
+    @include onTablet {
+      display: none;
+    }
+  }
+
   &__list {
-    display: flex;
     flex-wrap: nowrap;
 
     list-style: none;
     padding: 0;
     margin: 0;
+
+    display: none;
+
+    @include onTablet {
+      display: flex;
+    }
   }
 
   &__item {
+    list-style: none;
     margin: 17px;
 
     @include onTablet {
