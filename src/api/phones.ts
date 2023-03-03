@@ -1,14 +1,12 @@
-import {client} from '../utils/fetchClient';
 import {serverResponse} from '../types/types';
+import {client} from '../utils/fetchClient';
 
 export const getPhones = () => {
   return client.get<serverResponse>('/phones');
 };
 
-export const getPhoneById = async (id: string) => {
-  const phones = await client.get<serverResponse>(`/phones/${id}`);
-
-  return phones || null;
+export const getPhoneById = (id: string) => {
+  return client.get<serverResponse>(`/phones/${id}`);
 };
 
 export const getNewestPhones = () => {

@@ -1,38 +1,33 @@
 import styles from '../ProductCardSingle/ProductCardSingle.module.scss';
 import React from 'react';
 
-import {Button_addToCart} from '../Button_addToCart';
+import { Button_addToCart } from '../Button_addToCart';
+import { Phone } from '../../types/types';
 
 interface Props {
-  id: string;
-  imgUrl: string;
-  name: string;
-  price: number;
-  screen: string;
-  capacity: string;
-  ram: string;
+  phone: Phone,
 }
 
-export const ProductCardSingle: React.FC<Props> = ({
-  id,
-  imgUrl,
-  name,
-  price,
-  screen,
-  capacity,
-  ram,
-}) => {
+export const ProductCardSingle: React.FC<Props> = ({ phone }) => {
   return (
     <div className={styles.card}>
-      <img className={styles.card__icon} src={imgUrl} />
+      <img className={styles.card__icon} src={phone.image} />
 
       <h3 className={styles.card__title}>
         <a href="#" className={styles.card__link}>
-          {name}
+          {phone.name}
         </a>
       </h3>
 
-      <p className={styles.card__price}>{price}$</p>
+      <div className={styles.card__prices}>
+        <p className={styles.card__price}>
+          {`$${phone.price}`}
+        </p>
+
+        <p className={styles.card__fullprice}>
+          {`$${phone.fullPrice}`}
+        </p>
+      </div>
 
       <p className={styles.card__breakLine}></p>
 
@@ -44,13 +39,13 @@ export const ProductCardSingle: React.FC<Props> = ({
         </div>
 
         <div className={styles.card__chars}>
-          <p className={styles.card__info}>{screen}</p>
-          <p className={styles.card__info}>{capacity}</p>
-          <p className={styles.card__info}>{ram}</p>
+          <p className={styles.card__info}>{phone.screen}</p>
+          <p className={styles.card__info}>{phone.capacity}</p>
+          <p className={styles.card__info}>{phone.ram}</p>
         </div>
       </div>
 
-      <Button_addToCart id={id} img={imgUrl} name={name} price={price} />
+      <Button_addToCart />
     </div>
   );
 };
