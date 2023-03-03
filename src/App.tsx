@@ -16,6 +16,8 @@ export const App: React.FC = () => {
   const [phones, setPhones] = useState<Phone[]>([]);
   const [isBurgerActivated, setIsBurgerActivated] = useState<boolean>(false);
 
+  console.log(phones);
+
   useEffect(() => {
     getPhones()
       .then((data) => setPhones(data.result))

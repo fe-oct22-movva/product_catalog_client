@@ -41,7 +41,12 @@ export const ProductCardSingle: React.FC<Props> = ({phone}) => {
         </div>
       </div>
 
-      <Button_addToCart id={phone.id} img={phone.image} price={phone.price} name={phone.name} />
+      <Button_addToCart
+        id={phone.id}
+        img={phone.image}
+        price={phone.price}
+        name={phone.name}
+      />
     </div>
   );
 };
