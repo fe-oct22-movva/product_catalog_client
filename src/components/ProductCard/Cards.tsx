@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import './Cards.scss';
 
 import gold from '../../assets/images/phones/gold.jpg';
-import { CardHomePage } from './CardHomePage';
+import {CardHomePage} from './CardHomePage';
 import arrowLeft from './images/arrowLeftDef.png';
 import arrowRight from './images/arrowRigthDef.png';
 
@@ -61,7 +61,6 @@ export const Cards: React.FC = () => {
       </div>
 
       <div className="flex" style={styles}>
-
         <CardHomePage
           img={gold}
           name={' Apple iPhone 14 Plus 128GB PRODUCT Red (MQ513)'}

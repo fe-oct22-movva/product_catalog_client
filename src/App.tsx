@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import {Header} from './components/HomePage/Header';
 import {Footer} from './components/Footer';
 import {HomePage} from './components/HomePage/HomePage';
@@ -8,8 +8,8 @@ import {PageNotFound} from './components/PageNotFound';
 import {MobilePhones} from './pages/MobilePhones';
 import {Favourites} from './components/Favourites/Favourites';
 import {BurgerMenu} from './components/BurgerMenu';
-import { Phone } from './types/types';
-import { getPhones } from './api/phones';
+import {Phone} from './types/types';
+import {getPhones} from './api/phones';
 
 export const App: React.FC = () => {
   const [phones, setPhones] = useState<Phone[]>([]);
