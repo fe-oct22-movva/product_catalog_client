@@ -8,6 +8,7 @@ import { ItemsOnPage } from '../../components/ItemsOnPage/ItemsOnPage';
 
 import { Phone } from '../../types/types';
 import { getPhones } from '../../api/phones';
+import { Breadcrumbs } from '../../components/Breadcrumbs';
 
 export const MobilePhones: React.FC = () => {
   const [phones, setPhones] = useState<Phone[]>([]);
@@ -28,6 +29,7 @@ export const MobilePhones: React.FC = () => {
 
   return (
     <div className="main-container">
+      <Breadcrumbs />
       <div className={`${styles.phonesCategory} `}>
         <h1 className={styles.phonesCategory__title}>Mobile phones</h1>
         <p className={styles.phonesCategory__description}>{phonesNumber} models</p>
