@@ -20,6 +20,7 @@ export interface NextAndPrev {
 }
 
 export interface serverResponse {
+  totalPhones: number;
   next: NextAndPrev;
   pages: number;
   prev: NextAndPrev;
