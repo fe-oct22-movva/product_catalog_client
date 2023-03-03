@@ -1,10 +1,10 @@
 import styles from '../ProductCardSingle/ProductCardSingle.module.scss';
 import React from 'react';
 
-import {Phone} from '../../types/types';
 import {Button_addToCart} from '../Button_addToCart';
 
 interface Props {
+  id:string,
   img: string;
   name: string;
   price: number;
@@ -15,6 +15,7 @@ interface Props {
 }
 
 export const ProductCardSingle: React.FC<Props> = ({
+  id,
   img,
   name,
   price,
@@ -56,7 +57,7 @@ export const ProductCardSingle: React.FC<Props> = ({
 
       <Button_addToCart
         id={id}
-        img={image}
+        img={img}
         price={price}
         name={name}
       />

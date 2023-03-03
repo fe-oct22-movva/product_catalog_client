@@ -29,8 +29,19 @@ export interface serverResponse {
 
 export interface cartItem {
   id: string;
-  image: string;
+  img: string;
   name: string;
   amount: number;
   price: number;
+}
+
+export interface favouriteItem {
+  id: string;
+  img: string;
+  name: string;
+  price: number;
+  fullPrice: number;
+  screen: string;
+  capacity: string;
+  ram: string;
 }

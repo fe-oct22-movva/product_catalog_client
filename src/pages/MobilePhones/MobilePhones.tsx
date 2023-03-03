@@ -8,7 +8,7 @@ import {ItemsOnPage} from '../../components/ItemsOnPage/ItemsOnPage';
 
 import { Phone } from '../../types/types';
 import { getPhones } from '../../api/phones';
-import { Breadcrumbs } from '../../components/Breadcrumbs';
+// import { Breadcrumbs } from '../../components/Breadcrumbs';
 
 import {CardHomePage} from '../../components/ProductCard/CardHomePage';
 
@@ -37,7 +37,7 @@ export const MobilePhones: React.FC = () => {
 
   return (
     <div className="main-container">
-      <Breadcrumbs />
+      {/*<Breadcrumbs />*/}
       <div className={`${styles.phonesCategory} `}>
         <h1 className={styles.phonesCategory__title}>Mobile phones</h1>
         <p className={styles.phonesCategory__description}>
@@ -52,18 +52,10 @@ export const MobilePhones: React.FC = () => {
         </div>
 
         <div className={styles.catalog}>
-          <CardHomePage
-            img="https://fe-oct22-movva.github.io/product_catalog_client/assets/gold-c923c67c.jpg"
-            name={'Test product'}
-            price={'$859'}
-            screen={'6.7” OLED'}
-            capacity={'128 GB'}
-            ram={'6 GB'}
-          />
-
           {phones.map((phone) => (
             <div key={phone.id} className={styles.catalog__item}>
               <ProductCardSingle
+                id={phone.id}
                 img={phone.image}
                 name={phone.name}
                 price={phone.price}

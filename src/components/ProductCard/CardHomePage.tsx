@@ -44,7 +44,8 @@ export const CardHomePage: FC<Props> = ({
         </div>
       </div>
 
-      <Button_addToCart />
+      <Button_addToCart id="3" img="bb" name="Apple" price={3000} />
+      {/*fix requirments in parents block*/}
     </div>
   );
 };

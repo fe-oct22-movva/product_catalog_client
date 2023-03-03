@@ -6,18 +6,24 @@ import likeYellow from '../../assets/images/icons/like-yellow.png';
 import {Phone} from '../../types/types';
 
 interface Props {
-  phone: Phone;
+  id: string,
+  img: string,
+  price: number
+  name: string,
 }
 
-export const Button_addToCart: React.FC<Props> = ({phone}) => {
+export const Button_addToCart: React.FC<Props> = ({
+  id,
+  img,
+  price,
+  name,
+}) => {
   const [isLike, setIsLike] = useState(false);
 
   const handleAddToCart = useCallback(() => {
-    const {id, image, name, price} = phone;
-
-    const data = {
+    const dataForCart = {
       id,
-      image,
+      img,
       name,
       price,
       amount: 1,
@@ -30,15 +36,22 @@ export const Button_addToCart: React.FC<Props> = ({phone}) => {
         : null;
 
     if (!phonesFromLocalStorageToObj) {
-      localStorage.setItem('Cart', JSON.stringify([data]));
+      localStorage.setItem('Cart', JSON.stringify([dataForCart]));
     }
 
-    phonesFromLocalStorageToObj.push(data);
+    phonesFromLocalStorageToObj.push(dataForCart);
 
     localStorage.setItem('Cart', JSON.stringify(phonesFromLocalStorageToObj));
   }, []);
 
   const handleLike = useCallback(() => {
+    const dataForFavourites = {
+      id,
+      img,
+      name,
+      price
+    };
+
     setIsLike(!isLike);
 
     const existingPhonesFromLocalStorage = localStorage.getItem('Favourites');
@@ -48,10 +61,10 @@ export const Button_addToCart: React.FC<Props> = ({phone}) => {
         : null;
 
     if (!phonesFromLocalStorageToObj) {
-      localStorage.setItem('Favourites', JSON.stringify([phone]));
+      localStorage.setItem('Favourites', JSON.stringify([dataForFavourites]));
     }
 
-    phonesFromLocalStorageToObj.push(phone);
+    phonesFromLocalStorageToObj.push(dataForFavourites);
 
     localStorage.setItem(
       'Favourites',

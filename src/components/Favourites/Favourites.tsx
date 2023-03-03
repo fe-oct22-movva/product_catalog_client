@@ -1,15 +1,14 @@
 import './Favourites.scss';
 import {ProductCardSingle} from '../ProductCardSingle';
-import {Phone} from '../../types/types';
+import {favouriteItem, Phone} from '../../types/types';
 import {useEffect, useState} from 'react';
-import {CardHomePage} from '../ProductCard/CardHomePage';
 //import {Breadcrumbs} from '../Breadcrumbs';
 
 export const Favourites = () => {
   const [isFavouritesExist] = useState<string | null>(
     localStorage.getItem('Favourites')
   );
-  const [favouritesItems, setFavouritesItems] = useState<Phone[]>([]);
+  const [favouritesItems, setFavouritesItems] = useState([]);
 
   useEffect(() => {
     setFavouritesItems(
@@ -19,7 +18,7 @@ export const Favourites = () => {
 
   return (
     <div className="main-container">
-    {/*<Breadcrumbs />*/}
+      {/*<Breadcrumbs />*/}
       {isFavouritesExist ? (
         <section className="favourites">
           <h1 className="favourites__title">Favourites</h1>
@@ -27,16 +26,17 @@ export const Favourites = () => {
           <h3 className="favourites__subtitle">5 items</h3>
 
           <div className="favourites__items">
-            {favouritesItems.map((favouritesItem: Phone) => (
+            {favouritesItems.map((favouritesItem: favouriteItem) => (
               <div className="favourites__item" key={favouritesItem.id}>
                 <ProductCardSingle
-                  img={phone.image}
-                  name={phone.name}
-                  price={phone.price}
-                  fullPrice={phone.fullPrice}
-                  screen={phone.screen}
-                  capacity={phone.capacity}
-                  ram={phone.ram}
+                  id={favouritesItem.id}
+                  img={favouritesItem.img}
+                  name={favouritesItem.name}
+                  price={favouritesItem.price}
+                  fullPrice={favouritesItem.fullPrice}
+                  screen={favouritesItem.screen}
+                  capacity={favouritesItem.capacity}
+                  ram={favouritesItem.ram}
                 />
               </div>
             ))}
