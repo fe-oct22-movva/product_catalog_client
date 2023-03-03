@@ -4,6 +4,7 @@ import React from 'react';
 import {Button_addToCart} from '../Button_addToCart';
 
 interface Props {
+  id: string,
   imgUrl: string;
   name: string;
   price: number;
@@ -13,6 +14,7 @@ interface Props {
 }
 
 export const ProductCardSingle: React.FC<Props> = ({
+  id,
   imgUrl,
   name,
   price,
@@ -22,35 +24,6 @@ export const ProductCardSingle: React.FC<Props> = ({
 }) => {
   return (
     <div className={styles.card}>
-      {/* <img className={styles.card__icon} src={imgUrl} />
-
-      <h3 className={styles.card__title}>
-        <a
-          href='#'
-          className={styles.card__link}
-        >
-          Apple iPhone 14 Pro 128GB Silver (MQ023)
-        </a>
-      </h3>
-
-      <p className={styles.card__price}>$999</p>
-
-      <p className={styles.card__breakLine}></p>
-
-      <div className={styles.card__features}>
-        <div className={styles.card__names}>
-          <p className={styles.card__info}>Screen</p>
-          <p className={styles.card__info}>Capacity</p>
-          <p className={styles.card__info}>RAM</p>
-        </div>
-
-        <div className={styles.card__chars}>
-          <p className={styles.card__info}>6.1” OLED</p>
-          <p className={styles.card__info}>128 GB</p>
-          <p className={styles.card__info}>6 GB</p>
-        </div>
-      </div> */}
-
       <img className={styles.card__icon} src={imgUrl} />
 
       <h3 className={styles.card__title}>
@@ -59,7 +32,7 @@ export const ProductCardSingle: React.FC<Props> = ({
         </a>
       </h3>
 
-      <p className={styles.card__price}>{price}</p>
+      <p className={styles.card__price}>{price}$</p>
 
       <p className={styles.card__breakLine}></p>
 
@@ -77,7 +50,7 @@ export const ProductCardSingle: React.FC<Props> = ({
         </div>
       </div>
 
-      <Button_addToCart />
+      <Button_addToCart id={id} img={imgUrl} name={name} price={price} />
     </div>
   );
 };

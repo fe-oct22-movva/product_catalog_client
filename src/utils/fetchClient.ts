@@ -11,7 +11,8 @@ function request<T>(url: string, method: RequestMethod = 'GET'): Promise<T> {
     }
 
     return response.json();
-  });
+  })
+    .catch((error) => console.log(error));
 }
 
 export const client = {

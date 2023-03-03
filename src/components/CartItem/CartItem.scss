@@ -1,0 +1,98 @@
+@import "../../styles/utils/mixins";
+
+.cart__item {
+  border: 1px solid #E2E6E9;
+  border-radius: 16px;
+
+  @include onTablet {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &-phone {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 23px;
+
+    margin: 16px;
+    padding: 7px 0;
+
+    @include onTablet {
+      margin: 24px;
+    }
+
+    &__close {
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+    }
+
+    &__photo {
+      width: 66px;
+      height: 66px;
+    }
+
+    &__name {
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 21px;
+
+      color: #0F0F11;
+
+    }
+  }
+
+  &-price {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 16px 16px 16px;
+
+    &__count {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 13px;
+
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 21px;
+
+      color: #000000;
+
+      &-minus {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        width: 32px;
+        height: 32px;
+
+        border: 1px solid #E2E6E9;
+        border-radius: 50%;
+      }
+
+      &-plus {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        width: 32px;
+        height: 32px;
+
+        border: 1px solid #B4BDC4;
+        border-radius: 50%;
+      }
+    }
+
+    &__value {
+      font-family: Mont_Bold, sans-serif;
+      font-weight: 800;
+      font-size: 22px;
+      line-height: 140%;
+
+      color: #0F0F11;
+    }
+  }
+}

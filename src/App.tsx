@@ -5,21 +5,20 @@ import {HomePage} from './components/HomePage/HomePage';
 import {Route, Routes, Navigate} from 'react-router-dom';
 import './styles/main.scss';
 import {PageNotFound} from './components/PageNotFound';
-import {Phone} from './types/Phone';
+import {Phone} from './types/types';
 import {getPhones} from './api/phones';
 import {MobilePhones} from './pages/MobilePhones';
 import {Favourites} from './components/Favourites/Favourites';
 import {BurgerMenu} from './components/BurgerMenu';
+import {Cart} from './components/Cart/Cart';
 
 export const App: React.FC = () => {
   const [phones, setPhones] = useState<Phone[]>([]);
   const [isBurgerActivated, setIsBurgerActivated] = useState<boolean>(false);
 
-  console.log(phones);
-
   useEffect(() => {
     getPhones()
-      .then(setPhones)
+      .then(data => data.result)
       .catch((error: string) => console.log(error));
   }, []);
 
@@ -32,6 +31,7 @@ export const App: React.FC = () => {
           <Route path="/" element={<HomePage />} />
           <Route path="/phones" element={<MobilePhones />} />
           <Route path="/favourites" element={<Favourites />} />
+          <Route path="/cart" element={<Cart />} />
           <Route
             path="/menu"
             element={
