@@ -1,5 +1,5 @@
-@import "../../styles/utils/mixins";
-@import "../../styles/normalize";
+@import '../../styles/utils/mixins';
+@import '../../styles/normalize';
 
 .cart {
   &__title {
@@ -10,7 +10,7 @@
 
     letter-spacing: -0.01em;
 
-    color: #0F0F11;
+    color: #0f0f11;
 
     margin-bottom: 32px;
 
@@ -23,6 +23,4 @@
   &__items {
     margin-bottom: 32px;
   }
-
-
 }

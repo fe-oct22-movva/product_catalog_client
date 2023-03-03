@@ -5,18 +5,13 @@ import likeYellow from '../../assets/images/icons/like-yellow.png';
 import React, {useState} from 'react';
 
 interface Props {
-  id: string,
-  img: string,
-  name: string,
-  price: number,
+  id: string;
+  img: string;
+  name: string;
+  price: number;
 }
 
-export const Button_addToCart: React.FC<Props> = ({
-  id,
-  img,
-  name,
-  price,
-}) => {
+export const Button_addToCart: React.FC<Props> = ({id, img, name, price}) => {
   const [isLike, setIsLike] = useState(false);
 
   const handleAddToCart = () => {
@@ -28,9 +23,10 @@ export const Button_addToCart: React.FC<Props> = ({
     };
 
     const existingPhonesFromLocalStorage = localStorage.getItem('Cart');
-    const phonesFromLocalStorageToObj = existingPhonesFromLocalStorage !== null
-      ? JSON.parse(existingPhonesFromLocalStorage)
-      : null;
+    const phonesFromLocalStorageToObj
+      = existingPhonesFromLocalStorage !== null
+        ? JSON.parse(existingPhonesFromLocalStorage)
+        : null;
 
     if (!phonesFromLocalStorageToObj) {
       localStorage.setItem('Cart', JSON.stringify([data]));
@@ -47,18 +43,12 @@ export const Button_addToCart: React.FC<Props> = ({
 
   return (
     <div className={styles.addToCart}>
-      <button
-        className={styles.addToCart__button}
-        onClick={handleAddToCart}
-      >
+      <button className={styles.addToCart__button} onClick={handleAddToCart}>
         Add to cart
       </button>
 
       <div className={styles.addToCart}>
-        <button
-          className={styles.addToCart__like}
-          onClick={handeLike}
-        >
+        <button className={styles.addToCart__like} onClick={handeLike}>
           {!isLike ? (
             <img src={likeEmpty} alt="Like" />
           ) : (

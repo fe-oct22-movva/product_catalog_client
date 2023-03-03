@@ -4,7 +4,7 @@ import React from 'react';
 import {Button_addToCart} from '../Button_addToCart';
 
 interface Props {
-  id: string,
+  id: string;
   imgUrl: string;
   name: string;
   price: number;

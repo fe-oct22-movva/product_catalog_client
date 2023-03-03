@@ -1,7 +1,7 @@
-@import "../../styles/utils/mixins";
+@import '../../styles/utils/mixins';
 
 .cart__item {
-  border: 1px solid #E2E6E9;
+  border: 1px solid #e2e6e9;
   border-radius: 16px;
 
   @include onTablet {
@@ -38,8 +38,7 @@
       font-size: 14px;
       line-height: 21px;
 
-      color: #0F0F11;
-
+      color: #0f0f11;
     }
   }
 
@@ -69,7 +68,7 @@
         width: 32px;
         height: 32px;
 
-        border: 1px solid #E2E6E9;
+        border: 1px solid #e2e6e9;
         border-radius: 50%;
       }
 
@@ -81,7 +80,7 @@
         width: 32px;
         height: 32px;
 
-        border: 1px solid #B4BDC4;
+        border: 1px solid #b4bdc4;
         border-radius: 50%;
       }
     }
@@ -92,7 +91,7 @@
       font-size: 22px;
       line-height: 140%;
 
-      color: #0F0F11;
+      color: #0f0f11;
     }
   }
 }

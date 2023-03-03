@@ -14,7 +14,7 @@ export const MobilePhones: React.FC = () => {
 
   useEffect(() => {
     getPhones()
-      .then(data => setPhones(data.result))
+      .then((data) => setPhones(data.result))
       .catch((error) => console.log(error));
   }, []);
 

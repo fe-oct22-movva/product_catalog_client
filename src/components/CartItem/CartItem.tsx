@@ -6,22 +6,18 @@ import close from '../../assets/images/Close.svg';
 import {cartItem} from '../../types/types';
 
 interface Props {
-  cartItem: cartItem,
-  handleDelete: (id: string) => void,
+  cartItem: cartItem;
+  handleDelete: (id: string) => void;
 }
 
-export const CartItem: React.FC<Props> = ({
-  cartItem,
-  handleDelete,
-}) => {
+export const CartItem: React.FC<Props> = ({cartItem, handleDelete}) => {
   return (
     <div className="cart__item" key={cartItem?.id}>
       <div className="cart__item-phone">
         <button
           className="cart__item-phone__close"
-          onClick={() => handleDelete(cartItem.id)}
-        >
-          <img src={close} alt="delete"/>
+          onClick={() => handleDelete(cartItem.id)}>
+          <img src={close} alt="delete" />
         </button>
 
         <img
@@ -30,30 +26,23 @@ export const CartItem: React.FC<Props> = ({
           alt="phone"
         />
 
-        <p className="cart__item-phone__name">
-          {cartItem.name}
-        </p>
+        <p className="cart__item-phone__name">{cartItem.name}</p>
       </div>
 
       <div className="cart__item-price">
         <div className="cart__item-price__count">
           <button className="cart__item-price__count-minus">
-            <img src={minus} alt="minus item"/>
+            <img src={minus} alt="minus item" />
           </button>
 
-          <p className="cart__item-price__count-value">
-            1
-          </p>
+          <p className="cart__item-price__count-value">1</p>
 
           <button className="cart__item-price__count-plus">
-            <img src={plus} alt="plus item"/>
+            <img src={plus} alt="plus item" />
           </button>
-
         </div>
 
-        <h1 className="cart__item-price__value">
-          ${cartItem.price}
-        </h1>
+        <h1 className="cart__item-price__value">${cartItem.price}</h1>
       </div>
     </div>
   );

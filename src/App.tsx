@@ -18,7 +18,7 @@ export const App: React.FC = () => {
 
   useEffect(() => {
     getPhones()
-      .then(data => data.result)
+      .then((data) => data.result)
       .catch((error: string) => console.log(error));
   }, []);
 

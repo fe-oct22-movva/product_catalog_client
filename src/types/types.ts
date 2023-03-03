@@ -27,8 +27,8 @@ export interface serverResponse {
 }
 
 export interface cartItem {
-  id: string,
-  img: string,
-  name: string,
-  price: number,
+  id: string;
+  img: string;
+  name: string;
+  price: number;
 }
