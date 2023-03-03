@@ -61,7 +61,6 @@ export const Cards: React.FC = () => {
       </div>
 
       <div className="flex" style={styles}>
-
         <CardHomePage
           img={gold}
           name={' Apple iPhone 14 Plus 128GB PRODUCT Red (MQ513)'}
