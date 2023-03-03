@@ -12,7 +12,7 @@ export const Button_addToCart: React.FC = () => {
   };
 
   return (
-    <div className={styles.addToCart__link}>
+    <div className={styles.addToCart}>
       <a
         className={styles.addToCart__button}
         href="src/components/ProductCard#addToCart">
