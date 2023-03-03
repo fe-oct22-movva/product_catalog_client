@@ -1,5 +1,5 @@
 import styles from './MobilePhones.module.scss';
-import gold from '../../assets/images/phones/gold.jpg'
+import gold from '../../assets/images/phones/gold.jpg';
 
 // import React, {useEffect, useState} from 'react';
 import {Pagination} from '../../components/Pagination';
