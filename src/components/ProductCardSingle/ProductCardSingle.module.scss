@@ -23,7 +23,7 @@
     }
 
     @include onDesktop {
-      width: 210px;
+      max-width: 210px;
     }
   }
 
