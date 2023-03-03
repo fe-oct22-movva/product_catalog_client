@@ -1,7 +1,7 @@
 import './Favourites.scss';
 import {ProductCardSingle} from '../ProductCardSingle';
-import {useEffect, useState} from 'react';
 import {Phone} from '../../types/types';
+import {useEffect, useState} from 'react';
 
 export const Favourites = () => {
   const [isFavouritesExist] = useState<string | null>(

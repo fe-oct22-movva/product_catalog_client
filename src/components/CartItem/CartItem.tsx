@@ -1,8 +1,8 @@
 import './CartItem.scss';
 import * as React from 'react';
 import minus from '../../assets/images/Minus.svg';
-import plus from '../../assets/images/Plus.svg';
 import close from '../../assets/images/Close.svg';
+import plus from '../../assets/images/Plus.svg';
 import {cartItem, Phone} from '../../types/types';
 
 interface Props {

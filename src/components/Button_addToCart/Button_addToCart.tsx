@@ -1,8 +1,8 @@
 import styles from '../Button_addToCart/Button_addToCart.module.scss';
 
 import likeEmpty from '../../assets/images/icons/like-empty.png';
-import likeYellow from '../../assets/images/icons/like-yellow.png';
 import React, {useCallback, useState} from 'react';
+import likeYellow from '../../assets/images/icons/like-yellow.png';
 import {Phone} from '../../types/types';
 
 interface Props {
