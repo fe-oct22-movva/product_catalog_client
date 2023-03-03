@@ -1,27 +1,6 @@
 .addToCart {
-  padding-left: 8px;
-
-  &__like {
-    display: flex;
-    position: relative;
-    justify-content: center;
-    align-items: center;
-
-    width: 40px;
-    height: 40px;
-
-    border: 1px solid #B4BDC4;
-    border-radius: 48px;
-
-    &:hover {
-      border-color: #0F0F11;
-    }
-  }
-
-  &__link {
-    display: flex;
-    justify-content: space-between;
-  }
+  display: flex;
+  justify-content: space-between;
 
   &__button {
     display: flex;
@@ -29,6 +8,8 @@
     justify-content: center;
     height: 40px;
     width: 100%;
+
+    margin-right: 8px;
 
     border: 1px solid #4219d0;
     background-color: #4219d0;
@@ -48,6 +29,23 @@
       background-color: #ffffff;
       color: #4219d0;
       box-shadow: none;
+    }
+  }
+
+  &__like {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 40px;
+    height: 40px;
+
+    border: 1px solid #b4bdc4;
+    border-radius: 48px;
+
+    &:hover {
+      border-color: #0f0f11;
+      cursor: pointer;
     }
   }
 }

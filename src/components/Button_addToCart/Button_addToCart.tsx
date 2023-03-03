@@ -2,7 +2,7 @@ import styles from '../Button_addToCart/Button_addToCart.module.scss';
 
 import likeEmpty from '../../assets/images/icons/like-empty.png';
 import likeYellow from '../../assets/images/icons/like-yellow.png';
-import { useState } from 'react';
+import {useState} from 'react';
 
 export const Button_addToCart: React.FC = () => {
   const [isLike, setIsLike] = useState(false);
@@ -12,7 +12,7 @@ export const Button_addToCart: React.FC = () => {
   };
 
   return (
-    <div className={styles.addToCart__link}>
+    <div className={styles.addToCart}>
       <a
         className={styles.addToCart__button}
         href="src/components/ProductCard#addToCart">
@@ -20,9 +20,7 @@ export const Button_addToCart: React.FC = () => {
       </a>
 
       <div className={styles.addToCart}>
-        <a className={styles.addToCart__like}
-          onClick={handeLike}
-        >
+        <a className={styles.addToCart__like} onClick={handeLike}>
           {isLike === false ? (
             <img src={likeEmpty} alt="Like" />
           ) : (
