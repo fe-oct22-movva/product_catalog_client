@@ -13,12 +13,7 @@ export const Button_addToCart: React.FC<Props> = ({phone}) => {
   const [isLike, setIsLike] = useState(false);
 
   const handleAddToCart = useCallback(() => {
-    const {
-      id,
-      image,
-      name,
-      price,
-    } = phone;
+    const {id, image, name, price} = phone;
 
     const data = {
       id,
@@ -58,7 +53,10 @@ export const Button_addToCart: React.FC<Props> = ({phone}) => {
 
     phonesFromLocalStorageToObj.push(phone);
 
-    localStorage.setItem('Favourites', JSON.stringify(phonesFromLocalStorageToObj));
+    localStorage.setItem(
+      'Favourites',
+      JSON.stringify(phonesFromLocalStorageToObj)
+    );
   }, []);
 
   return (
@@ -68,7 +66,7 @@ export const Button_addToCart: React.FC<Props> = ({phone}) => {
       </button>
 
       <div className={styles.addToCart}>
-        <button className={styles.addToCart__like} onClick={handleLike} >
+        <button className={styles.addToCart__like} onClick={handleLike}>
           {!isLike ? (
             <img src={likeEmpty} alt="Like" />
           ) : (

@@ -41,7 +41,7 @@ export const ProductCardSingle: React.FC<Props> = ({phone}) => {
         </div>
       </div>
 
-      <Button_addToCart phone={phone}/>
+      <Button_addToCart phone={phone} />
     </div>
   );
 };
