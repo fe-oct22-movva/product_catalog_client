@@ -1,5 +1,5 @@
 import styles from './MobilePhones.module.scss';
-import gold from '../../assets/images/phones/gold.jpg';
+import gold from '../../assets/images/phones/gold.jpg'
 
 // import React, {useEffect, useState} from 'react';
 import {Pagination} from '../../components/Pagination';
@@ -9,6 +9,7 @@ import {ProductCardSingle} from '../../components/ProductCardSingle';
 // import {getPhones} from '../../api/phones';
 import {SortBy} from '../../components/SortBy/SortBy';
 import {ItemsOnPage} from '../../components/ItemsOnPage/ItemsOnPage';
+import { Breadcrumbs } from '../../components/Breadcrumbs';
 
 export const MobilePhones: React.FC = () => {
   // const [phones, setPhones] = useState<Phone[]>([]);
@@ -21,6 +22,8 @@ export const MobilePhones: React.FC = () => {
 
   return (
     <div className="main-container">
+      <Breadcrumbs />
+      
       <div className={`${styles.phonesCategory} `}>
         <h1 className={styles.phonesCategory__title}>Mobile phones</h1>
         <p className={styles.phonesCategory__description}>95 models</p>

@@ -1,0 +1,28 @@
+.wrapper {
+  margin: 0;
+}
+
+.breadcrumbs {
+  margin-top: 25px;
+  margin-bottom: 40px;
+
+  &__image {
+    display: inline-block;
+    margin-right: 15px;
+  }
+  &__arrow {
+    display: inline-block;
+    margin-right: 14px;
+  }
+
+  &__text {
+    display: inline-block;
+
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 15px;
+
+    color: #89939A;
+  }
+}
+

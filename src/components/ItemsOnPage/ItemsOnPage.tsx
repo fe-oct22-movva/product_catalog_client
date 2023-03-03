@@ -2,7 +2,7 @@ import {useState} from 'react';
 import styles from '../ItemsOnPage/ItemsOnPage.module.scss';
 import arrowDown from '../../assets/images/ArrowDown.svg';
 
-const options2 = [16, 20, 24];
+const options2 = [12, 16, 20];
 
 export const ItemsOnPage: React.FC = () => {
   const [isItemsOnPageOpen, setIsItemsOnPageOpen] = useState(false);

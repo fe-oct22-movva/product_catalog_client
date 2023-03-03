@@ -2,7 +2,7 @@ import {useState} from 'react';
 import styles from '../SortBy/SortBy.module.scss';
 import arrowDown from '../../assets/images/ArrowDown.svg';
 
-const options1 = ['Newest', 'Lowest price', 'Highest price'];
+const options1 = ['Newest', 'Lowest price', 'Highest price', 'Alphabetically'];
 
 export const SortBy: React.FC = () => {
   const [isSortByOpen, setIsSortByOpen] = useState(false);

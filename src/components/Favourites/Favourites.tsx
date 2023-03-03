@@ -1,10 +1,13 @@
 import './Favourites.scss';
 import {ProductCardSingle} from '../ProductCardSingle';
 import goldMobile from '../../assets/images/phones/gold.jpg';
+import { Breadcrumbs } from '../Breadcrumbs';
 
 export const Favourites = () => {
   return (
     <div className="main-container">
+      <Breadcrumbs />
+      
       <section className="favourites">
         <h1 className="favourites__title">Favourites</h1>
 
