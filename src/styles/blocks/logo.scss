@@ -2,6 +2,7 @@
   &__img {
     display: block;
     height: 21px;
+    transition: transform .3s;
 
     @include onTablet {
       height: 21px;
@@ -13,6 +14,10 @@
 
     &--footer {
       height: 30px;
+    }
+
+    &:hover {
+      transform: scale(1.1);
     }
   }
 }

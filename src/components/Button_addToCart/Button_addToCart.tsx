@@ -31,11 +31,13 @@ export const Button_addToCart: React.FC<Props> = ({id, img, price, name}) => {
 
     if (!phonesFromLocalStorageToObj) {
       localStorage.setItem('Cart', JSON.stringify([dataForCart]));
+      window.dispatchEvent(new Event('storage'));
     }
 
     phonesFromLocalStorageToObj.push(dataForCart);
 
     localStorage.setItem('Cart', JSON.stringify(phonesFromLocalStorageToObj));
+    window.dispatchEvent(new Event('storage'));
   }, []);
 
   const handleLike = useCallback(() => {
@@ -56,6 +58,7 @@ export const Button_addToCart: React.FC<Props> = ({id, img, price, name}) => {
 
     if (!phonesFromLocalStorageToObj) {
       localStorage.setItem('Favourites', JSON.stringify([dataForFavourites]));
+      window.dispatchEvent(new Event('storage'));
     }
 
     phonesFromLocalStorageToObj.push(dataForFavourites);
@@ -64,6 +67,7 @@ export const Button_addToCart: React.FC<Props> = ({id, img, price, name}) => {
       'Favourites',
       JSON.stringify(phonesFromLocalStorageToObj)
     );
+    window.dispatchEvent(new Event('storage'));
   }, []);
 
   return (

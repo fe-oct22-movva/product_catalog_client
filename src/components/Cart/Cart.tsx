@@ -4,13 +4,19 @@ import {cartItem} from '../../types/types';
 import {CartItem} from '../CartItem/CartItem';
 
 export const Cart = () => {
-  const [isCartExist] = useState<string | null>(localStorage.getItem('Cart'));
-  const [cartItems, setCartItems] = useState<cartItem[]>([]);
-  // const [visibleItemsIds, setVisibleItemsIds] = useState<string[]>([]);
+  const [isCartExist, setIsCartExist] = useState<string | null>(null);
+
+  const cartItems = isCartExist === null ? [] : JSON.parse(isCartExist);
 
   useEffect(() => {
-    setCartItems(isCartExist === null ? null : JSON.parse(isCartExist));
-  }, []);
+    setIsCartExist(localStorage.getItem('Cart'));
+    const handleStorage = () => {
+      setIsCartExist(localStorage.getItem('Cart'));
+    };
+
+    window.addEventListener('storage', handleStorage);
+    return () => window.removeEventListener('storage', handleStorage);
+  }, [cartItems]);
 
   const handleDelete = useCallback(
     (id: string) => {
@@ -23,6 +29,7 @@ export const Cart = () => {
       }
 
       localStorage.setItem('Cart', JSON.stringify(cartItems));
+      window.dispatchEvent(new Event('storage'));
 
       if (cartItems.length === 0) {
         localStorage.removeItem('Cart');

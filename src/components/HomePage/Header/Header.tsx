@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import heart from '../../../assets/images/Favourites.svg';
 import cart from '../../../assets/images/Cart.svg';
 import menu from '../../../assets/images/Menu.svg';
@@ -12,6 +12,25 @@ interface Props {
 }
 
 export const Header: React.FC<Props> = ({setIsBurgerActivated}) => {
+  const [favouritesFromLocal, setFavouritesFromLocal] = useState<string | null>(null);
+  const [cartFromLocal, setCartFromLocal] = useState<string | null>(null);
+
+  const favouritesItems = favouritesFromLocal === null ? [] : JSON.parse(favouritesFromLocal).length;
+  const cartItems = cartFromLocal === null ? [] : JSON.parse(cartFromLocal).length;
+
+  useEffect(() => {
+    setFavouritesFromLocal(localStorage.getItem('Favourites'));
+    setCartFromLocal(localStorage.getItem('Cart'));
+
+    const handleStorage = () => {
+      setFavouritesFromLocal(localStorage.getItem('Favourites'));
+      setCartFromLocal(localStorage.getItem('Cart'));
+    };
+
+    window.addEventListener('storage', handleStorage);
+    return () => window.removeEventListener('storage', handleStorage);
+  }, [favouritesItems, favouritesFromLocal, cartFromLocal, cartItems]);
+
   return (
     <header className="page__section header">
       <div className="header__content">
@@ -62,7 +81,19 @@ export const Header: React.FC<Props> = ({setIsBurgerActivated}) => {
               to="/favourites"
               textToDisplay={
                 <li className="aside-container__item">
-                  <img src={heart} alt="favourite items" />
+                  <img
+                    className="aside-container__item-photo"
+                    src={heart}
+                    alt="favourite items"
+                  />
+
+                  {favouritesItems > 0 && (
+                    <p className="aside-container__item-fav-counter">
+                      {
+                        favouritesItems
+                      }
+                    </p>
+                  )}
                 </li>
               }
             />
@@ -71,7 +102,19 @@ export const Header: React.FC<Props> = ({setIsBurgerActivated}) => {
               to="/cart"
               textToDisplay={
                 <li className="aside-container__item">
-                  <img src={cart} alt="cart" />
+                  <img
+                    className="aside-container__item-photo"
+                    src={cart}
+                    alt="cart"
+                  />
+
+                  {cartItems > 0 && (
+                    <p className="aside-container__item-fav-counter">
+                      {
+                        cartItems
+                      }
+                    </p>
+                  )}
                 </li>
               }
             />

@@ -5,16 +5,19 @@ import {useEffect, useState} from 'react';
 //import {Breadcrumbs} from '../Breadcrumbs';
 
 export const Favourites = () => {
-  const [isFavouritesExist] = useState<string | null>(
-    localStorage.getItem('Favourites')
-  );
-  const [favouritesItems, setFavouritesItems] = useState([]);
+  const [isFavouritesExist, setIsFavouritesExist] = useState<string | null>(null);
+
+  const favouritesItems = isFavouritesExist === null ? [] : JSON.parse(isFavouritesExist);
 
   useEffect(() => {
-    setFavouritesItems(
-      isFavouritesExist === null ? null : JSON.parse(isFavouritesExist)
-    );
-  }, []);
+    setIsFavouritesExist(localStorage.getItem('Favourites'));
+    const handleStorage = () => {
+      setIsFavouritesExist(localStorage.getItem('Favourites'));
+    };
+
+    window.addEventListener('storage', handleStorage);
+    return () => window.removeEventListener('storage', handleStorage);
+  }, [favouritesItems]);
 
   return (
     <div className="main-container">
