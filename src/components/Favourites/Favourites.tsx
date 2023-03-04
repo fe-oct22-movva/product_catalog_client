@@ -2,7 +2,7 @@ import './Favourites.scss';
 import {ProductCardSingle} from '../ProductCardSingle';
 import {favouriteItem} from '../../types/types';
 import {useEffect, useState} from 'react';
-//import {Breadcrumbs} from '../Breadcrumbs';
+import {Breadcrumbs} from '../Breadcrumbs';
 
 export const Favourites = () => {
   const [isFavouritesExist, setIsFavouritesExist] = useState<string | null>(
@@ -24,7 +24,7 @@ export const Favourites = () => {
 
   return (
     <div className="main-container">
-      {/*<Breadcrumbs />*/}
+      <Breadcrumbs />
       {isFavouritesExist ? (
         <section className="favourites">
           <h1 className="favourites__title">Favourites</h1>
