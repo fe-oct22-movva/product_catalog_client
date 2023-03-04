@@ -12,11 +12,15 @@ interface Props {
 }
 
 export const Header: React.FC<Props> = ({setIsBurgerActivated}) => {
-  const [favouritesFromLocal, setFavouritesFromLocal] = useState<string | null>(null);
+  const [favouritesFromLocal, setFavouritesFromLocal] = useState<string | null>(
+    null
+  );
   const [cartFromLocal, setCartFromLocal] = useState<string | null>(null);
 
-  const favouritesItems = favouritesFromLocal === null ? [] : JSON.parse(favouritesFromLocal).length;
-  const cartItems = cartFromLocal === null ? [] : JSON.parse(cartFromLocal).length;
+  const favouritesItems
+    = favouritesFromLocal === null ? [] : JSON.parse(favouritesFromLocal).length;
+  const cartItems
+    = cartFromLocal === null ? [] : JSON.parse(cartFromLocal).length;
 
   useEffect(() => {
     setFavouritesFromLocal(localStorage.getItem('Favourites'));
@@ -89,9 +93,7 @@ export const Header: React.FC<Props> = ({setIsBurgerActivated}) => {
 
                   {favouritesItems > 0 && (
                     <p className="aside-container__item-fav-counter">
-                      {
-                        favouritesItems
-                      }
+                      {favouritesItems}
                     </p>
                   )}
                 </li>
@@ -110,9 +112,7 @@ export const Header: React.FC<Props> = ({setIsBurgerActivated}) => {
 
                   {cartItems > 0 && (
                     <p className="aside-container__item-fav-counter">
-                      {
-                        cartItems
-                      }
+                      {cartItems}
                     </p>
                   )}
                 </li>

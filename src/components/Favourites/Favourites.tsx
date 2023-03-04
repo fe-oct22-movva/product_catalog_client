@@ -5,9 +5,12 @@ import {useEffect, useState} from 'react';
 //import {Breadcrumbs} from '../Breadcrumbs';
 
 export const Favourites = () => {
-  const [isFavouritesExist, setIsFavouritesExist] = useState<string | null>(null);
+  const [isFavouritesExist, setIsFavouritesExist] = useState<string | null>(
+    null
+  );
 
-  const favouritesItems = isFavouritesExist === null ? [] : JSON.parse(isFavouritesExist);
+  const favouritesItems
+    = isFavouritesExist === null ? [] : JSON.parse(isFavouritesExist);
 
   useEffect(() => {
     setIsFavouritesExist(localStorage.getItem('Favourites'));

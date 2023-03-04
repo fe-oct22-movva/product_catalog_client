@@ -42,7 +42,7 @@
     color: $secondary;
     white-space: nowrap;
     cursor: pointer;
-    transition: color .3s;
+    transition: color 0.3s;
 
     &--icon {
       box-shadow: -1px 0px 0px $elements;
@@ -63,8 +63,7 @@
     &--active {
       position: relative;
       color: $primary;
-      transition: background-color .3s;
-
+      transition: background-color 0.3s;
 
       &:after {
         position: absolute;
