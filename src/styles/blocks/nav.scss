@@ -50,6 +50,10 @@
       &:hover .aside-container__item-photo {
         transform: scale(1.2);
       }
+
+      &:hover .aside-container__item-fav-counter {
+        transform: scale(1.2);
+      }
     }
 
     @include onDesktop {
@@ -63,9 +67,9 @@
     &--active {
       position: relative;
       color: $primary;
-      transition: background-color 0.3s;
 
       &:after {
+      transition: background-color 0.3s;
         position: absolute;
         bottom: 0;
 

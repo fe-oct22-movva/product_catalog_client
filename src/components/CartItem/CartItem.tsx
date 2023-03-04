@@ -10,7 +10,10 @@ interface Props {
   handleDelete: (id: string) => void;
 }
 
-export const CartItem: React.FC<Props> = ({cartItem, handleDelete}) => {
+export const CartItem: React.FC<Props> = ({
+  cartItem,
+  handleDelete,
+}) => {
   const handlePlus = () => {
     const existingPhonesFromLocalStorage = localStorage.getItem('Cart');
     const phonesFromLocalStorageToObj
@@ -22,15 +25,54 @@ export const CartItem: React.FC<Props> = ({cartItem, handleDelete}) => {
       const phoneInclude = phonesFromLocalStorageToObj.find(
         (phone: Phone) => phone.id === cartItem.id
       );
-      const phoneIndex = phonesFromLocalStorageToObj.indexOf(phoneInclude);
 
       if (phoneInclude) {
-        phonesFromLocalStorageToObj[phoneIndex].amount++;
+        phoneInclude.amount++;
 
         localStorage.setItem(
           'Cart',
           JSON.stringify(phonesFromLocalStorageToObj)
         );
+        window.dispatchEvent(new Event('storage'));
+
+      }
+    }
+  };
+
+  const handleMinus = () => {
+    const existingPhonesFromLocalStorage = localStorage.getItem('Cart');
+    const phonesFromLocalStorageToObj
+      = existingPhonesFromLocalStorage !== null
+        ? JSON.parse(existingPhonesFromLocalStorage)
+        : null;
+
+    if (phonesFromLocalStorageToObj) {
+      const phoneInclude = phonesFromLocalStorageToObj.find(
+        (phone: Phone) => phone.id === cartItem.id
+      );
+
+      if (phoneInclude.amount === 1) {
+        phonesFromLocalStorageToObj.splice(phoneInclude, 1);
+
+        localStorage.setItem(
+          'Cart',
+          JSON.stringify(phonesFromLocalStorageToObj)
+        );
+        window.dispatchEvent(new Event('storage'));
+      }
+
+      if (phoneInclude) {
+        phoneInclude.amount--;
+
+        localStorage.setItem(
+          'Cart',
+          JSON.stringify(phonesFromLocalStorageToObj)
+        );
+        window.dispatchEvent(new Event('storage'));
+      }
+
+      if (phonesFromLocalStorageToObj.length === 0) {
+        localStorage.removeItem('Cart');
       }
     }
   };
@@ -57,7 +99,10 @@ export const CartItem: React.FC<Props> = ({cartItem, handleDelete}) => {
 
       <div className="cart__item-price">
         <div className="cart__item-price__count">
-          <button className="cart__item-price__count-minus">
+          <button
+            className="cart__item-price__count-minus"
+            onClick={handleMinus}
+          >
             <img src={minus} alt="minus item" />
           </button>
 
@@ -68,7 +113,7 @@ export const CartItem: React.FC<Props> = ({cartItem, handleDelete}) => {
           </button>
         </div>
 
-        <h1 className="cart__item-price__value">${cartItem.price}</h1>
+        <h1 className="cart__item-price__value">${cartItem.price * cartItem.amount}</h1>
       </div>
     </div>
   );
