@@ -85,6 +85,10 @@
         border-radius: 50%;
       }
 
+      &-minus:disabled {
+        border-color: #E2E6E9;
+      }
+
       &-plus {
         display: flex;
         justify-content: center;
@@ -96,6 +100,10 @@
         border: 1px solid #b4bdc4;
         border-radius: 50%;
       }
+
+      &-value {
+        width: 10px;
+      }
     }
 
     &__value {
@@ -103,6 +111,7 @@
       font-weight: 800;
       font-size: 22px;
       line-height: 140%;
+      width: 70px;
 
       color: #0f0f11;
     }

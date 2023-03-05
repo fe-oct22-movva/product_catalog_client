@@ -47,16 +47,6 @@ export const CartItem: React.FC<Props> = ({cartItem, handleDelete}) => {
         (phone: Phone) => phone.id === cartItem.id
       );
 
-      if (phoneInclude.amount === 1) {
-        phonesFromLocalStorageToObj.splice(phoneInclude, 1);
-
-        localStorage.setItem(
-          'Cart',
-          JSON.stringify(phonesFromLocalStorageToObj)
-        );
-        window.dispatchEvent(new Event('storage'));
-      }
-
       if (phoneInclude) {
         phoneInclude.amount--;
 
@@ -97,7 +87,9 @@ export const CartItem: React.FC<Props> = ({cartItem, handleDelete}) => {
         <div className="cart__item-price__count">
           <button
             className="cart__item-price__count-minus"
-            onClick={handleMinus}>
+            onClick={handleMinus}
+            disabled={cartItem.amount === 1}
+          >
             <img src={minus} alt="minus item" />
           </button>
 
