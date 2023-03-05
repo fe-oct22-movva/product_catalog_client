@@ -45,3 +45,17 @@ export interface favouriteItem {
   capacity: string;
   ram: string;
 }
+
+export interface Favourites {
+  id: string,
+  img: string,
+  name: string,
+  price: number,
+}
+
+export interface Cart {
+  id: string,
+  img: string,
+  name: string,
+  price: number,
+}

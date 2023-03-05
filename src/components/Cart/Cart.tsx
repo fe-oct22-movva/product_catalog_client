@@ -2,17 +2,19 @@ import './Cart.scss';
 import {useCallback, useEffect, useState} from 'react';
 import {cartItem} from '../../types/types';
 import {CartItem} from '../CartItem/CartItem';
+import {Breadcrumbs} from '../Breadcrumbs';
 
 export const Cart = () => {
   const [isCartExist, setIsCartExist] = useState<string | null>(null);
 
   const cartItems = isCartExist === null ? [] : JSON.parse(isCartExist);
   let cartItemsCounter = 0;
+  let totalPrice = 0;
+
   cartItems.forEach((cartItem: cartItem) => {
     cartItemsCounter += cartItem.amount;
   });
 
-  let totalPrice = 0;
   cartItems.forEach((cartItem: cartItem) => {
     totalPrice += cartItem.price * cartItem.amount;
   });
@@ -34,7 +36,9 @@ export const Cart = () => {
       );
 
       if (cartItemToDelete !== undefined) {
-        cartItems.splice(cartItems.indexOf(cartItemToDelete), 1);
+        const index = cartItems.indexOf(cartItemToDelete);
+
+        cartItems.splice(index, 1);
       }
 
       localStorage.setItem('Cart', JSON.stringify(cartItems));
@@ -49,6 +53,7 @@ export const Cart = () => {
 
   return (
     <div className="cart">
+      <Breadcrumbs />
       <div className="main-container">
         {isCartExist ? (
           <>
@@ -68,11 +73,11 @@ export const Cart = () => {
               </section>
 
               <div className="cart__total">
-                <h1 className="cart__total-title">
-                  ${totalPrice}
-                </h1>
+                <h1 className="cart__total-title">${totalPrice}</h1>
 
-                <h1 className="cart__total-subtitle">Total for {cartItemsCounter} items</h1>
+                <h1 className="cart__total-subtitle">
+                  Total for {cartItemsCounter} items
+                </h1>
 
                 <button className="cart__total-checkout">Checkout</button>
               </div>
@@ -81,7 +86,13 @@ export const Cart = () => {
         ) : (
           <>
             <h1>No content in cart yet</h1>
-            <h3>On this <a className="cart-to" href="#/phones">page</a> you can find something for yourself :)</h3>
+            <h3>
+              On this{' '}
+              <a className="cart-to" href="#/phones">
+                page
+              </a>{' '}
+              you can find something for yourself :)
+            </h3>
           </>
         )}
       </div>

@@ -10,10 +10,7 @@ interface Props {
   handleDelete: (id: string) => void;
 }
 
-export const CartItem: React.FC<Props> = ({
-  cartItem,
-  handleDelete,
-}) => {
+export const CartItem: React.FC<Props> = ({cartItem, handleDelete}) => {
   const handlePlus = () => {
     const existingPhonesFromLocalStorage = localStorage.getItem('Cart');
     const phonesFromLocalStorageToObj
@@ -34,7 +31,6 @@ export const CartItem: React.FC<Props> = ({
           JSON.stringify(phonesFromLocalStorageToObj)
         );
         window.dispatchEvent(new Event('storage'));
-
       }
     }
   };
@@ -101,8 +97,7 @@ export const CartItem: React.FC<Props> = ({
         <div className="cart__item-price__count">
           <button
             className="cart__item-price__count-minus"
-            onClick={handleMinus}
-          >
+            onClick={handleMinus}>
             <img src={minus} alt="minus item" />
           </button>
 
@@ -113,7 +108,9 @@ export const CartItem: React.FC<Props> = ({
           </button>
         </div>
 
-        <h1 className="cart__item-price__value">${cartItem.price * cartItem.amount}</h1>
+        <h1 className="cart__item-price__value">
+          ${cartItem.price * cartItem.amount}
+        </h1>
       </div>
     </div>
   );

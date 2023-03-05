@@ -12,6 +12,12 @@ export const Favourites = () => {
   const favouritesItems
     = isFavouritesExist === null ? [] : JSON.parse(isFavouritesExist);
 
+  let cartItemsCounter = 0;
+
+  favouritesItems.forEach(() => {
+    cartItemsCounter++;
+  });
+
   useEffect(() => {
     setIsFavouritesExist(localStorage.getItem('Favourites'));
     const handleStorage = () => {
@@ -29,7 +35,7 @@ export const Favourites = () => {
         <section className="favourites">
           <h1 className="favourites__title">Favourites</h1>
 
-          <h3 className="favourites__subtitle">5 items</h3>
+          <h3 className="favourites__subtitle">{cartItemsCounter} items</h3>
 
           <div className="favourites__items">
             {favouritesItems.map((favouritesItem: favouriteItem) => (

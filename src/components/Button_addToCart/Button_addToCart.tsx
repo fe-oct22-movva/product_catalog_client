@@ -1,8 +1,10 @@
 import styles from '../Button_addToCart/Button_addToCart.module.scss';
 
 import likeEmpty from '../../assets/images/icons/like-empty.png';
-import React, {useCallback, useState} from 'react';
+import React, {useState} from 'react';
 import likeYellow from '../../assets/images/icons/like-yellow.png';
+import {localStorageAdd} from '../../utils/localStorageAdd';
+import {cartItem, Favourites} from '../../types/types';
 
 interface Props {
   id: string;
@@ -14,61 +16,62 @@ interface Props {
 export const Button_addToCart: React.FC<Props> = ({id, img, price, name}) => {
   const [isLike, setIsLike] = useState(false);
 
-  const handleAddToCart = useCallback(() => {
-    const dataForCart = {
+  const handleAddToCart = () => {
+    const items = localStorage.getItem('Cart');
+    const itemsNotNull = items !== null
+      ? JSON.parse(items)
+      : null;
+
+    if (itemsNotNull) {
+      const include = itemsNotNull
+        .find((item: cartItem) => item.id === id);
+
+      if (include) {
+        include.amount++;
+
+        localStorage.setItem(
+          'Cart',
+          JSON.stringify(itemsNotNull)
+        );
+        window.dispatchEvent(new Event('storage'));
+
+        return;
+      }
+    }
+
+    localStorageAdd({
       id,
       img,
       name,
       price,
       amount: 1,
-    };
+    }, 'Cart');
+  };
 
-    const existingPhonesFromLocalStorage = localStorage.getItem('Cart');
-    const phonesFromLocalStorageToObj
-      = existingPhonesFromLocalStorage !== null
-        ? JSON.parse(existingPhonesFromLocalStorage)
-        : null;
+  const handleLike = () => {
+    setIsLike(!isLike);
 
-    if (!phonesFromLocalStorageToObj) {
-      localStorage.setItem('Cart', JSON.stringify([dataForCart]));
-      window.dispatchEvent(new Event('storage'));
+    const items = localStorage.getItem('Favourites');
+    const itemsNotNull = items !== null
+      ? JSON.parse(items)
+      : null;
+
+    if (itemsNotNull) {
+      const include = itemsNotNull
+        .find((item: Favourites) => item.id === id);
+
+      if (include) {
+        return;
+      }
     }
 
-    phonesFromLocalStorageToObj.push(dataForCart);
-
-    localStorage.setItem('Cart', JSON.stringify(phonesFromLocalStorageToObj));
-    window.dispatchEvent(new Event('storage'));
-  }, []);
-
-  const handleLike = useCallback(() => {
-    const dataForFavourites = {
+    localStorageAdd({
       id,
       img,
       name,
       price,
-    };
-
-    setIsLike(!isLike);
-
-    const existingPhonesFromLocalStorage = localStorage.getItem('Favourites');
-    const phonesFromLocalStorageToObj
-      = existingPhonesFromLocalStorage !== null
-        ? JSON.parse(existingPhonesFromLocalStorage)
-        : null;
-
-    if (!phonesFromLocalStorageToObj) {
-      localStorage.setItem('Favourites', JSON.stringify([dataForFavourites]));
-      window.dispatchEvent(new Event('storage'));
-    }
-
-    phonesFromLocalStorageToObj.push(dataForFavourites);
-
-    localStorage.setItem(
-      'Favourites',
-      JSON.stringify(phonesFromLocalStorageToObj)
-    );
-    window.dispatchEvent(new Event('storage'));
-  }, []);
+    }, 'Favourites');
+  };
 
   return (
     <div className={styles.addToCart}>
