@@ -1,10 +1,6 @@
 @import '../../styles/main.scss';
 
 .itemsOnPage {
-  display: inline-block;
-  margin-right: 16px;
-  min-width: 100px;
-
   &__description {
     font-weight: 700;
     font-size: 12px;
@@ -20,12 +16,12 @@
   min-width: 128px;
 
   &__header {
-    position: relative;
-    display: block;
+    display: flex;
+    justify-content: space-between;
     margin-bottom: 4px;
+    padding: 10px 12px;
 
     width: 100%;
-    min-height: 40px;
 
     border: 1px solid #b4bdc4;
     border-radius: 8px;
@@ -34,15 +30,19 @@
       border: 1px solid #89939a;
       border-radius: 8px;
     }
-  }
 
-  &__title {
-    text-align: left;
-    padding: 0 12px;
-    font-weight: 700;
-    font-size: 14px;
-    line-height: 21px;
-    color: #0f0f11;
+    &__title {
+      text-align: left;
+      margin-right: 10px;
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 21px;
+      color: #0f0f11;
+    }
+
+    &__arrow {
+      display: inline-block;
+    }
   }
 
   &__items {
@@ -66,11 +66,5 @@
       background: #fafbfc;
       border-radius: 8px;
     }
-  }
-
-  &__arrow {
-    position: absolute;
-    right: 5px;
-    top: 12px;
   }
 }

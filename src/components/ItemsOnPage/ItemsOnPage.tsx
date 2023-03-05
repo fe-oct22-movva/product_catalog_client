@@ -1,7 +1,8 @@
 import styles from '../ItemsOnPage/ItemsOnPage.module.scss';
 import arrowDown from '../../assets/images/ArrowDown.svg';
+import { useState } from 'react';
 
-const options2 = [12, 16, 20];
+const itemsOnPageOptions = [12, 16, 20];
 
 interface Props {
   setSelectedPhonesPerPage: (selectedPhonesPerPage: number) => void;
@@ -12,33 +13,40 @@ export const ItemsOnPage: React.FC<Props> = ({
   setSelectedPhonesPerPage,
   isItemsOnPageOpen,
 }) => {
+  const [selectedOption, setSelectedOption] =useState(itemsOnPageOptions[0]);
+
+  const selectOption = (value: number) => {
+    setSelectedOption(value);
+  }
+
   return (
     <div
       className={`
       ${styles.itemsOnPage}
-      grid__item--mobile-3-4
-      grid__item--tablet-5-7 
-      grid__item--desctop-5-7
+      
     `}>
       <p className={styles.itemsOnPage__description}>Items on page</p>
 
       <div className={styles.dropdown}>
         <button className={styles.dropdown__header}>
-          <div className={styles.dropdown__title}>
-            {options2[0]}
-            <img className={styles.dropdown__arrow} src={arrowDown} />
+          <div className={styles.dropdown__header__title}>
+            {selectedOption}
           </div>
+          <img className={styles.dropdown__header__arrow} src={arrowDown} />
         </button>
 
         {!isItemsOnPageOpen ? (
           <p></p>
         ) : (
           <div className={styles.dropdown__items}>
-            {options2.map((option) => (
+            {itemsOnPageOptions.map((option) => (
               <button
                 key={option}
                 className={styles.dropdown__option}
-                onClick={() => setSelectedPhonesPerPage(option)}>
+                onClick={() => {
+                  setSelectedPhonesPerPage(option)
+                  selectOption(option)
+                }}>
                 {option}
               </button>
             ))}

@@ -1,5 +1,6 @@
 @import '../../styles/main.scss';
 
+
 .phonesCategory {
   &__title {
     margin-bottom: 8px;
@@ -35,6 +36,8 @@
 
   &__container {
     display: inline-block;
+    margin-right: 16px;
+    min-width: 100px;
   }
 }
 
