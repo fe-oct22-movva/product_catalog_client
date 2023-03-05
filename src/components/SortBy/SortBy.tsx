@@ -6,14 +6,18 @@ const options1 = ['Newest', 'Alphabetically', 'Cheapest'];
 
 interface Props {
   setSelectedSortBy: (selectedSortBy: string) => void;
+  isSortByOpen: boolean,
 }
 
-export const SortBy: React.FC<Props> = ({setSelectedSortBy}) => {
-  const [isSortByOpen, setIsSortByOpen] = useState(false);
+export const SortBy: React.FC<Props> = ({
+  setSelectedSortBy,
+  isSortByOpen,
+}) => {
+  // const [isSortByOpen, setIsSortByOpen] = useState(false);
 
-  const handleSortBy = () => {
-    setIsSortByOpen(!isSortByOpen);
-  };
+  // const handleSortBy = () => {
+  //   setIsSortByOpen(!isSortByOpen);
+  // };
 
   return (
     <div
@@ -28,13 +32,13 @@ export const SortBy: React.FC<Props> = ({setSelectedSortBy}) => {
       </div>
 
       <div className={styles.dropdown}>
-        <button className={styles.dropdown__header} onClick={handleSortBy}>
+        <button className={styles.dropdown__header}>
           <div className={styles.dropdown__title}>{options1[0]}</div>
 
           <img className={styles.dropdown__arrow} src={arrowDown} />
         </button>
 
-        {isSortByOpen === false ? (
+        {!isSortByOpen ? (
           <p></p>
         ) : (
           <div className={styles.dropdown__items}>

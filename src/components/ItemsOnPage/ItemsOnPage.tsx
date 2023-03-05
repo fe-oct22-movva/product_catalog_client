@@ -6,14 +6,18 @@ const options2 = [12, 16, 20];
 
 interface Props {
   setSelectedPhonesPerPage: (selectedPhonesPerPage: number) => void;
+  isItemsOnPageOpen: boolean,
 }
 
-export const ItemsOnPage: React.FC<Props> = ({setSelectedPhonesPerPage}) => {
-  const [isItemsOnPageOpen, setIsItemsOnPageOpen] = useState(false);
+export const ItemsOnPage: React.FC<Props> = ({
+  setSelectedPhonesPerPage,
+  isItemsOnPageOpen,
+}) => {
+  // const [isItemsOnPageOpen, setIsItemsOnPageOpen] = useState(false);
 
-  const handleItemsOnPage = () => {
-    setIsItemsOnPageOpen(!isItemsOnPageOpen);
-  };
+  // const handleItemsOnPage = () => {
+  //   setIsItemsOnPageOpen(!isItemsOnPageOpen);
+  // };
 
   return (
     <div
@@ -26,14 +30,14 @@ export const ItemsOnPage: React.FC<Props> = ({setSelectedPhonesPerPage}) => {
       <p className={styles.itemsOnPage__description}>Items on page</p>
 
       <div className={styles.dropdown}>
-        <button className={styles.dropdown__header} onClick={handleItemsOnPage}>
+        <button className={styles.dropdown__header}>
           <div className={styles.dropdown__title}>
             {options2[0]}
             <img className={styles.dropdown__arrow} src={arrowDown} />
           </div>
         </button>
 
-        {isItemsOnPageOpen === false ? (
+        {!isItemsOnPageOpen ? (
           <p></p>
         ) : (
           <div className={styles.dropdown__items}>
