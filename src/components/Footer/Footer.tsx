@@ -1,8 +1,15 @@
 import React from 'react';
 import logo from '../../assets/images/Logo.svg';
 import arrowUp from '../../assets/images/DefaultUp.svg';
+import cn from 'classnames';
 
-export const Footer: React.FC = () => {
+interface Props {
+  isBurgerActivated: boolean;
+}
+
+export const Footer: React.FC<Props> = ({
+  isBurgerActivated,
+}) => {
   const scrollTop = () => {
     window.scrollTo({
       top: 0,
@@ -10,7 +17,13 @@ export const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="page__section page__section--footer footer">
+    <footer
+      className={cn(
+        'page__section page__section--footer footer',
+        {
+          'footer--hidden': isBurgerActivated,
+        })}
+    >
       <div className="footer__container">
         <div className="footer__content">
           <a href="/" className="logo">

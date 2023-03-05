@@ -8,7 +8,7 @@ import {ItemsOnPage} from '../../components/ItemsOnPage/ItemsOnPage';
 
 import {Phone} from '../../types/types';
 import {getPhones} from '../../api/phones';
-import { Breadcrumbs } from '../../components/Breadcrumbs';
+import {Breadcrumbs} from '../../components/Breadcrumbs';
 
 export const MobilePhones: React.FC = () => {
   const [phones, setPhones] = useState<Phone[]>([]);

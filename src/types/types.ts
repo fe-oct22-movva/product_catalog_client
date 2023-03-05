@@ -47,15 +47,15 @@ export interface favouriteItem {
 }
 
 export interface Favourites {
-  id: string,
-  img: string,
-  name: string,
-  price: number,
+  id: string;
+  img: string;
+  name: string;
+  price: number;
 }
 
 export interface Cart {
-  id: string,
-  img: string,
-  name: string,
-  price: number,
+  id: string;
+  img: string;
+  name: string;
+  price: number;
 }

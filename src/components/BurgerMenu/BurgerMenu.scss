@@ -9,7 +9,6 @@
     height: 48px;
     display: flex;
     align-items: center;
-    margin-bottom: 45px;
 
     position: relative;
     justify-content: space-between;
@@ -44,7 +43,8 @@
   }
 
   &__list {
-    height: 100vh;
+    padding-top: 45px;
+    height: calc(100vh - 50px - 50px);
   }
 
   &__link {
@@ -52,7 +52,6 @@
 
     font-weight: 800;
     text-transform: uppercase;
-    font-style: bold;
     font-size: 12px;
     letter-spacing: 0.4px;
     line-height: 11px;
@@ -82,6 +81,8 @@
     bottom: 0;
     left: 0;
     right: 0;
+    border: 1px solid $elements;
+
 
     background-color: #fff;
 
@@ -92,7 +93,6 @@
       bottom: 0;
       width: 100%;
       height: 100%;
-      border: 1px solid $elements;
     }
   }
 
@@ -123,6 +123,8 @@
     border: 0.2px solid $elements;
     height: 100%;
   }
+
+  &:hover {}
 
   &:active {
     &::after {
