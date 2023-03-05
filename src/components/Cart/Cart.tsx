@@ -53,8 +53,8 @@ export const Cart = () => {
 
   return (
     <div className="cart">
-      <Breadcrumbs />
       <div className="main-container">
+        <Breadcrumbs />
         {isCartExist ? (
           <>
             <h1 className="cart__title">Cart</h1>
