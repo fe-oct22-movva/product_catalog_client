@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import styles from './MobilePhones.module.scss';
 
-import { Pagination } from '../../components/Pagination';
-import { ProductCardSingle } from '../../components/ProductCardSingle';
-import { SortBy } from '../../components/SortBy/SortBy';
-import { ItemsOnPage } from '../../components/ItemsOnPage/ItemsOnPage';
+import {Pagination} from '../../components/Pagination';
+import {ProductCardSingle} from '../../components/ProductCardSingle';
+import {SortBy} from '../../components/SortBy/SortBy';
+import {ItemsOnPage} from '../../components/ItemsOnPage/ItemsOnPage';
 
-import { Phone } from '../../types/types';
-import { getPhones } from '../../api/phones';
-import { Breadcrumbs } from '../../components/Breadcrumbs';
+import {Phone} from '../../types/types';
+import {getPhones} from '../../api/phones';
+import {Breadcrumbs} from '../../components/Breadcrumbs';
 
 export const MobilePhones: React.FC = () => {
   const [phones, setPhones] = useState<Phone[]>([]);
@@ -38,12 +38,12 @@ export const MobilePhones: React.FC = () => {
   const changeSortbyStatus = () => {
     setIsSortByOpen(!isSortByOpen);
     setItemsOnPageOpen(false);
-  }
+  };
 
   const changeItemsOnPageStatus = () => {
     setItemsOnPageOpen(!isItemsOnPageOpen);
     setIsSortByOpen(false);
-  }
+  };
 
   return (
     <div className="main-container">
@@ -56,22 +56,20 @@ export const MobilePhones: React.FC = () => {
 
         <div
           className={`${styles.filter} grid grid--mobile grid--tablet grid--desktop`}>
-          <div 
-            className={styles.filter__container} 
-            onClick={changeSortbyStatus}
-          >
-            <SortBy 
-              setSelectedSortBy={setSelectedSortBy} 
+          <div
+            className={styles.filter__container}
+            onClick={changeSortbyStatus}>
+            <SortBy
+              setSelectedSortBy={setSelectedSortBy}
               isSortByOpen={isSortByOpen}
             />
           </div>
 
-          <div 
-            className={styles.filter__container} 
-            onClick={changeItemsOnPageStatus}
-          >
-            <ItemsOnPage 
-              setSelectedPhonesPerPage={setSelectedPhonesPerPage} 
+          <div
+            className={styles.filter__container}
+            onClick={changeItemsOnPageStatus}>
+            <ItemsOnPage
+              setSelectedPhonesPerPage={setSelectedPhonesPerPage}
               isItemsOnPageOpen={isItemsOnPageOpen}
             />
           </div>

@@ -1,4 +1,3 @@
-import {useState} from 'react';
 import styles from '../SortBy/SortBy.module.scss';
 import arrowDown from '../../assets/images/ArrowDown.svg';
 
@@ -6,19 +5,10 @@ const options1 = ['Newest', 'Alphabetically', 'Cheapest'];
 
 interface Props {
   setSelectedSortBy: (selectedSortBy: string) => void;
-  isSortByOpen: boolean,
+  isSortByOpen: boolean;
 }
 
-export const SortBy: React.FC<Props> = ({
-  setSelectedSortBy,
-  isSortByOpen,
-}) => {
-  // const [isSortByOpen, setIsSortByOpen] = useState(false);
-
-  // const handleSortBy = () => {
-  //   setIsSortByOpen(!isSortByOpen);
-  // };
-
+export const SortBy: React.FC<Props> = ({setSelectedSortBy, isSortByOpen}) => {
   return (
     <div
       className={`

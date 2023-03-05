@@ -18,59 +18,56 @@ export const Button_addToCart: React.FC<Props> = ({id, img, price, name}) => {
 
   const handleAddToCart = () => {
     const items = localStorage.getItem('Cart');
-    const itemsNotNull = items !== null
-      ? JSON.parse(items)
-      : null;
+    const itemsNotNull = items !== null ? JSON.parse(items) : null;
 
     if (itemsNotNull) {
-      const include = itemsNotNull
-        .find((item: cartItem) => item.id === id);
+      const include = itemsNotNull.find((item: cartItem) => item.id === id);
 
       if (include) {
         include.amount++;
 
-        localStorage.setItem(
-          'Cart',
-          JSON.stringify(itemsNotNull)
-        );
+        localStorage.setItem('Cart', JSON.stringify(itemsNotNull));
         window.dispatchEvent(new Event('storage'));
 
         return;
       }
     }
 
-    localStorageAdd({
-      id,
-      img,
-      name,
-      price,
-      amount: 1,
-    }, 'Cart');
+    localStorageAdd(
+      {
+        id,
+        img,
+        name,
+        price,
+        amount: 1,
+      },
+      'Cart'
+    );
   };
 
   const handleLike = () => {
     setIsLike(!isLike);
 
     const items = localStorage.getItem('Favourites');
-    const itemsNotNull = items !== null
-      ? JSON.parse(items)
-      : null;
+    const itemsNotNull = items !== null ? JSON.parse(items) : null;
 
     if (itemsNotNull) {
-      const include = itemsNotNull
-        .find((item: Favourites) => item.id === id);
+      const include = itemsNotNull.find((item: Favourites) => item.id === id);
 
       if (include) {
         return;
       }
     }
 
-    localStorageAdd({
-      id,
-      img,
-      name,
-      price,
-    }, 'Favourites');
+    localStorageAdd(
+      {
+        id,
+        img,
+        name,
+        price,
+      },
+      'Favourites'
+    );
   };
 
   return (

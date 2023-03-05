@@ -1,4 +1,3 @@
-import {useState} from 'react';
 import styles from '../ItemsOnPage/ItemsOnPage.module.scss';
 import arrowDown from '../../assets/images/ArrowDown.svg';
 
@@ -6,19 +5,13 @@ const options2 = [12, 16, 20];
 
 interface Props {
   setSelectedPhonesPerPage: (selectedPhonesPerPage: number) => void;
-  isItemsOnPageOpen: boolean,
+  isItemsOnPageOpen: boolean;
 }
 
 export const ItemsOnPage: React.FC<Props> = ({
   setSelectedPhonesPerPage,
   isItemsOnPageOpen,
 }) => {
-  // const [isItemsOnPageOpen, setIsItemsOnPageOpen] = useState(false);
-
-  // const handleItemsOnPage = () => {
-  //   setIsItemsOnPageOpen(!isItemsOnPageOpen);
-  // };
-
   return (
     <div
       className={`
