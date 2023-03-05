@@ -8,7 +8,7 @@ import {ItemsOnPage} from '../../components/ItemsOnPage/ItemsOnPage';
 
 import {Phone} from '../../types/types';
 import {getPhones} from '../../api/phones';
-import { Breadcrumbs } from '../../components/Breadcrumbs';
+import {Breadcrumbs} from '../../components/Breadcrumbs';
 
 export const MobilePhones: React.FC = () => {
   const [phones, setPhones] = useState<Phone[]>([]);
@@ -16,6 +16,8 @@ export const MobilePhones: React.FC = () => {
   const [selectedSortBy, setSelectedSortBy] = useState('Newest');
   const [selectedPhonesPerPage, setSelectedPhonesPerPage] = useState(12);
   const [pagesNumber, setPagesNumber] = useState(0);
+  const [isSortByOpen, setIsSortByOpen] = useState(false);
+  const [isItemsOnPageOpen, setItemsOnPageOpen] = useState(false);
 
   useEffect(() => {
     getPhones()
@@ -33,6 +35,16 @@ export const MobilePhones: React.FC = () => {
     pagesNumber,
   ]);
 
+  const changeSortbyStatus = () => {
+    setIsSortByOpen(!isSortByOpen);
+    setItemsOnPageOpen(false);
+  };
+
+  const changeItemsOnPageStatus = () => {
+    setItemsOnPageOpen(!isItemsOnPageOpen);
+    setIsSortByOpen(false);
+  };
+
   return (
     <div className="main-container">
       <Breadcrumbs />
@@ -44,9 +56,23 @@ export const MobilePhones: React.FC = () => {
 
         <div
           className={`${styles.filter} grid grid--mobile grid--tablet grid--desktop`}>
-          <SortBy setSelectedSortBy={setSelectedSortBy} />
+          <div
+            className={styles.filter__container}
+            onClick={changeSortbyStatus}>
+            <SortBy
+              setSelectedSortBy={setSelectedSortBy}
+              isSortByOpen={isSortByOpen}
+            />
+          </div>
 
-          <ItemsOnPage setSelectedPhonesPerPage={setSelectedPhonesPerPage} />
+          <div
+            className={styles.filter__container}
+            onClick={changeItemsOnPageStatus}>
+            <ItemsOnPage
+              setSelectedPhonesPerPage={setSelectedPhonesPerPage}
+              isItemsOnPageOpen={isItemsOnPageOpen}
+            />
+          </div>
         </div>
 
         <div className={styles.catalog}>

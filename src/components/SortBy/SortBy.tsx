@@ -1,4 +1,3 @@
-import {useState} from 'react';
 import styles from '../SortBy/SortBy.module.scss';
 import arrowDown from '../../assets/images/ArrowDown.svg';
 
@@ -6,15 +5,10 @@ const options1 = ['Newest', 'Alphabetically', 'Cheapest'];
 
 interface Props {
   setSelectedSortBy: (selectedSortBy: string) => void;
+  isSortByOpen: boolean;
 }
 
-export const SortBy: React.FC<Props> = ({setSelectedSortBy}) => {
-  const [isSortByOpen, setIsSortByOpen] = useState(false);
-
-  const handleSortBy = () => {
-    setIsSortByOpen(!isSortByOpen);
-  };
-
+export const SortBy: React.FC<Props> = ({setSelectedSortBy, isSortByOpen}) => {
   return (
     <div
       className={`
@@ -28,13 +22,13 @@ export const SortBy: React.FC<Props> = ({setSelectedSortBy}) => {
       </div>
 
       <div className={styles.dropdown}>
-        <button className={styles.dropdown__header} onClick={handleSortBy}>
+        <button className={styles.dropdown__header}>
           <div className={styles.dropdown__title}>{options1[0]}</div>
 
           <img className={styles.dropdown__arrow} src={arrowDown} />
         </button>
 
-        {isSortByOpen === false ? (
+        {!isSortByOpen ? (
           <p></p>
         ) : (
           <div className={styles.dropdown__items}>
