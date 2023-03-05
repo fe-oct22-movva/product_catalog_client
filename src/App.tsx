@@ -26,7 +26,10 @@ export const App: React.FC = () => {
 
   return (
     <div className="App">
-      <Header setIsBurgerActivated={setIsBurgerActivated} isBurger={isBurgerActivated}/>
+      <Header
+        setIsBurgerActivated={setIsBurgerActivated}
+        isBurger={isBurgerActivated}
+      />
 
       <div className="sections">
         <Routes>
@@ -48,7 +51,7 @@ export const App: React.FC = () => {
         </Routes>
       </div>
 
-      <Footer isBurgerActivated={isBurgerActivated}/>
+      <Footer isBurgerActivated={isBurgerActivated} />
     </div>
   );
 };

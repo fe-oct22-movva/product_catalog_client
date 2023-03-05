@@ -7,9 +7,7 @@ interface Props {
   isBurgerActivated: boolean;
 }
 
-export const Footer: React.FC<Props> = ({
-  isBurgerActivated,
-}) => {
+export const Footer: React.FC<Props> = ({isBurgerActivated}) => {
   const scrollTop = () => {
     window.scrollTo({
       top: 0,
@@ -18,12 +16,9 @@ export const Footer: React.FC<Props> = ({
 
   return (
     <footer
-      className={cn(
-        'page__section page__section--footer footer',
-        {
-          'footer--hidden': isBurgerActivated,
-        })}
-    >
+      className={cn('page__section page__section--footer footer', {
+        'footer--hidden': isBurgerActivated,
+      })}>
       <div className="footer__container">
         <div className="footer__content">
           <a href="/" className="logo">
