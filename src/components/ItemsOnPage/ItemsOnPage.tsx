@@ -1,6 +1,6 @@
 import styles from '../ItemsOnPage/ItemsOnPage.module.scss';
 import arrowDown from '../../assets/images/ArrowDown.svg';
-import { useState } from 'react';
+import {useState} from 'react';
 
 const itemsOnPageOptions = [12, 16, 20];
 
@@ -13,11 +13,11 @@ export const ItemsOnPage: React.FC<Props> = ({
   setSelectedPhonesPerPage,
   isItemsOnPageOpen,
 }) => {
-  const [selectedOption, setSelectedOption] =useState(itemsOnPageOptions[0]);
+  const [selectedOption, setSelectedOption] = useState(itemsOnPageOptions[0]);
 
   const selectOption = (value: number) => {
     setSelectedOption(value);
-  }
+  };
 
   return (
     <div
@@ -29,9 +29,7 @@ export const ItemsOnPage: React.FC<Props> = ({
 
       <div className={styles.dropdown}>
         <button className={styles.dropdown__header}>
-          <div className={styles.dropdown__header__title}>
-            {selectedOption}
-          </div>
+          <div className={styles.dropdown__header__title}>{selectedOption}</div>
           <img className={styles.dropdown__header__arrow} src={arrowDown} />
         </button>
 
@@ -44,8 +42,8 @@ export const ItemsOnPage: React.FC<Props> = ({
                 key={option}
                 className={styles.dropdown__option}
                 onClick={() => {
-                  setSelectedPhonesPerPage(option)
-                  selectOption(option)
+                  setSelectedPhonesPerPage(option);
+                  selectOption(option);
                 }}>
                 {option}
               </button>

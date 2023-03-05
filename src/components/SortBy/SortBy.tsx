@@ -1,6 +1,6 @@
 import styles from '../SortBy/SortBy.module.scss';
 import arrowDown from '../../assets/images/ArrowDown.svg';
-import { useState } from 'react';
+import {useState} from 'react';
 
 const sortByOptions = ['Newest', 'Alphabetically', 'Cheapest'];
 
@@ -9,15 +9,12 @@ interface Props {
   isSortByOpen: boolean;
 }
 
-export const SortBy: React.FC<Props> = ({
-  setSelectedSortBy, 
-  isSortByOpen
-}) => {
-  const [selectedOption, setSelectedOption] =useState(sortByOptions[0]);
+export const SortBy: React.FC<Props> = ({setSelectedSortBy, isSortByOpen}) => {
+  const [selectedOption, setSelectedOption] = useState(sortByOptions[0]);
 
   const selectOption = (value: string) => {
     setSelectedOption(value);
-  }
+  };
 
   return (
     <div
@@ -31,9 +28,7 @@ export const SortBy: React.FC<Props> = ({
 
       <div className={styles.dropdown}>
         <button className={styles.dropdown__header}>
-          <div className={styles.dropdown__header__title}>
-            {selectedOption}
-          </div>
+          <div className={styles.dropdown__header__title}>{selectedOption}</div>
 
           <img className={styles.dropdown__header__arrow} src={arrowDown} />
         </button>
@@ -47,8 +42,8 @@ export const SortBy: React.FC<Props> = ({
                 key={option}
                 className={styles.dropdown__option}
                 onClick={() => {
-                  setSelectedSortBy(option)
-                  selectOption(option)
+                  setSelectedSortBy(option);
+                  selectOption(option);
                 }}>
                 {option}
               </button>
