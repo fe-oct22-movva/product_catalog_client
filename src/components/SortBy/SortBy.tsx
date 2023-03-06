@@ -1,12 +1,12 @@
 import styles from '../SortBy/SortBy.module.scss';
 import arrowDown from '../../assets/images/ArrowDown.svg';
 import {useState} from 'react';
-import { SortTypes } from '../../types/types';
+import {SortTypes} from '../../types/types';
 
 const sortByOptions = Object.values(SortTypes);
 
 interface Props {
-  setSelectedSortBy: React.Dispatch<React.SetStateAction<SortTypes>>
+  setSelectedSortBy: React.Dispatch<React.SetStateAction<SortTypes>>;
   isSortByOpen: boolean;
 }
 

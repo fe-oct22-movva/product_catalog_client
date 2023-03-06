@@ -1,17 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import './Cards.scss';
 
-import { CardHomePage } from './CardHomePage';
+import {CardHomePage} from './CardHomePage';
 import arrowLeft from './images/arrowLeftDef.png';
 import arrowRight from './images/arrowRigthDef.png';
-import { Phone } from '../../types/types';
+import {Phone} from '../../types/types';
 // import { ProductCardSingle } from '../ProductCardSingle';
 
 interface Props {
-  newestPhones: Phone[],
+  newestPhones: Phone[];
 }
 
-export const Cards: React.FC<Props> = ({ newestPhones }) => {
+export const Cards: React.FC<Props> = ({newestPhones}) => {
   const [position, setPosition] = useState(0);
   const [cardWidth, setCardWidth] = useState(0);
   const [cardCount, setCardCount] = useState(0);
@@ -68,7 +68,6 @@ export const Cards: React.FC<Props> = ({ newestPhones }) => {
       <div className="flex" style={styles}>
         {newestPhones.map((phone) => (
           <div key={phone.id} className="flex__item">
-
             {/* <ProductCardSingle
               id={phone.id}
               img={phone.image}
@@ -89,7 +88,6 @@ export const Cards: React.FC<Props> = ({ newestPhones }) => {
               capacity={phone.capacity}
               ram={phone.ram}
             />
-
           </div>
         ))}
       </div>
