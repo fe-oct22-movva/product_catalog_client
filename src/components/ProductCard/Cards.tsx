@@ -84,6 +84,7 @@ export const Cards: React.FC<Props> = ({newestPhones}) => {
               img={phone.image}
               name={phone.name}
               price={phone.price}
+              fullPrice={phone.fullPrice}
               screen={phone.screen}
               capacity={phone.capacity}
               ram={phone.ram}
