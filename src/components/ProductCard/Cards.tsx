@@ -1,12 +1,17 @@
 import React, {useEffect, useState} from 'react';
 import './Cards.scss';
 
-import gold from '../../assets/images/phones/gold.jpg';
 import {CardHomePage} from './CardHomePage';
 import arrowLeft from './images/arrowLeftDef.png';
 import arrowRight from './images/arrowRigthDef.png';
+import {Phone} from '../../types/types';
+// import { ProductCardSingle } from '../ProductCardSingle';
 
-export const Cards: React.FC = () => {
+interface Props {
+  newestPhones: Phone[];
+}
+
+export const Cards: React.FC<Props> = ({newestPhones}) => {
   const [position, setPosition] = useState(0);
   const [cardWidth, setCardWidth] = useState(0);
   const [cardCount, setCardCount] = useState(0);
@@ -19,15 +24,15 @@ export const Cards: React.FC = () => {
 
   useEffect(() => {
     if (windowWidth >= 1200) {
-      setCardWidth(290);
+      setCardWidth(270 + 16);
     }
 
     if (windowWidth < 1200) {
-      setCardWidth(248);
+      setCardWidth(248 + 16);
     }
 
     if (windowWidth < 640) {
-      setCardWidth(220);
+      setCardWidth(220 + 16);
     }
   }, []);
 
@@ -50,7 +55,7 @@ export const Cards: React.FC = () => {
           <button
             className="scroll__right"
             onClick={() => {
-              if (cardCount < 4) {
+              if (cardCount < 6) {
                 setPosition((prev) => prev - cardWidth);
                 setCardCount((prev) => prev + 1);
               }
@@ -61,76 +66,31 @@ export const Cards: React.FC = () => {
       </div>
 
       <div className="flex" style={styles}>
-        <CardHomePage
-          img={gold}
-          name={' Apple iPhone 14 Plus 128GB PRODUCT Red (MQ513)'}
-          price={'$859'}
-          screen={'6.7” OLED'}
-          capacity={'128 GB'}
-          ram={'6 GB'}
-        />
-        <CardHomePage
-          img={gold}
-          name={' Apple iPhone 14 Plus 128GB PRODUCT Red (MQ513)'}
-          price={'$859'}
-          screen={'6.7” OLED'}
-          capacity={'128 GB'}
-          ram={'6 GB'}
-        />
+        {newestPhones.map((phone) => (
+          <div key={phone.id} className="flex__item">
+            {/* <ProductCardSingle
+              id={phone.id}
+              img={phone.image}
+              name={phone.name}
+              price={phone.price}
+              fullPrice={phone.fullPrice}
+              screen={phone.screen}
+              capacity={phone.capacity}
+              ram={phone.ram}
+            /> */}
 
-        <CardHomePage
-          img={gold}
-          name={' Apple iPhone 14 Plus 128GB PRODUCT Red (MQ513)'}
-          price={'$859'}
-          screen={'6.7” OLED'}
-          capacity={'128 GB'}
-          ram={'6 GB'}
-        />
-
-        <CardHomePage
-          img={gold}
-          name={' Apple iPhone 14 Plus 128GB PRODUCT Red (MQ513)'}
-          price={'$859'}
-          screen={'6.7” OLED'}
-          capacity={'128 GB'}
-          ram={'6 GB'}
-        />
-
-        <CardHomePage
-          img={gold}
-          name={' Apple iPhone 14 Plus 128GB PRODUCT Red (MQ513)'}
-          price={'$859'}
-          screen={'6.7” OLED'}
-          capacity={'128 GB'}
-          ram={'6 GB'}
-        />
-
-        <CardHomePage
-          img={gold}
-          name={' Apple iPhone 14 Plus 128GB PRODUCT Red (MQ513)'}
-          price={'$859'}
-          screen={'6.7” OLED'}
-          capacity={'128 GB'}
-          ram={'6 GB'}
-        />
-
-        <CardHomePage
-          img={gold}
-          name={' Apple iPhone 14 Plus 128GB PRODUCT Red (MQ513)'}
-          price={'$859'}
-          screen={'6.7” OLED'}
-          capacity={'128 GB'}
-          ram={'6 GB'}
-        />
-
-        <CardHomePage
-          img={gold}
-          name={' Apple iPhone 14 Plus 128GB PRODUCT Red (MQ513)'}
-          price={'$859'}
-          screen={'6.7” OLED'}
-          capacity={'128 GB'}
-          ram={'6 GB'}
-        />
+            <CardHomePage
+              id={phone.id}
+              img={phone.image}
+              name={phone.name}
+              price={phone.price}
+              fullPrice={phone.fullPrice}
+              screen={phone.screen}
+              capacity={phone.capacity}
+              ram={phone.ram}
+            />
+          </div>
+        ))}
       </div>
     </section>
   );

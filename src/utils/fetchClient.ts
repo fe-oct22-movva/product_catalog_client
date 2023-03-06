@@ -2,10 +2,20 @@ const BASE_URL = 'https://enigmatic-anchorage-21289.herokuapp.com';
 
 type RequestMethod = 'GET';
 
-function request<T>(url: string, method: RequestMethod = 'GET'): Promise<T> {
+function request<T>(
+  url: string,
+  method: RequestMethod = 'GET',
+  searchParams: string[][] = []
+): Promise<T> {
   const options: RequestInit = {method};
 
-  return fetch(BASE_URL + url, options)
+  const partlyUrl = new URL(BASE_URL + url);
+
+  searchParams.forEach((p) => partlyUrl.searchParams.set(p[0], p[1]));
+
+  const finalUrl = partlyUrl.toString();
+
+  return fetch(finalUrl, options)
     .then((response) => {
       if (!response.ok) {
         throw new Error();
@@ -17,5 +27,6 @@ function request<T>(url: string, method: RequestMethod = 'GET'): Promise<T> {
 }
 
 export const client = {
-  get: <T>(url: string) => request<T>(url),
+  get: <T>(url: string, searchParams: string[][] = []) =>
+    request<T>(url, undefined, searchParams),
 };

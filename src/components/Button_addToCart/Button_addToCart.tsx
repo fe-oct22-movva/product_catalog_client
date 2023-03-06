@@ -11,6 +11,7 @@ interface Props {
   id: string;
   img: string;
   price: number;
+  fullPrice: number;
   name: string;
   screen: string;
   capacity: string;
@@ -108,6 +109,7 @@ export const Button_addToCart: React.FC<Props> = ({
         img,
         name,
         price,
+        fullPrice,
         amount: 1,
       },
       'Cart'
