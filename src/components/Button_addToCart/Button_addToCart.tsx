@@ -1,10 +1,11 @@
 import styles from '../Button_addToCart/Button_addToCart.module.scss';
 
-import likeEmpty from '../../assets/images/icons/like-empty.png';
-import React, {useState} from 'react';
-import likeYellow from '../../assets/images/icons/like-yellow.png';
+import likeEmpty from '../../assets/images/icons/favourites-like.svg';
+import likeFull from '../../assets/images/icons/favourites-likeFull.svg';
+import React, {useEffect, useState} from 'react';
 import {localStorageAdd} from '../../utils/localStorageAdd';
 import {cartItem, Favourites} from '../../types/types';
+import {handleDelete} from '../../utils/localStorageRemove';
 
 interface Props {
   id: string;
@@ -25,20 +26,79 @@ export const Button_addToCart: React.FC<Props> = ({
   capacity,
   ram,
 }) => {
-  const [isLike, setIsLike] = useState(false);
+  const [isInFavourites, setIsInFavourites] = useState(false);
+  const [isInCart, setIsInCart] = useState(false);
+
+  useEffect(() => {
+    const getFavourites = localStorage.getItem('Favourites');
+
+    const favouritesItems
+      = getFavourites === null ? [] : JSON.parse(getFavourites);
+    const isIncludeFav = favouritesItems
+      .find((favourite: Favourites) => favourite.id === id);
+
+    if (isIncludeFav) {
+      setIsInFavourites(true);
+    }
+
+    const handleFav = () => {
+      const getFavourites = localStorage.getItem('Favourites');
+
+      const favouritesItems
+      = getFavourites === null ? [] : JSON.parse(getFavourites);
+      const isIncludeFav = favouritesItems
+        .find((favourite: Favourites) => favourite.id === id);
+
+      if (isIncludeFav) {
+        setIsInFavourites(true);
+      }
+    };
+
+    const getCarts = localStorage.getItem('Cart');
+
+    const CartItems
+      = getCarts === null ? [] : JSON.parse(getCarts);
+    const isIncludeCart = CartItems
+      .find((cart: cartItem) => cart.id === id);
+
+    if (isIncludeCart) {
+      setIsInCart(true);
+    }
+
+    const handleCart = () => {
+      const getCarts = localStorage.getItem('Cart');
+
+      const CartItems
+        = getCarts === null ? [] : JSON.parse(getCarts);
+      const isIncludeCart = CartItems
+        .find((cart: cartItem) => cart.id === id);
+
+      if (isIncludeCart) {
+        setIsInCart(true);
+      }
+    };
+
+    window.addEventListener('storage', handleFav);
+    window.addEventListener('storage', handleCart);
+    return () => {
+      window.removeEventListener('storage', handleFav);
+      window.removeEventListener('storage', handleCart);
+    };
+  }, [isInFavourites, isInCart]);
 
   const handleAddToCart = () => {
     const items = localStorage.getItem('Cart');
     const itemsNotNull = items !== null ? JSON.parse(items) : null;
 
+    if (isInCart) {
+      setIsInCart(false);
+    }
+
     if (itemsNotNull) {
       const include = itemsNotNull.find((item: cartItem) => item.id === id);
 
       if (include) {
-        include.amount++;
-
-        localStorage.setItem('Cart', JSON.stringify(itemsNotNull));
-        window.dispatchEvent(new Event('storage'));
+        handleDelete(id, 'Cart');
 
         return;
       }
@@ -57,15 +117,18 @@ export const Button_addToCart: React.FC<Props> = ({
   };
 
   const handleLike = () => {
-    setIsLike(!isLike);
-
     const items = localStorage.getItem('Favourites');
     const itemsNotNull = items !== null ? JSON.parse(items) : null;
 
     if (itemsNotNull) {
       const include = itemsNotNull.find((item: Favourites) => item.id === id);
+      if (isInFavourites) {
+        setIsInFavourites(false);
+      }
 
       if (include) {
+        handleDelete(id, 'Favourites');
+
         return;
       }
     }
@@ -86,16 +149,24 @@ export const Button_addToCart: React.FC<Props> = ({
 
   return (
     <div className={styles.addToCart}>
-      <button className={styles.addToCart__button} onClick={handleAddToCart}>
-        Add to cart
-      </button>
+      {
+        !isInCart ? (
+          <button className={styles.addToCart__button} onClick={handleAddToCart}>
+            Add to cart
+          </button>
+        ) : (
+          <button className={styles.addToCart__button__active} onClick={handleAddToCart}>
+            Added
+          </button>
+        )
+      }
 
       <div className={styles.addToCart}>
         <button className={styles.addToCart__like} onClick={handleLike}>
-          {!isLike ? (
+          {!isInFavourites ? (
             <img src={likeEmpty} alt="Like" />
           ) : (
-            <img src={likeYellow} alt="Like" />
+            <img src={likeFull} alt="Like" />
           )}
         </button>
       </div>
