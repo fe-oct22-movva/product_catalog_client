@@ -20,12 +20,15 @@ export const MobilePhones: React.FC = () => {
   const [isSortByOpen, setIsSortByOpen] = useState(false);
   const [isItemsOnPageOpen, setItemsOnPageOpen] = useState(false);
 
+  console.log(phones);
+
   useEffect(() => {
     getAllPhones([
       ['limit', selectedPhonesPerPage.toString()],
-      ['sort', selectedSortBy],
+      ['sortBy', selectedSortBy],
     ])
       .then((data) => {
+        console.log(data);
         setPhones(data.result);
         setPhonesNumber(data.totalPhones);
         setPagesNumber(data.pages);
@@ -54,10 +57,6 @@ export const MobilePhones: React.FC = () => {
 
         <div
           className={`${styles.filter} grid grid--mobile grid--tablet grid--desktop`}>
-          <SortBy
-            selectedSortBy={selectedSortBy}
-            setSelectedSortBy={setSelectedSortBy}
-          />
           <div
             className={styles.filter__container}
             onClick={changeSortbyStatus}>

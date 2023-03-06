@@ -1,18 +1,19 @@
 import styles from '../SortBy/SortBy.module.scss';
 import arrowDown from '../../assets/images/ArrowDown.svg';
 import {useState} from 'react';
+import { SortTypes } from '../../types/types';
 
-const sortByOptions = ['Newest', 'Alphabetically', 'Cheapest'];
+const sortByOptions = Object.values(SortTypes);
 
 interface Props {
-  setSelectedSortBy: (selectedSortBy: string) => void;
+  setSelectedSortBy: React.Dispatch<React.SetStateAction<SortTypes>>
   isSortByOpen: boolean;
 }
 
 export const SortBy: React.FC<Props> = ({setSelectedSortBy, isSortByOpen}) => {
   const [selectedOption, setSelectedOption] = useState(sortByOptions[0]);
 
-  const selectOption = (value: string) => {
+  const selectOption = (value: SortTypes) => {
     setSelectedOption(value);
   };
 
