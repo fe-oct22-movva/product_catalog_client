@@ -55,7 +55,13 @@ export const ProductCardSingle: React.FC<Props> = ({
         </div>
       </div>
 
-      <Button_addToCart id={id} img={img} price={price} name={name} />
+      <Button_addToCart
+        id={id}
+        img={img}
+        price={price}
+        fullPrice={fullPrice}
+        name={name}
+      />
     </div>
   );
 };

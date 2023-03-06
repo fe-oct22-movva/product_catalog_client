@@ -10,10 +10,17 @@ interface Props {
   id: string;
   img: string;
   price: number;
+  fullPrice: number;
   name: string;
 }
 
-export const Button_addToCart: React.FC<Props> = ({id, img, price, name}) => {
+export const Button_addToCart: React.FC<Props> = ({
+  id,
+  img,
+  price,
+  fullPrice,
+  name,
+}) => {
   const [isLike, setIsLike] = useState(false);
 
   const handleAddToCart = () => {
@@ -39,6 +46,7 @@ export const Button_addToCart: React.FC<Props> = ({id, img, price, name}) => {
         img,
         name,
         price,
+        fullPrice,
         amount: 1,
       },
       'Cart'
@@ -65,6 +73,7 @@ export const Button_addToCart: React.FC<Props> = ({id, img, price, name}) => {
         img,
         name,
         price,
+        fullPrice,
       },
       'Favourites'
     );

@@ -39,7 +39,9 @@ export const Favourites = () => {
 
           <div className="favourites__catalog">
             {favouritesItems.map((favouritesItem: favouriteItem) => (
-              <div className="favourites__catalog__items" key={favouritesItem.id}>
+              <div
+                className="favourites__catalog__items"
+                key={favouritesItem.id}>
                 <ProductCardSingle
                   id={favouritesItem.id}
                   img={favouritesItem.img}

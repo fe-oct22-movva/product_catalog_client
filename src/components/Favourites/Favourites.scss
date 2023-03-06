@@ -2,6 +2,8 @@
 @import '../../styles/normalize';
 
 .favourites {
+  margin-bottom: 80px;
+  
   &__title {
     font-family: 'Mont_Bold', sans-serif;
     font-weight: 800;
@@ -44,27 +46,17 @@
     @include onDesktop {
       grid-template-columns: repeat(auto-fill, minmax(229px, 1fr));
     }
-    
+
     &__items {
-      display: flex;
-      flex-wrap: wrap;
-      margin-bottom: 56px;
-      gap: 16px;
-  
+      width: 100%;
+      max-width: 288px;
+
       @include onTablet {
-        margin-bottom: 64px;
+        max-width: 288px;
       }
-  
+
       @include onDesktop {
-        margin-bottom: 80px;
-      }
-  
-      &__item {
-        width: 287px;
-  
-        @include onDesktop {
-          width: 272px;
-        }
+        max-width: 272px;
       }
     }
   }
