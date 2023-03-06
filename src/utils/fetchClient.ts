@@ -1,4 +1,4 @@
-const BASE_URL = 'http://localhost:5000';
+const BASE_URL = 'https://enigmatic-anchorage-21289.herokuapp.com';
 
 type RequestMethod = 'GET';
 

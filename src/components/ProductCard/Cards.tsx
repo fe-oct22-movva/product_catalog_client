@@ -1,12 +1,18 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import './Cards.scss';
 
-import gold from '../../assets/images/phones/gold.jpg';
-import {CardHomePage} from './CardHomePage';
+import { CardHomePage } from './CardHomePage';
 import arrowLeft from './images/arrowLeftDef.png';
 import arrowRight from './images/arrowRigthDef.png';
+import { Phone } from '../../types/types';
+// eslint-disable-next-line no-unused-vars
+import { ProductCardSingle } from '../ProductCardSingle';
 
-export const Cards: React.FC = () => {
+interface Props {
+  newestPhones: Phone[],
+}
+
+export const Cards: React.FC<Props> = ({ newestPhones }) => {
   const [position, setPosition] = useState(0);
   const [cardWidth, setCardWidth] = useState(0);
   const [cardCount, setCardCount] = useState(0);
@@ -61,76 +67,32 @@ export const Cards: React.FC = () => {
       </div>
 
       <div className="flex" style={styles}>
-        <CardHomePage
-          img={gold}
-          name={' Apple iPhone 14 Plus 128GB PRODUCT Red (MQ513)'}
-          price={'$859'}
-          screen={'6.7” OLED'}
-          capacity={'128 GB'}
-          ram={'6 GB'}
-        />
-        <CardHomePage
-          img={gold}
-          name={' Apple iPhone 14 Plus 128GB PRODUCT Red (MQ513)'}
-          price={'$859'}
-          screen={'6.7” OLED'}
-          capacity={'128 GB'}
-          ram={'6 GB'}
-        />
+        {newestPhones.map((phone) => (
+          <div key={phone.id} className="flex__item">
 
-        <CardHomePage
-          img={gold}
-          name={' Apple iPhone 14 Plus 128GB PRODUCT Red (MQ513)'}
-          price={'$859'}
-          screen={'6.7” OLED'}
-          capacity={'128 GB'}
-          ram={'6 GB'}
-        />
+            {/* <ProductCardSingle
+              id={phone.id}
+              img={phone.image}
+              name={phone.name}
+              price={phone.price}
+              fullPrice={phone.fullPrice}
+              screen={phone.screen}
+              capacity={phone.capacity}
+              ram={phone.ram}
+            /> */}
 
-        <CardHomePage
-          img={gold}
-          name={' Apple iPhone 14 Plus 128GB PRODUCT Red (MQ513)'}
-          price={'$859'}
-          screen={'6.7” OLED'}
-          capacity={'128 GB'}
-          ram={'6 GB'}
-        />
+            <CardHomePage
+              id={phone.id}
+              img={phone.image}
+              name={phone.name}
+              price={phone.price}
+              screen={phone.screen}
+              capacity={phone.capacity}
+              ram={phone.ram}
+            />
 
-        <CardHomePage
-          img={gold}
-          name={' Apple iPhone 14 Plus 128GB PRODUCT Red (MQ513)'}
-          price={'$859'}
-          screen={'6.7” OLED'}
-          capacity={'128 GB'}
-          ram={'6 GB'}
-        />
-
-        <CardHomePage
-          img={gold}
-          name={' Apple iPhone 14 Plus 128GB PRODUCT Red (MQ513)'}
-          price={'$859'}
-          screen={'6.7” OLED'}
-          capacity={'128 GB'}
-          ram={'6 GB'}
-        />
-
-        <CardHomePage
-          img={gold}
-          name={' Apple iPhone 14 Plus 128GB PRODUCT Red (MQ513)'}
-          price={'$859'}
-          screen={'6.7” OLED'}
-          capacity={'128 GB'}
-          ram={'6 GB'}
-        />
-
-        <CardHomePage
-          img={gold}
-          name={' Apple iPhone 14 Plus 128GB PRODUCT Red (MQ513)'}
-          price={'$859'}
-          screen={'6.7” OLED'}
-          capacity={'128 GB'}
-          ram={'6 GB'}
-        />
+          </div>
+        ))}
       </div>
     </section>
   );

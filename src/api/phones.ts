@@ -1,26 +1,29 @@
 import {serverResponse} from '../types/types';
 import {client} from '../utils/fetchClient';
 
-export const getPhones = () => {
-  return client.get<serverResponse>('/phones');
+type Params = {
+  sort?: string,
+  limit?: number,
+  page?: number
+}
+
+const paramsF = (params?: Params) => {
+  const result = [];
+
+  if (!params) {
+    return '';
+  }
+
+  for (const key in params) {
+    result.push(`&${key}=${params[key as keyof Params]}`);
+  }
+
+  console.log('?' + result.join('&'));
+
+  return '?' + result.join('&');
 };
 
-export const getPhoneById = (id: string) => {
-  return client.get<serverResponse>(`/phones/${id}`);
-};
-
-export const getNewestPhones = () => {
-  return client.get<serverResponse>('./phones?sortBy=fromNewest');
-};
-
-export const getOldestPhones = () => {
-  return client.get<serverResponse>('./phones?sortBy=fromOldest');
-};
-
-export const getMostExpensive = () => {
-  return client.get<serverResponse>('./phones?sortBy=fromHighPrice');
-};
-
-export const getCheapest = () => {
-  return client.get<serverResponse>('./phones?sortBy=fromLowPrice');
+export const getPhones = (params?: Params) => {
+  console.log('params:', params);
+  return client.get<serverResponse>(`/phones${paramsF(params)}`);
 };
