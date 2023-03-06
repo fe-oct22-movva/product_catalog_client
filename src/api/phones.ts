@@ -1,8 +1,10 @@
 import {serverResponse} from '../types/types';
 import {client} from '../utils/fetchClient';
 
-export const getPhones = () => {
-  return client.get<serverResponse>('/phones');
+type Params = {
+  sort?: string;
+  limit?: number;
+  page?: number;
 };
 
 export const getAllPhones = (criterion: string[][]) => {

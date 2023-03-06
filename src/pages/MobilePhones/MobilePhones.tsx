@@ -59,12 +59,7 @@ export const MobilePhones: React.FC = () => {
             setSelectedSortBy={setSelectedSortBy}
           />
           <div
-            className={`
-              ${styles.filter__container} 
-              grid__item--mobile-1-2
-              grid__item--tablet-1-4 
-              grid__item--desctop-1-4
-            `}
+            className={styles.filter__container}
             onClick={changeSortbyStatus}>
             <SortBy
               setSelectedSortBy={setSelectedSortBy}
@@ -73,12 +68,7 @@ export const MobilePhones: React.FC = () => {
           </div>
 
           <div
-            className={`
-              ${styles.filter__container} 
-              grid__item--mobile-3-4
-              grid__item--tablet-5-7 
-              grid__item--desctop-5-7
-            `}
+            className={styles.filter__container}
             onClick={changeItemsOnPageStatus}>
             <ItemsOnPage
               setSelectedPhonesPerPage={setSelectedPhonesPerPage}
