@@ -31,25 +31,40 @@
     }
   }
 
-  &__items {
-    display: flex;
-    flex-wrap: wrap;
-    margin-bottom: 56px;
-    gap: 16px;
+  &__catalog {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    gap: 40px 16px;
 
     @include onTablet {
-      margin-bottom: 64px;
+      grid-template-columns: repeat(auto-fill, minmax(229px, 1fr));
     }
 
     @include onDesktop {
-      margin-bottom: 80px;
+      grid-template-columns: repeat(auto-fill, minmax(229px, 1fr));
     }
-
-    &__item {
-      width: 287px;
-
+    
+    &__items {
+      display: flex;
+      flex-wrap: wrap;
+      margin-bottom: 56px;
+      gap: 16px;
+  
+      @include onTablet {
+        margin-bottom: 64px;
+      }
+  
       @include onDesktop {
-        width: 272px;
+        margin-bottom: 80px;
+      }
+  
+      &__item {
+        width: 287px;
+  
+        @include onDesktop {
+          width: 272px;
+        }
       }
     }
   }
