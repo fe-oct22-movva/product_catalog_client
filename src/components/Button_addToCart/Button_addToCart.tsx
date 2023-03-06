@@ -14,7 +14,13 @@ interface Props {
   name: string;
 }
 
-export const Button_addToCart: React.FC<Props> = ({id, img, price, fullPrice, name}) => {
+export const Button_addToCart: React.FC<Props> = ({
+  id,
+  img,
+  price,
+  fullPrice,
+  name,
+}) => {
   const [isLike, setIsLike] = useState(false);
 
   const handleAddToCart = () => {
