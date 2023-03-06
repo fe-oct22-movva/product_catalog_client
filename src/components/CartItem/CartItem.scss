@@ -27,13 +27,17 @@
 
     @include onTablet {
       margin: 0;
-      //align-items: center;
     }
 
     &__close {
       width: 16px;
       height: 16px;
       flex-shrink: 0;
+      transition: transform .3s;
+
+      &:hover {
+        transform: scale(1.2);
+      }
     }
 
     &__photo {
@@ -81,12 +85,16 @@
         width: 32px;
         height: 32px;
 
-        border: 1px solid #e2e6e9;
+        border: 1px solid #B4BDC4;
         border-radius: 50%;
       }
 
       &-minus:disabled {
         border-color: #e2e6e9;
+
+        & img {
+          content: url("../../assets/images/icons/minus-disabled.svg");
+        }
       }
 
       &-plus {

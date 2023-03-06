@@ -121,7 +121,7 @@ export const PageNotFound = () => {
         </g>
       </svg>
 
-      <a href="#/home">Back to {'->'} Home</a>
+      <a href="#/home" className="button-40">Home</a>
     </div>
   );
 };

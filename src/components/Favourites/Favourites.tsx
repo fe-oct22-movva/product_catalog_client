@@ -29,7 +29,9 @@ export const Favourites = () => {
         <section className="favourites">
           <h1 className="favourites__title">Favourites</h1>
 
-          <h3 className="favourites__subtitle">{favouritesItems.length} items</h3>
+          <h3 className="favourites__subtitle">
+            {favouritesItems.length} items
+          </h3>
 
           <div className="favourites__items">
             {favouritesItems.map((favouritesItem: favouriteItem) => (

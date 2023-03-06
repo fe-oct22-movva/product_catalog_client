@@ -34,8 +34,9 @@ export const Button_addToCart: React.FC<Props> = ({
 
     const favouritesItems
       = getFavourites === null ? [] : JSON.parse(getFavourites);
-    const isIncludeFav = favouritesItems
-      .find((favourite: Favourites) => favourite.id === id);
+    const isIncludeFav = favouritesItems.find(
+      (favourite: Favourites) => favourite.id === id
+    );
 
     if (isIncludeFav) {
       setIsInFavourites(true);
@@ -45,9 +46,10 @@ export const Button_addToCart: React.FC<Props> = ({
       const getFavourites = localStorage.getItem('Favourites');
 
       const favouritesItems
-      = getFavourites === null ? [] : JSON.parse(getFavourites);
-      const isIncludeFav = favouritesItems
-        .find((favourite: Favourites) => favourite.id === id);
+        = getFavourites === null ? [] : JSON.parse(getFavourites);
+      const isIncludeFav = favouritesItems.find(
+        (favourite: Favourites) => favourite.id === id
+      );
 
       if (isIncludeFav) {
         setIsInFavourites(true);
@@ -56,10 +58,8 @@ export const Button_addToCart: React.FC<Props> = ({
 
     const getCarts = localStorage.getItem('Cart');
 
-    const CartItems
-      = getCarts === null ? [] : JSON.parse(getCarts);
-    const isIncludeCart = CartItems
-      .find((cart: cartItem) => cart.id === id);
+    const CartItems = getCarts === null ? [] : JSON.parse(getCarts);
+    const isIncludeCart = CartItems.find((cart: cartItem) => cart.id === id);
 
     if (isIncludeCart) {
       setIsInCart(true);
@@ -68,10 +68,8 @@ export const Button_addToCart: React.FC<Props> = ({
     const handleCart = () => {
       const getCarts = localStorage.getItem('Cart');
 
-      const CartItems
-        = getCarts === null ? [] : JSON.parse(getCarts);
-      const isIncludeCart = CartItems
-        .find((cart: cartItem) => cart.id === id);
+      const CartItems = getCarts === null ? [] : JSON.parse(getCarts);
+      const isIncludeCart = CartItems.find((cart: cartItem) => cart.id === id);
 
       if (isIncludeCart) {
         setIsInCart(true);
@@ -149,17 +147,17 @@ export const Button_addToCart: React.FC<Props> = ({
 
   return (
     <div className={styles.addToCart}>
-      {
-        !isInCart ? (
-          <button className={styles.addToCart__button} onClick={handleAddToCart}>
-            Add to cart
-          </button>
-        ) : (
-          <button className={styles.addToCart__button__active} onClick={handleAddToCart}>
-            Added
-          </button>
-        )
-      }
+      {!isInCart ? (
+        <button className={styles.addToCart__button} onClick={handleAddToCart}>
+          Add to cart
+        </button>
+      ) : (
+        <button
+          className={styles.addToCart__button__active}
+          onClick={handleAddToCart}>
+          Added
+        </button>
+      )}
 
       <div className={styles.addToCart}>
         <button className={styles.addToCart__like} onClick={handleLike}>

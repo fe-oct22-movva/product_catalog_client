@@ -20,7 +20,7 @@
     font-weight: 500;
     font-size: 14px;
     line-height: 21px;
-    transition: box-shadow .3s;
+    transition: box-shadow 0.3s;
 
     &:hover {
       box-shadow: 0 3px 13px rgba(23, 32, 49, 0.4);
@@ -49,7 +49,7 @@
     font-weight: 500;
     font-size: 14px;
     line-height: 21px;
-    transition: box-shadow .3s;
+    transition: box-shadow 0.3s;
 
     background-color: #ffffff;
     color: #4219d0;
@@ -72,7 +72,7 @@
     border-radius: 48px;
 
     & img {
-      transition: transform .3s;
+      transition: transform 0.3s;
     }
 
     &:hover img {

@@ -4,9 +4,9 @@ export const handleDelete = (id: string, type: string) => {
   const itemsFromStorage = localStorage.getItem(type);
   const items = itemsFromStorage === null ? [] : JSON.parse(itemsFromStorage);
 
-  const itemToDelete = items
-    .find((item: Favourites | cartItem) => item.id === id
-    );
+  const itemToDelete = items.find(
+    (item: Favourites | cartItem) => item.id === id
+  );
 
   if (itemToDelete !== undefined) {
     const index = items.indexOf(itemToDelete);
