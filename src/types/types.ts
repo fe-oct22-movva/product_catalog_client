@@ -26,3 +26,17 @@ export interface serverResponse {
   prev: NextAndPrev;
   result: Phone[];
 }
+
+export enum SortTypes {
+  NEWEST = 'newest',
+  OLDEST = 'oldest',
+  ALPHABETICALLY = 'alphabetically',
+  CHEAPEST = 'cheapest',
+  MORE_EXPENSIVE = 'moreExpensive',
+}
+
+// export type Params = {
+//   sort?: string,
+//   limit?: number,
+//   page?: number,
+// };
