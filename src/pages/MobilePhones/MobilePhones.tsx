@@ -1,15 +1,15 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './MobilePhones.module.scss';
 
-import {Pagination} from '../../components/Pagination';
-import {ProductCardSingle} from '../../components/ProductCardSingle';
-import {SortBy} from '../../components/SortBy/SortBy';
-import {ItemsOnPage} from '../../components/ItemsOnPage/ItemsOnPage';
+import { Pagination } from '../../components/Pagination';
+import { ProductCardSingle } from '../../components/ProductCardSingle';
+import { SortBy } from '../../components/SortBy/SortBy';
+import { ItemsOnPage } from '../../components/ItemsOnPage/ItemsOnPage';
 
-import {Phone, SortTypes} from '../../types/types';
-import {getAllPhones} from '../../api/phones';
-import {Breadcrumbs} from '../../components/Breadcrumbs';
+import { Phone, SortTypes } from '../../types/types';
+import { getAllPhones } from '../../api/phones';
+import { Breadcrumbs } from '../../components/Breadcrumbs';
 
 export const MobilePhones: React.FC = () => {
   const [phones, setPhones] = useState<Phone[]>([]);
@@ -17,25 +17,24 @@ export const MobilePhones: React.FC = () => {
   const [selectedSortBy, setSelectedSortBy] = useState(SortTypes.NEWEST);
   const [selectedPhonesPerPage, setSelectedPhonesPerPage] = useState(12);
   const [pagesNumber, setPagesNumber] = useState(0);
+  const [chosenPageNumber, setChosenPageNumber] = useState(1);
 
   const [isSortByOpen, setIsSortByOpen] = useState(false);
   const [isItemsOnPageOpen, setItemsOnPageOpen] = useState(false);
-
-  console.log(phones);
 
   useEffect(() => {
     getAllPhones([
       ['limit', selectedPhonesPerPage.toString()],
       ['sortBy', selectedSortBy],
+      ['page', chosenPageNumber.toString()],
     ])
       .then((data) => {
-        console.log(data);
         setPhones(data.result);
         setPhonesNumber(data.totalPhones);
         setPagesNumber(data.pages);
       })
       .catch((error) => console.log(error));
-  }, [selectedSortBy, selectedPhonesPerPage]);
+  }, [selectedSortBy, selectedPhonesPerPage, chosenPageNumber]);
 
   const changeSortbyStatus = () => {
     setIsSortByOpen(!isSortByOpen);
@@ -45,6 +44,22 @@ export const MobilePhones: React.FC = () => {
   const changeItemsOnPageStatus = () => {
     setItemsOnPageOpen(!isItemsOnPageOpen);
     setIsSortByOpen(false);
+  };
+
+  const paginate = (pageNumber: number) => {
+    setChosenPageNumber(pageNumber);
+  };
+
+  const goToPreviousPage = () => {
+    if (chosenPageNumber !== 1) {
+      setChosenPageNumber(chosenPageNumber - 1);
+    }
+  };
+
+  const goToNextPage = () => {
+    if (chosenPageNumber !== pagesNumber) {
+      setChosenPageNumber(chosenPageNumber + 1);
+    }
   };
 
   return (
@@ -94,7 +109,13 @@ export const MobilePhones: React.FC = () => {
           ))}
         </div>
 
-        <Pagination />
+        <Pagination
+          pagesNumber={pagesNumber}
+          paginate={paginate}
+          goToPreviousPage={goToPreviousPage}
+          goToNextPage={goToNextPage}
+          chosenPageNumber={chosenPageNumber}
+        />
       </div>
     </div>
   );
