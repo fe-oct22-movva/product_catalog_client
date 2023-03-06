@@ -6,34 +6,32 @@ import {ProductCardSingle} from '../../components/ProductCardSingle';
 import {SortBy} from '../../components/SortBy/SortBy';
 import {ItemsOnPage} from '../../components/ItemsOnPage/ItemsOnPage';
 
-import {Phone} from '../../types/types';
-import {getPhones} from '../../api/phones';
+import { Phone, SortTypes } from '../../types/types';
+import { getAllPhones } from '../../api/phones';
 import {Breadcrumbs} from '../../components/Breadcrumbs';
 
 export const MobilePhones: React.FC = () => {
   const [phones, setPhones] = useState<Phone[]>([]);
   const [phonesNumber, setPhonesNumber] = useState(0);
-  const [selectedSortBy, setSelectedSortBy] = useState('Newest');
+  const [selectedSortBy, setSelectedSortBy] = useState(SortTypes.NEWEST);
   const [selectedPhonesPerPage, setSelectedPhonesPerPage] = useState(12);
   const [pagesNumber, setPagesNumber] = useState(0);
+  
   const [isSortByOpen, setIsSortByOpen] = useState(false);
   const [isItemsOnPageOpen, setItemsOnPageOpen] = useState(false);
 
   useEffect(() => {
-    getPhones()
+    getAllPhones([
+      ['limit', selectedPhonesPerPage.toString()],
+      ['sort', selectedSortBy],
+    ])
       .then((data) => {
         setPhones(data.result);
         setPhonesNumber(data.totalPhones);
         setPagesNumber(data.pages);
       })
       .catch((error) => console.log(error));
-  }, [
-    phones,
-    phonesNumber,
-    selectedSortBy,
-    selectedPhonesPerPage,
-    pagesNumber,
-  ]);
+  }, [selectedSortBy, selectedPhonesPerPage]);
 
   const changeSortbyStatus = () => {
     setIsSortByOpen(!isSortByOpen);
@@ -56,6 +54,10 @@ export const MobilePhones: React.FC = () => {
 
         <div
           className={`${styles.filter} grid grid--mobile grid--tablet grid--desktop`}>
+          <SortBy
+            selectedSortBy={selectedSortBy}
+            setSelectedSortBy={setSelectedSortBy}
+          />
           <div
             className={styles.filter__container}
             onClick={changeSortbyStatus}>
@@ -91,7 +93,7 @@ export const MobilePhones: React.FC = () => {
             </div>
           ))}
         </div>
-
+        
         <Pagination />
       </div>
     </div>

@@ -7,23 +7,10 @@ type Params = {
   page?: number;
 };
 
-const paramsF = (params?: Params) => {
-  const result = [];
-
-  if (!params) {
-    return '';
-  }
-
-  for (const key in params) {
-    result.push(`&${key}=${params[key as keyof Params]}`);
-  }
-
-  console.log('?' + result.join('&'));
-
-  return '?' + result.join('&');
+export const getAllPhones = (criterion: string[][]) => {
+  return client.get<serverResponse>('/phones', criterion);
 };
 
-export const getPhones = (params?: Params) => {
-  console.log('params:', params);
-  return client.get<serverResponse>(`/phones${paramsF(params)}`);
+export const getPhoneById = (id: string) => {
+  return client.get<serverResponse>(`/phones/${id}`);
 };
