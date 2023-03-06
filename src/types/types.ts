@@ -51,6 +51,9 @@ export interface Favourites {
   img: string;
   name: string;
   price: number;
+  screen: string;
+  capacity: string;
+  ram: string;
 }
 
 export interface Cart {

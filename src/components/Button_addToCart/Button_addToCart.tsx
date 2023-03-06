@@ -11,9 +11,20 @@ interface Props {
   img: string;
   price: number;
   name: string;
+  screen: string;
+  capacity: string;
+  ram: string;
 }
 
-export const Button_addToCart: React.FC<Props> = ({id, img, price, name}) => {
+export const Button_addToCart: React.FC<Props> = ({
+  id,
+  img,
+  price,
+  name,
+  screen,
+  capacity,
+  ram,
+}) => {
   const [isLike, setIsLike] = useState(false);
 
   const handleAddToCart = () => {
@@ -65,6 +76,9 @@ export const Button_addToCart: React.FC<Props> = ({id, img, price, name}) => {
         img,
         name,
         price,
+        screen,
+        capacity,
+        ram,
       },
       'Favourites'
     );
