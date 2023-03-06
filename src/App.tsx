@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import {Header} from './components/HomePage/Header';
 import {Footer} from './components/Footer';
 import {HomePage} from './components/HomePage/HomePage';
@@ -8,8 +8,9 @@ import {PageNotFound} from './components/PageNotFound';
 import {MobilePhones} from './pages/MobilePhones';
 import {Favourites} from './components/Favourites/Favourites';
 import {BurgerMenu} from './components/BurgerMenu';
-import { Phone } from './types/types';
-import { getPhones } from './api/phones';
+import {Cart} from './components/Cart/Cart';
+import {Phone} from './types/types';
+import {getPhones} from './api/phones';
 
 export const App: React.FC = () => {
   const [phones, setPhones] = useState<Phone[]>([]);
@@ -25,13 +26,17 @@ export const App: React.FC = () => {
 
   return (
     <div className="App">
-      <Header setIsBurgerActivated={setIsBurgerActivated} />
+      <Header
+        setIsBurgerActivated={setIsBurgerActivated}
+        isBurger={isBurgerActivated}
+      />
 
       <div className="sections">
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/phones" element={<MobilePhones />} />
           <Route path="/favourites" element={<Favourites />} />
+          <Route path="/cart" element={<Cart />} />
           <Route
             path="/menu"
             element={
@@ -46,7 +51,7 @@ export const App: React.FC = () => {
         </Routes>
       </div>
 
-      <Footer />
+      <Footer isBurgerActivated={isBurgerActivated} />
     </div>
   );
 };

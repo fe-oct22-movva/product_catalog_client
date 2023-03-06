@@ -1,13 +1,13 @@
-import { FC } from 'react';
-import { Button_addToCart } from '../Button_addToCart';
+import {FC} from 'react';
+import {Button_addToCart} from '../Button_addToCart';
 
 interface Props {
-  img: string,
-  name: string
-  price: string
-  screen: string
-  capacity: string
-  ram: string
+  img: string;
+  name: string;
+  price: string;
+  screen: string;
+  capacity: string;
+  ram: string;
 }
 
 export const CardHomePage: FC<Props> = ({
@@ -22,9 +22,7 @@ export const CardHomePage: FC<Props> = ({
     <div className="card">
       <img className="card__icon" src={img} />
 
-      <h3 className="card__title">
-        {name}
-      </h3>
+      <h3 className="card__title">{name}</h3>
 
       <p className="card__price">{price}</p>
 
@@ -44,7 +42,8 @@ export const CardHomePage: FC<Props> = ({
         </div>
       </div>
 
-      <Button_addToCart />
+      <Button_addToCart id="3" img="bb" name="Apple" price={3000} />
+      {/*fix requirments in parents block*/}
     </div>
   );
 };

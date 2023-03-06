@@ -35,8 +35,35 @@ export enum SortTypes {
   MORE_EXPENSIVE = 'moreExpensive',
 }
 
-// export type Params = {
-//   sort?: string,
-//   limit?: number,
-//   page?: number,
-// };
+export interface cartItem {
+  id: string;
+  img: string;
+  name: string;
+  amount: number;
+  price: number;
+}
+
+export interface favouriteItem {
+  id: string;
+  img: string;
+  name: string;
+  price: number;
+  fullPrice: number;
+  screen: string;
+  capacity: string;
+  ram: string;
+}
+
+export interface Favourites {
+  id: string;
+  img: string;
+  name: string;
+  price: number;
+}
+
+export interface Cart {
+  id: string;
+  img: string;
+  name: string;
+  price: number;
+}

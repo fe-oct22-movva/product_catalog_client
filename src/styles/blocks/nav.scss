@@ -42,9 +42,18 @@
     color: $secondary;
     white-space: nowrap;
     cursor: pointer;
+    transition: color 0.3s;
 
     &--icon {
       box-shadow: -1px 0px 0px $elements;
+
+      &:hover .aside-container__item-photo {
+        transform: scale(1.2);
+      }
+
+      &:hover .aside-container__item-fav-counter {
+        transform: scale(1.2);
+      }
     }
 
     @include onDesktop {
@@ -60,18 +69,37 @@
       color: $primary;
 
       &:after {
+        transition: background-color 0.3s;
         position: absolute;
         bottom: 0;
 
         height: 4px;
         width: 100%;
         content: '';
+        border-radius: 3px;
         background-color: $primary;
+        opacity: 1;
       }
     }
 
     &--activeIcon {
-      box-shadow: 0px 0px 1px $primary;
+      box-shadow: 0 0 1px $primary;
+
+      &:after {
+        position: absolute;
+        bottom: 0;
+
+        height: 3px;
+        width: 48px;
+        content: '';
+        border-radius: 3px;
+        background-color: $primary;
+        opacity: 1;
+
+        @include onDesktop {
+          width: 66px;
+        }
+      }
     }
   }
 }

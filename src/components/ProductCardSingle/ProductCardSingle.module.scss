@@ -19,11 +19,11 @@
 
     @include onTablet {
       height: 180px;
-      width: 180px;
+      max-width: 180px;
     }
 
     @include onDesktop {
-      width: 210px;
+      max-width: 210px;
     }
   }
 
