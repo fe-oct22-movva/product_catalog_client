@@ -5,8 +5,7 @@ import { CardHomePage } from './CardHomePage';
 import arrowLeft from './images/arrowLeftDef.png';
 import arrowRight from './images/arrowRigthDef.png';
 import { Phone } from '../../types/types';
-// eslint-disable-next-line no-unused-vars
-import { ProductCardSingle } from '../ProductCardSingle';
+// import { ProductCardSingle } from '../ProductCardSingle';
 
 interface Props {
   newestPhones: Phone[],

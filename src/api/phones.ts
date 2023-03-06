@@ -2,10 +2,10 @@ import {serverResponse} from '../types/types';
 import {client} from '../utils/fetchClient';
 
 type Params = {
-  sort?: string,
-  limit?: number,
-  page?: number
-}
+  sort?: string;
+  limit?: number;
+  page?: number;
+};
 
 const paramsF = (params?: Params) => {
   const result = [];

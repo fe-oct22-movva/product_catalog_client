@@ -3,9 +3,9 @@ import {Cards} from '../ProductCard';
 import {ShopByCategory} from '../ShopByCategory';
 import {PhoneSpecs} from '../PhoneSpecs/PhoneSpecs';
 import {AboutPhone} from '../AboutPhone';
-import { useEffect, useState } from 'react';
-import { Phone } from '../../types/types';
-import { getPhones } from '../../api/phones';
+import {useEffect, useState} from 'react';
+import {Phone} from '../../types/types';
+import {getPhones} from '../../api/phones';
 
 export const HomePage = () => {
   const [newestPhones, setNewestPhones] = useState<Phone[]>([]);
@@ -23,7 +23,7 @@ export const HomePage = () => {
     <div>
       <Banner />
       <div className="main-container">
-        <Cards newestPhones={newestPhones}/>
+        <Cards newestPhones={newestPhones} />
         <ShopByCategory />
         <PhoneSpecs />
         <AboutPhone />
