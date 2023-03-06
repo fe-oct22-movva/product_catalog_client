@@ -2,15 +2,17 @@ import {FC} from 'react';
 import {Button_addToCart} from '../Button_addToCart';
 
 interface Props {
+  id: string;
   img: string;
   name: string;
-  price: string;
+  price: number;
   screen: string;
   capacity: string;
   ram: string;
 }
 
 export const CardHomePage: FC<Props> = ({
+  id,
   img,
   name,
   price,
@@ -42,7 +44,7 @@ export const CardHomePage: FC<Props> = ({
         </div>
       </div>
 
-      <Button_addToCart id="3" img="bb" name="Apple" price={3000} />
+      <Button_addToCart id={id} img={img} price={price} name={name} />
       {/*fix requirments in parents block*/}
     </div>
   );

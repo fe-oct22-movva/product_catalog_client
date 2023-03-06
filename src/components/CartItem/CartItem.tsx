@@ -88,8 +88,7 @@ export const CartItem: React.FC<Props> = ({cartItem, handleDelete}) => {
           <button
             className="cart__item-price__count-minus"
             onClick={handleMinus}
-            disabled={cartItem.amount === 1}
-          >
+            disabled={cartItem.amount === 1}>
             <img src={minus} alt="minus item" />
           </button>
 
