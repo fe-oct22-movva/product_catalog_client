@@ -11,7 +11,25 @@
   }
 
   &__item {
+    display: block;
+    text-align: center;
+    height: 32px;
+    width: 32px;
     margin-right: 8px;
+
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 32px;
+
+    color: #0f0f11;
+
+    border: 1px solid #b4bdc4;
+    border-radius: 48px;
+
+    &:hover {
+      border-color: #0f0f11;
+      color: #000;
+    }
 
     &:first-child {
       background-image: url('../../assets/images/ArrowLeft.svg');
@@ -28,24 +46,13 @@
     }
   }
 
-  &__link {
-    display: block;
-    text-align: center;
-    height: 32px;
-    width: 32px;
-
-    font-weight: 600;
-    font-size: 14px;
-    line-height: 32px;
-
-    color: #0f0f11;
-
-    border: 1px solid #b4bdc4;
-    border-radius: 48px;
+  &__chosen {
+    color: #fff;
+    background-color: #0f0f11;
 
     &:hover {
       border-color: #0f0f11;
-      color: #000;
+      color: #fff;
     }
   }
 }

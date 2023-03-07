@@ -1,25 +1,22 @@
 .arrow {
-  margin-right: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-right: 8px;
+
+  text-align: center;
+  height: 32px;
+  width: 32px;
+
+  border: 1px solid #b4bdc4;
+  border-radius: 48px;
 
   background-image: url('../../assets/images/icons/arrow-right.svg');
   background-position: center;
   background-repeat: no-repeat;
 
-  &__link {
-    display: block;
-    text-align: center;
-    height: 32px;
-    width: 32px;
-
-    border: 1px solid #b4bdc4;
-    border-radius: 48px;
-
-    &:hover {
-      border-color: #0f0f11;
-      color: #000;
-    }
+  &:hover {
+    border-color: #0f0f11;
+    color: #000;
   }
 }

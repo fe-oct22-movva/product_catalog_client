@@ -11,11 +11,12 @@ export const Breadcrumbs: React.FC = () => {
     .split('/')
     .filter((crumb) => crumb !== '')
     .map((crumb) => {
-      currentLink += `/${crumb}`;
+      const normalisedCrumb = crumb.split('-').join(' ');
+      currentLink += `/${normalisedCrumb}`;
 
       return (
         <Link key={crumb} to={currentLink}>
-          <p className={styles.breadcrumbs__link}>{crumb}</p>
+          <p className={styles.breadcrumbs__link}>{normalisedCrumb}</p>
         </Link>
       );
     });

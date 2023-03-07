@@ -1,9 +1,9 @@
 import styles from '../ArrowLeft/ArrowLeft.module.scss';
 
-export const ArrowLeft: React.FC = () => {
-  return (
-    <div className={styles.arrow}>
-      <a href="#" className={styles.arrow__link}></a>
-    </div>
-  );
+interface Props {
+  goToPreviousPage: () => void;
+}
+
+export const ArrowLeft: React.FC<Props> = ({goToPreviousPage}) => {
+  return <li onClick={goToPreviousPage} className={styles.arrow}></li>;
 };
