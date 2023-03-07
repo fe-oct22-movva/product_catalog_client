@@ -43,21 +43,28 @@
 
   &__image {
     display: block;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
-
-    content: url('../../../assets/images/banner.jpg');
+    object-position: center center;
 
     @include onTablet {
       border-radius: 8px;
-
-      & {
-        content: url('../../../assets/images/banner-tablet.jpg');
-      }
     }
 
     @include onDesktop {
-      & {
-        content: url('../../../assets/images/banner-desktop.jpg');
+    }
+
+    &--first {
+      height: max-content;
+      content: url("../../../assets/images/banner.jpg");
+
+      @include onTablet {
+        content: url("../../../assets/images/banner-tablet.jpg");
+      }
+
+      @include onDesktop {
+        content: url("../../../assets/images/banner-desktop.jpg");
       }
     }
   }
