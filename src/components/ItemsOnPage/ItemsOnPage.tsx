@@ -1,8 +1,9 @@
+/* eslint-disable  @typescript-eslint/no-explicit-any */
 import styles from '../ItemsOnPage/ItemsOnPage.module.scss';
 import arrowDown from '../../assets/images/ArrowDown.svg';
 import arrowUp from '../../assets/images/ArrowUp.svg';
 
-import {Dispatch, SetStateAction, useEffect, useRef, useState} from 'react';
+import {Dispatch, SetStateAction, useEffect, useRef} from 'react';
 
 const itemsOnPageOptions = [12, 16, 20];
 
@@ -19,7 +20,6 @@ export const ItemsOnPage: React.FC<Props> = ({
   isItemsOnPageOpen,
   setItemsOnPageOpen,
 }) => {
-  // const [selectedOption, setSelectedOption] = useState(itemsOnPageOptions[0]);
   const dropdownRef = useRef<any>();
 
   useEffect(() => {
@@ -40,7 +40,8 @@ export const ItemsOnPage: React.FC<Props> = ({
   };
 
   return (
-    <div ref={dropdownRef}
+    <div
+      ref={dropdownRef}
       className={`
       ${styles.itemsOnPage}
       
@@ -49,7 +50,9 @@ export const ItemsOnPage: React.FC<Props> = ({
 
       <div className={styles.dropdown}>
         <button className={styles.dropdown__header}>
-          <div className={styles.dropdown__header__title}>{selectedPhonesPerPage}</div>
+          <div className={styles.dropdown__header__title}>
+            {selectedPhonesPerPage}
+          </div>
           {!isItemsOnPageOpen ? (
             <img
               className={styles.dropdown__header__arrow__down}

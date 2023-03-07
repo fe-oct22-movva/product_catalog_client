@@ -1,18 +1,18 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import React, { useEffect, useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import styles from './MobilePhones.module.scss';
 import arrowDown from '../../assets/images/ArrowDown.svg';
 import arrowUp from '../../assets/images/ArrowUp.svg';
 
-import { Pagination } from '../../components/Pagination';
-import { ProductCardSingle } from '../../components/ProductCardSingle';
-import { SortBy } from '../../components/SortBy/SortBy';
-import { ItemsOnPage } from '../../components/ItemsOnPage/ItemsOnPage';
-import { Phone, SortTypes } from '../../types/types';
-import { getAllPhones } from '../../api/phones';
-import { Breadcrumbs } from '../../components/Breadcrumbs';
-import { Loader } from '../../components/Loader';
-import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import {Pagination} from '../../components/Pagination';
+import {ProductCardSingle} from '../../components/ProductCardSingle';
+import {SortBy} from '../../components/SortBy/SortBy';
+import {ItemsOnPage} from '../../components/ItemsOnPage/ItemsOnPage';
+import {Phone, SortTypes} from '../../types/types';
+import {getAllPhones} from '../../api/phones';
+import {Breadcrumbs} from '../../components/Breadcrumbs';
+import {Loader} from '../../components/Loader';
+import {Notify} from 'notiflix/build/notiflix-notify-aio';
 
 export const MobilePhones: React.FC = () => {
   const [phones, setPhones] = useState<Phone[]>([]);
@@ -121,7 +121,7 @@ export const MobilePhones: React.FC = () => {
                   onClick={changeItemsOnPageStatus}>
                   <ItemsOnPage
                     setSelectedPhonesPerPage={setSelectedPhonesPerPage}
-                    selectedPhonesPerPage={selectedPhonesPerPage}                    
+                    selectedPhonesPerPage={selectedPhonesPerPage}
                     isItemsOnPageOpen={isItemsOnPageOpen}
                     setItemsOnPageOpen={setItemsOnPageOpen}
                   />

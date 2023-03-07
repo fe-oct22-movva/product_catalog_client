@@ -1,9 +1,10 @@
+/* eslint-disable  @typescript-eslint/no-explicit-any */
 import styles from '../SortBy/SortBy.module.scss';
 import arrowDown from '../../assets/images/ArrowDown.svg';
 import arrowUp from '../../assets/images/ArrowUp.svg';
 
-import { Dispatch, SetStateAction, useEffect, useRef, useState } from 'react';
-import { SortTypes } from '../../types/types';
+import {Dispatch, SetStateAction, useEffect, useRef} from 'react';
+import {SortTypes} from '../../types/types';
 
 const sortByOptions = Object.values(SortTypes);
 
@@ -40,7 +41,8 @@ export const SortBy: React.FC<Props> = ({
   };
 
   return (
-    <div ref={dropdownRef}
+    <div
+      ref={dropdownRef}
       className={`
       ${styles.sortBy}
       
@@ -54,7 +56,10 @@ export const SortBy: React.FC<Props> = ({
           <div className={styles.dropdown__header__title}>{selectedSortBy}</div>
 
           {!isSortByOpen ? (
-            <img className={styles.dropdown__header__arrow__down} src={arrowDown} />
+            <img
+              className={styles.dropdown__header__arrow__down}
+              src={arrowDown}
+            />
           ) : (
             <img className={styles.dropdown__header__arrow__up} src={arrowUp} />
           )}
