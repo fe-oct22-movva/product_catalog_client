@@ -46,8 +46,15 @@ export const CardHomePage: FC<Props> = ({
         </div>
       </div>
 
-      <Button_addToCart id={id} img={img} price={price} fullPrice={fullPrice} name={name} />
-      {/*fix requirments in parents block*/}
+      <Button_addToCart
+        id={id}
+        img={img}
+        price={price}
+        fullPrice={fullPrice}
+        name={name}
+        capacity={capacity}
+        ram={ram}
+        screen={screen}/>
     </div>
   );
 };
