@@ -19,7 +19,6 @@ export const App: React.FC = () => {
   const [isBurgerActivated, setIsBurgerActivated] = useState<boolean>(false);
   const [selectedId, setSelectedId] = useState('');
   const location = useLocation();
-  console.log(location);
 
   const startValueCapacity
     = phones.find((el) => el.phoneId === selectedId)?.capacity || '64GB';

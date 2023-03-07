@@ -4,6 +4,7 @@ import {cartItem} from '../../types/types';
 import {CartItem} from '../CartItem/CartItem';
 import {Breadcrumbs} from '../Breadcrumbs';
 import {handleDelete} from '../../utils/localStorageRemove';
+import {EmptyCart} from '../EmptyCart/EmptyCart';
 
 export const Cart = () => {
   const [isCartExist, setIsCartExist] = useState<string | null>(null);
@@ -68,16 +69,7 @@ export const Cart = () => {
             </div>
           </>
         ) : (
-          <>
-            <h1>No content in cart yet</h1>
-            <h3>
-              On this{' '}
-              <a className="cart-to" href="#/phones">
-                page
-              </a>{' '}
-              you can find something for yourself :)
-            </h3>
-          </>
+          <EmptyCart />
         )}
       </div>
     </div>
