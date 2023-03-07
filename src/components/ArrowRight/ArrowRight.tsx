@@ -1,9 +1,15 @@
 import styles from '../ArrowRight/ArrowRight.module.scss';
 
-export const ArrowRight: React.FC = () => {
+interface Props {
+  goToNextPage: () => void,
+}
+
+export const ArrowRight: React.FC<Props> = ({ goToNextPage }) => {
   return (
-    <div className={styles.arrow}>
-      <a href="#" className={styles.arrow__link}></a>
-    </div>
+    <li
+      onClick={goToNextPage}
+      className={styles.arrow}
+    >
+    </li>
   );
 };
