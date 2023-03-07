@@ -53,6 +53,12 @@
 
     height: 32px;
     width: 32px;
+
+    &:hover {
+      border-color: #0f0f11;
+      color: #000;
+      cursor: pointer;
+    }
   }
 
   &__right {
@@ -65,6 +71,12 @@
 
     height: 32px;
     width: 32px;
+
+    &:hover {
+      border-color: #0f0f11;
+      color: #000;
+      cursor: pointer;
+    }
   }
 }
 
@@ -216,29 +228,5 @@
     @include onDesktop {
       width: 290px;
     }
-  }
-}
-
-.arrow-left {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-right: 8px;
-
-  text-align: center;
-  height: 32px;
-  width: 32px;
-
-  border: 1px solid #b4bdc4;
-  border-radius: 48px;
-
-  background-image: url('../../assets/images/icons/arrow-left.svg');
-  background-position: center;
-  background-repeat: no-repeat;
-
-  &:hover {
-    border-color: #0f0f11;
-    color: #000;
-    cursor: pointer;
   }
 }
