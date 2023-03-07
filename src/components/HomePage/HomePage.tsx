@@ -46,9 +46,17 @@ export const HomePage: React.FC<Props> = ({setSelectedId}) => {
       <div>
         <Banner />
         <div className="main-container">
-          <Cards newestPhones={newestPhones} setSelectedId={setSelectedId} />
+          <Cards
+          newestPhones={newestPhones}
+          setSelectedId={setSelectedId}
+          title="Brand new models"
+        />
           <ShopByCategory phonesNumber={phonesNumber} />
-          <Cards newestPhones={cheapestPhones} setSelectedId={setSelectedId} />
+          <Cards
+          newestPhones={cheapestPhones}
+          setSelectedId={setSelectedId}
+          title="Hot prices"
+        />
         </div>
       </div>
     </>
