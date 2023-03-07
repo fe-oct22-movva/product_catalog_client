@@ -2,9 +2,10 @@ import React from 'react';
 
 import logo from '../../assets/images/Logo.svg';
 import close from '../../images/CloseQuarter.svg';
-import like from '../../images/likeButtonBurger.svg';
 import cart from '../../images/cartButtonBurger.svg';
 import './BurgerMenu.scss';
+import {FavouritesNavHeart} from '../FavouritesNavHeart/FavouritesNavHeart';
+import {CartNavBasket} from '../CartNavBasket/CartNavBasket';
 
 export interface Props {
   isBurger: boolean;
@@ -60,12 +61,17 @@ export const BurgerMenu: React.FC<Props> = ({isBurger, setIsBurger}) => {
             <a
               href="#/favourites"
               className="footer__link-like"
-              onClick={toggleMenu}>
-              <img src={like} alt="like button" className="burger__like" />
+              onClick={toggleMenu}
+            >
+              <FavouritesNavHeart />
             </a>
 
-            <a href="#/cart" className="footer__link-cart" onClick={toggleMenu}>
-              <img src={cart} alt="cart button" className="burger__cart" />
+            <a
+              href="#/cart"
+              className="footer__link-cart"
+              onClick={toggleMenu}
+            >
+              <CartNavBasket />
             </a>
           </div>
         </div>

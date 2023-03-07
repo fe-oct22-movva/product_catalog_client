@@ -6,6 +6,8 @@ import logo from '../../../assets/images/Logo.svg';
 import {HeaderNavLink} from './HeaderNavLink';
 import {HeaderIconNavLink} from './HeaderIconNavLink';
 import {NavLink} from 'react-router-dom';
+import {FavouritesNavHeart} from '../../FavouritesNavHeart/FavouritesNavHeart';
+import {CartNavBasket} from '../../CartNavBasket/CartNavBasket';
 
 interface Props {
   setIsBurgerActivated: React.Dispatch<React.SetStateAction<boolean>>;
@@ -13,29 +15,6 @@ interface Props {
 }
 
 export const Header: React.FC<Props> = ({setIsBurgerActivated, isBurger}) => {
-  const [favouritesFromLocal, setFavouritesFromLocal] = useState<string | null>(
-    null
-  );
-  const [cartFromLocal, setCartFromLocal] = useState<string | null>(null);
-
-  const favouritesItems
-    = favouritesFromLocal === null ? [] : JSON.parse(favouritesFromLocal).length;
-  const cartItems
-    = cartFromLocal === null ? [] : JSON.parse(cartFromLocal).length;
-
-  useEffect(() => {
-    setFavouritesFromLocal(localStorage.getItem('Favourites'));
-    setCartFromLocal(localStorage.getItem('Cart'));
-
-    const handleStorage = () => {
-      setFavouritesFromLocal(localStorage.getItem('Favourites'));
-      setCartFromLocal(localStorage.getItem('Cart'));
-    };
-
-    window.addEventListener('storage', handleStorage);
-    return () => window.removeEventListener('storage', handleStorage);
-  }, [favouritesItems, favouritesFromLocal, cartFromLocal, cartItems]);
-
   return (
     <>
       {!isBurger && (
@@ -87,43 +66,9 @@ export const Header: React.FC<Props> = ({setIsBurgerActivated, isBurger}) => {
               </div>
 
               <ul className="aside-container__list">
-                <HeaderIconNavLink
-                  to="/favourites"
-                  textToDisplay={
-                    <li className="aside-container__item">
-                      <img
-                        className="aside-container__item-photo"
-                        src={heart}
-                        alt="favourite items"
-                      />
+                <FavouritesNavHeart />
 
-                      {favouritesItems > 0 && (
-                        <p className="aside-container__item-fav-counter">
-                          {favouritesItems}
-                        </p>
-                      )}
-                    </li>
-                  }
-                />
-
-                <HeaderIconNavLink
-                  to="/cart"
-                  textToDisplay={
-                    <li className="aside-container__item">
-                      <img
-                        className="aside-container__item-photo"
-                        src={cart}
-                        alt="cart"
-                      />
-
-                      {cartItems > 0 && (
-                        <p className="aside-container__item-fav-counter">
-                          {cartItems}
-                        </p>
-                      )}
-                    </li>
-                  }
-                />
+                <CartNavBasket />
               </ul>
             </div>
           </div>
