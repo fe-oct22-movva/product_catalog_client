@@ -44,8 +44,7 @@ export const HomePage: React.FC<Props> = ({setSelectedId}) => {
       <div className="main-container">
         <Cards newestPhones={newestPhones} setSelectedId={setSelectedId} />
         <ShopByCategory phonesNumber={phonesNumber} />
-        <Cards newestPhones={cheapestPhones} />
-
+        <Cards newestPhones={cheapestPhones} setSelectedId={setSelectedId} />
       </div>
     </div>
   );
