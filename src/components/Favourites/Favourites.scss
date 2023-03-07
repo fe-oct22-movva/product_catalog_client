@@ -59,4 +59,27 @@
       }
     }
   }
+
+  &__empty {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    max-width: max-content;
+    margin: 0 auto;
+
+    &-photo {
+      width: 70%;
+      padding-bottom: 10px;
+    }
+
+    &-title {
+      font-size: 20px;
+
+      @include onTablet {
+        font-size: 28px;
+      }
+    }
+  }
 }
