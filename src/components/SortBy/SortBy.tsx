@@ -2,25 +2,45 @@ import styles from '../SortBy/SortBy.module.scss';
 import arrowDown from '../../assets/images/ArrowDown.svg';
 import arrowUp from '../../assets/images/ArrowUp.svg';
 
-import {useState} from 'react';
-import {SortTypes} from '../../types/types';
+import { Dispatch, SetStateAction, useEffect, useRef, useState } from 'react';
+import { SortTypes } from '../../types/types';
 
 const sortByOptions = Object.values(SortTypes);
 
 interface Props {
-  setSelectedSortBy: React.Dispatch<React.SetStateAction<SortTypes>>;
+  setSelectedSortBy: React.Dispatch<React.SetStateAction<string>>;
+  selectedSortBy: string;
   isSortByOpen: boolean;
+  setIsSortByOpen: Dispatch<SetStateAction<boolean>>;
 }
 
-export const SortBy: React.FC<Props> = ({setSelectedSortBy, isSortByOpen}) => {
-  const [selectedOption, setSelectedOption] = useState(sortByOptions[0]);
+export const SortBy: React.FC<Props> = ({
+  setSelectedSortBy,
+  selectedSortBy,
+  isSortByOpen,
+  setIsSortByOpen,
+}) => {
+  const dropdownRef = useRef<any>();
 
-  const selectOption = (value: SortTypes) => {
-    setSelectedOption(value);
+  useEffect(() => {
+    function handleClickOutside(event: Event) {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setIsSortByOpen(false);
+      }
+    }
+
+    document.addEventListener('click', handleClickOutside, true);
+    return () => {
+      document.removeEventListener('click', handleClickOutside, true);
+    };
+  }, [dropdownRef]);
+
+  const selectSortBy = (value: SortTypes) => {
+    setSelectedSortBy(value);
   };
 
   return (
-    <div
+    <div ref={dropdownRef}
       className={`
       ${styles.sortBy}
       
@@ -31,7 +51,7 @@ export const SortBy: React.FC<Props> = ({setSelectedSortBy, isSortByOpen}) => {
 
       <div className={styles.dropdown}>
         <button className={styles.dropdown__header}>
-          <div className={styles.dropdown__header__title}>{selectedOption}</div>
+          <div className={styles.dropdown__header__title}>{selectedSortBy}</div>
 
           {!isSortByOpen ? (
             <img className={styles.dropdown__header__arrow__down} src={arrowDown} />
@@ -46,11 +66,10 @@ export const SortBy: React.FC<Props> = ({setSelectedSortBy, isSortByOpen}) => {
           <div className={styles.dropdown__items}>
             {sortByOptions.map((option) => (
               <button
-                key={option}
+                key={option[0]}
                 className={styles.dropdown__option}
                 onClick={() => {
-                  setSelectedSortBy(option);
-                  selectOption(option);
+                  selectSortBy(option);
                 }}>
                 {option}
               </button>

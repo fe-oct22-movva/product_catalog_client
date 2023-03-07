@@ -1,21 +1,23 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './MobilePhones.module.scss';
+import arrowDown from '../../assets/images/ArrowDown.svg';
+import arrowUp from '../../assets/images/ArrowUp.svg';
 
-import {Pagination} from '../../components/Pagination';
-import {ProductCardSingle} from '../../components/ProductCardSingle';
-import {SortBy} from '../../components/SortBy/SortBy';
-import {ItemsOnPage} from '../../components/ItemsOnPage/ItemsOnPage';
-import {Phone, SortTypes} from '../../types/types';
-import {getAllPhones} from '../../api/phones';
-import {Breadcrumbs} from '../../components/Breadcrumbs';
-import {Loader} from '../../components/Loader';
-import {Notify} from 'notiflix/build/notiflix-notify-aio';
+import { Pagination } from '../../components/Pagination';
+import { ProductCardSingle } from '../../components/ProductCardSingle';
+import { SortBy } from '../../components/SortBy/SortBy';
+import { ItemsOnPage } from '../../components/ItemsOnPage/ItemsOnPage';
+import { Phone, SortTypes } from '../../types/types';
+import { getAllPhones } from '../../api/phones';
+import { Breadcrumbs } from '../../components/Breadcrumbs';
+import { Loader } from '../../components/Loader';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 export const MobilePhones: React.FC = () => {
   const [phones, setPhones] = useState<Phone[]>([]);
   const [phonesNumber, setPhonesNumber] = useState(0);
-  const [selectedSortBy, setSelectedSortBy] = useState(SortTypes.NEWEST);
+  const [selectedSortBy, setSelectedSortBy] = useState('newest');
   const [selectedPhonesPerPage, setSelectedPhonesPerPage] = useState(12);
   const [pagesNumber, setPagesNumber] = useState(0);
   const [chosenPageNumber, setChosenPageNumber] = useState(1);
@@ -37,6 +39,7 @@ export const MobilePhones: React.FC = () => {
         setPhones(data.result);
         setPhonesNumber(data.totalPhones);
         setPagesNumber(data.pages);
+        console.log('selectedSortBy ', selectedSortBy);
       })
       .catch((error) => {
         console.log(error);
@@ -102,7 +105,9 @@ export const MobilePhones: React.FC = () => {
                   onClick={changeSortbyStatus}>
                   <SortBy
                     setSelectedSortBy={setSelectedSortBy}
+                    selectedSortBy={selectedSortBy}
                     isSortByOpen={isSortByOpen}
+                    setIsSortByOpen={setIsSortByOpen}
                   />
                 </div>
 
@@ -116,7 +121,9 @@ export const MobilePhones: React.FC = () => {
                   onClick={changeItemsOnPageStatus}>
                   <ItemsOnPage
                     setSelectedPhonesPerPage={setSelectedPhonesPerPage}
+                    selectedPhonesPerPage={selectedPhonesPerPage}                    
                     isItemsOnPageOpen={isItemsOnPageOpen}
+                    setItemsOnPageOpen={setItemsOnPageOpen}
                   />
                 </div>
               </div>

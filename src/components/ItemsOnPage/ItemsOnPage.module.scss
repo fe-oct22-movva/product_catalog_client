@@ -32,7 +32,7 @@
     }
 
     &:focus {
-      border: 1px solid #0F0F11;
+      border: 1px solid #0f0f11;
       border-radius: 8px;
     }
 
@@ -76,10 +76,11 @@
     display: block;
     text-align: left;
     height: 32px;
+    color: #89939A;
 
     &:hover {
       background: #fafbfc;
       border-radius: 8px;
-    }
-  }
+      color: #0F0F11;
+    }  }
 }
