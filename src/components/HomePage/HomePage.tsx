@@ -13,6 +13,7 @@ export interface Props {
 export const HomePage: React.FC<Props> = ({setSelectedId}) => {
   const [newestPhones, setNewestPhones] = useState<Phone[]>([]);
   const [cheapestPhones, setCheapestPhones] = useState<Phone[]>([]);
+  const [phonesNumber, setPhonesNumber] = useState(0);
 
   useEffect(() => {
     getAllPhones([
@@ -21,6 +22,7 @@ export const HomePage: React.FC<Props> = ({setSelectedId}) => {
     ])
       .then((data) => {
         setNewestPhones(data.result);
+        setPhonesNumber(data.totalPhones);
         console.log(data);
       })
       .catch((error) => console.log(error));
@@ -41,7 +43,9 @@ export const HomePage: React.FC<Props> = ({setSelectedId}) => {
       <Banner />
       <div className="main-container">
         <Cards newestPhones={newestPhones} setSelectedId={setSelectedId} />
-        <ShopByCategory />
+        <ShopByCategory phonesNumber={phonesNumber} />
+        <Cards newestPhones={cheapestPhones} />
+
       </div>
     </div>
   );
