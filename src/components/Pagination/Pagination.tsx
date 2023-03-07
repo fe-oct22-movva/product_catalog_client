@@ -5,10 +5,10 @@ import cn from 'classnames';
 
 interface Props {
   pagesNumber: number;
-  paginate: (pageNumber: number) => void,
-  goToPreviousPage: () => void,
-  goToNextPage: () => void,
-  chosenPageNumber: number,
+  paginate: (pageNumber: number) => void;
+  goToPreviousPage: () => void;
+  goToNextPage: () => void;
+  chosenPageNumber: number;
 }
 
 export const Pagination: React.FC<Props> = (props) => {
@@ -34,14 +34,10 @@ export const Pagination: React.FC<Props> = (props) => {
         {paginationPages.map((page) => (
           <li
             key={page}
-            className={cn(
-              styles.pagination__item,
-              {
-                [styles.pagination__chosen]: chosenPageNumber === page,
-              },
-            )}
-            onClick={() => paginate(page)}
-          >
+            className={cn(styles.pagination__item, {
+              [styles.pagination__chosen]: chosenPageNumber === page,
+            })}
+            onClick={() => paginate(page)}>
             {page}
           </li>
         ))}
