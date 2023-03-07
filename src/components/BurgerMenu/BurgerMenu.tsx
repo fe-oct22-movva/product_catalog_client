@@ -2,7 +2,6 @@ import React from 'react';
 
 import logo from '../../assets/images/Logo.svg';
 import close from '../../images/CloseQuarter.svg';
-import cart from '../../images/cartButtonBurger.svg';
 import './BurgerMenu.scss';
 import {FavouritesNavHeart} from '../FavouritesNavHeart/FavouritesNavHeart';
 import {CartNavBasket} from '../CartNavBasket/CartNavBasket';
@@ -61,16 +60,11 @@ export const BurgerMenu: React.FC<Props> = ({isBurger, setIsBurger}) => {
             <a
               href="#/favourites"
               className="footer__link-like"
-              onClick={toggleMenu}
-            >
+              onClick={toggleMenu}>
               <FavouritesNavHeart />
             </a>
 
-            <a
-              href="#/cart"
-              className="footer__link-cart"
-              onClick={toggleMenu}
-            >
+            <a href="#/cart" className="footer__link-cart" onClick={toggleMenu}>
               <CartNavBasket />
             </a>
           </div>

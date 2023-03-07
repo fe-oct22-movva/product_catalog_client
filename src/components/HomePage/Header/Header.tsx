@@ -1,6 +1,4 @@
-import React, {useEffect, useState} from 'react';
-import heart from '../../../assets/images/Favourites.svg';
-import cart from '../../../assets/images/Cart.svg';
+import React from 'react';
 import menu from '../../../assets/images/Menu.svg';
 import logo from '../../../assets/images/Logo.svg';
 import {HeaderNavLink} from './HeaderNavLink';

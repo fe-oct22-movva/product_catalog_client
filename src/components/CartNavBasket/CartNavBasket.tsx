@@ -24,16 +24,10 @@ export const CartNavBasket = () => {
       to="/cart"
       textToDisplay={
         <li className="aside-container__item">
-          <img
-            className="aside-container__item-photo"
-            src={cart}
-            alt="cart"
-          />
+          <img className="aside-container__item-photo" src={cart} alt="cart" />
 
           {cartItems > 0 && (
-            <p className="aside-container__item-fav-counter">
-              {cartItems}
-            </p>
+            <p className="aside-container__item-fav-counter">{cartItems}</p>
           )}
         </li>
       }
