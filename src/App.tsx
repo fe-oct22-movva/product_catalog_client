@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Header} from './components/HomePage/Header';
 import {Footer} from './components/Footer';
 import {HomePage} from './components/HomePage/HomePage';
@@ -9,20 +9,24 @@ import {MobilePhones} from './pages/MobilePhones';
 import {Favourites} from './components/Favourites/Favourites';
 import {BurgerMenu} from './components/BurgerMenu';
 import {Cart} from './components/Cart/Cart';
-// import {Phone} from './types/types';
-// import {getAllPhones} from './api/phones';
+import {Phone} from './types/types';
+import {getAllPhones} from './api/phones';
+import {ItemCardPage} from './components/ItemCardPage/ItemCardPage';
+import {ScrollToTop} from './components/ScrollToTop';
 
 export const App: React.FC = () => {
-  // const [phones, setPhones] = useState<Phone[]>([]);
+  const [phones, setPhones] = useState<Phone[]>([]);
   const [isBurgerActivated, setIsBurgerActivated] = useState<boolean>(false);
+  const [selectedId, setSelectedId] = useState('');
 
-  // console.log(phones);
+  const startValueCapacity
+    = phones.find((el) => el.phoneId === selectedId)?.capacity || '64GB';
 
-  // useEffect(() => {
-  //   getAllPhones()
-  //     .then((data) => setPhones(data.result))
-  //     .catch((error: string) => console.log(error));
-  // }, []);
+  useEffect(() => {
+    getAllPhones()
+      .then((data) => setPhones(data.result))
+      .catch((error: string) => console.log(error));
+  }, []);
 
   return (
     <div className="App">
@@ -32,9 +36,22 @@ export const App: React.FC = () => {
       />
 
       <div className="sections">
+        <ScrollToTop />
         <Routes>
-          <Route path="/" element={<HomePage />} />
+          <Route
+            path="/"
+            element={<HomePage setSelectedId={setSelectedId} />}
+          />
           <Route path="/phones" element={<MobilePhones />} />
+          <Route
+            path={`/${selectedId}`}
+            element={
+              <ItemCardPage
+                selectedId={selectedId}
+                startValue={startValueCapacity}
+              />
+            }
+          />
           <Route path="/favourites" element={<Favourites />} />
           <Route path="/cart" element={<Cart />} />
           <Route

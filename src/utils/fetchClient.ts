@@ -23,7 +23,10 @@ function request<T>(
 
       return response.json();
     })
-    .catch((error) => console.log(error));
+    .catch((error) => {
+      console.error(error);
+      throw error;
+    });
 }
 
 export const client = {

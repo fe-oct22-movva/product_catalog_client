@@ -1,13 +1,16 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import {useEffect, useState} from 'react';
 import {getAllPhones} from '../../api/phones';
 import {Phone} from '../../types/types';
-import {AboutPhone} from '../AboutPhone';
 import {Banner} from '../Banner';
-import {PhoneSpecs} from '../PhoneSpecs/PhoneSpecs';
 import {Cards} from '../ProductCard';
 import {ShopByCategory} from '../ShopByCategory';
 
-export const HomePage = () => {
+export interface Props {
+  setSelectedId: (newId: string) => void;
+}
+
+export const HomePage: React.FC<Props> = ({setSelectedId}) => {
   const [newestPhones, setNewestPhones] = useState<Phone[]>([]);
   const [cheapestPhones, setCheapestPhones] = useState<Phone[]>([]);
 
@@ -37,11 +40,8 @@ export const HomePage = () => {
     <div>
       <Banner />
       <div className="main-container">
-        <Cards newestPhones={newestPhones} />
+        <Cards newestPhones={newestPhones} setSelectedId={setSelectedId} />
         <ShopByCategory />
-        <Cards newestPhones={cheapestPhones} />
-        <PhoneSpecs />
-        <AboutPhone />
       </div>
     </div>
   );

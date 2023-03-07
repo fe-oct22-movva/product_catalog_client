@@ -1,4 +1,5 @@
 import {FC} from 'react';
+import {Link} from 'react-router-dom';
 import {Button_addToCart} from '../Button_addToCart';
 
 interface Props {
@@ -10,6 +11,8 @@ interface Props {
   screen: string;
   capacity: string;
   ram: string;
+  phoneId: string;
+  setSelectedId: (newId: string) => void;
 }
 
 export const CardHomePage: FC<Props> = ({
@@ -21,12 +24,24 @@ export const CardHomePage: FC<Props> = ({
   screen,
   capacity,
   ram,
+  phoneId,
+  setSelectedId,
 }) => {
   return (
     <div className="card">
-      <img className="card__icon" src={img} />
+      <Link
+        to={`/${phoneId}`}
+        onClick={() => setSelectedId(phoneId)}
+        className="card__link">
+        <img className="card__icon" alt={name} src={img} />
+      </Link>
 
-      <h3 className="card__title">{name}</h3>
+      <Link
+        to={`/${phoneId}`}
+        onClick={() => setSelectedId(phoneId)}
+        className="card__title">
+        {name}
+      </Link>
 
       <p className="card__price">{price}</p>
 
