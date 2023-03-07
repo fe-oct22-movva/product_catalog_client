@@ -4,8 +4,9 @@ import likeEmpty from '../../assets/images/icons/favourites-like.svg';
 import likeFull from '../../assets/images/icons/favourites-likeFull.svg';
 import React, {useEffect, useState} from 'react';
 import {localStorageAdd} from '../../utils/localStorageAdd';
-import {cartItem, Favourites} from '../../types/types';
+import {cartItem, favouriteItem} from '../../types/types';
 import {handleDelete} from '../../utils/localStorageRemove';
+import {isIncludeItemLocalStorage} from '../../utils/isIncludeItemLocalStorage';
 
 interface Props {
   id: string;
@@ -32,46 +33,27 @@ export const Button_addToCart: React.FC<Props> = ({
   const [isInCart, setIsInCart] = useState(false);
 
   useEffect(() => {
-    const getFavourites = localStorage.getItem('Favourites');
-
-    const favouritesItems
-      = getFavourites === null ? [] : JSON.parse(getFavourites);
-    const isIncludeFav = favouritesItems.find(
-      (favourite: Favourites) => favourite.id === id
-    );
+    const isIncludeFav = isIncludeItemLocalStorage('Favourites', id);
+    const isIncludeCart = isIncludeItemLocalStorage('Cart', id);
 
     if (isIncludeFav) {
       setIsInFavourites(true);
     }
 
-    const handleFav = () => {
-      const getFavourites = localStorage.getItem('Favourites');
+    if (isIncludeCart) {
+      setIsInCart(true);
+    }
 
-      const favouritesItems
-        = getFavourites === null ? [] : JSON.parse(getFavourites);
-      const isIncludeFav = favouritesItems.find(
-        (favourite: Favourites) => favourite.id === id
-      );
+    const handleFav = () => {
+      const isIncludeFav = isIncludeItemLocalStorage('Favourites', id);
 
       if (isIncludeFav) {
         setIsInFavourites(true);
       }
     };
 
-    const getCarts = localStorage.getItem('Cart');
-
-    const CartItems = getCarts === null ? [] : JSON.parse(getCarts);
-    const isIncludeCart = CartItems.find((cart: cartItem) => cart.id === id);
-
-    if (isIncludeCart) {
-      setIsInCart(true);
-    }
-
     const handleCart = () => {
-      const getCarts = localStorage.getItem('Cart');
-
-      const CartItems = getCarts === null ? [] : JSON.parse(getCarts);
-      const isIncludeCart = CartItems.find((cart: cartItem) => cart.id === id);
+      const isIncludeCart = isIncludeItemLocalStorage('Cart', id);
 
       if (isIncludeCart) {
         setIsInCart(true);
@@ -88,16 +70,16 @@ export const Button_addToCart: React.FC<Props> = ({
 
   const handleAddToCart = () => {
     const items = localStorage.getItem('Cart');
-    const itemsNotNull = items !== null ? JSON.parse(items) : null;
+    const parsedItems = items !== null ? JSON.parse(items) : null;
 
     if (isInCart) {
       setIsInCart(false);
     }
 
-    if (itemsNotNull) {
-      const include = itemsNotNull.find((item: cartItem) => item.id === id);
+    if (parsedItems) {
+      const includeItem = parsedItems.find((item: cartItem) => item.id === id);
 
-      if (include) {
+      if (includeItem) {
         handleDelete(id, 'Cart');
 
         return;
@@ -118,15 +100,15 @@ export const Button_addToCart: React.FC<Props> = ({
 
   const handleLike = () => {
     const items = localStorage.getItem('Favourites');
-    const itemsNotNull = items !== null ? JSON.parse(items) : null;
+    const parsedItems = items !== null ? JSON.parse(items) : null;
 
-    if (itemsNotNull) {
-      const include = itemsNotNull.find((item: Favourites) => item.id === id);
+    if (parsedItems) {
+      const includeItem = parsedItems.find((item: favouriteItem) => item.id === id);
       if (isInFavourites) {
         setIsInFavourites(false);
       }
 
-      if (include) {
+      if (includeItem) {
         handleDelete(id, 'Favourites');
 
         return;
