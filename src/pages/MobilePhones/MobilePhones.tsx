@@ -6,7 +6,6 @@ import {Pagination} from '../../components/Pagination';
 import {ProductCardSingle} from '../../components/ProductCardSingle';
 import {SortBy} from '../../components/SortBy/SortBy';
 import {ItemsOnPage} from '../../components/ItemsOnPage/ItemsOnPage';
-
 import {Phone, SortTypes} from '../../types/types';
 import {getAllPhones} from '../../api/phones';
 import {Breadcrumbs} from '../../components/Breadcrumbs';
