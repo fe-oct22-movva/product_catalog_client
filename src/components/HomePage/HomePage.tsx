@@ -10,6 +10,8 @@ import {ShopByCategory} from '../ShopByCategory';
 export const HomePage = () => {
   const [newestPhones, setNewestPhones] = useState<Phone[]>([]);
   const [cheapestPhones, setCheapestPhones] = useState<Phone[]>([]);
+  const [phonesNumber, setPhonesNumber] = useState(0);
+
 
   useEffect(() => {
     getAllPhones([
@@ -18,6 +20,7 @@ export const HomePage = () => {
     ])
       .then((data) => {
         setNewestPhones(data.result);
+        setPhonesNumber(data.totalPhones);
         console.log(data);
       })
       .catch((error) => console.log(error));
@@ -38,7 +41,9 @@ export const HomePage = () => {
       <Banner />
       <div className="main-container">
         <Cards newestPhones={newestPhones} />
-        <ShopByCategory />
+        <ShopByCategory 
+          phonesNumber={phonesNumber}
+        />
         <Cards newestPhones={cheapestPhones} />
         <PhoneSpecs />
         <AboutPhone />

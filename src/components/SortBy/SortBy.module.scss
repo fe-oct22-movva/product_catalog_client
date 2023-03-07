@@ -38,6 +38,10 @@
       font-size: 14px;
       line-height: 21px;
       color: #0f0f11;
+
+      &::first-letter {
+        text-transform: capitalize;
+      }
     }
 
     &__arrow {
@@ -65,6 +69,10 @@
     &:hover {
       background: #fafbfc;
       border-radius: 8px;
+    }
+
+    &::first-letter {
+      text-transform: capitalize;
     }
   }
 }

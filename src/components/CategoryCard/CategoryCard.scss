@@ -10,9 +10,6 @@
     border-radius: 8px;
 
     transition: transform 0.3s;
-    @include onTablet {
-      max-width: 187px;
-    }
 
     @include onDesktop {
       max-width: 368px;

@@ -4,10 +4,14 @@ import Phones from '../../assets/images/categories/phones.png';
 import Tablets from '../../assets/images/categories/tablets.png';
 import Accessoires from '../../assets/images/categories/accessoires.png';
 
-export const ShopByCategory: React.FC = () => {
+interface Props {
+  phonesNumber: number;
+}
+
+export const ShopByCategory: React.FC<Props> = ({ phonesNumber }) => {
   return (
     <section className="shop-by-category" id="shopByCategory">
-      <div className="container">
+      <div className="">
         <h2 className="shop-by-category__title">Shop by category</h2>
 
         <div className="grid grid--tablet grid--desktop">
@@ -22,7 +26,7 @@ export const ShopByCategory: React.FC = () => {
                 imageUrl={Phones}
                 imageAlt="Mobile phones category"
                 categoryName="Mobile phones"
-                numOfModels="95 models"
+                numOfModels={`${phonesNumber} models`}
                 categoryLink="/#/phones"
               />
             </a>
@@ -38,7 +42,7 @@ export const ShopByCategory: React.FC = () => {
               imageUrl={Tablets}
               imageAlt="Tablets category"
               categoryName="Tablets"
-              numOfModels="24 models"
+              numOfModels="0 models"
               categoryLink="#"
             />
           </div>
@@ -53,7 +57,7 @@ export const ShopByCategory: React.FC = () => {
               imageUrl={Accessoires}
               imageAlt="Accessories category"
               categoryName="Accessories"
-              numOfModels="100 models"
+              numOfModels="0 models"
               categoryLink="#"
             />
           </div>
