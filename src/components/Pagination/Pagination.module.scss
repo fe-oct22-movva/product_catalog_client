@@ -17,41 +17,36 @@
     width: 32px;
     margin-right: 8px;
 
-    font-weight: 600;
-    font-size: 14px;
-    line-height: 32px;
-
-    color: #0f0f11;
-
     border: 1px solid #b4bdc4;
     border-radius: 48px;
 
     &:hover {
       border-color: #0f0f11;
-      color: #000;
-    }
-
-    &:first-child {
-      background-image: url('../../assets/images/ArrowLeft.svg');
-      background-position: center;
-      background-repeat: no-repeat;
-    }
-
-    &:last-child {
-      margin-right: 0;
-
-      background-image: url('../../assets/images/ArrowRight.svg');
-      background-position: center;
-      background-repeat: no-repeat;
     }
   }
 
-  &__chosen {
-    color: #fff;
-    background-color: #0f0f11;
+  &__link {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 32px;
+    color: #0f0f11;
+    transition: transform 0.3s;
 
     &:hover {
-      border-color: #0f0f11;
+      color: #000;
+      cursor: pointer;
+      transform: scale(1.2);
+    }
+  }
+
+  &__item__chosen {
+    background-color: #0f0f11;
+  }
+
+  &__link__chosen {
+    color: #fff;
+
+    &:hover {
       color: #fff;
     }
   }
