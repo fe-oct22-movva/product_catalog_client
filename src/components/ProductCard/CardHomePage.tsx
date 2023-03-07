@@ -69,7 +69,8 @@ export const CardHomePage: FC<Props> = ({
         name={name}
         capacity={capacity}
         ram={ram}
-        screen={screen}/>
+        screen={screen}
+      />
     </div>
   );
 };

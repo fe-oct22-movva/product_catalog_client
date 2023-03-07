@@ -23,6 +23,8 @@ export const Favourites = () => {
   }, [favouritesItems]);
 
   return (
+    <>
+    <head><title>Favourites</title></head>
     <div className="main-container">
       <Breadcrumbs />
       {isFavouritesExist ? (
@@ -56,5 +58,6 @@ export const Favourites = () => {
         <h1>No content yet</h1>
       )}
     </div>
+    </>
   );
 };

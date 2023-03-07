@@ -63,6 +63,8 @@ export const MobilePhones: React.FC = () => {
   };
 
   return (
+    <>
+    <head><title>Mobile phones</title></head>
     <div className="main-container">
       <Breadcrumbs />
       <div className={styles.phonesCategory}>
@@ -128,5 +130,6 @@ export const MobilePhones: React.FC = () => {
         />
       </div>
     </div>
+    </>
   );
 };

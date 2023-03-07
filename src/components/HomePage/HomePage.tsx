@@ -1,16 +1,16 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import {useEffect, useState} from 'react';
-import {getAllPhones} from '../../api/phones';
-import {Phone} from '../../types/types';
-import {Banner} from '../Banner';
-import {Cards} from '../ProductCard';
-import {ShopByCategory} from '../ShopByCategory';
+import { useEffect, useState } from 'react';
+import { getAllPhones } from '../../api/phones';
+import { Phone } from '../../types/types';
+import { Banner } from '../Banner';
+import { Cards } from '../ProductCard';
+import { ShopByCategory } from '../ShopByCategory';
 
 export interface Props {
   setSelectedId: (newId: string) => void;
 }
 
-export const HomePage: React.FC<Props> = ({setSelectedId}) => {
+export const HomePage: React.FC<Props> = ({ setSelectedId }) => {
   const [newestPhones, setNewestPhones] = useState<Phone[]>([]);
   const [cheapestPhones, setCheapestPhones] = useState<Phone[]>([]);
   const [phonesNumber, setPhonesNumber] = useState(0);
@@ -39,13 +39,16 @@ export const HomePage: React.FC<Props> = ({setSelectedId}) => {
   }, []);
 
   return (
-    <div>
-      <Banner />
-      <div className="main-container">
-        <Cards newestPhones={newestPhones} setSelectedId={setSelectedId} />
-        <ShopByCategory phonesNumber={phonesNumber} />
-        <Cards newestPhones={cheapestPhones} setSelectedId={setSelectedId} />
+    <>
+      <head><title>Nice Gadgets store</title></head>
+      <div>
+        <Banner />
+        <div className="main-container">
+          <Cards newestPhones={newestPhones} setSelectedId={setSelectedId} />
+          <ShopByCategory phonesNumber={phonesNumber} />
+          <Cards newestPhones={cheapestPhones} setSelectedId={setSelectedId} />
+        </div>
       </div>
-    </div>
+    </>
   );
 };
