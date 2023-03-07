@@ -7,6 +7,7 @@ interface Props {
   img: string;
   name: string;
   price: number;
+  fullPrice: number;
   screen: string;
   capacity: string;
   ram: string;
@@ -19,6 +20,7 @@ export const CardHomePage: FC<Props> = ({
   img,
   name,
   price,
+  fullPrice,
   screen,
   capacity,
   ram,
@@ -59,7 +61,7 @@ export const CardHomePage: FC<Props> = ({
         </div>
       </div>
 
-      <Button_addToCart id={id} img={img} price={price} name={name} />
+      <Button_addToCart id={id} img={img} price={price} fullPrice={fullPrice} name={name} />
       {/*fix requirments in parents block*/}
     </div>
   );

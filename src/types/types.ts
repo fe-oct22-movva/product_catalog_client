@@ -87,6 +87,7 @@ export interface Favourites {
   img: string;
   name: string;
   price: number;
+  fullPrice: number;
 }
 
 export interface Cart {

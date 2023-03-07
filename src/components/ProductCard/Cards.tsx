@@ -25,15 +25,15 @@ export const Cards: React.FC<Props> = ({newestPhones, setSelectedId}) => {
 
   useEffect(() => {
     if (windowWidth >= 1200) {
-      setCardWidth(290);
+      setCardWidth(270 + 16);
     }
 
     if (windowWidth < 1200) {
-      setCardWidth(248);
+      setCardWidth(248 + 16);
     }
 
     if (windowWidth < 640) {
-      setCardWidth(220);
+      setCardWidth(220 + 16);
     }
   }, []);
 
@@ -56,7 +56,7 @@ export const Cards: React.FC<Props> = ({newestPhones, setSelectedId}) => {
           <button
             className="scroll__right"
             onClick={() => {
-              if (cardCount < 4) {
+              if (cardCount < 6) {
                 setPosition((prev) => prev - cardWidth);
                 setCardCount((prev) => prev + 1);
               }
@@ -85,6 +85,7 @@ export const Cards: React.FC<Props> = ({newestPhones, setSelectedId}) => {
               img={phone.image}
               name={phone.name}
               price={phone.price}
+              fullPrice={phone.fullPrice}
               screen={phone.screen}
               capacity={phone.capacity}
               ram={phone.ram}
