@@ -9,9 +9,11 @@ import {Phone} from '../../types/types';
 
 interface Props {
   newestPhones: Phone[];
+  setSelectedId: (newId: string) => void;
+  title: string;
 }
 
-export const Cards: React.FC<Props> = ({newestPhones}) => {
+export const Cards: React.FC<Props> = ({newestPhones, setSelectedId, title}) => {
   const [position, setPosition] = useState(0);
   const [cardWidth, setCardWidth] = useState(0);
   const [cardCount, setCardCount] = useState(0);
@@ -39,7 +41,7 @@ export const Cards: React.FC<Props> = ({newestPhones}) => {
   return (
     <section className="page__section page__section-scroll">
       <div className="scroll">
-        <h2 className="scroll__title">Brand new models</h2>
+        <h2 className="scroll__title">{title}</h2>
 
         <div className="scroll__block">
           <button
@@ -84,9 +86,12 @@ export const Cards: React.FC<Props> = ({newestPhones}) => {
               img={phone.image}
               name={phone.name}
               price={phone.price}
+              fullPrice={phone.fullPrice}
               screen={phone.screen}
               capacity={phone.capacity}
               ram={phone.ram}
+              phoneId={phone.phoneId}
+              setSelectedId={setSelectedId}
             />
           </div>
         ))}

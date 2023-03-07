@@ -75,9 +75,9 @@ export const MobilePhones: React.FC = () => {
   return (
     <div className="main-container">
       <Breadcrumbs />
-      <div className={`${styles.phonesCategory} `}>
+      <div className={styles.phonesCategory}>
         <h1 className={styles.phonesCategory__title}>Mobile phones</h1>
-
+ 
         {arePhonesLoading ? (
           <Loader />
         ) : (
@@ -89,16 +89,26 @@ export const MobilePhones: React.FC = () => {
             <div
               className={`${styles.filter} grid grid--mobile grid--tablet grid--desktop`}>
               <div
-                className={styles.filter__container}
+                className={`
+                ${styles.filter__container} 
+                grid__item--mobile-1-2
+                grid__item--tablet-1-4 
+                grid__item--desctop-1-4
+              `}
                 onClick={changeSortbyStatus}>
                 <SortBy
                   setSelectedSortBy={setSelectedSortBy}
                   isSortByOpen={isSortByOpen}
                 />
               </div>
-    
+              
               <div
-                className={styles.filter__container}
+                className={`
+                ${styles.filter__container} 
+                grid__item--mobile-3-4
+                grid__item--tablet-5-7 
+                grid__item--desctop-5-7
+              `}
                 onClick={changeItemsOnPageStatus}>
                 <ItemsOnPage
                   setSelectedPhonesPerPage={setSelectedPhonesPerPage}

@@ -15,13 +15,26 @@
     margin-right: 14px;
   }
 
-  &__text {
+  &__link {
     display: inline-block;
 
     font-weight: 700;
-    font-size: 12px;
-    line-height: 15px;
-
+    font-size: 13px;
+    line-height: 20px;
     color: #89939a;
+
+    &::after {
+      content: url('https://fe-oct22-movva.github.io/product_catalog_client/assets/ArrowRight-5f1e52f6.svg');
+      width: 15px;
+      margin-left: 10px;
+    }
+
+    &:last-child::after {
+      display: none;
+    }
+
+    &::first-letter {
+      text-transform: capitalize;
+    }
   }
 }
