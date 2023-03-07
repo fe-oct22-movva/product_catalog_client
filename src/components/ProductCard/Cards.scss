@@ -77,7 +77,7 @@
   }
 
   @include onDesktop {
-    width: 280px;
+    width: 270px;
     margin-right: 0;
   }
 
@@ -104,6 +104,7 @@
 
   &__title {
     margin-bottom: 8px;
+    min-height: 42px;
 
     font-weight: 400;
     font-size: 15px;
