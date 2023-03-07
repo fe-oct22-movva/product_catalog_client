@@ -10,16 +10,17 @@ import {Favourites} from './components/Favourites/Favourites';
 import {BurgerMenu} from './components/BurgerMenu';
 import {Cart} from './components/Cart/Cart';
 import {Phone} from './types/types';
-import { getAllPhones } from './api/phones';
-import { ItemCardPage } from './components/ItemCardPage/ItemCardPage';
-import { ScrollToTop } from './components/ScrollToTop';
+import {getAllPhones} from './api/phones';
+import {ItemCardPage} from './components/ItemCardPage/ItemCardPage';
+import {ScrollToTop} from './components/ScrollToTop';
 
 export const App: React.FC = () => {
   const [phones, setPhones] = useState<Phone[]>([]);
   const [isBurgerActivated, setIsBurgerActivated] = useState<boolean>(false);
   const [selectedId, setSelectedId] = useState('');
 
-  const startValueCapacity = phones.find(el => el.phoneId === selectedId)?.capacity || '64GB';
+  const startValueCapacity
+    = phones.find((el) => el.phoneId === selectedId)?.capacity || '64GB';
 
   useEffect(() => {
     getAllPhones()
@@ -37,9 +38,20 @@ export const App: React.FC = () => {
       <div className="sections">
         <ScrollToTop />
         <Routes>
-          <Route path="/" element={<HomePage setSelectedId={setSelectedId} />} />
+          <Route
+            path="/"
+            element={<HomePage setSelectedId={setSelectedId} />}
+          />
           <Route path="/phones" element={<MobilePhones />} />
-          <Route path={`/${selectedId}`} element={<ItemCardPage selectedId={selectedId} startValue={startValueCapacity}/>} />
+          <Route
+            path={`/${selectedId}`}
+            element={
+              <ItemCardPage
+                selectedId={selectedId}
+                startValue={startValueCapacity}
+              />
+            }
+          />
           <Route path="/favourites" element={<Favourites />} />
           <Route path="/cart" element={<Cart />} />
           <Route

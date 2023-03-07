@@ -1,6 +1,7 @@
 import {serverResponse} from '../types/types';
 import {client} from '../utils/fetchClient';
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 type Params = {
   sort?: string;
   limit?: number;

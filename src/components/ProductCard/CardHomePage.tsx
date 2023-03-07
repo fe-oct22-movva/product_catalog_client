@@ -1,5 +1,5 @@
 import {FC} from 'react';
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import {Button_addToCart} from '../Button_addToCart';
 
 interface Props {
@@ -25,22 +25,19 @@ export const CardHomePage: FC<Props> = ({
   phoneId,
   setSelectedId,
 }) => {
-
   return (
     <div className="card">
       <Link
         to={`/${phoneId}`}
         onClick={() => setSelectedId(phoneId)}
-        className="card__link"
-      >
+        className="card__link">
         <img className="card__icon" alt={name} src={img} />
       </Link>
 
       <Link
         to={`/${phoneId}`}
         onClick={() => setSelectedId(phoneId)}
-        className="card__title"
-      >
+        className="card__title">
         {name}
       </Link>
 

@@ -1,4 +1,4 @@
-
+/* eslint-disable @typescript-eslint/no-explicit-any */
 export interface Phone {
   id: string;
   category: string;
@@ -16,8 +16,8 @@ export interface Phone {
 }
 
 interface description {
-  title: string,
-  text: string[],
+  title: string;
+  text: string[];
 }
 
 export interface PhoneSpec {
@@ -38,7 +38,7 @@ export interface PhoneSpec {
   ram: string;
   camera: string;
   zoom: string;
-  cell: string[]
+  cell: string[];
 }
 
 export interface NextAndPrev {

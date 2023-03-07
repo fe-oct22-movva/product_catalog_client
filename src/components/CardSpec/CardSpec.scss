@@ -506,7 +506,7 @@
           display: flex;
           justify-content: space-between;
 
-          &+& {
+          & + & {
             margin-top: 8px;
           }
 
@@ -642,7 +642,6 @@
     color: #89939a;
   }
 }
-
 
 .grid-shop-by {
   @include onDesktop {

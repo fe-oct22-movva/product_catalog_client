@@ -1,26 +1,26 @@
 /* eslint-disable no-unsafe-optional-chaining */
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React, { useEffect, useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import './CardSpec.scss';
 
 import Slider from 'react-slick';
-import { ColorSelector } from '../ColorSelector/ColorSelector';
-import { getPhoneById } from '../../api/phones';
-import { PhoneSpec } from '../../types/types';
-import { Button_addToCart } from '../Button_addToCart';
-import { Breadcrumbs } from '../Breadcrumbs';
+import {ColorSelector} from '../ColorSelector/ColorSelector';
+import {getPhoneById} from '../../api/phones';
+import {PhoneSpec} from '../../types/types';
+import {Button_addToCart} from '../Button_addToCart';
+import {Breadcrumbs} from '../Breadcrumbs';
 
 export type Props = {
-  selectedId: string
-  startValue: string
-}
+  selectedId: string;
+  startValue: string;
+};
 
-export const CardSpec: React.FC<Props> = ({ selectedId, startValue }) => {
+export const CardSpec: React.FC<Props> = ({selectedId, startValue}) => {
   const [phoneSpec, setPhoneSpec] = useState<PhoneSpec | null>(null);
   const [selectedMemory, setSelectedMemory] = useState(startValue);
   const [isActive, setIsActive] = useState(false);
 
-  console.log(startValue)
+  console.log(startValue);
 
   useEffect(() => {
     getPhoneById(selectedId)
@@ -35,37 +35,41 @@ export const CardSpec: React.FC<Props> = ({ selectedId, startValue }) => {
   }
 
   const hadleClick = (memory: string) => {
-    setSelectedMemory(memory),
-
-    setIsActive(!isActive);
+    setSelectedMemory(memory), setIsActive(!isActive);
   };
 
-  const toSelectMemory = phoneSpec.capacityAvailable.find(el => el === selectedMemory);
+  const toSelectMemory = phoneSpec.capacityAvailable.find(
+    (el) => el === selectedMemory
+  );
 
   const listOfSpec = [
-    { name: 'Screen', value: phoneSpec.screen },
-    { name: 'Resolution', value: phoneSpec.resolution },
-    { name: 'Processor', value: phoneSpec.processor },
-    { name: 'RAM', value: phoneSpec.ram },
-    { name: 'Built in memory', value: toSelectMemory },
-    { name: 'Camera', value: phoneSpec.camera },
-    { name: 'Zoom', value: phoneSpec.zoom },
-    { name: 'Cell', value: phoneSpec.cell },
+    {name: 'Screen', value: phoneSpec.screen},
+    {name: 'Resolution', value: phoneSpec.resolution},
+    {name: 'Processor', value: phoneSpec.processor},
+    {name: 'RAM', value: phoneSpec.ram},
+    {name: 'Built in memory', value: toSelectMemory},
+    {name: 'Camera', value: phoneSpec.camera},
+    {name: 'Zoom', value: phoneSpec.zoom},
+    {name: 'Cell', value: phoneSpec.cell},
   ];
 
   const phonePhotos = phoneSpec.images;
 
   const phoneFeature: React.CSSProperties[] = [
-    { background: '#FCDBC1' },
-    { background: '#5F7170' },
-    { background: '#4C4C4C' },
-    { background: '#F0F0F0' },
+    {background: '#FCDBC1'},
+    {background: '#5F7170'},
+    {background: '#4C4C4C'},
+    {background: '#F0F0F0'},
   ];
 
   const sliderSetting = {
     customPaging: (i = 0) => {
       return (
-        <img className="slick-image" src={phonePhotos[i].toString()} alt="phone image" />
+        <img
+          className="slick-image"
+          src={phonePhotos[i].toString()}
+          alt="phone image"
+        />
       );
     },
     dots: true,
@@ -83,14 +87,12 @@ export const CardSpec: React.FC<Props> = ({ selectedId, startValue }) => {
       <Breadcrumbs />
 
       <article className="phone__specs">
-        <h1 className="phone__specs-title">
-          {phoneSpec?.name}
-        </h1>
+        <h1 className="phone__specs-title">{phoneSpec?.name}</h1>
         <div className="phone__specs-main grid grid--tablet grid--desktop">
           <Slider
             className="phone__specs-main__photos grid__item grid__item--tablet-1-7 grid__item--desktop-1-12"
             {...sliderSetting}>
-            {phonePhotos.map(photo => (
+            {phonePhotos.map((photo) => (
               <img
                 className="phone__specs-main__photos-item"
                 src={photo}
@@ -124,12 +126,11 @@ export const CardSpec: React.FC<Props> = ({ selectedId, startValue }) => {
               </p>
 
               <div className="phone__specs-main__feature__capacity-btn">
-                {phoneSpec.capacityAvailable.map(memory => (
+                {phoneSpec.capacityAvailable.map((memory) => (
                   <button
                     key={phoneSpec.capacityAvailable.indexOf(memory)}
                     className="phone__specs-main__feature__capacity-btn__item"
-                    onClick={() => hadleClick(memory)}
-                  >
+                    onClick={() => hadleClick(memory)}>
                     {memory}
                   </button>
                 ))}
@@ -164,8 +165,10 @@ export const CardSpec: React.FC<Props> = ({ selectedId, startValue }) => {
             </div>
 
             <div className="phone__specs-main__feature__characteristics">
-              {listOfSpec.slice(0, 4).map(spec => (
-                <div className="phone__specs-main__feature__characteristics-item" key={listOfSpec.indexOf(spec)}>
+              {listOfSpec.slice(0, 4).map((spec) => (
+                <div
+                  className="phone__specs-main__feature__characteristics-item"
+                  key={listOfSpec.indexOf(spec)}>
                   <p className="phone__specs-main__feature__characteristics-item__name">
                     {spec.name}
                   </p>
@@ -178,7 +181,7 @@ export const CardSpec: React.FC<Props> = ({ selectedId, startValue }) => {
             </div>
           </div>
         </div>
-      </article >
+      </article>
 
       <div className="about">
         <div className="grid grid--desktop">
@@ -186,28 +189,23 @@ export const CardSpec: React.FC<Props> = ({ selectedId, startValue }) => {
             <h2 className="about__header">About</h2>
 
             <div className="about__brake-line"></div>
-            {phoneSpec.description.map(element => (
+            {phoneSpec.description.map((element) => (
               <>
-                <h3 key={phoneSpec.description.indexOf(element)} className="about__title">{element.title}</h3>
+                <h3
+                  key={phoneSpec.description.indexOf(element)}
+                  className="about__title">
+                  {element.title}
+                </h3>
                 <section>
                   <div className="about__text">
-                    {element.text.length <= 1
-                      ? (
-                        <p className="about__text-service">
-                          {element.text}
-                        </p>
-                      )
-                      : (
-                        <>
-                          <p className="about__text-service">
-                            {element.text[0]}
-                          </p>
-                          <p className="about__text-service">
-                            {element.text[1]}
-                          </p>
-                        </>
-                      )
-                    }
+                    {element.text.length <= 1 ? (
+                      <p className="about__text-service">{element.text}</p>
+                    ) : (
+                      <>
+                        <p className="about__text-service">{element.text[0]}</p>
+                        <p className="about__text-service">{element.text[1]}</p>
+                      </>
+                    )}
                   </div>
                 </section>
               </>
@@ -221,14 +219,18 @@ export const CardSpec: React.FC<Props> = ({ selectedId, startValue }) => {
               <div className="about__brake-line"></div>
               <div className="about__spec">
                 <div className="about__spec-names">
-                  {listOfSpec.map(el => (
-                    <p key={listOfSpec.indexOf(el)} className="about__info">{el.name}</p>
+                  {listOfSpec.map((el) => (
+                    <p key={listOfSpec.indexOf(el)} className="about__info">
+                      {el.name}
+                    </p>
                   ))}
                 </div>
 
                 <div className="about__spec-specs">
-                  {listOfSpec.map(el => (
-                    <p key={listOfSpec.indexOf(el)} className="about__info">{el.value}</p>
+                  {listOfSpec.map((el) => (
+                    <p key={listOfSpec.indexOf(el)} className="about__info">
+                      {el.value}
+                    </p>
                   ))}
                 </div>
               </div>
@@ -236,6 +238,6 @@ export const CardSpec: React.FC<Props> = ({ selectedId, startValue }) => {
           </div>
         </div>
       </div>
-    </div >
+    </div>
   );
 };

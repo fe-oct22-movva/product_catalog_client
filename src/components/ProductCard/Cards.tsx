@@ -1,18 +1,18 @@
-import React, { useEffect, useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import './Cards.scss';
 
-import { CardHomePage } from './CardHomePage';
+import {CardHomePage} from './CardHomePage';
 import arrowLeft from './images/arrowLeftDef.png';
 import arrowRight from './images/arrowRigthDef.png';
-import { Phone } from '../../types/types';
+import {Phone} from '../../types/types';
 // import { ProductCardSingle } from '../ProductCardSingle';
 
 interface Props {
-  newestPhones: Phone[],
-  setSelectedId: (newId:string) => void
+  newestPhones: Phone[];
+  setSelectedId: (newId: string) => void;
 }
 
-export const Cards: React.FC<Props> = ({ newestPhones, setSelectedId }) => {
+export const Cards: React.FC<Props> = ({newestPhones, setSelectedId}) => {
   const [position, setPosition] = useState(0);
   const [cardWidth, setCardWidth] = useState(0);
   const [cardCount, setCardCount] = useState(0);
@@ -69,7 +69,6 @@ export const Cards: React.FC<Props> = ({ newestPhones, setSelectedId }) => {
       <div className="flex" style={styles}>
         {newestPhones.map((phone) => (
           <div key={phone.id} className="flex__item">
-
             {/* <ProductCardSingle
               id={phone.id}
               img={phone.image}
@@ -92,7 +91,6 @@ export const Cards: React.FC<Props> = ({ newestPhones, setSelectedId }) => {
               phoneId={phone.phoneId}
               setSelectedId={setSelectedId}
             />
-
           </div>
         ))}
       </div>

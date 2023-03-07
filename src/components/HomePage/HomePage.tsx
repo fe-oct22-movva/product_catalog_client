@@ -6,7 +6,7 @@ import {Phone} from '../../types/types';
 import {getAllPhones} from '../../api/phones';
 
 export interface Props {
-  setSelectedId: (newId:string) => void
+  setSelectedId: (newId: string) => void;
 }
 
 export const HomePage: React.FC<Props> = ({setSelectedId}) => {

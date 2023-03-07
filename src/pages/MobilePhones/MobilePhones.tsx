@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, {useEffect, useState} from 'react';
 import styles from './MobilePhones.module.scss';
 
@@ -6,8 +7,8 @@ import {ProductCardSingle} from '../../components/ProductCardSingle';
 import {SortBy} from '../../components/SortBy/SortBy';
 import {ItemsOnPage} from '../../components/ItemsOnPage/ItemsOnPage';
 
-import { Phone, SortTypes } from '../../types/types';
-import { getAllPhones } from '../../api/phones';
+import {Phone, SortTypes} from '../../types/types';
+import {getAllPhones} from '../../api/phones';
 import {Breadcrumbs} from '../../components/Breadcrumbs';
 
 export const MobilePhones: React.FC = () => {
@@ -16,7 +17,7 @@ export const MobilePhones: React.FC = () => {
   const [selectedSortBy, setSelectedSortBy] = useState(SortTypes.NEWEST);
   const [selectedPhonesPerPage, setSelectedPhonesPerPage] = useState(12);
   const [pagesNumber, setPagesNumber] = useState(0);
-  
+
   const [isSortByOpen, setIsSortByOpen] = useState(false);
   const [isItemsOnPageOpen, setItemsOnPageOpen] = useState(false);
 
@@ -93,7 +94,7 @@ export const MobilePhones: React.FC = () => {
             </div>
           ))}
         </div>
-        
+
         <Pagination />
       </div>
     </div>
