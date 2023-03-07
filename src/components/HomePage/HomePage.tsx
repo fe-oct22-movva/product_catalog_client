@@ -1,9 +1,8 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import {useEffect, useState} from 'react';
 import {getAllPhones} from '../../api/phones';
 import {Phone} from '../../types/types';
-import {AboutPhone} from '../AboutPhone';
 import {Banner} from '../Banner';
-import {PhoneSpecs} from '../PhoneSpecs/PhoneSpecs';
 import {Cards} from '../ProductCard';
 import {ShopByCategory} from '../ShopByCategory';
 
