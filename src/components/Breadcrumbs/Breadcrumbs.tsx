@@ -2,7 +2,7 @@ import styles from '../Breadcrumbs/Breadcrumbs.module.scss';
 import home from '../../assets/images/Home.svg';
 import arrowRight from '../../assets/images/ArrowRight.svg';
 import {Link, useLocation} from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import {useEffect, useState} from 'react';
 
 export const Breadcrumbs: React.FC = () => {
   const [title, setTitle] = useState(document.title);
