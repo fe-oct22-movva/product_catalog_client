@@ -6,10 +6,11 @@ import {Pagination} from '../../components/Pagination';
 import {ProductCardSingle} from '../../components/ProductCardSingle';
 import {SortBy} from '../../components/SortBy/SortBy';
 import {ItemsOnPage} from '../../components/ItemsOnPage/ItemsOnPage';
-
 import {Phone, SortTypes} from '../../types/types';
 import {getAllPhones} from '../../api/phones';
 import {Breadcrumbs} from '../../components/Breadcrumbs';
+import { Loader } from '../../components/Loader';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 export const MobilePhones: React.FC = () => {
   const [phones, setPhones] = useState<Phone[]>([]);
@@ -22,7 +23,11 @@ export const MobilePhones: React.FC = () => {
   const [isSortByOpen, setIsSortByOpen] = useState(false);
   const [isItemsOnPageOpen, setItemsOnPageOpen] = useState(false);
 
+  const [arePhonesLoading, setArePhonesLoading] = useState(false);
+
   useEffect(() => {
+    setArePhonesLoading(true);
+
     getAllPhones([
       ['limit', selectedPhonesPerPage.toString()],
       ['sortBy', selectedSortBy],
@@ -33,7 +38,11 @@ export const MobilePhones: React.FC = () => {
         setPhonesNumber(data.totalPhones);
         setPagesNumber(data.pages);
       })
-      .catch((error) => console.log(error));
+      .catch((error) => {
+        console.log(error);
+        Notify.failure('Oops, something went wrong. Please try again later.');
+      })
+      .finally(() => setArePhonesLoading(false));
   }, [selectedSortBy, selectedPhonesPerPage, chosenPageNumber]);
 
   const changeSortbyStatus = () => {
@@ -67,69 +76,79 @@ export const MobilePhones: React.FC = () => {
       <head>
         <title>Mobile phones</title>
       </head>
+
       <div className="main-container">
         <Breadcrumbs />
         <div className={styles.phonesCategory}>
           <h1 className={styles.phonesCategory__title}>Mobile phones</h1>
-          <p className={styles.phonesCategory__description}>
-            {phonesNumber} models
-          </p>
 
-          <div
-            className={`${styles.filter} grid grid--mobile grid--tablet grid--desktop`}>
-            <div
-              className={`
-            ${styles.filter__container} 
-            grid__item--mobile-1-2
-            grid__item--tablet-1-4 
-            grid__item--desctop-1-4
-          `}
-              onClick={changeSortbyStatus}>
-              <SortBy
-                setSelectedSortBy={setSelectedSortBy}
-                isSortByOpen={isSortByOpen}
-              />
-            </div>
+          {arePhonesLoading ? (
+            <Loader />
+          ) : (
+            <>
+              <p className={styles.phonesCategory__description}>
+                {phonesNumber} models
+              </p>
 
-            <div
-              className={`
-            ${styles.filter__container} 
-            grid__item--mobile-3-4
-            grid__item--tablet-5-7 
-            grid__item--desctop-5-7
-          `}
-              onClick={changeItemsOnPageStatus}>
-              <ItemsOnPage
-                setSelectedPhonesPerPage={setSelectedPhonesPerPage}
-                isItemsOnPageOpen={isItemsOnPageOpen}
-              />
-            </div>
-          </div>
+              <div
+                className={`${styles.filter} grid grid--mobile grid--tablet grid--desktop`}>
+                <div
+                  className={`
+                ${styles.filter__container} 
+                grid__item--mobile-1-2
+                grid__item--tablet-1-4 
+                grid__item--desctop-1-4
+              `}
+                  onClick={changeSortbyStatus}>
+                  <SortBy
+                    setSelectedSortBy={setSelectedSortBy}
+                    isSortByOpen={isSortByOpen}
+                  />
+                </div>
 
-          <div className={styles.catalog}>
-            {phones.map((phone) => (
-              <div key={phone.id} className={styles.catalog__item}>
-                <ProductCardSingle
-                  id={phone.id}
-                  img={phone.image}
-                  name={phone.name}
-                  price={phone.price}
-                  fullPrice={phone.fullPrice}
-                  screen={phone.screen}
-                  capacity={phone.capacity}
-                  ram={phone.ram}
-                />
+                <div
+                  className={`
+                ${styles.filter__container} 
+                grid__item--mobile-3-4
+                grid__item--tablet-5-7 
+                grid__item--desctop-5-7
+              `}
+                  onClick={changeItemsOnPageStatus}>
+                  <ItemsOnPage
+                    setSelectedPhonesPerPage={setSelectedPhonesPerPage}
+                    isItemsOnPageOpen={isItemsOnPageOpen}
+                  />
+                </div>
               </div>
-            ))}
-          </div>
 
-          <Pagination
-            pagesNumber={pagesNumber}
-            paginate={paginate}
-            goToPreviousPage={goToPreviousPage}
-            goToNextPage={goToNextPage}
-            chosenPageNumber={chosenPageNumber}
-          />
+              <div className={styles.catalog}>
+                {phones.map((phone) => (
+                  <div key={phone.id} className={styles.catalog__item}>
+                    <ProductCardSingle
+                      id={phone.id}
+                      img={phone.image}
+                      name={phone.name}
+                      price={phone.price}
+                      fullPrice={phone.fullPrice}
+                      screen={phone.screen}
+                      capacity={phone.capacity}
+                      ram={phone.ram}
+                    />
+                  </div>
+                ))}
+              </div>
+
+              {phonesNumber > 0 && (
+                <Pagination
+                  pagesNumber={pagesNumber}
+                  paginate={paginate}
+                  goToPreviousPage={goToPreviousPage}
+                  goToNextPage={goToNextPage}
+                  chosenPageNumber={chosenPageNumber}
+                />
+              )}
+            </>
+          )}
         </div>
       </div>
     </>
