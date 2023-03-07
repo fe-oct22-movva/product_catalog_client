@@ -57,14 +57,14 @@
 
     &--first {
       height: max-content;
-      content: url("../../../assets/images/banner.jpg");
+      content: url('../../../assets/images/banner.jpg');
 
       @include onTablet {
-        content: url("../../../assets/images/banner-tablet.jpg");
+        content: url('../../../assets/images/banner-tablet.jpg');
       }
 
       @include onDesktop {
-        content: url("../../../assets/images/banner-desktop.jpg");
+        content: url('../../../assets/images/banner-desktop.jpg');
       }
     }
   }

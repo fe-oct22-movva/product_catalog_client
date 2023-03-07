@@ -141,7 +141,6 @@
     -ms-touch-action: pan-y;
     touch-action: pan-y;
     -webkit-tap-highlight-color: transparent;
-
   }
 
   &-list {
@@ -195,14 +194,13 @@
       height: 320px;
 
       @include onTablet {
-       height: 220px;
+        height: 220px;
       }
 
       @include onDesktop {
         height: 400px;
       }
     }
-
   }
   [dir='rtl'] &-slide {
     float: right;

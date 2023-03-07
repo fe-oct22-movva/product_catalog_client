@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {Header} from './components/HomePage/Header';
 import {Footer} from './components/Footer';
 import {HomePage} from './components/HomePage/HomePage';
-import {Route, Routes, Navigate} from 'react-router-dom';
+import {Route, Routes, Navigate, useLocation} from 'react-router-dom';
 import './styles/main.scss';
 import {PageNotFound} from './components/PageNotFound';
 import {MobilePhones} from './pages/MobilePhones';
@@ -18,6 +18,8 @@ export const App: React.FC = () => {
   const [phones, setPhones] = useState<Phone[]>([]);
   const [isBurgerActivated, setIsBurgerActivated] = useState<boolean>(false);
   const [selectedId, setSelectedId] = useState('');
+  const location = useLocation();
+  console.log(location);
 
   const startValueCapacity
     = phones.find((el) => el.phoneId === selectedId)?.capacity || '64GB';
@@ -26,7 +28,11 @@ export const App: React.FC = () => {
     getAllPhones()
       .then((data) => setPhones(data.result))
       .catch((error: string) => console.log(error));
-  }, []);
+
+    if (location.pathname === '/menu') {
+      setIsBurgerActivated(true);
+    }
+  }, [location]);
 
   return (
     <div className="App">
