@@ -8,7 +8,7 @@ interface Props {
   phonesNumber: number;
 }
 
-export const ShopByCategory: React.FC<Props> = ({ phonesNumber }) => {
+export const ShopByCategory: React.FC<Props> = ({phonesNumber}) => {
   return (
     <section className="shop-by-category" id="shopByCategory">
       <div className="">

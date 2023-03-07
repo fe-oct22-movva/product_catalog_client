@@ -12,7 +12,6 @@ export const HomePage = () => {
   const [cheapestPhones, setCheapestPhones] = useState<Phone[]>([]);
   const [phonesNumber, setPhonesNumber] = useState(0);
 
-
   useEffect(() => {
     getAllPhones([
       ['sort', 'newest'],
@@ -41,9 +40,7 @@ export const HomePage = () => {
       <Banner />
       <div className="main-container">
         <Cards newestPhones={newestPhones} />
-        <ShopByCategory 
-          phonesNumber={phonesNumber}
-        />
+        <ShopByCategory phonesNumber={phonesNumber} />
         <Cards newestPhones={cheapestPhones} />
         <PhoneSpecs />
         <AboutPhone />
