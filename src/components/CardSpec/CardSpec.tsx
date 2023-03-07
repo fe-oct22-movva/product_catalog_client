@@ -150,7 +150,7 @@ export const CardSpec: React.FC<Props> = ({selectedId, startValue}) => {
 
               <div className="phone__specs-main__feature__order-cart ">
                 {/* <button className="phone__specs-main__feature__order-cart__add">
-                  
+
                 </button>
 
                 <button className="phone__specs-main__feature__order-cart__favourite">
@@ -160,7 +160,16 @@ export const CardSpec: React.FC<Props> = ({selectedId, startValue}) => {
                     alt="favourites"
                   />
                 </button> */}
-                <Button_addToCart id={''} img={''} price={0} name={''} />
+                <Button_addToCart
+                  id={''}
+                  img={''}
+                  price={0}
+                  name={''}
+                  capacity={''}
+                  fullPrice={2000}
+                  ram={''}
+                  screen={''}
+                />
               </div>
             </div>
 
