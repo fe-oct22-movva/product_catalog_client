@@ -61,6 +61,7 @@ export interface Favourites {
   price: number;
   screen: string;
   capacity: string;
+  fullPrice: number;
   ram: string;
 }
 

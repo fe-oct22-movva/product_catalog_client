@@ -63,6 +63,7 @@ export const ProductCardSingle: React.FC<Props> = ({
         screen={screen}
         capacity={capacity}
         ram={ram}
+        fullPrice={fullPrice}
       />
     </div>
   );
