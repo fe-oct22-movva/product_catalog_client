@@ -12,7 +12,7 @@ import {Cart} from './components/Cart/Cart';
 import {Phone} from './types/types';
 import {getAllPhones} from './api/phones';
 import {ItemCardPage} from './components/ItemCardPage/ItemCardPage';
-import {ScrollToTop} from './components/ScrollToTop';
+import {ScrollToTop} from './utils/ScrollToTop';
 
 export const App: React.FC = () => {
   const [phones, setPhones] = useState<Phone[]>([]);
