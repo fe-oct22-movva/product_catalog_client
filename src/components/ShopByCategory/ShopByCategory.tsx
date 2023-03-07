@@ -1,15 +1,15 @@
-import { CategoryCard } from '../CategoryCard';
+import {CategoryCard} from '../CategoryCard';
 
 import Phones from '../../assets/images/categories/phones.png';
 import Tablets from '../../assets/images/categories/tablets.png';
 import Accessoires from '../../assets/images/categories/accessoires.png';
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 interface Props {
   phonesNumber: number;
 }
 
-export const ShopByCategory: React.FC<Props> = ({ phonesNumber }) => {
+export const ShopByCategory: React.FC<Props> = ({phonesNumber}) => {
   return (
     <section className="shop-by-category" id="shopByCategory">
       <div className="">
