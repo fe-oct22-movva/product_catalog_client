@@ -3,25 +3,48 @@
 }
 
 .breadcrumbs {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
   margin-top: 25px;
   margin-bottom: 40px;
+  height: 20px;
 
   &__image {
-    display: inline-block;
+    display: block;
     margin-right: 15px;
+    height: 15px;
+
+    transition: transform 0.3s;
+
+    &:hover {
+      transform: scale(1.1);
+    }
   }
+
   &__arrow {
-    display: inline-block;
     margin-right: 14px;
   }
 
-  &__text {
-    display: inline-block;
-
+  &__link {
+    align-self: center;
     font-weight: 700;
-    font-size: 12px;
-    line-height: 15px;
-
+    font-size: 13px;
+    line-height: 20px;
     color: #89939a;
+
+    &::after {
+      content: url('https://fe-oct22-movva.github.io/product_catalog_client/assets/ArrowRight-5f1e52f6.svg');
+      width: 15px;
+      margin-left: 10px;
+    }
+
+    &:last-child::after {
+      display: none;
+    }
+
+    &::first-letter {
+      text-transform: capitalize;
+    }
   }
 }

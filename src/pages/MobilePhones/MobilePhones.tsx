@@ -73,69 +73,85 @@ export const MobilePhones: React.FC = () => {
   };
 
   return (
-    <div className="main-container">
-      <Breadcrumbs />
-      <div className={`${styles.phonesCategory} `}>
-        <h1 className={styles.phonesCategory__title}>Mobile phones</h1>
+    <>
+      <head>
+        <title>Mobile phones</title>
+      </head>
 
-        {arePhonesLoading ? (
-          <Loader />
-        ) : (
-          <>
-            <p className={styles.phonesCategory__description}>
-              {phonesNumber} models
-            </p>
-    
-            <div
-              className={`${styles.filter} grid grid--mobile grid--tablet grid--desktop`}>
+      <div className="main-container">
+        <Breadcrumbs />
+        <div className={styles.phonesCategory}>
+          <h1 className={styles.phonesCategory__title}>Mobile phones</h1>
+
+          {arePhonesLoading ? (
+            <Loader />
+          ) : (
+            <>
+              <p className={styles.phonesCategory__description}>
+                {phonesNumber} models
+              </p>
+
               <div
-                className={styles.filter__container}
-                onClick={changeSortbyStatus}>
-                <SortBy
-                  setSelectedSortBy={setSelectedSortBy}
-                  isSortByOpen={isSortByOpen}
-                />
-              </div>
-    
-              <div
-                className={styles.filter__container}
-                onClick={changeItemsOnPageStatus}>
-                <ItemsOnPage
-                  setSelectedPhonesPerPage={setSelectedPhonesPerPage}
-                  isItemsOnPageOpen={isItemsOnPageOpen}
-                />
-              </div>
-            </div>
-    
-            <div className={styles.catalog}>
-              {phones.map((phone) => (
-                <div key={phone.id} className={styles.catalog__item}>
-                  <ProductCardSingle
-                    id={phone.id}
-                    img={phone.image}
-                    name={phone.name}
-                    price={phone.price}
-                    fullPrice={phone.fullPrice}
-                    screen={phone.screen}
-                    capacity={phone.capacity}
-                    ram={phone.ram}
+                className={`${styles.filter} grid grid--mobile grid--tablet grid--desktop`}>
+                <div
+                  className={`
+                ${styles.filter__container} 
+                grid__item--mobile-1-2
+                grid__item--tablet-1-4 
+                grid__item--desctop-1-4
+              `}
+                  onClick={changeSortbyStatus}>
+                  <SortBy
+                    setSelectedSortBy={setSelectedSortBy}
+                    isSortByOpen={isSortByOpen}
                   />
                 </div>
-              ))}
-            </div>
-            
-            {phonesNumber > 0 && (
-              <Pagination
-                pagesNumber={pagesNumber}
-                paginate={paginate}
-                goToPreviousPage={goToPreviousPage}
-                goToNextPage={goToNextPage}
-                chosenPageNumber={chosenPageNumber}
-              />
-            )}
-          </>
-        )}
+
+                <div
+                  className={`
+                ${styles.filter__container} 
+                grid__item--mobile-3-4
+                grid__item--tablet-5-7 
+                grid__item--desctop-5-7
+              `}
+                  onClick={changeItemsOnPageStatus}>
+                  <ItemsOnPage
+                    setSelectedPhonesPerPage={setSelectedPhonesPerPage}
+                    isItemsOnPageOpen={isItemsOnPageOpen}
+                  />
+                </div>
+              </div>
+
+              <div className={styles.catalog}>
+                {phones.map((phone) => (
+                  <div key={phone.id} className={styles.catalog__item}>
+                    <ProductCardSingle
+                      id={phone.id}
+                      img={phone.image}
+                      name={phone.name}
+                      price={phone.price}
+                      fullPrice={phone.fullPrice}
+                      screen={phone.screen}
+                      capacity={phone.capacity}
+                      ram={phone.ram}
+                    />
+                  </div>
+                ))}
+              </div>
+
+              {phonesNumber > 0 && (
+                <Pagination
+                  pagesNumber={pagesNumber}
+                  paginate={paginate}
+                  goToPreviousPage={goToPreviousPage}
+                  goToNextPage={goToNextPage}
+                  chosenPageNumber={chosenPageNumber}
+                />
+              )}
+            </>
+          )}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
