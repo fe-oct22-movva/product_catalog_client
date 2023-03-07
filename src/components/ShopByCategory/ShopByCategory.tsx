@@ -1,14 +1,15 @@
-import {CategoryCard} from '../CategoryCard';
+import { CategoryCard } from '../CategoryCard';
 
 import Phones from '../../assets/images/categories/phones.png';
 import Tablets from '../../assets/images/categories/tablets.png';
 import Accessoires from '../../assets/images/categories/accessoires.png';
+import { Link } from 'react-router-dom';
 
 interface Props {
   phonesNumber: number;
 }
 
-export const ShopByCategory: React.FC<Props> = ({phonesNumber}) => {
+export const ShopByCategory: React.FC<Props> = ({ phonesNumber }) => {
   return (
     <section className="shop-by-category" id="shopByCategory">
       <div className="">
@@ -21,7 +22,7 @@ export const ShopByCategory: React.FC<Props> = ({phonesNumber}) => {
               grid__item
               grid__item--tablet-1-4
               grid__item--desktop-1-8">
-            <a href="/#/phones">
+            <Link to="/phones">
               <CategoryCard
                 imageUrl={Phones}
                 imageAlt="Mobile phones category"
@@ -29,7 +30,7 @@ export const ShopByCategory: React.FC<Props> = ({phonesNumber}) => {
                 numOfModels={`${phonesNumber} models`}
                 categoryLink="/#/phones"
               />
-            </a>
+            </Link>
           </div>
 
           <div
@@ -38,13 +39,15 @@ export const ShopByCategory: React.FC<Props> = ({phonesNumber}) => {
               grid__item
               grid__item--tablet-5-8
               grid__item--desktop-9-16">
-            <CategoryCard
-              imageUrl={Tablets}
-              imageAlt="Tablets category"
-              categoryName="Tablets"
-              numOfModels="0 models"
-              categoryLink="#"
-            />
+            <Link to="/tablets">
+              <CategoryCard
+                imageUrl={Tablets}
+                imageAlt="Tablets category"
+                categoryName="Tablets"
+                numOfModels="0 models"
+                categoryLink="#"
+              />
+            </Link>
           </div>
 
           <div
@@ -53,13 +56,15 @@ export const ShopByCategory: React.FC<Props> = ({phonesNumber}) => {
               grid__item
               grid__item--tablet-9-12
               grid__item--desktop-17-24">
-            <CategoryCard
-              imageUrl={Accessoires}
-              imageAlt="Accessories category"
-              categoryName="Accessories"
-              numOfModels="0 models"
-              categoryLink="#"
-            />
+            <Link to="/accessories">
+              <CategoryCard
+                imageUrl={Accessoires}
+                imageAlt="Accessories category"
+                categoryName="Accessories"
+                numOfModels="0 models"
+                categoryLink="#"
+              />
+            </Link>
           </div>
         </div>
       </div>
