@@ -3,7 +3,7 @@ import * as React from 'react';
 import minus from '../../assets/images/Minus.svg';
 import close from '../../assets/images/Close.svg';
 import plus from '../../assets/images/Plus.svg';
-import {cartItem, Phone} from '../../types/types';
+import {cartItem} from '../../types/types';
 import {setItemLocalStorage} from '../../utils/setItemLocalStorage';
 
 interface Props {
@@ -14,10 +14,7 @@ interface Props {
 export const CartItem: React.FC<Props> = ({cartItem, handleDelete}) => {
   const handlePlus = () => {
     const cartItems = localStorage.getItem('Cart');
-    const parsedItems
-      = cartItems !== null
-        ? JSON.parse(cartItems)
-        : null;
+    const parsedItems = cartItems !== null ? JSON.parse(cartItems) : null;
 
     if (parsedItems) {
       const phoneInclude = parsedItems.find(
@@ -34,10 +31,7 @@ export const CartItem: React.FC<Props> = ({cartItem, handleDelete}) => {
 
   const handleMinus = () => {
     const cartItems = localStorage.getItem('Cart');
-    const parsedItems
-      = cartItems !== null
-        ? JSON.parse(cartItems)
-        : null;
+    const parsedItems = cartItems !== null ? JSON.parse(cartItems) : null;
 
     if (parsedItems) {
       const phoneInclude = parsedItems.find(

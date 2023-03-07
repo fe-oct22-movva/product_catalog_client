@@ -13,7 +13,11 @@ interface Props {
   title: string;
 }
 
-export const Cards: React.FC<Props> = ({newestPhones, setSelectedId, title}) => {
+export const Cards: React.FC<Props> = ({
+  newestPhones,
+  setSelectedId,
+  title,
+}) => {
   const [position, setPosition] = useState(0);
   const [cardWidth, setCardWidth] = useState(0);
   const [cardCount, setCardCount] = useState(0);

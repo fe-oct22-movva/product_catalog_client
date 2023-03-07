@@ -103,7 +103,9 @@ export const Button_addToCart: React.FC<Props> = ({
     const parsedItems = items !== null ? JSON.parse(items) : null;
 
     if (parsedItems) {
-      const includeItem = parsedItems.find((item: favouriteItem) => item.id === id);
+      const includeItem = parsedItems.find(
+        (item: favouriteItem) => item.id === id
+      );
       if (isInFavourites) {
         setIsInFavourites(false);
       }
