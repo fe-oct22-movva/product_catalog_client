@@ -44,21 +44,25 @@
   }
 
   &__left {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-image: url('./images/defaultScroll.png');
-    text-align: right;
+    background-image: url('../../assets/images/icons/arrow-left.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+
+    border: 1px solid #b4bdc4;
+    border-radius: 48px;
+
     height: 32px;
     width: 32px;
   }
 
   &__right {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-image: url('./images/defaultScroll.png');
-    text-align: left;
+    background-image: url('../../assets/images/icons/arrow-right.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+
+    border: 1px solid #b4bdc4;
+    border-radius: 48px;
+
     height: 32px;
     width: 32px;
   }
@@ -212,5 +216,29 @@
     @include onDesktop {
       width: 290px;
     }
+  }
+}
+
+.arrow-left {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 8px;
+
+  text-align: center;
+  height: 32px;
+  width: 32px;
+
+  border: 1px solid #b4bdc4;
+  border-radius: 48px;
+
+  background-image: url('../../assets/images/icons/arrow-left.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+
+  &:hover {
+    border-color: #0f0f11;
+    color: #000;
+    cursor: pointer;
   }
 }

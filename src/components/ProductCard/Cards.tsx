@@ -2,10 +2,7 @@ import React, {useEffect, useState} from 'react';
 import './Cards.scss';
 
 import {CardHomePage} from './CardHomePage';
-import arrowLeft from './images/arrowLeftDef.png';
-import arrowRight from './images/arrowRigthDef.png';
 import {Phone} from '../../types/types';
-// import { ProductCardSingle } from '../ProductCardSingle';
 
 interface Props {
   newestPhones: Phone[];
@@ -56,7 +53,6 @@ export const Cards: React.FC<Props> = ({
                 setCardCount((prev) => prev - 1);
               }
             }}>
-            <img src={arrowLeft} alt="arrow" className="scroll__icon" />
           </button>
           <button
             className="scroll__right"
@@ -66,7 +62,6 @@ export const Cards: React.FC<Props> = ({
                 setCardCount((prev) => prev + 1);
               }
             }}>
-            <img src={arrowRight} alt="arrow" className="scroll__icon" />
           </button>
         </div>
       </div>
@@ -74,17 +69,6 @@ export const Cards: React.FC<Props> = ({
       <div className="flex" style={styles}>
         {newestPhones.map((phone) => (
           <div key={phone.id} className="flex__item">
-            {/* <ProductCardSingle
-              id={phone.id}
-              img={phone.image}
-              name={phone.name}
-              price={phone.price}
-              fullPrice={phone.fullPrice}
-              screen={phone.screen}
-              capacity={phone.capacity}
-              ram={phone.ram}
-            /> */}
-
             <CardHomePage
               id={phone.id}
               img={phone.image}
