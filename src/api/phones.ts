@@ -7,7 +7,7 @@ type Params = {
   page?: number;
 };
 
-export const getAllPhones = (criterion: string[][]) => {
+export const getAllPhones = (criterion?: string[][]) => {
   return client.get<serverResponse>('/phones', criterion);
 };
 

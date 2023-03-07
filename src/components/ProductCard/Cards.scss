@@ -70,13 +70,14 @@
   width: 220px;
   padding: 32px 32px;
   max-height: 500px;
+  letter-spacing: 0.2px;
 
   @include onTablet {
     width: 248px;
   }
 
   @include onDesktop {
-    width: 290px;
+    width: 280px;
     margin-right: 0;
   }
 
@@ -84,9 +85,8 @@
   border-radius: 8px;
 
   &__icon {
-    margin: 0 auto;
     margin-bottom: 24px;
-    min-height: 129px;
+    height: 129px;
 
     @include onTablet {
       height: 173px;
@@ -95,6 +95,11 @@
     @include onDesktop {
       height: 200px;
     }
+  }
+
+  &__link {
+    display: block;
+    margin: 0 auto;
   }
 
   &__title {

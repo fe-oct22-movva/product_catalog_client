@@ -1,3 +1,4 @@
+
 const BASE_URL = 'https://enigmatic-anchorage-21289.herokuapp.com';
 
 type RequestMethod = 'GET';
@@ -23,7 +24,10 @@ function request<T>(
 
       return response.json();
     })
-    .catch((error) => console.log(error));
+    .catch((error) => {
+      console.error(error);
+      throw error;
+    });
 }
 
 export const client = {

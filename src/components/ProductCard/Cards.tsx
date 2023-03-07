@@ -9,9 +9,10 @@ import { Phone } from '../../types/types';
 
 interface Props {
   newestPhones: Phone[],
+  setSelectedId: (newId:string) => void
 }
 
-export const Cards: React.FC<Props> = ({ newestPhones }) => {
+export const Cards: React.FC<Props> = ({ newestPhones, setSelectedId }) => {
   const [position, setPosition] = useState(0);
   const [cardWidth, setCardWidth] = useState(0);
   const [cardCount, setCardCount] = useState(0);
@@ -88,6 +89,8 @@ export const Cards: React.FC<Props> = ({ newestPhones }) => {
               screen={phone.screen}
               capacity={phone.capacity}
               ram={phone.ram}
+              phoneId={phone.phoneId}
+              setSelectedId={setSelectedId}
             />
 
           </div>
