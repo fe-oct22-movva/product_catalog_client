@@ -39,7 +39,19 @@ export const colorToHex = (color: string) => {
   }
 };
 
-const palleteColors = ['midnightgreen', 'gold', 'red', 'spacegray', 'silver', 'rosegold', 'purple', 'green', 'yellow', 'black', 'white'];
+const palleteColors = [
+  'midnightgreen',
+  'gold',
+  'red',
+  'spacegray',
+  'silver',
+  'rosegold',
+  'purple',
+  'green',
+  'yellow',
+  'black',
+  'white',
+];
 
 export function checkerColor(id: string, newColor: string) {
   const splited = id.split('-');

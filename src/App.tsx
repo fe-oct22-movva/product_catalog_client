@@ -1,8 +1,9 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, {useEffect, useState} from 'react';
 import {Header} from './components/HomePage/Header';
 import {Footer} from './components/Footer';
 import {HomePage} from './components/HomePage/HomePage';
-import { Route, Routes, Navigate, useParams } from 'react-router-dom';
+import {Route, Routes, Navigate} from 'react-router-dom';
 import './styles/main.scss';
 import {PageNotFound} from './components/PageNotFound';
 import {MobilePhones} from './pages/MobilePhones';
@@ -11,9 +12,8 @@ import {BurgerMenu} from './components/BurgerMenu';
 import {Cart} from './components/Cart/Cart';
 import {Phone} from './types/types';
 import {getAllPhones} from './api/phones';
-import {ItemCardPage} from './components/ItemCardPage/ItemCardPage';
 import {ScrollToTop} from './components/ScrollToTop';
-import { CardSpec } from './components/CardSpec';
+import {CardSpec} from './components/CardSpec';
 
 export const App: React.FC = () => {
   const [phones, setPhones] = useState<Phone[]>([]);
@@ -35,12 +35,9 @@ export const App: React.FC = () => {
       <div className="sections">
         <ScrollToTop />
         <Routes>
-          <Route
-            path="/"
-            element={<HomePage />}
-          />
+          <Route path="/" element={<HomePage />} />
           <Route path="/phones" element={<MobilePhones />} />
-          <Route path="phones/:phoneId"element={<CardSpec/>}/>
+          <Route path="phones/:phoneId" element={<CardSpec />} />
           <Route path="/favourites" element={<Favourites />} />
           <Route path="/cart" element={<Cart />} />
           <Route

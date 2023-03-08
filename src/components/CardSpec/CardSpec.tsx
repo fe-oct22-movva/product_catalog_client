@@ -9,11 +9,11 @@ import {PhoneSpec} from '../../types/types';
 import {Button_addToCart} from '../Button_addToCart';
 import {Breadcrumbs} from '../Breadcrumbs';
 import classNames from 'classnames';
-import { checkerColor, checkerId, colorToHex } from '../../utils/helpers';
-import { useNavigate, useParams } from 'react-router-dom';
+import {checkerColor, checkerId, colorToHex} from '../../utils/helpers';
+import {useNavigate, useParams} from 'react-router-dom';
 
 export const CardSpec: React.FC = () => {
-  const { phoneId = '0' } = useParams();
+  const {phoneId = '0'} = useParams();
 
   const [phoneSpec, setPhoneSpec] = useState<PhoneSpec | null>(null);
   const [oldIdPhone, setOldIdPhone] = useState(phoneId);
@@ -42,7 +42,6 @@ export const CardSpec: React.FC = () => {
   };
 
   const hadleColor = (color: string) => {
-
     setOldIdPhone(checkerColor(oldIdPhone, color));
   };
 
@@ -51,7 +50,7 @@ export const CardSpec: React.FC = () => {
     {name: 'Resolution', value: phoneSpec.resolution},
     {name: 'Processor', value: phoneSpec.processor},
     {name: 'RAM', value: phoneSpec.ram},
-    { name: 'Built in memory', value: phoneSpec.capacity },
+    {name: 'Built in memory', value: phoneSpec.capacity},
     {name: 'Camera', value: phoneSpec.camera},
     {name: 'Zoom', value: phoneSpec.zoom},
     {name: 'Cell', value: phoneSpec.cell},
@@ -105,7 +104,9 @@ export const CardSpec: React.FC = () => {
                 Available colors
               </h5>
 
-              <p className="phone__specs-main__feature__title-id">{individualIdForPage}</p>
+              <p className="phone__specs-main__feature__title-id">
+                {individualIdForPage}
+              </p>
             </div>
 
             <div className="phone__specs-main__feature__select">
@@ -114,12 +115,13 @@ export const CardSpec: React.FC = () => {
                   className="color-selector"
                   color={color}
                   key={color}
-                  onClick={() => hadleColor(color)}
-                >
-                  <div className=
-                    {(
-                      classNames('color-selector__inside', { 'color': color === phoneSpec.color })
-                    )} style={{ backgroundColor: colorToHex(color) }} />
+                  onClick={() => hadleColor(color)}>
+                  <div
+                    className={classNames('color-selector__inside', {
+                      color: color === phoneSpec.color,
+                    })}
+                    style={{backgroundColor: colorToHex(color)}}
+                  />
                 </button>
               ))}
             </div>
@@ -133,7 +135,10 @@ export const CardSpec: React.FC = () => {
                 {phoneSpec.capacityAvailable.map((memory) => (
                   <button
                     key={memory.toString()}
-                    className={classNames('phone__specs-main__feature__capacity-btn__item', { 'active': memory === phoneSpec.capacity })}
+                    className={classNames(
+                      'phone__specs-main__feature__capacity-btn__item',
+                      {active: memory === phoneSpec.capacity}
+                    )}
                     onClick={() => hadleClick(memory)}>
                     {memory}
                   </button>
@@ -151,7 +156,13 @@ export const CardSpec: React.FC = () => {
                   {`$${phoneSpec.priceRegular}`}
                 </p>
               </div>
-              <Button_addToCart id={''} img={''} price={0} name={''} fullPrice={0} />
+              <Button_addToCart
+                id={''}
+                img={''}
+                price={0}
+                name={''}
+                fullPrice={0}
+              />
             </div>
 
             <div className="phone__specs-main__feature__characteristics">
