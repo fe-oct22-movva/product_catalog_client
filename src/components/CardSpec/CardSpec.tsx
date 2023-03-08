@@ -161,7 +161,11 @@ export const CardSpec: React.FC = () => {
                 img={''}
                 price={0}
                 name={''}
-                fullPrice={0} screen={''} capacity={''} ram={''}/>
+                fullPrice={0}
+                screen={''}
+                capacity={''}
+                ram={''}
+              />
             </div>
 
             <div className="phone__specs-main__feature__characteristics">

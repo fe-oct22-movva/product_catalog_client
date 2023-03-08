@@ -9,10 +9,7 @@ interface Props {
   title: string;
 }
 
-export const Cards: React.FC<Props> = ({
-  newestPhones,
-  title,
-}) => {
+export const Cards: React.FC<Props> = ({newestPhones, title}) => {
   const [position, setPosition] = useState(0);
   const [cardWidth, setCardWidth] = useState(0);
   const [cardCount, setCardCount] = useState(0);
@@ -50,8 +47,7 @@ export const Cards: React.FC<Props> = ({
                 setPosition((prev) => prev + cardWidth);
                 setCardCount((prev) => prev - 1);
               }
-            }}>
-          </button>
+            }}></button>
           <button
             className="scroll__right"
             onClick={() => {
@@ -59,8 +55,7 @@ export const Cards: React.FC<Props> = ({
                 setPosition((prev) => prev - cardWidth);
                 setCardCount((prev) => prev + 1);
               }
-            }}>
-          </button>
+            }}></button>
         </div>
       </div>
 
