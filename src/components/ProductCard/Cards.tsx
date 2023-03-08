@@ -52,8 +52,7 @@ export const Cards: React.FC<Props> = ({
                 setPosition((prev) => prev + cardWidth);
                 setCardCount((prev) => prev - 1);
               }
-            }}>
-          </button>
+            }}></button>
           <button
             className="scroll__right"
             onClick={() => {
@@ -61,8 +60,7 @@ export const Cards: React.FC<Props> = ({
                 setPosition((prev) => prev - cardWidth);
                 setCardCount((prev) => prev + 1);
               }
-            }}>
-          </button>
+            }}></button>
         </div>
       </div>
 
