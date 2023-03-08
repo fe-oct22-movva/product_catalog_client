@@ -13,8 +13,8 @@ import {Cart} from './components/Cart/Cart';
 import {Phone} from './types/types';
 import {getAllPhones} from './api/phones';
 import {ScrollToTop} from './utils/ScrollToTop';
-import { Contacts } from './pages/Contacts';
-import { CardSpec } from './components/CardSpec/CardSpec';
+import {Contacts} from './pages/Contacts';
+import {CardSpec} from './components/CardSpec/CardSpec';
 
 export const App: React.FC = () => {
   const [phones, setPhones] = useState<Phone[]>([]);
