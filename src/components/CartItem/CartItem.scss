@@ -88,10 +88,10 @@
         border: 1px solid #b4bdc4;
         border-radius: 50%;
 
-        transition: border-color .3s, transform .3s;
+        transition: border-color 0.3s, transform 0.3s;
 
         &:hover {
-          border-color: #0F0F11;
+          border-color: #0f0f11;
           transform: scale(1.05);
         }
       }
@@ -117,10 +117,10 @@
         border: 1px solid #b4bdc4;
         border-radius: 50%;
 
-        transition: border-color .3s, transform .3s;
+        transition: border-color 0.3s, transform 0.3s;
 
         &:hover {
-          border-color: #0F0F11;
+          border-color: #0f0f11;
           transform: scale(1.05);
         }
       }
