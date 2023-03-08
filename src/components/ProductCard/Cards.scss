@@ -18,6 +18,10 @@
 .scroll {
   display: flex;
   justify-content: space-between;
+  padding-top: 5px;
+  padding-right: 5px;
+
+  transition: transform 0.3s;
 
   &__title {
     display: block;
@@ -54,10 +58,13 @@
     height: 32px;
     width: 32px;
 
+
     &:hover {
       border-color: #0f0f11;
       color: #000;
       cursor: pointer;
+      transform: scale(1.07);
+      box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.05);
     }
   }
 
@@ -76,6 +83,8 @@
       border-color: #0f0f11;
       color: #000;
       cursor: pointer;
+      transform: scale(1.07);
+      box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.05);
     }
   }
 }
