@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import React, {useEffect, useState} from 'react';
-import {Header} from './components/HomePage/Header';
+import {Header} from './pages/HomePage/Header';
 import {Footer} from './components/Footer';
-import {HomePage} from './components/HomePage/HomePage';
-import {Route, Routes, Navigate} from 'react-router-dom';
+import {HomePage} from './pages/HomePage/HomePage';
+import {Route, Routes, Navigate, useLocation} from 'react-router-dom';
 import './styles/main.scss';
 import {PageNotFound} from './components/PageNotFound';
 import {MobilePhones} from './pages/MobilePhones';
@@ -12,8 +12,9 @@ import {BurgerMenu} from './components/BurgerMenu';
 import {Cart} from './components/Cart/Cart';
 import {Phone} from './types/types';
 import {getAllPhones} from './api/phones';
-import {ScrollToTop} from './components/ScrollToTop';
-import {CardSpec} from './components/CardSpec';
+import {ScrollToTop} from './utils/ScrollToTop';
+import { Contacts } from './pages/Contacts';
+import { CardSpec } from './components/CardSpec/CardSpec';
 
 export const App: React.FC = () => {
   const [phones, setPhones] = useState<Phone[]>([]);
@@ -23,7 +24,11 @@ export const App: React.FC = () => {
     getAllPhones()
       .then((data) => setPhones(data.result))
       .catch((error: string) => console.log(error));
-  }, []);
+
+    if (location.pathname === '/menu') {
+      setIsBurgerActivated(true);
+    }
+  }, [location]);
 
   return (
     <div className="App">
@@ -38,17 +43,9 @@ export const App: React.FC = () => {
           <Route path="/" element={<HomePage />} />
           <Route path="/phones" element={<MobilePhones />} />
           <Route path="phones/:phoneId" element={<CardSpec />} />
+          <Route path="/contacts" element={<Contacts />} />
           <Route path="/favourites" element={<Favourites />} />
           <Route path="/cart" element={<Cart />} />
-          <Route
-            path="/menu"
-            element={
-              <BurgerMenu
-                isBurger={isBurgerActivated}
-                setIsBurger={setIsBurgerActivated}
-              />
-            }
-          />
           <Route path="home" element={<Navigate to="/" replace />} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>

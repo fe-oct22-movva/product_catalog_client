@@ -59,8 +59,10 @@ export const CardHomePage: FC<Props> = ({
         price={price}
         fullPrice={fullPrice}
         name={name}
+        capacity={capacity}
+        ram={ram}
+        screen={screen}
       />
-      {/*fix requirments in parents block*/}
     </div>
   );
 };

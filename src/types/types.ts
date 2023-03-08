@@ -83,14 +83,6 @@ export interface favouriteItem {
   ram: string;
 }
 
-export interface Favourites {
-  id: string;
-  img: string;
-  name: string;
-  price: number;
-  fullPrice: number;
-}
-
 export interface Cart {
   id: string;
   img: string;

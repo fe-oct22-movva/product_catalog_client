@@ -6,22 +6,23 @@
 
 @font-face {
   font-family: Mont_Regular;
-  src: url('../assets/fonts/Mont-Regular.otf');
+  src: url('/Mont-Regular.otf');
 }
 
 @font-face {
   font-family: Mont_Bold;
   font-weight: bold;
-  src: url('../assets/fonts/Mont-Bold.otf');
+  src: url('/Mont-Bold.otf');
 }
 
 @font-face {
   font-family: Mont_SemiBold;
-  src: url('../assets/fonts/Mont-SemiBold.otf');
+  src: url('/Mont-SemiBold.otf');
 }
 
 .main-container {
   max-width: 1200px;
+  min-width: 360px;
   margin: 0 auto;
   padding: 0 16px;
 
@@ -44,7 +45,15 @@ html {
 }
 
 .sections {
-  min-height: 100vh;
+  min-height: calc(100vh - 48px - 283px);
+
+  @include onTablet {
+    min-height: calc(100vh - 48px - 98px);
+  }
+
+  @include onDesktop {
+    min-height: calc(100vh - 64px - 98px);
+  }
 }
 
 a {

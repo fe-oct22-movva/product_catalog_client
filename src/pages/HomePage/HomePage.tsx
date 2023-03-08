@@ -2,13 +2,14 @@
 import {useEffect, useState} from 'react';
 import {getAllPhones} from '../../api/phones';
 import {Phone} from '../../types/types';
-import {Banner} from '../Banner';
-import {Cards} from '../ProductCard';
-import {ShopByCategory} from '../ShopByCategory';
+import {Banner} from '../../components/Banner';
+import {Cards} from '../../components/ProductCard';
+import {ShopByCategory} from '../../components/ShopByCategory';
 
 export const HomePage: React.FC = () => {
   const [newestPhones, setNewestPhones] = useState<Phone[]>([]);
   const [cheapestPhones, setCheapestPhones] = useState<Phone[]>([]);
+  const [phonesNumber, setPhonesNumber] = useState(0);
 
   useEffect(() => {
     getAllPhones([
@@ -17,7 +18,7 @@ export const HomePage: React.FC = () => {
     ])
       .then((data) => {
         setNewestPhones(data.result);
-        console.log(data);
+        setPhonesNumber(data.totalPhones);
       })
       .catch((error) => console.log(error));
 
@@ -27,18 +28,29 @@ export const HomePage: React.FC = () => {
     ])
       .then((data) => {
         setCheapestPhones(data.result);
-        console.log(data);
       })
       .catch((error) => console.log(error));
   }, []);
 
   return (
-    <div>
-      <Banner />
-      <div className="main-container">
-        <Cards newestPhones={newestPhones} />
-        <ShopByCategory />
+    <>
+      <head>
+        <title>Nice Gadgets store</title>
+      </head>
+      <div>
+        <Banner />
+        <div className="main-container">
+          <Cards
+            newestPhones={newestPhones}
+            title="Brand new models"
+          />
+          <ShopByCategory phonesNumber={phonesNumber} />
+          <Cards
+            newestPhones={cheapestPhones}
+            title="Hot prices"
+          />
+        </div>
       </div>
-    </div>
+    </>
   );
 };
