@@ -1,13 +1,16 @@
 import './Cart.scss';
-import {useEffect, useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {cartItem} from '../../types/types';
 import {CartItem} from '../CartItem/CartItem';
 import {Breadcrumbs} from '../Breadcrumbs';
 import {handleDelete} from '../../utils/localStorageRemove';
 import {EmptyCart} from '../EmptyCart/EmptyCart';
+import {CartCheckout} from '../CartCheckout/CartCheckout';
+import {ModalWindowCart} from '../ModalWindowCart/ModalWindowCart';
 
 export const Cart = () => {
   const [isCartExist, setIsCartExist] = useState<string | null>(null);
+  const [isModalWindow, setIsModalWindow] = useState(false);
 
   const cartItems = isCartExist === null ? [] : JSON.parse(isCartExist);
   let cartItemsCounter = 0;
@@ -35,9 +38,16 @@ export const Cart = () => {
     <div className="cart">
       <div className="main-container">
         <head>
-          <title>{Cart.name}</title>
+          <title>Cart</title>
         </head>
         <Breadcrumbs />
+
+        {
+          isModalWindow && (
+            <ModalWindowCart setIsModalWindow={setIsModalWindow} />
+          )
+        }
+
         {isCartExist ? (
           <>
             <h1 className="cart__title">Cart</h1>
@@ -64,7 +74,7 @@ export const Cart = () => {
                   Total for {cartItemsCounter} items
                 </h1>
 
-                <button className="cart__total-checkout">Checkout</button>
+                <CartCheckout setIsModalWindow={setIsModalWindow} />
               </div>
             </div>
           </>
