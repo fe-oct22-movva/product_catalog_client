@@ -36,7 +36,8 @@ export const Footer: React.FC<Props> = ({isBurgerActivated}) => {
                 <a
                   href="https://github.com/fe-oct22-movva/product_catalog_client"
                   className="footer-nav__link"
-                  target="_blank" rel="noreferrer">
+                  target="_blank"
+                  rel="noreferrer">
                   Github
                 </a>
               </li>
@@ -51,7 +52,8 @@ export const Footer: React.FC<Props> = ({isBurgerActivated}) => {
                 <a
                   href="https://creativecommons.org/licenses/by/4.0/"
                   className="footer-nav__link"
-                  target="_blank" rel="noreferrer">
+                  target="_blank"
+                  rel="noreferrer">
                   Rights
                 </a>
               </li>
