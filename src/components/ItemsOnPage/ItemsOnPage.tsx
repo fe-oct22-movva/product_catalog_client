@@ -1,5 +1,7 @@
 import styles from '../ItemsOnPage/ItemsOnPage.module.scss';
 import arrowDown from '../../assets/images/ArrowDown.svg';
+import arrowUp from '../../assets/images/ArrowUp.svg';
+
 import {useState} from 'react';
 
 const itemsOnPageOptions = [12, 16, 20];
@@ -30,7 +32,11 @@ export const ItemsOnPage: React.FC<Props> = ({
       <div className={styles.dropdown}>
         <button className={styles.dropdown__header}>
           <div className={styles.dropdown__header__title}>{selectedOption}</div>
-          <img className={styles.dropdown__header__arrow} src={arrowDown} />
+          {!isItemsOnPageOpen ? (
+            <img className={styles.dropdown__header__arrow__down} src={arrowDown} />
+          ) : (
+            <img className={styles.dropdown__header__arrow__up} src={arrowUp} />
+          )}
         </button>
 
         {!isItemsOnPageOpen ? (

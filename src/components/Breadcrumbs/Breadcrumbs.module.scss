@@ -6,12 +6,13 @@
   display: flex;
   flex-direction: row;
   align-items: baseline;
-  margin-top: 25px;
-  margin-bottom: 40px;
-  height: 20px;
+  padding-top: 25px;
+  padding-bottom: 40px;
 
   &__image {
     display: block;
+    align-self: center;
+
     margin-right: 15px;
     height: 15px;
 
@@ -23,14 +24,18 @@
   }
 
   &__arrow {
+    display: block;
+    align-self: center;
+    height: 15px;
     margin-right: 14px;
   }
 
   &__link {
+    display: block;
+    height: 15px;
     align-self: center;
     font-weight: 700;
     font-size: 13px;
-    line-height: 20px;
     color: #89939a;
 
     &::after {

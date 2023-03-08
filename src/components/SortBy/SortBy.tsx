@@ -1,5 +1,7 @@
 import styles from '../SortBy/SortBy.module.scss';
 import arrowDown from '../../assets/images/ArrowDown.svg';
+import arrowUp from '../../assets/images/ArrowUp.svg';
+
 import {useState} from 'react';
 import {SortTypes} from '../../types/types';
 
@@ -31,7 +33,11 @@ export const SortBy: React.FC<Props> = ({setSelectedSortBy, isSortByOpen}) => {
         <button className={styles.dropdown__header}>
           <div className={styles.dropdown__header__title}>{selectedOption}</div>
 
-          <img className={styles.dropdown__header__arrow} src={arrowDown} />
+          {!isSortByOpen ? (
+            <img className={styles.dropdown__header__arrow__down} src={arrowDown} />
+          ) : (
+            <img className={styles.dropdown__header__arrow__up} src={arrowUp} />
+          )}
         </button>
 
         {!isSortByOpen ? (
