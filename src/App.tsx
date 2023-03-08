@@ -14,11 +14,13 @@ import {Phone} from './types/types';
 import {getAllPhones} from './api/phones';
 import {ScrollToTop} from './utils/ScrollToTop';
 import {Contacts} from './pages/Contacts';
-import {CardSpec} from './components/CardSpec/CardSpec';
+import {CardSpec} from './components/CardSpec';
 
 export const App: React.FC = () => {
   const [phones, setPhones] = useState<Phone[]>([]);
   const [isBurgerActivated, setIsBurgerActivated] = useState<boolean>(false);
+
+  const location = useLocation();
 
   useEffect(() => {
     getAllPhones()
