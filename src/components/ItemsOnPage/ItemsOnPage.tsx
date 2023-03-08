@@ -1,8 +1,8 @@
 /* eslint-disable  @typescript-eslint/no-explicit-any */
-import styles from '../ItemsOnPage/ItemsOnPage.module.scss';
+import { Dispatch, SetStateAction, useEffect, useRef } from 'react';
 import arrowDown from '../../assets/images/ArrowDown.svg';
 import arrowUp from '../../assets/images/ArrowUp.svg';
-import {Dispatch, SetStateAction, useEffect, useRef} from 'react';
+import styles from '../ItemsOnPage/ItemsOnPage.module.scss';
 
 const itemsOnPageOptions = [12, 16, 20];
 
@@ -38,6 +38,20 @@ export const ItemsOnPage: React.FC<Props> = ({
     setSelectedPhonesPerPage(value);
   };
 
+  const stylesBlock = isItemsOnPageOpen
+    ? {
+      opacity: 1,
+      Visibility: 'visible',
+      transform: 'translateY(0)',
+      transition: '0.3s ease'
+    }
+    : {
+      opacity: 0,
+      Visibility: 'hidden',
+      transform: 'translateX(+20px)',
+      transition: '0.3s ease'
+    };
+
   return (
     <div
       ref={dropdownRef}
@@ -62,22 +76,21 @@ export const ItemsOnPage: React.FC<Props> = ({
           )}
         </button>
 
-        {!isItemsOnPageOpen ? (
-          <p></p>
-        ) : (
-          <div className={styles.dropdown__items}>
-            {itemsOnPageOptions.map((option) => (
-              <button
-                key={option}
-                className={styles.dropdown__option}
-                onClick={() => {
-                  selectOption(option);
-                }}>
-                {option}
-              </button>
-            ))}
-          </div>
-        )}
+        <div
+          className={styles.dropdown__items}
+          style={stylesBlock}
+        >
+          {itemsOnPageOptions.map((option) => (
+            <button
+              key={option}
+              className={styles.dropdown__option}
+              onClick={() => {
+                selectOption(option);
+              }}>
+              {option}
+            </button>
+          ))}
+        </div>
       </div>
     </div>
   );

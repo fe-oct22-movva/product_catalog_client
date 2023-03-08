@@ -1,9 +1,9 @@
 /* eslint-disable  @typescript-eslint/no-explicit-any */
-import styles from '../SortBy/SortBy.module.scss';
+import { Dispatch, SetStateAction, useEffect, useRef } from 'react';
 import arrowDown from '../../assets/images/ArrowDown.svg';
 import arrowUp from '../../assets/images/ArrowUp.svg';
-import {Dispatch, SetStateAction, useEffect, useRef} from 'react';
-import {SortTypes} from '../../types/types';
+import { SortTypes } from '../../types/types';
+import styles from '../SortBy/SortBy.module.scss';
 
 const sortByOptions = Object.values(SortTypes);
 
@@ -39,6 +39,20 @@ export const SortBy: React.FC<Props> = ({
     setSelectedSortBy(value);
   };
 
+  const stylesBlock = isSortByOpen
+    ? {
+      opacity: 1,
+      Visibility: 'visible',
+      transform: 'translateY(0)',
+      transition: '0.3s ease'
+    }
+    : {
+      opacity: 0,
+      Visibility: 'hidden',
+      transform: 'translateX(-20px)',
+      transition: '0.3s ease'
+    };
+
   return (
     <div
       ref={dropdownRef}
@@ -64,22 +78,21 @@ export const SortBy: React.FC<Props> = ({
           )}
         </button>
 
-        {!isSortByOpen ? (
-          <p></p>
-        ) : (
-          <div className={styles.dropdown__items}>
-            {sortByOptions.map((option) => (
-              <button
-                key={option}
-                className={styles.dropdown__option}
-                onClick={() => {
-                  selectSortBy(option);
-                }}>
-                {option}
-              </button>
-            ))}
-          </div>
-        )}
+        <div
+          className={styles.dropdown__items}
+          style={stylesBlock}
+        >
+          {sortByOptions.map((option) => (
+            <button
+              key={option}
+              className={styles.dropdown__option}
+              onClick={() => {
+                selectSortBy(option);
+              }}>
+              {option}
+            </button>
+          ))}
+        </div>
       </div>
     </div>
   );
