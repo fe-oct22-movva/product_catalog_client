@@ -1,6 +1,7 @@
 /* eslint-disable max-len,init-declarations */
 import React, {useEffect} from 'react';
 import {useNavigate} from 'react-router-dom';
+import './CartCheckout.scss';
 
 interface Props {
   setIsModalWindow: React.Dispatch<React.SetStateAction<boolean>>;
@@ -28,7 +29,7 @@ export const CartCheckout: React.FC<Props> = ({setIsModalWindow}) => {
   }, []);
 
   return (
-    <button className="cart__total-checkout" onClick={handleClick}>
+    <button className="cart-checkout" onClick={handleClick}>
       Checkout
     </button>
   );
