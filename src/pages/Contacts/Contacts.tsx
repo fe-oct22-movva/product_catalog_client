@@ -6,8 +6,6 @@ import Olena from '../../assets/images/contacts/olena.jpg';
 import {Breadcrumbs} from '../../components/Breadcrumbs';
 import {PersonCard} from '../../components/PersonCard/PersonCard';
 
-
-
 export const Contacts: React.FC = () => {
   return (
     <>
