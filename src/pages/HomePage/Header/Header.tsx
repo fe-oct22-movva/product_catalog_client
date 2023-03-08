@@ -19,11 +19,7 @@ export const Header: React.FC<Props> = ({setIsBurgerActivated, isBurger}) => {
       {!isBurger && (
         <header className="page__section header">
           <div className="header__content">
-            <NavLink
-              to="/"
-              className="logo"
-              onClick={scrollTopDefault}
-            >
+            <NavLink to="/" className="logo" onClick={scrollTopDefault}>
               <img
                 className="logo__img"
                 src={logo}
