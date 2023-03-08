@@ -31,6 +31,11 @@
       border-radius: 8px;
     }
 
+    &:focus {
+      border: 1px solid #0F0F11;
+      border-radius: 8px;
+    }
+
     &__title {
       text-align: left;
       margin-right: 10px;
@@ -46,6 +51,16 @@
 
     &__arrow {
       display: inline-block;
+      height: 20px;
+      width: 15px;
+
+      &__down {
+        background-image: url('../../assets/images/ArrowDown.svg');
+      }
+
+      &__up {
+        background-image: url('../../assets/images/ArrowUp.svg');
+      }
     }
   }
 
@@ -65,10 +80,12 @@
     display: block;
     text-align: left;
     height: 32px;
+    color: #89939a;
 
     &:hover {
       background: #fafbfc;
       border-radius: 8px;
+      color: #0f0f11;
     }
 
     &::first-letter {
