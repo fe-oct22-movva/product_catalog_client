@@ -2,7 +2,7 @@
 import styles from '../SortBy/SortBy.module.scss';
 import arrowDown from '../../assets/images/ArrowDown.svg';
 import arrowUp from '../../assets/images/ArrowUp.svg';
-import {Dispatch, SetStateAction, useEffect, useRef, useState} from 'react';
+import {Dispatch, SetStateAction, useEffect, useRef} from 'react';
 import {SortTypes} from '../../types/types';
 
 const sortByOptions = Object.values(SortTypes);
@@ -15,7 +15,7 @@ interface Props {
 }
 
 export const SortBy: React.FC<Props> = ({
-  setSelectedSortBy, 
+  setSelectedSortBy,
   selectedSortBy,
   isSortByOpen,
   setIsSortByOpen,
@@ -55,7 +55,10 @@ export const SortBy: React.FC<Props> = ({
           <div className={styles.dropdown__header__title}>{selectedSortBy}</div>
 
           {!isSortByOpen ? (
-            <img className={styles.dropdown__header__arrow__down} src={arrowDown} />
+            <img
+              className={styles.dropdown__header__arrow__down}
+              src={arrowDown}
+            />
           ) : (
             <img className={styles.dropdown__header__arrow__up} src={arrowUp} />
           )}
