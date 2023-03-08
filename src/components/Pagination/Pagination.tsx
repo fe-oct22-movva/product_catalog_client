@@ -34,18 +34,14 @@ export const Pagination: React.FC<Props> = (props) => {
         {paginationPages.map((page) => (
           <li
             key={page}
-            className={cn(styles.pagination__item,
-              {
-                [styles.pagination__item__chosen]: chosenPageNumber === page,
-              }
-            )}
-            onClick={() => paginate(page)}
-          >
-            <p className={cn(styles.pagination__link,
-              {
+            className={cn(styles.pagination__item, {
+              [styles.pagination__item__chosen]: chosenPageNumber === page,
+            })}
+            onClick={() => paginate(page)}>
+            <p
+              className={cn(styles.pagination__link, {
                 [styles.pagination__link__chosen]: chosenPageNumber === page,
-              }
-            )}>
+              })}>
               {page}
             </p>
           </li>

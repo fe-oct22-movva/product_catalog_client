@@ -1,6 +1,7 @@
 import styles from '../ItemsOnPage/ItemsOnPage.module.scss';
 import arrowDown from '../../assets/images/ArrowDown.svg';
-import {useState} from 'react';
+import { useState } from 'react';
+import { createSearchParams, URLSearchParamsInit, useNavigate } from 'react-router-dom';
 
 const itemsOnPageOptions = [12, 16, 20];
 
@@ -8,6 +9,13 @@ interface Props {
   setSelectedPhonesPerPage: (selectedPhonesPerPage: number) => void;
   isItemsOnPageOpen: boolean;
 }
+
+const useNavigateBySearch = () => {
+  const navigate = useNavigate();
+
+  return (pathname: string, params: URLSearchParamsInit | undefined) =>
+    navigate(`${pathname}?${createSearchParams(params)}`);
+};
 
 export const ItemsOnPage: React.FC<Props> = ({
   setSelectedPhonesPerPage,
@@ -17,6 +25,12 @@ export const ItemsOnPage: React.FC<Props> = ({
 
   const selectOption = (value: number) => {
     setSelectedOption(value);
+  };
+
+  const navigateSearch = useNavigateBySearch();
+
+  const goToSortedPhones = (option: string) => {
+    navigateSearch('/phones', { perPage: `${option}` });
   };
 
   return (
@@ -44,6 +58,7 @@ export const ItemsOnPage: React.FC<Props> = ({
                 onClick={() => {
                   setSelectedPhonesPerPage(option);
                   selectOption(option);
+                  goToSortedPhones(option.toString());
                 }}>
                 {option}
               </button>

@@ -1,10 +1,10 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import {Notify} from 'notiflix/build/notiflix-notify-aio';
 import {useEffect, useState} from 'react';
 import {getAllPhones} from '../../api/phones';
 import {Phone} from '../../types/types';
 import {Banner} from '../Banner';
-import { Loader } from '../Loader';
+import {Loader} from '../Loader';
 import {Cards} from '../ProductCard';
 import {ShopByCategory} from '../ShopByCategory';
 
