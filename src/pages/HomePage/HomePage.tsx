@@ -2,9 +2,9 @@
 import {useEffect, useState} from 'react';
 import {getAllPhones} from '../../api/phones';
 import {Phone} from '../../types/types';
-import {Banner} from '../Banner';
-import {Cards} from '../ProductCard';
-import {ShopByCategory} from '../ShopByCategory';
+import {Banner} from '../../components/Banner';
+import {Cards} from '../../components/ProductCard';
+import {ShopByCategory} from '../../components/ShopByCategory';
 
 export interface Props {
   setSelectedId: (newId: string) => void;
