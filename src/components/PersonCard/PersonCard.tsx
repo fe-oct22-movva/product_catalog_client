@@ -5,6 +5,7 @@ interface Props {
   name: string;
   linkedinUrl: string;
   githubUrl: string;
+  douUrl: string;
 }
 
 export const PersonCard: React.FC<Props> = ({
@@ -12,6 +13,7 @@ export const PersonCard: React.FC<Props> = ({
   name,
   linkedinUrl,
   githubUrl,
+  douUrl,
 }) => {
   return (
     <div className={styles.person}>
@@ -26,7 +28,7 @@ export const PersonCard: React.FC<Props> = ({
           Linkedin
         </a>
         <a
-          href=""
+          href={douUrl}
           target="_blank"
           rel="noreferrer"
           className={styles.person__link}>
@@ -39,13 +41,13 @@ export const PersonCard: React.FC<Props> = ({
           className={styles.person__link}>
           Github
         </a>
-        <a
+        {/* <a
           href=""
           target="_blank"
           rel="noreferrer"
           className={styles.person__link}>
           Djinni
-        </a>
+        </a> */}
       </div>
     </div>
   );
