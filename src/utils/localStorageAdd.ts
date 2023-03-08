@@ -1,6 +1,9 @@
 import {cartItem, favouriteItem} from '../types/types';
 
-export const localStorageAdd = (data: favouriteItem | cartItem, key: string) => {
+export const localStorageAdd = (
+  data: favouriteItem | cartItem,
+  key: string
+) => {
   const itemsForKey = localStorage.getItem(key);
   const itemsForKeyNotNull
     = itemsForKey !== null ? JSON.parse(itemsForKey) : null;
