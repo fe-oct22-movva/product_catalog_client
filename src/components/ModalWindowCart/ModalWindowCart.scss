@@ -1,5 +1,5 @@
 .modal-window {
-  transition: all .3s;
+  transition: all 0.3s;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -7,7 +7,7 @@
   z-index: 999;
   width: 600px;
   height: 400px;
-  background-color: #B4BDC4;
+  background-color: #b4bdc4;
   border-radius: 10px;
   box-shadow: 0px 3px 13px rgba(23, 32, 49, 0.7);
 
@@ -28,7 +28,7 @@
     position: absolute;
     top: 5px;
     right: 5px;
-    background-image: url("../../assets/images/Close.svg");
+    background-image: url('../../assets/images/Close.svg');
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
@@ -36,7 +36,7 @@
     width: 40px;
     height: 40px;
 
-    &:hover .modal-window{
+    &:hover .modal-window {
       transform: rotate(360deg);
     }
   }

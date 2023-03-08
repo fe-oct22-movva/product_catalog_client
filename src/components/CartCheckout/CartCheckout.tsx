@@ -1,14 +1,12 @@
-/* eslint-disable max-len */
-import React, {useEffect, useState} from 'react';
+/* eslint-disable max-len,init-declarations */
+import React, {useEffect} from 'react';
 
 interface Props {
   setIsModalWindow: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-export const CartCheckout: React.FC<Props> = ({
-  setIsModalWindow,
-}) => {
-  let timerCart: NodeJS.Timeout;
+export const CartCheckout: React.FC<Props> = ({setIsModalWindow}) => {
+  let timerCart: NodeJS.Timer;
 
   const handleClick = () => {
     setIsModalWindow(true);
@@ -26,10 +24,8 @@ export const CartCheckout: React.FC<Props> = ({
   }, []);
 
   return (
-    <button
-      className="cart__total-checkout"
-      onClick={handleClick}>
-        Checkout
+    <button className="cart__total-checkout" onClick={handleClick}>
+      Checkout
     </button>
   );
 };

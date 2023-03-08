@@ -42,11 +42,9 @@ export const Cart = () => {
         </head>
         <Breadcrumbs />
 
-        {
-          isModalWindow && (
-            <ModalWindowCart setIsModalWindow={setIsModalWindow} />
-          )
-        }
+        {isModalWindow && (
+          <ModalWindowCart setIsModalWindow={setIsModalWindow} />
+        )}
 
         {isCartExist ? (
           <>

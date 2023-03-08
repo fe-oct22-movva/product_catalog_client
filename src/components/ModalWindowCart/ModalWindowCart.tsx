@@ -5,9 +5,7 @@ interface Props {
   setIsModalWindow: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-export const ModalWindowCart: React.FC<Props> = ({
-  setIsModalWindow,
-}) => (
+export const ModalWindowCart: React.FC<Props> = ({setIsModalWindow}) => (
   <div className="modal-window">
     <p className="modal-window__title">Thank you for purchasing!</p>
     <button
