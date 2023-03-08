@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
-import {Header} from './components/HomePage/Header';
+import {Header} from './pages/HomePage/Header';
 import {Footer} from './components/Footer';
-import {HomePage} from './components/HomePage/HomePage';
+import {HomePage} from './pages/HomePage/HomePage';
 import {Route, Routes, Navigate, useLocation} from 'react-router-dom';
 import './styles/main.scss';
 import {PageNotFound} from './components/PageNotFound';
@@ -13,6 +13,7 @@ import {Phone} from './types/types';
 import {getAllPhones} from './api/phones';
 import {ItemCardPage} from './components/ItemCardPage/ItemCardPage';
 import {ScrollToTop} from './utils/ScrollToTop';
+import { Contacts } from './pages/Contacts';
 
 export const App: React.FC = () => {
   const [phones, setPhones] = useState<Phone[]>([]);
@@ -48,6 +49,7 @@ export const App: React.FC = () => {
             element={<HomePage setSelectedId={setSelectedId} />}
           />
           <Route path="/phones" element={<MobilePhones />} />
+          <Route path="/contacts" element={<Contacts />} />
           <Route
             path={`/${selectedId}`}
             element={

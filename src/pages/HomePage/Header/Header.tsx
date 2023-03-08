@@ -4,8 +4,8 @@ import logo from '../../../assets/images/Logo.svg';
 import {HeaderNavLink} from './HeaderNavLink';
 import {HeaderIconNavLink} from './HeaderIconNavLink';
 import {NavLink} from 'react-router-dom';
-import {FavouritesNavHeart} from '../../FavouritesNavHeart/FavouritesNavHeart';
-import {CartNavBasket} from '../../CartNavBasket/CartNavBasket';
+import {FavouritesNavHeart} from '../../../components/FavouritesNavHeart/FavouritesNavHeart';
+import {CartNavBasket} from '../../../components/CartNavBasket/CartNavBasket';
 
 interface Props {
   setIsBurgerActivated: React.Dispatch<React.SetStateAction<boolean>>;

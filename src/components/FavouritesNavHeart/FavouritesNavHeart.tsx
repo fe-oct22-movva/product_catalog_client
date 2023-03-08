@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import heart from '../../assets/images/Favourites.svg';
-import {HeaderIconNavLink} from '../HomePage/Header/HeaderIconNavLink';
+import {HeaderIconNavLink} from '../../pages/HomePage/Header/HeaderIconNavLink';
 
 export const FavouritesNavHeart = () => {
   const [favouritesFromLocal, setFavouritesFromLocal] = useState<string | null>(

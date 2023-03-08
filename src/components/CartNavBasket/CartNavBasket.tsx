@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import cart from '../../assets/images/Cart.svg';
-import {HeaderIconNavLink} from '../HomePage/Header/HeaderIconNavLink';
+import {HeaderIconNavLink} from '../../pages/HomePage/Header/HeaderIconNavLink';
 
 export const CartNavBasket = () => {
   const [cartFromLocal, setCartFromLocal] = useState<string | null>(null);
