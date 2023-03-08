@@ -6,11 +6,7 @@ import {Banner} from '../../components/Banner';
 import {Cards} from '../../components/ProductCard';
 import {ShopByCategory} from '../../components/ShopByCategory';
 
-export interface Props {
-  setSelectedId: (newId: string) => void;
-}
-
-export const HomePage: React.FC<Props> = ({setSelectedId}) => {
+export const HomePage: React.FC = () => {
   const [newestPhones, setNewestPhones] = useState<Phone[]>([]);
   const [cheapestPhones, setCheapestPhones] = useState<Phone[]>([]);
   const [phonesNumber, setPhonesNumber] = useState(0);
@@ -46,13 +42,11 @@ export const HomePage: React.FC<Props> = ({setSelectedId}) => {
         <div className="main-container">
           <Cards
             newestPhones={newestPhones}
-            setSelectedId={setSelectedId}
             title="Brand new models"
           />
           <ShopByCategory phonesNumber={phonesNumber} />
           <Cards
             newestPhones={cheapestPhones}
-            setSelectedId={setSelectedId}
             title="Hot prices"
           />
         </div>

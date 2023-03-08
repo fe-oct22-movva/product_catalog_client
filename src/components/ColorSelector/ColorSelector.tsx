@@ -1,14 +1,14 @@
-import './ColorSelector.scss';
-import React from 'react';
+// import './ColorSelector.scss';
+// import React from 'react';
+// import { colorToHex } from '../../utils/helpers';
 
-interface Props {
-  color: React.CSSProperties;
-}
+// interface Props {
+//   color: string;
+// }
 
-export const ColorSelector: React.FC<Props> = ({color}) => {
-  return (
-    <button className="color-selector">
-      <div className="color-selector__inside" style={color} />
-    </button>
-  );
-};
+// export const ColorSelector: React.FC<Props> = ({ color }) => {
+
+//   return (
+
+//   );
+// };
