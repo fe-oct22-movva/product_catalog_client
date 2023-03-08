@@ -18,6 +18,10 @@
 .scroll {
   display: flex;
   justify-content: space-between;
+  padding-top: 5px;
+  padding-right: 5px;
+
+  transition: transform 0.3s;
 
   &__title {
     display: block;
@@ -58,6 +62,8 @@
       border-color: #0f0f11;
       color: #000;
       cursor: pointer;
+      transform: scale(1.07);
+      box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.05);
     }
   }
 
@@ -76,6 +82,8 @@
       border-color: #0f0f11;
       color: #000;
       cursor: pointer;
+      transform: scale(1.07);
+      box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.05);
     }
   }
 }
@@ -92,6 +100,12 @@
 
   &:hover, .card__breakk-line {
     border: 1px solid #262426;
+  }
+
+  &:hover {
+    border: 1px solid #b4bdc4;
+    box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
   }
 
   @include onTablet {

@@ -1,0 +1,43 @@
+.modal-window {
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  z-index: 999;
+  width: 600px;
+  height: 400px;
+  background-color: #b4bdc4;
+  border-radius: 10px;
+  box-shadow: 0px 3px 13px rgba(23, 32, 49, 0.5);
+
+  transform: translate(-300px, -200px);
+  left: 50%;
+  top: 50%;
+  padding: 15px;
+
+  &:hover {
+    box-shadow: 0px 3px 13px rgba(27, 35, 52, 0.8);
+  }
+
+  &__title {
+    font-size: 25px;
+  }
+
+  &__btn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background-image: url('../../assets/images/Close.svg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+
+    width: 40px;
+    height: 40px;
+
+    &:hover .modal-window {
+      transform: rotate(360deg);
+    }
+  }
+}
