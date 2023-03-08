@@ -3,6 +3,7 @@ import {ProductCardSingle} from '../ProductCardSingle';
 import {favouriteItem} from '../../types/types';
 import {useEffect, useState} from 'react';
 import {Breadcrumbs} from '../Breadcrumbs';
+import heartEmpty from '../../assets/images/icons/hearts-like-svgrepo-com.svg';
 
 export const Favourites = () => {
   const [isFavouritesExist, setIsFavouritesExist] = useState<string | null>(
@@ -57,7 +58,11 @@ export const Favourites = () => {
             </div>
           </section>
         ) : (
-          <h1>No content yet</h1>
+          <div className="favourites__empty">
+            <img className="favourites__empty-photo" src={heartEmpty} alt=""/>
+
+            <h1 className="favourites__empty-title">Your favourites is empty</h1>
+          </div>
         )}
       </div>
     </>

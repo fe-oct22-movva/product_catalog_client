@@ -23,7 +23,6 @@ export const HomePage: React.FC<Props> = ({setSelectedId}) => {
       .then((data) => {
         setNewestPhones(data.result);
         setPhonesNumber(data.totalPhones);
-        console.log(data);
       })
       .catch((error) => console.log(error));
 
@@ -33,7 +32,6 @@ export const HomePage: React.FC<Props> = ({setSelectedId}) => {
     ])
       .then((data) => {
         setCheapestPhones(data.result);
-        console.log(data);
       })
       .catch((error) => console.log(error));
   }, []);

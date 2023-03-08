@@ -32,7 +32,7 @@
     }
 
     &:focus {
-      border: 1px solid #0f0f11;
+      border: 1px solid #0F0F11;
       border-radius: 8px;
     }
 
@@ -51,6 +51,16 @@
 
     &__arrow {
       display: inline-block;
+      height: 20px;
+      width: 15px;
+
+      &__down {
+        background-image: url('../../assets/images/ArrowDown.svg');
+      }
+
+      &__up {
+        background-image: url('../../assets/images/ArrowUp.svg');
+      }
       height: 20px;
       width: 15px;
 
