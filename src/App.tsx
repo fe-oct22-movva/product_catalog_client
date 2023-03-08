@@ -20,6 +20,8 @@ export const App: React.FC = () => {
   const [phones, setPhones] = useState<Phone[]>([]);
   const [isBurgerActivated, setIsBurgerActivated] = useState<boolean>(false);
 
+  const location = useLocation();
+
   useEffect(() => {
     getAllPhones()
       .then((data) => setPhones(data.result))
