@@ -1,0 +1,13 @@
+[
+  {
+    "id": 1,
+    "category": "tablets",
+    "name": "Apple iPad 10.2 (9 gen)",
+    "price": 400,
+    "screen": "10.2' IPS",
+    "capacity": "64GB",
+    "ram": "6GB",
+    "year": 2016,
+    "image": ""
+  },
+]
