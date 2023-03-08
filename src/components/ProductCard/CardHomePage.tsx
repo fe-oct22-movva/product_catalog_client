@@ -12,7 +12,6 @@ interface Props {
   capacity: string;
   ram: string;
   phoneId: string;
-  setSelectedId: (newId: string) => void;
 }
 
 export const CardHomePage: FC<Props> = ({
@@ -25,20 +24,17 @@ export const CardHomePage: FC<Props> = ({
   capacity,
   ram,
   phoneId,
-  setSelectedId,
 }) => {
   return (
     <div className="card">
       <Link
-        to={`/${phoneId}`}
-        onClick={() => setSelectedId(phoneId)}
+        to={`phones/${phoneId}`}
         className="card__link">
         <img className="card__icon" alt={name} src={img} />
       </Link>
 
       <Link
-        to={`/${phoneId}`}
-        onClick={() => setSelectedId(phoneId)}
+        to={`phones/${phoneId}`}
         className="card__title">
         {name}
       </Link>

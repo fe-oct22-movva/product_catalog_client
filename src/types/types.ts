@@ -53,6 +53,7 @@ export interface serverResponse {
   pages: number;
   prev: NextAndPrev;
   result: Phone[];
+  phoneSpec: PhoneSpec;
 }
 
 export enum SortTypes {
