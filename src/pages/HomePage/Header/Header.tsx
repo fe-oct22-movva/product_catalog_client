@@ -6,6 +6,7 @@ import {HeaderIconNavLink} from './HeaderIconNavLink';
 import {NavLink} from 'react-router-dom';
 import {FavouritesNavHeart} from '../../../components/FavouritesNavHeart/FavouritesNavHeart';
 import {CartNavBasket} from '../../../components/CartNavBasket/CartNavBasket';
+import {scrollTopDefault} from '../../../utils/ScrollToTop';
 
 interface Props {
   setIsBurgerActivated: React.Dispatch<React.SetStateAction<boolean>>;
@@ -18,7 +19,11 @@ export const Header: React.FC<Props> = ({setIsBurgerActivated, isBurger}) => {
       {!isBurger && (
         <header className="page__section header">
           <div className="header__content">
-            <NavLink to="/" className="logo">
+            <NavLink
+              to="/"
+              className="logo"
+              onClick={scrollTopDefault}
+            >
               <img
                 className="logo__img"
                 src={logo}
@@ -28,7 +33,7 @@ export const Header: React.FC<Props> = ({setIsBurgerActivated, isBurger}) => {
 
             <nav className="nav">
               <ul className="nav__list">
-                <li className="nav__item">
+                <li className="nav__item" onClick={scrollTopDefault}>
                   <HeaderNavLink to="/" textToDisplay="Home" />
                 </li>
 

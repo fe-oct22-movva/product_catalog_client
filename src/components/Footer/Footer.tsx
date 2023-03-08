@@ -3,18 +3,13 @@ import logo from '../../assets/images/Logo.svg';
 import arrowUp from '../../assets/images/DefaultUp.svg';
 import cn from 'classnames';
 import {Link} from 'react-router-dom';
+import {scrollTopDefault} from '../../utils/ScrollToTop';
 
 interface Props {
   isBurgerActivated: boolean;
 }
 
 export const Footer: React.FC<Props> = ({isBurgerActivated}) => {
-  const scrollTop = () => {
-    window.scrollTo({
-      top: 0,
-    });
-  };
-
   return (
     <footer
       className={cn('page__section page__section--footer footer', {
@@ -64,7 +59,7 @@ export const Footer: React.FC<Props> = ({isBurgerActivated}) => {
             <div className="scrollTop__container">
               <p className="scrollTop__title">Back to top</p>
 
-              <div className="scrollTop__block" onClick={scrollTop}>
+              <div className="scrollTop__block" onClick={scrollTopDefault}>
                 <a className="scrollTop__link">
                   <img
                     src={arrowUp}
