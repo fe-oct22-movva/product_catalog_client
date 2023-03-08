@@ -1,28 +1,46 @@
+/* eslint-disable  @typescript-eslint/no-explicit-any */
 import styles from '../ItemsOnPage/ItemsOnPage.module.scss';
 import arrowDown from '../../assets/images/ArrowDown.svg';
 import arrowUp from '../../assets/images/ArrowUp.svg';
-
-import {useState} from 'react';
+import {Dispatch, SetStateAction, useEffect, useRef} from 'react';
 
 const itemsOnPageOptions = [12, 16, 20];
 
 interface Props {
-  setSelectedPhonesPerPage: (selectedPhonesPerPage: number) => void;
+  setSelectedPhonesPerPage: React.Dispatch<React.SetStateAction<number>>;
+  selectedPhonesPerPage: number;
   isItemsOnPageOpen: boolean;
+  setItemsOnPageOpen: Dispatch<SetStateAction<boolean>>;
 }
 
 export const ItemsOnPage: React.FC<Props> = ({
   setSelectedPhonesPerPage,
   isItemsOnPageOpen,
+  selectedPhonesPerPage,
+  setItemsOnPageOpen,
 }) => {
-  const [selectedOption, setSelectedOption] = useState(itemsOnPageOptions[0]);
+  const dropdownRef = useRef<any>();
+
+  useEffect(() => {
+    function handleClickOutside(event: Event) {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setItemsOnPageOpen(false);
+      }
+    }
+
+    document.addEventListener('click', handleClickOutside, true);
+    return () => {
+      document.removeEventListener('click', handleClickOutside, true);
+    };
+  }, [dropdownRef]);
 
   const selectOption = (value: number) => {
-    setSelectedOption(value);
+    setSelectedPhonesPerPage(value);
   };
 
   return (
     <div
+      ref={dropdownRef}
       className={`
       ${styles.itemsOnPage}
       
@@ -31,9 +49,14 @@ export const ItemsOnPage: React.FC<Props> = ({
 
       <div className={styles.dropdown}>
         <button className={styles.dropdown__header}>
-          <div className={styles.dropdown__header__title}>{selectedOption}</div>
+          <div className={styles.dropdown__header__title}>
+            {selectedPhonesPerPage}
+          </div>
           {!isItemsOnPageOpen ? (
-            <img className={styles.dropdown__header__arrow__down} src={arrowDown} />
+            <img
+              className={styles.dropdown__header__arrow__down}
+              src={arrowDown}
+            />
           ) : (
             <img className={styles.dropdown__header__arrow__up} src={arrowUp} />
           )}
@@ -48,7 +71,6 @@ export const ItemsOnPage: React.FC<Props> = ({
                 key={option}
                 className={styles.dropdown__option}
                 onClick={() => {
-                  setSelectedPhonesPerPage(option);
                   selectOption(option);
                 }}>
                 {option}
