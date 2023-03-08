@@ -1,6 +1,6 @@
 @import '../../../styles/utils/mixins';
 
-.slick {
+.banner .slick {
   @include onTablet {
     &-prev,
     &-next {

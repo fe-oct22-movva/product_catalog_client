@@ -19,7 +19,7 @@ export const Banner = () => {
     adaptiveHeight: true,
     arrows: true,
     draggable: true,
-    autoplay: true,
+    // autoplay: true,
     autoplaySpeed: 4000,
     customPaging: () => (
       <div
