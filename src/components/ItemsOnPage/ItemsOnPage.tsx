@@ -1,5 +1,5 @@
 /* eslint-disable  @typescript-eslint/no-explicit-any */
-import { Dispatch, SetStateAction, useEffect, useRef } from 'react';
+import {Dispatch, SetStateAction, useEffect, useRef} from 'react';
 import arrowDown from '../../assets/images/ArrowDown.svg';
 import arrowUp from '../../assets/images/ArrowUp.svg';
 import styles from '../ItemsOnPage/ItemsOnPage.module.scss';
@@ -43,13 +43,13 @@ export const ItemsOnPage: React.FC<Props> = ({
       opacity: 1,
       Visibility: 'visible',
       transform: 'translateY(0)',
-      transition: '0.3s ease'
+      transition: '0.3s ease',
     }
     : {
       opacity: 0,
       Visibility: 'hidden',
       transform: 'translateX(+20px)',
-      transition: '0.3s ease'
+      transition: '0.3s ease',
     };
 
   return (
@@ -76,10 +76,7 @@ export const ItemsOnPage: React.FC<Props> = ({
           )}
         </button>
 
-        <div
-          className={styles.dropdown__items}
-          style={stylesBlock}
-        >
+        <div className={styles.dropdown__items} style={stylesBlock}>
           {itemsOnPageOptions.map((option) => (
             <button
               key={option}

@@ -13,7 +13,7 @@ import {Phone} from './types/types';
 import {getAllPhones} from './api/phones';
 import {ItemCardPage} from './components/ItemCardPage/ItemCardPage';
 import {ScrollToTop} from './utils/ScrollToTop';
-import { Contacts } from './pages/Contacts';
+import {Contacts} from './pages/Contacts';
 
 export const App: React.FC = () => {
   const [phones, setPhones] = useState<Phone[]>([]);
