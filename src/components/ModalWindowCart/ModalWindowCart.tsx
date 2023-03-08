@@ -7,7 +7,7 @@ interface Props {
 
 export const ModalWindowCart: React.FC<Props> = ({setIsModalWindow}) => (
   <div className="modal-window">
-    <p className="modal-window__title">Thank you for purchasing!</p>
+    <p className="modal-window__title">Thank you for purchase!</p>
     <button
       className="modal-window__btn"
       onClick={() => {

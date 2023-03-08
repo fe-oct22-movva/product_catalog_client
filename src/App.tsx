@@ -46,7 +46,15 @@ export const App: React.FC = () => {
           <Route path="/contacts" element={<Contacts />} />
           <Route path="/favourites" element={<Favourites />} />
           <Route path="/cart" element={<Cart />} />
-          <Route path="/menu" element={<BurgerMenu isBurger={isBurgerActivated} setIsBurger={setIsBurgerActivated} />} />
+          <Route
+            path="/menu"
+            element={
+              <BurgerMenu
+                isBurger={isBurgerActivated}
+                setIsBurger={setIsBurgerActivated}
+              />
+            }
+          />
           <Route path="home" element={<Navigate to="/" replace />} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>
