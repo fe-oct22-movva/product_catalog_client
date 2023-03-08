@@ -1,11 +1,14 @@
 /* eslint-disable max-len,init-declarations */
 import React, {useEffect} from 'react';
+import {useNavigate} from 'react-router-dom';
 
 interface Props {
   setIsModalWindow: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export const CartCheckout: React.FC<Props> = ({setIsModalWindow}) => {
+  const navigate = useNavigate();
+
   let timerCart: NodeJS.Timer;
 
   const handleClick = () => {
@@ -14,7 +17,8 @@ export const CartCheckout: React.FC<Props> = ({setIsModalWindow}) => {
       localStorage.removeItem('Cart');
       window.dispatchEvent(new Event('storage'));
       setIsModalWindow(false);
-    }, 4000);
+      navigate('/home');
+    }, 3000);
   };
 
   useEffect(() => {

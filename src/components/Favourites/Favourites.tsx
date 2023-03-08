@@ -64,6 +64,10 @@ export const Favourites = () => {
             <h1 className="favourites__empty-title">
               Your favourites is empty
             </h1>
+
+            <a href="#/phones" className="button-40">
+              Add
+            </a>
           </div>
         )}
       </div>
