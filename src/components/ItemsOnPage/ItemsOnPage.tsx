@@ -49,9 +49,14 @@ export const ItemsOnPage: React.FC<Props> = ({
 
       <div className={styles.dropdown}>
         <button className={styles.dropdown__header}>
-          <div className={styles.dropdown__header__title}>{selectedPhonesPerPage}</div>
+          <div className={styles.dropdown__header__title}>
+            {selectedPhonesPerPage}
+          </div>
           {!isItemsOnPageOpen ? (
-            <img className={styles.dropdown__header__arrow__down} src={arrowDown} />
+            <img
+              className={styles.dropdown__header__arrow__down}
+              src={arrowDown}
+            />
           ) : (
             <img className={styles.dropdown__header__arrow__up} src={arrowUp} />
           )}

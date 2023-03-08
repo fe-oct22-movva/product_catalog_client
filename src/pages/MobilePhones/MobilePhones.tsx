@@ -9,8 +9,8 @@ import {ItemsOnPage} from '../../components/ItemsOnPage/ItemsOnPage';
 import {Phone, SortTypes} from '../../types/types';
 import {getAllPhones} from '../../api/phones';
 import {Breadcrumbs} from '../../components/Breadcrumbs';
-import { Loader } from '../../components/Loader';
-import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import {Loader} from '../../components/Loader';
+import {Notify} from 'notiflix/build/notiflix-notify-aio';
 
 export const MobilePhones: React.FC = () => {
   const [phones, setPhones] = useState<Phone[]>([]);
