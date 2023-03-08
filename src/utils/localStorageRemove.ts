@@ -1,11 +1,11 @@
-import {cartItem, Favourites} from '../types/types';
+import {cartItem, favouriteItem} from '../types/types';
 
 export const handleDelete = (id: string, type: string) => {
   const itemsFromStorage = localStorage.getItem(type);
   const items = itemsFromStorage === null ? [] : JSON.parse(itemsFromStorage);
 
   const itemToDelete = items.find(
-    (item: Favourites | cartItem) => item.id === id
+    (item: favouriteItem | cartItem) => item.id === id
   );
 
   if (itemToDelete !== undefined) {

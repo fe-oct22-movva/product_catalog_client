@@ -1,3 +1,5 @@
+@import '../../styles/utils/mixins';
+
 .fundo {
   animation: scales 3s alternate infinite;
   transform-origin: center;
@@ -67,14 +69,20 @@
 }
 
 .main {
-  min-height: 90vh;
-  margin: 0px auto;
-  width: 100%;
+  height: calc(100vh - 48px - 283px);
   display: flex;
   align-items: center;
   justify-content: center;
 
   flex-direction: column;
+
+  @include onTablet {
+    min-height: calc(100vh - 48px - 98px);
+  }
+
+  @include onDesktop {
+    min-height: calc(100vh - 64px - 98px);
+  }
 }
 
 .main__master-peace {

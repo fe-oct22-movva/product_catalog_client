@@ -2,6 +2,7 @@ import React from 'react';
 import logo from '../../assets/images/Logo.svg';
 import arrowUp from '../../assets/images/DefaultUp.svg';
 import cn from 'classnames';
+import { Link } from 'react-router-dom';
 
 interface Props {
   isBurgerActivated: boolean;
@@ -32,19 +33,27 @@ export const Footer: React.FC<Props> = ({isBurgerActivated}) => {
           <nav className="footer-nav">
             <ul className="footer-nav__list">
               <li className="footer-nav__item">
-                <a href="#github" className="footer-nav__link">
+                <a 
+                  href="https://github.com/fe-oct22-movva/product_catalog_client" 
+                  className="footer-nav__link"
+                  target="_blank"
+                >
                   Github
                 </a>
               </li>
 
               <li className="footer-nav__item">
-                <a href="#contacts" className="footer-nav__link">
+                <Link to="/contacts" className="footer-nav__link">
                   Contacts
-                </a>
+                </Link>
               </li>
 
               <li className="footer-nav__item">
-                <a href="#rights" className="footer-nav__link">
+                <a 
+                  href="https://creativecommons.org/licenses/by/4.0/" 
+                  className="footer-nav__link"
+                  target="_blank"
+                >
                   Rights
                 </a>
               </li>

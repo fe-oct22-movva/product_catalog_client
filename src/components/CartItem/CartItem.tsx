@@ -3,7 +3,8 @@ import * as React from 'react';
 import minus from '../../assets/images/Minus.svg';
 import close from '../../assets/images/Close.svg';
 import plus from '../../assets/images/Plus.svg';
-import {cartItem, Phone} from '../../types/types';
+import {cartItem} from '../../types/types';
+import {setItemLocalStorage} from '../../utils/setItemLocalStorage';
 
 interface Props {
   cartItem: cartItem;
@@ -12,52 +13,38 @@ interface Props {
 
 export const CartItem: React.FC<Props> = ({cartItem, handleDelete}) => {
   const handlePlus = () => {
-    const existingPhonesFromLocalStorage = localStorage.getItem('Cart');
-    const phonesFromLocalStorageToObj
-      = existingPhonesFromLocalStorage !== null
-        ? JSON.parse(existingPhonesFromLocalStorage)
-        : null;
+    const cartItems = localStorage.getItem('Cart');
+    const parsedItems = cartItems !== null ? JSON.parse(cartItems) : null;
 
-    if (phonesFromLocalStorageToObj) {
-      const phoneInclude = phonesFromLocalStorageToObj.find(
-        (phone: Phone) => phone.id === cartItem.id
+    if (parsedItems) {
+      const phoneInclude = parsedItems.find(
+        (cart: cartItem) => cart.id === cartItem.id
       );
 
       if (phoneInclude) {
         phoneInclude.amount++;
 
-        localStorage.setItem(
-          'Cart',
-          JSON.stringify(phonesFromLocalStorageToObj)
-        );
-        window.dispatchEvent(new Event('storage'));
+        setItemLocalStorage('Cart', parsedItems);
       }
     }
   };
 
   const handleMinus = () => {
-    const existingPhonesFromLocalStorage = localStorage.getItem('Cart');
-    const phonesFromLocalStorageToObj
-      = existingPhonesFromLocalStorage !== null
-        ? JSON.parse(existingPhonesFromLocalStorage)
-        : null;
+    const cartItems = localStorage.getItem('Cart');
+    const parsedItems = cartItems !== null ? JSON.parse(cartItems) : null;
 
-    if (phonesFromLocalStorageToObj) {
-      const phoneInclude = phonesFromLocalStorageToObj.find(
-        (phone: Phone) => phone.id === cartItem.id
+    if (parsedItems) {
+      const phoneInclude = parsedItems.find(
+        (cart: cartItem) => cart.id === cartItem.id
       );
 
       if (phoneInclude) {
         phoneInclude.amount--;
 
-        localStorage.setItem(
-          'Cart',
-          JSON.stringify(phonesFromLocalStorageToObj)
-        );
-        window.dispatchEvent(new Event('storage'));
+        setItemLocalStorage('Cart', parsedItems);
       }
 
-      if (phonesFromLocalStorageToObj.length === 0) {
+      if (parsedItems.length === 0) {
         localStorage.removeItem('Cart');
       }
     }

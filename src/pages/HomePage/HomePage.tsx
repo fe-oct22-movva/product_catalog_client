@@ -3,10 +3,10 @@ import {Notify} from 'notiflix/build/notiflix-notify-aio';
 import {useEffect, useState} from 'react';
 import {getAllPhones} from '../../api/phones';
 import {Phone} from '../../types/types';
-import {Banner} from '../Banner';
-import {Loader} from '../Loader';
-import {Cards} from '../ProductCard';
-import {ShopByCategory} from '../ShopByCategory';
+import {Loader} from '../../components/Loader';
+import {Banner} from '../../components/Banner';
+import {Cards} from '../../components/ProductCard';
+import {ShopByCategory} from '../../components/ShopByCategory';
 
 export interface Props {
   setSelectedId: (newId: string) => void;
@@ -28,7 +28,6 @@ export const HomePage: React.FC<Props> = ({setSelectedId}) => {
       .then((data) => {
         setNewestPhones(data.result);
         setPhonesNumber(data.totalPhones);
-        console.log(data);
       })
       .catch((error) => {
         console.log(error);
@@ -41,7 +40,6 @@ export const HomePage: React.FC<Props> = ({setSelectedId}) => {
     ])
       .then((data) => {
         setCheapestPhones(data.result);
-        console.log(data);
       })
       .catch((error) => {
         console.log(error);

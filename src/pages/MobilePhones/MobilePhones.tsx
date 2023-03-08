@@ -103,6 +103,8 @@ export const MobilePhones: React.FC = () => {
                   <SortBy
                     setSelectedSortBy={setSelectedSortBy}
                     isSortByOpen={isSortByOpen}
+                    selectedSortBy={selectedSortBy}
+                    setIsSortByOpen={setIsSortByOpen}
                   />
                 </div>
 
@@ -117,6 +119,8 @@ export const MobilePhones: React.FC = () => {
                   <ItemsOnPage
                     setSelectedPhonesPerPage={setSelectedPhonesPerPage}
                     isItemsOnPageOpen={isItemsOnPageOpen}
+                    selectedPhonesPerPage={selectedPhonesPerPage}
+                    setItemsOnPageOpen={setItemsOnPageOpen}
                   />
                 </div>
               </div>

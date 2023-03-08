@@ -5,6 +5,9 @@ import Slider from 'react-slick';
 import './styles/banner.scss';
 import './styles/slider.scss';
 import '../../styles/grid.scss';
+import banner_first from '../../assets/images/banner.jpg';
+import banner_second from '../../assets/images/banner-phones.png';
+import banner_third from '../../assets/images/banner-tablets.png';
 
 export const Banner = () => {
   const settings = {
@@ -49,20 +52,20 @@ export const Banner = () => {
             className="grid__item grid__item--tablet-2-11 grid__item--desktop-2-23"
             {...settings}>
             <img
-              className="banner__image"
-              src="../../assets/images/banner.jpg"
+              className="banner__image banner__image--first"
+              src={banner_first}
               alt="Banner"
             />
 
             <img
-              className="banner__image"
-              src="../../assets/images/banner.jpg"
+              className="banner__image banner__image--second"
+              src={banner_second}
               alt="Banner"
             />
 
             <img
-              className="banner__image"
-              src="../../assets/images/banner.jpg"
+              className="banner__image banner__image--third"
+              src={banner_third}
               alt="Banner"
             />
           </Slider>
