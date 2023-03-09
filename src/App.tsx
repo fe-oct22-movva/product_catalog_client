@@ -6,16 +6,16 @@ import {HomePage} from './pages/HomePage/HomePage';
 import {Route, Routes, Navigate, useLocation} from 'react-router-dom';
 import {PageNotFound} from './components/PageNotFound';
 import {MobilePhones} from './pages/MobilePhones';
-import {Favourites} from './components/Favourites/Favourites';
+import {Favourites} from './components/Favourites';
 import {BurgerMenu} from './components/BurgerMenu';
-import {Cart} from './components/Cart/Cart';
+import {Cart} from './components/Cart';
 import {Phone} from './types/types';
 import {getAllPhones} from './api/phones';
 import {ScrollToTop} from './utils/ScrollToTop';
 import {Contacts} from './pages/Contacts';
 import {CardSpec} from './components/CardSpec';
 import {Tablets} from './pages/Tablets/Tablets';
-import {InDevelopmentPage} from './components/InDevelopmentPage/InDevelopmentPage';
+import {InDevelopmentPage} from './components/InDevelopmentPage';
 
 export const App: React.FC = () => {
   const [phones, setPhones] = useState<Phone[]>([]);

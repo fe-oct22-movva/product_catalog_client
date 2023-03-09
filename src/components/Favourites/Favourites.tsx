@@ -10,8 +10,8 @@ export const Favourites = memo(() => {
     null
   );
 
-  const favouritesItems
-    = isFavouritesExist === null ? [] : JSON.parse(isFavouritesExist);
+  const favouritesItems =
+    isFavouritesExist === null ? [] : JSON.parse(isFavouritesExist);
 
   useEffect(() => {
     setIsFavouritesExist(localStorage.getItem('Favourites'));

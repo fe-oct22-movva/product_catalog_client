@@ -4,8 +4,8 @@ import logo from '../../../assets/images/Logo.svg';
 import {HeaderNavLink} from './HeaderNavLink';
 import {HeaderIconNavLink} from './HeaderIconNavLink';
 import {NavLink} from 'react-router-dom';
-import {FavouritesNavHeart} from '../../../components/FavouritesNavHeart/FavouritesNavHeart';
-import {CartNavBasket} from '../../../components/CartNavBasket/CartNavBasket';
+import {FavouritesNavHeart} from '../../../components/FavouritesNavHeart';
+import {CartNavBasket} from '../../../components/CartNavBasket';
 import {scrollTopDefault} from '../../../utils/ScrollToTop';
 
 interface Props {

@@ -7,8 +7,8 @@ export const FavouritesNavHeart = memo(() => {
     null
   );
 
-  const favouritesItems
-    = favouritesFromLocal === null ? [] : JSON.parse(favouritesFromLocal).length;
+  const favouritesItems =
+    favouritesFromLocal === null ? [] : JSON.parse(favouritesFromLocal).length;
 
   useEffect(() => {
     setFavouritesFromLocal(localStorage.getItem('Favourites'));
