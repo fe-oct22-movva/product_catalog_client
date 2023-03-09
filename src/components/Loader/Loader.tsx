@@ -1,6 +1,6 @@
 import React from 'react';
+import { BouncyBallsLoader } from 'react-loaders-kit';
 import styles from '../Loader/Loader.module.scss';
-import {BouncyBallsLoader} from 'react-loaders-kit';
 
 export const Loader: React.FC = React.memo(
   () => {
