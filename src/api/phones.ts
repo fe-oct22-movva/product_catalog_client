@@ -1,4 +1,4 @@
-import {serverResponse} from '../types/types';
+import {serverResponse, Tablet} from '../types/types';
 import {client} from '../utils/fetchClient';
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -14,4 +14,8 @@ export const getAllPhones = (criterion?: string[][]) => {
 
 export const getPhoneById = (id: string) => {
   return client.get<serverResponse>(`/phones/${id}`);
+};
+
+export const getTablets = () => {
+  return client.get<Tablet[]>('/tablets');
 };
