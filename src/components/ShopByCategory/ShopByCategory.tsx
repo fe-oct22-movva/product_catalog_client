@@ -44,7 +44,7 @@ export const ShopByCategory: React.FC<Props> = ({phonesNumber}) => {
                 imageUrl={Tablets}
                 imageAlt="Tablets category"
                 categoryName="Tablets"
-                numOfModels="0 models"
+                numOfModels="5 models"
                 categoryLink="#"
               />
             </Link>
