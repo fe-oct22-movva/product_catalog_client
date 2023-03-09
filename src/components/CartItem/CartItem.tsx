@@ -3,16 +3,16 @@ import * as React from 'react';
 import minus from '../../assets/images/Minus.svg';
 import close from '../../assets/images/Close.svg';
 import plus from '../../assets/images/Plus.svg';
-import { cartItem } from '../../types/types';
-import { setItemLocalStorage } from '../../utils/setItemLocalStorage';
-import { Link } from 'react-router-dom';
+import {cartItem} from '../../types/types';
+import {setItemLocalStorage} from '../../utils/setItemLocalStorage';
+import {Link} from 'react-router-dom';
 
 interface Props {
   cartItem: cartItem;
   handleDelete: (id: string) => void;
 }
 
-export const CartItem: React.FC<Props> = ({ cartItem, handleDelete }) => {
+export const CartItem: React.FC<Props> = ({cartItem, handleDelete}) => {
   const handlePlus = () => {
     const cartItems = localStorage.getItem('Cart');
     const parsedItems = cartItems !== null ? JSON.parse(cartItems) : null;
@@ -62,7 +62,7 @@ export const CartItem: React.FC<Props> = ({ cartItem, handleDelete }) => {
           <img src={close} alt="delete" />
         </button>
 
-        <Link to={cartItem.phoneId} >
+        <Link to={cartItem.phoneId}>
           <img
             src={cartItem.img}
             className="cart__item-phone__photo"
@@ -70,7 +70,7 @@ export const CartItem: React.FC<Props> = ({ cartItem, handleDelete }) => {
           />
         </Link>
 
-        <Link to={cartItem.phoneId} >
+        <Link to={cartItem.phoneId}>
           <p className="cart__item-phone__name">{cartItem.name}</p>
         </Link>
       </div>
