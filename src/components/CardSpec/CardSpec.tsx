@@ -184,7 +184,9 @@ export const CardSpec: React.FC<Props> = ({phones}) => {
                 fullPrice={phoneSpec.priceDiscount}
                 screen={phoneSpec.screen}
                 capacity={phoneSpec.capacity}
-                ram={phoneSpec.ram} phoneId={''}/>
+                ram={phoneSpec.ram}
+                phoneId={''}
+              />
             </div>
 
             <div className="phone__specs-main__feature__characteristics">
