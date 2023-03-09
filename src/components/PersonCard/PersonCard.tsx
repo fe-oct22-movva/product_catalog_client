@@ -1,4 +1,4 @@
-import { memo } from 'react';
+import {memo} from 'react';
 import styles from './PersonCard.module.scss';
 
 interface Props {
@@ -10,13 +10,7 @@ interface Props {
 }
 
 export const PersonCard: React.FC<Props> = memo(
-  ({
-    photo,
-    name,
-    linkedinUrl,
-    githubUrl,
-    douUrl,
-  }) => {
+  ({photo, name, linkedinUrl, githubUrl, douUrl}) => {
     return (
       <div className={styles.person}>
         <img className={styles.person__photo} src={photo} alt="person photo" />
@@ -53,7 +47,7 @@ export const PersonCard: React.FC<Props> = memo(
         </div>
       </div>
     );
-  },
+  }
 );
 
 PersonCard.displayName = 'PersonCard';

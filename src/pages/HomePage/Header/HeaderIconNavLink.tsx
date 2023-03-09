@@ -16,7 +16,7 @@ export const HeaderIconNavLink: React.FC<Props> = memo(
       }>
       {textToDisplay}
     </NavLink>
-  ),
+  )
 );
 
 HeaderIconNavLink.displayName = 'HeaderIconNavLink';

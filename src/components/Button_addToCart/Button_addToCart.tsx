@@ -21,48 +21,38 @@ interface Props {
 }
 
 export const Button_addToCart: React.FC<Props> = memo(
-  ({
-    id,
-    img,
-    price,
-    fullPrice,
-    name,
-    screen,
-    capacity,
-    ram,
-    phoneId,
-  }) => {
+  ({id, img, price, fullPrice, name, screen, capacity, ram, phoneId}) => {
     const [isInFavourites, setIsInFavourites] = useState(false);
     const [isInCart, setIsInCart] = useState(false);
-  
+
     useEffect(() => {
       const isIncludeFav = isIncludeItemLocalStorage('Favourites', id);
       const isIncludeCart = isIncludeItemLocalStorage('Cart', id);
-  
+
       if (isIncludeFav) {
         setIsInFavourites(true);
       }
-  
+
       if (isIncludeCart) {
         setIsInCart(true);
       }
-  
+
       const handleFav = () => {
         const isIncludeFav = isIncludeItemLocalStorage('Favourites', id);
-  
+
         if (isIncludeFav) {
           setIsInFavourites(true);
         }
       };
-  
+
       const handleCart = () => {
         const isIncludeCart = isIncludeItemLocalStorage('Cart', id);
-  
+
         if (isIncludeCart) {
           setIsInCart(true);
         }
       };
-  
+
       window.addEventListener('storage', handleFav);
       window.addEventListener('storage', handleCart);
       return () => {
@@ -70,25 +60,27 @@ export const Button_addToCart: React.FC<Props> = memo(
         window.removeEventListener('storage', handleCart);
       };
     }, [isInFavourites, isInCart]);
-  
+
     const handleAddToCart = () => {
       const items = localStorage.getItem('Cart');
       const parsedItems = items !== null ? JSON.parse(items) : null;
-  
+
       if (isInCart) {
         setIsInCart(false);
       }
-  
+
       if (parsedItems) {
-        const includeItem = parsedItems.find((item: cartItem) => item.id === id);
-  
+        const includeItem = parsedItems.find(
+          (item: cartItem) => item.id === id
+        );
+
         if (includeItem) {
           handleDelete(id, 'Cart');
-  
+
           return;
         }
       }
-  
+
       localStorageAdd(
         {
           id,
@@ -101,11 +93,11 @@ export const Button_addToCart: React.FC<Props> = memo(
         'Cart'
       );
     };
-  
+
     const handleLike = () => {
       const items = localStorage.getItem('Favourites');
       const parsedItems = items !== null ? JSON.parse(items) : null;
-  
+
       if (parsedItems) {
         const includeItem = parsedItems.find(
           (item: favouriteItem) => item.id === id
@@ -113,14 +105,14 @@ export const Button_addToCart: React.FC<Props> = memo(
         if (isInFavourites) {
           setIsInFavourites(false);
         }
-  
+
         if (includeItem) {
           handleDelete(id, 'Favourites');
-  
+
           return;
         }
       }
-  
+
       localStorageAdd(
         {
           id,
@@ -136,11 +128,13 @@ export const Button_addToCart: React.FC<Props> = memo(
         'Favourites'
       );
     };
-  
+
     return (
       <div className={styles.addToCart}>
         {!isInCart ? (
-          <button className={styles.addToCart__button} onClick={handleAddToCart}>
+          <button
+            className={styles.addToCart__button}
+            onClick={handleAddToCart}>
             Add to cart
           </button>
         ) : (
@@ -150,7 +144,7 @@ export const Button_addToCart: React.FC<Props> = memo(
             Added
           </button>
         )}
-  
+
         <div className={styles.addToCart}>
           <button className={styles.addToCart__like} onClick={handleLike}>
             {!isInFavourites ? (
@@ -162,7 +156,7 @@ export const Button_addToCart: React.FC<Props> = memo(
         </div>
       </div>
     );
-  },
+  }
 );
 
 Button_addToCart.displayName = 'Button_addToCart';
