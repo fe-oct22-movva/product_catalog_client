@@ -25,7 +25,7 @@
 
   &__arrow {
     display: block;
-    align-self:self-end;
+    align-self: self-end;
     height: 15px;
     margin-right: 14px;
   }
@@ -39,7 +39,7 @@
     color: #89939a;
 
     &:hover {
-      color: #0F0F11;
+      color: #0f0f11;
     }
 
     &::after {
@@ -49,7 +49,6 @@
       height: 15px;
       margin-right: 14px;
       margin-left: 10px;
-      
     }
 
     &:last-child::after {
