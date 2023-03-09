@@ -9,9 +9,14 @@ import {CartNavBasket} from '../CartNavBasket';
 export interface Props {
   isBurger: boolean;
   setIsBurger: (v: boolean) => void;
+  locationMenu: string;
 }
 
-export const BurgerMenu: React.FC<Props> = memo(({isBurger, setIsBurger}) => {
+export const BurgerMenu: React.FC<Props> = ({
+  isBurger,
+  setIsBurger,
+  locationMenu,
+}) => {
   const toggleMenu = () => {
     setIsBurger(!isBurger);
   };
@@ -25,7 +30,10 @@ export const BurgerMenu: React.FC<Props> = memo(({isBurger, setIsBurger}) => {
               <img src={logo} className="burger__logo" alt="website logo" />
             </a>
 
-            <a href="#/" className="header__link-close" onClick={toggleMenu}>
+            <a
+              href={`#${locationMenu}`}
+              className="header__link-close"
+              onClick={toggleMenu}>
               <img src={close} className="burger__close" alt="Close button" />
             </a>
           </div>

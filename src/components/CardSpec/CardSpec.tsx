@@ -73,7 +73,6 @@ export const CardSpec: React.FC<Props> = memo(({phones}) => {
     {name: 'Built in memory', value: phoneSpec.capacity},
     {name: 'Camera', value: phoneSpec.camera},
     {name: 'Zoom', value: phoneSpec.zoom},
-    {name: 'Cell', value: phoneSpec.cell},
   ];
 
   const phonePhotos = phoneSpec.images;

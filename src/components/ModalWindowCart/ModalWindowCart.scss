@@ -9,10 +9,6 @@
   z-index: 100;
   background: rgba(0, 0, 0, 0.5);
 
-  @include onTablet {
-    width: 100vw;
-  }
-
   @keyframes gradient {
     0% {
       background-position: 0% 50%;
@@ -32,10 +28,9 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    position: absolute;
+    position: fixed;
     z-index: 999;
-    //width: 200px;
-    width: 75%;
+    width: 250px;
     height: 200px;
 
     background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
@@ -48,13 +43,32 @@
     opacity: 0.99;
 
     transform: translate(-300px, -200px);
-    left: 50%;
+    left: 104%;
     top: 50%;
     padding: 15px;
+
+    @media screen and (min-width: 380px) {
+      & {
+        left: 95%;
+      }
+    }
+
+    @media screen and (min-width: 450px) {
+      & {
+        left: 85%;
+      }
+    }
+
+    @media screen and (min-width: 550px) {
+      & {
+        left: 80%;
+      }
+    }
 
     @include onTablet {
       width: 600px;
       height: 400px;
+      left: 50%;
     }
 
     &:hover {
@@ -63,8 +77,14 @@
 
     &__title {
       font-family: Mont_Bold, sans-serif;
-      font-size: 30px;
+      font-size: 17px;
       font-weight: 700;
+      margin-bottom: 10px;
+
+      @include onTablet {
+        font-size: 30px;
+        margin-bottom: 0;
+      }
     }
 
     &__subtitle {

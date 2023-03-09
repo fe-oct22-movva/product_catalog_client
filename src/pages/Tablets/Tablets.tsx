@@ -38,7 +38,7 @@ export const Tablets: React.FC = memo(() => {
           <Loader />
         ) : (
           <>
-            <p className="tablets__counter">5 tablets</p>
+            <p className="tablets__counter">{tablets.length} tablets</p>
 
             <div className={styles.catalog}>
               {tablets.map((tablet) => (
