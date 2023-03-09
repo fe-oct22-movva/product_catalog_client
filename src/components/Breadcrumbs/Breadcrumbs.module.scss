@@ -25,7 +25,7 @@
 
   &__arrow {
     display: block;
-    align-self: center;
+    align-self: self-end;
     height: 15px;
     margin-right: 14px;
   }
@@ -38,9 +38,16 @@
     font-size: 13px;
     color: #89939a;
 
+    &:hover {
+      color: #0f0f11;
+    }
+
     &::after {
       content: url('https://fe-oct22-movva.github.io/product_catalog_client/assets/ArrowRight-5f1e52f6.svg');
-      width: 15px;
+      display: inline-block;
+      vertical-align: top;
+      height: 15px;
+      margin-right: 14px;
       margin-left: 10px;
     }
 

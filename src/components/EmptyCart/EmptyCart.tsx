@@ -332,5 +332,9 @@ export const EmptyCart = () => (
     </svg>
 
     <h3 className="empty-cart--title">Your cart is empty</h3>
+
+    <a href="#/phones" className="button-40">
+      Add
+    </a>
   </div>
 );

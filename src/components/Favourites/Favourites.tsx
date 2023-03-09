@@ -52,6 +52,7 @@ export const Favourites = () => {
                     screen={favouritesItem.screen}
                     capacity={favouritesItem.capacity}
                     ram={favouritesItem.ram}
+                    phoneId={favouritesItem.phoneId}
                   />
                 </div>
               ))}
@@ -64,6 +65,10 @@ export const Favourites = () => {
             <h1 className="favourites__empty-title">
               Your favourites is empty
             </h1>
+
+            <a href="#/phones" className="button-40">
+              Add
+            </a>
           </div>
         )}
       </div>

@@ -14,11 +14,13 @@ import {Phone} from './types/types';
 import {getAllPhones} from './api/phones';
 import {ScrollToTop} from './utils/ScrollToTop';
 import {Contacts} from './pages/Contacts';
-import {CardSpec} from './components/CardSpec/CardSpec';
+import {CardSpec} from './components/CardSpec';
 
 export const App: React.FC = () => {
   const [phones, setPhones] = useState<Phone[]>([]);
   const [isBurgerActivated, setIsBurgerActivated] = useState<boolean>(false);
+
+  const location = useLocation();
 
   useEffect(() => {
     getAllPhones()
@@ -45,7 +47,18 @@ export const App: React.FC = () => {
           <Route path=":phoneId" element={<CardSpec phones={phones} />} />
           <Route path="/contacts" element={<Contacts />} />
           <Route path="/favourites" element={<Favourites />} />
+          <Route path="favourites/:phoneId" element={<CardSpec />} />
           <Route path="/cart" element={<Cart />} />
+          <Route path="cart/:phoneId" element={<CardSpec />} />
+          <Route
+            path="/menu"
+            element={
+              <BurgerMenu
+                isBurger={isBurgerActivated}
+                setIsBurger={setIsBurgerActivated}
+              />
+            }
+          />
           <Route path="home" element={<Navigate to="/" replace />} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>

@@ -17,6 +17,7 @@ interface Props {
   screen: string;
   capacity: string;
   ram: string;
+  phoneId: string;
 }
 
 export const Button_addToCart: React.FC<Props> = ({
@@ -28,6 +29,7 @@ export const Button_addToCart: React.FC<Props> = ({
   screen,
   capacity,
   ram,
+  phoneId,
 }) => {
   const [isInFavourites, setIsInFavourites] = useState(false);
   const [isInCart, setIsInCart] = useState(false);
@@ -93,6 +95,7 @@ export const Button_addToCart: React.FC<Props> = ({
         name,
         price,
         amount: 1,
+        phoneId,
       },
       'Cart'
     );
@@ -127,6 +130,7 @@ export const Button_addToCart: React.FC<Props> = ({
         fullPrice,
         capacity,
         ram,
+        phoneId,
       },
       'Favourites'
     );

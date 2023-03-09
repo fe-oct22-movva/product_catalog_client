@@ -10,3 +10,9 @@ export const ScrollToTop = () => {
 
   return null;
 };
+
+export const scrollTopDefault = () => {
+  window.scrollTo({
+    top: 0,
+  });
+};
