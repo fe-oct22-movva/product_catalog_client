@@ -13,7 +13,15 @@
 
 .dropdown {
   position: relative;
-  min-width: 160px;
+  min-width: 136px;
+
+  @include onTablet {
+    min-width: 187px;
+  }
+
+  @include onDesktop {
+    min-width: 176px;
+  }
 
   &__header {
     display: flex;

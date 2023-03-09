@@ -15,7 +15,7 @@ export const HomePage: React.FC = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    setTimeout(() => setIsLoading(false), 2000);
+    setTimeout(() => setIsLoading(false), 3000);
 
     getAllPhones([
       ['sort', 'newest'],
@@ -55,15 +55,9 @@ export const HomePage: React.FC = () => {
         <div>
           <Banner />
           <div className="main-container">
-            <Cards
-              newestPhones={newestPhones}
-              title="Brand new models"
-            />
+            <Cards newestPhones={newestPhones} title="Brand new models" />
             <ShopByCategory phonesNumber={phonesNumber} />
-            <Cards
-              newestPhones={cheapestPhones}
-              title="Hot prices"
-            />
+            <Cards newestPhones={cheapestPhones} title="Hot prices" />
           </div>
         </div>
       )}
