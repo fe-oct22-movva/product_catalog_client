@@ -6,32 +6,30 @@ import {Pagination} from '../../components/Pagination';
 import {ProductCardSingle} from '../../components/ProductCardSingle';
 import {SortBy} from '../../components/SortBy/SortBy';
 import {ItemsOnPage} from '../../components/ItemsOnPage/ItemsOnPage';
-import {Phone, SortTypes} from '../../types/types';
+import {Phone} from '../../types/types';
 import {getAllPhones} from '../../api/phones';
 import {Breadcrumbs} from '../../components/Breadcrumbs';
 import {Loader} from '../../components/Loader';
 import {Notify} from 'notiflix/build/notiflix-notify-aio';
+import { usePageParams } from '../../controllers/usePageParams';
 
 export const MobilePhones: React.FC = () => {
   const [phones, setPhones] = useState<Phone[]>([]);
   const [phonesNumber, setPhonesNumber] = useState(0);
-  const [selectedSortBy, setSelectedSortBy] = useState(SortTypes.NEWEST);
-  const [selectedPhonesPerPage, setSelectedPhonesPerPage] = useState(12);
   const [pagesNumber, setPagesNumber] = useState(0);
-  const [chosenPageNumber, setChosenPageNumber] = useState(1);
-
   const [isSortByOpen, setIsSortByOpen] = useState(false);
   const [isItemsOnPageOpen, setItemsOnPageOpen] = useState(false);
-
   const [arePhonesLoading, setArePhonesLoading] = useState(false);
+
+  const [sortBy, perPage, currentPage] = usePageParams();
 
   useEffect(() => {
     setArePhonesLoading(true);
 
     getAllPhones([
-      ['limit', selectedPhonesPerPage.toString()],
-      ['sortBy', selectedSortBy],
-      ['page', chosenPageNumber.toString()],
+      ['limit', perPage.toString()],
+      ['sortBy', sortBy],
+      ['page', currentPage.toString()],
     ])
       .then((data) => {
         setPhones(data.result);
@@ -43,7 +41,11 @@ export const MobilePhones: React.FC = () => {
         Notify.failure('Oops, something went wrong. Please try again later.');
       })
       .finally(() => setArePhonesLoading(false));
-  }, [selectedSortBy, selectedPhonesPerPage, chosenPageNumber]);
+  }, [
+    sortBy,
+    perPage,
+    currentPage
+  ]);
 
   const changeSortbyStatus = () => {
     setIsSortByOpen(!isSortByOpen);
@@ -55,21 +57,13 @@ export const MobilePhones: React.FC = () => {
     setIsSortByOpen(false);
   };
 
-  const paginate = (pageNumber: number) => {
-    setChosenPageNumber(pageNumber);
-  };
-
-  const goToPreviousPage = () => {
-    if (chosenPageNumber !== 1) {
-      setChosenPageNumber(chosenPageNumber - 1);
-    }
-  };
-
-  const goToNextPage = () => {
-    if (chosenPageNumber !== pagesNumber) {
-      setChosenPageNumber(chosenPageNumber + 1);
-    }
-  };
+  const sortByOptions = [
+    ['newest', 'Newest'],
+    ['oldest', 'Oldest'],
+    ['alphabetically', 'Alphabetically'],
+    ['cheapest', 'Cheapest'],
+    ['moreExpensive', 'More expensive'],
+  ];
 
   return (
     <>
@@ -101,9 +95,8 @@ export const MobilePhones: React.FC = () => {
               `}
                   onClick={changeSortbyStatus}>
                   <SortBy
-                    setSelectedSortBy={setSelectedSortBy}
+                    options={sortByOptions}
                     isSortByOpen={isSortByOpen}
-                    selectedSortBy={selectedSortBy}
                     setIsSortByOpen={setIsSortByOpen}
                   />
                 </div>
@@ -117,9 +110,8 @@ export const MobilePhones: React.FC = () => {
               `}
                   onClick={changeItemsOnPageStatus}>
                   <ItemsOnPage
-                    setSelectedPhonesPerPage={setSelectedPhonesPerPage}
+                    defaultValue={perPage}
                     isItemsOnPageOpen={isItemsOnPageOpen}
-                    selectedPhonesPerPage={selectedPhonesPerPage}
                     setItemsOnPageOpen={setItemsOnPageOpen}
                   />
                 </div>
@@ -143,13 +135,7 @@ export const MobilePhones: React.FC = () => {
               </div>
 
               {phonesNumber > 0 && (
-                <Pagination
-                  pagesNumber={pagesNumber}
-                  paginate={paginate}
-                  goToPreviousPage={goToPreviousPage}
-                  goToNextPage={goToNextPage}
-                  chosenPageNumber={chosenPageNumber}
-                />
+                <Pagination pagesNumber={pagesNumber} />
               )}
             </>
           )}

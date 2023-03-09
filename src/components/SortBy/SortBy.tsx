@@ -2,32 +2,60 @@
 import styles from '../SortBy/SortBy.module.scss';
 import arrowDown from '../../assets/images/ArrowDown.svg';
 import arrowUp from '../../assets/images/ArrowUp.svg';
-import {Dispatch, SetStateAction, useEffect, useRef} from 'react';
-import {SortTypes} from '../../types/types';
-import { createSearchParams, URLSearchParamsInit, useNavigate } from 'react-router-dom';
-
-const sortByOptions = Object.values(SortTypes);
+import { Dispatch, SetStateAction, useEffect, useRef } from 'react';
+import { useSearchParams } from 'react-router-dom';
+import { usePageParams } from '../../controllers/usePageParams';
 
 interface Props {
-  setSelectedSortBy: React.Dispatch<React.SetStateAction<SortTypes>>;
-  selectedSortBy: string;
+  options: string[][];
   isSortByOpen: boolean;
   setIsSortByOpen: Dispatch<SetStateAction<boolean>>;
 }
 
-const useNavigateBySearch = () => {
-  const navigate = useNavigate();
-
-  return (pathname: string, params: URLSearchParamsInit | undefined) =>
-    navigate(`${pathname}?${createSearchParams(params)}`);
-};
-
 export const SortBy: React.FC<Props> = ({
-  setSelectedSortBy,
-  selectedSortBy,
+  options,
   isSortByOpen,
   setIsSortByOpen,
 }) => {
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const handleSearchParamsUpdate = (givenParamValue: string) => {
+    const newParams = new URLSearchParams(searchParams.toString());
+
+    const paramsToUpdate = {
+      sortBy: givenParamValue,
+      page: '1',
+    };
+
+    Object.entries(paramsToUpdate).forEach(([key, value]) => {
+      if (value === null) {
+        newParams.delete(key);
+      } else if (Array.isArray(value)) {
+        newParams.delete(key);
+
+        value.forEach((part) => {
+          newParams.append(key, part);
+        });
+      } else {
+        newParams.set(key, value);
+      }
+    });
+
+    const updatedParams = newParams.toString();
+
+    setSearchParams(updatedParams);
+  };
+
+  const [sortBy] = usePageParams();
+
+  const getDropdownHeader = () => {
+    for (const option of options) {
+      if (option[0] === sortBy) {
+        return option[1];
+      }
+    }
+  };
+
   const dropdownRef = useRef<any>();
 
   useEffect(() => {
@@ -43,16 +71,6 @@ export const SortBy: React.FC<Props> = ({
     };
   }, [dropdownRef]);
 
-  const selectSortBy = (value: SortTypes) => {
-    setSelectedSortBy(value);
-  };
-
-  const navigateSearch = useNavigateBySearch();
-
-  const goToSortedPhones = (option: string) => {
-    navigateSearch('/phones', {sort: `${option}`});
-  };
-
   return (
     <div
       ref={dropdownRef}
@@ -66,7 +84,7 @@ export const SortBy: React.FC<Props> = ({
 
       <div className={styles.dropdown}>
         <button className={styles.dropdown__header}>
-          <div className={styles.dropdown__header__title}>{selectedSortBy}</div>
+          <div className={styles.dropdown__header__title}>{getDropdownHeader()}</div>
 
           {!isSortByOpen ? (
             <img
@@ -82,17 +100,21 @@ export const SortBy: React.FC<Props> = ({
           <p></p>
         ) : (
           <div className={styles.dropdown__items}>
-            {sortByOptions.map((option) => (
-              <button
-                key={option}
-                className={styles.dropdown__option}
-                onClick={() => {
-                  selectSortBy(option);
-                  goToSortedPhones(option);
-                }}>
-                {option}
-              </button>
-            ))}
+            {options.map((option) => {
+              const [optionToPass, optionToShow] = option;
+
+              return (
+                <button
+                  key={optionToPass}
+                  value={optionToPass}
+                  className={styles.dropdown__option}
+                  onClick={() => {
+                    handleSearchParamsUpdate(optionToPass);
+                  }}>
+                  {optionToShow}
+                </button>
+              );
+            })}
           </div>
         )}
       </div>
