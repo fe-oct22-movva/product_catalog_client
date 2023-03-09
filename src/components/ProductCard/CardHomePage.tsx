@@ -27,11 +27,11 @@ export const CardHomePage: FC<Props> = ({
 }) => {
   return (
     <div className="card">
-      <Link to={`phones/${phoneId}`} className="card__link">
+      <Link to={`/${phoneId}`} className="card__link">
         <img className="card__icon" alt={name} src={img} />
       </Link>
 
-      <Link to={`phones/${phoneId}`} className="card__title">
+      <Link to={`/${phoneId}`} className="card__title">
         {name}
       </Link>
 
