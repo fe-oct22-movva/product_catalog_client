@@ -10,8 +10,7 @@ export const Tablets = () => {
   const [tablets, setTablets] = useState<Tablet[]>([]);
 
   useEffect(() => {
-    getTablets()
-      .then(setTablets);
+    getTablets().then(setTablets);
   }, []);
 
   return (

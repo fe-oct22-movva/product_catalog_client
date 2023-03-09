@@ -11,7 +11,7 @@ import {getAllPhones} from '../../api/phones';
 import {Breadcrumbs} from '../../components/Breadcrumbs';
 import {Loader} from '../../components/Loader';
 import {Notify} from 'notiflix/build/notiflix-notify-aio';
-import { usePageParams } from '../../controllers/usePageParams';
+import {usePageParams} from '../../controllers/usePageParams';
 
 export const MobilePhones: React.FC = () => {
   const [phones, setPhones] = useState<Phone[]>([]);
@@ -41,11 +41,7 @@ export const MobilePhones: React.FC = () => {
         Notify.failure('Oops, something went wrong. Please try again later.');
       })
       .finally(() => setArePhonesLoading(false));
-  }, [
-    sortBy,
-    perPage,
-    currentPage
-  ]);
+  }, [sortBy, perPage, currentPage]);
 
   const changeSortbyStatus = () => {
     setIsSortByOpen(!isSortByOpen);
@@ -135,9 +131,7 @@ export const MobilePhones: React.FC = () => {
                 ))}
               </div>
 
-              {phonesNumber > 0 && (
-                <Pagination pagesNumber={pagesNumber} />
-              )}
+              {phonesNumber > 0 && <Pagination pagesNumber={pagesNumber} />}
             </>
           )}
         </div>

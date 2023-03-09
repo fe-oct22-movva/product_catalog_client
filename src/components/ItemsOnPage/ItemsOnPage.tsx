@@ -1,7 +1,7 @@
 /* eslint-disable  @typescript-eslint/no-explicit-any */
 import arrowUp from '../../assets/images/ArrowUp.svg';
-import React, { Dispatch, SetStateAction, useEffect, useRef } from 'react';
-import { useSearchParams} from 'react-router-dom';
+import React, {Dispatch, SetStateAction, useEffect, useRef} from 'react';
+import {useSearchParams} from 'react-router-dom';
 import arrowDown from '../../assets/images/ArrowDown.svg';
 import styles from '../ItemsOnPage/ItemsOnPage.module.scss';
 
@@ -87,9 +87,7 @@ export const ItemsOnPage: React.FC<Props> = ({
 
       <div className={styles.dropdown}>
         <button className={styles.dropdown__header}>
-          <div className={styles.dropdown__header__title}>
-            {defaultValue}
-          </div>
+          <div className={styles.dropdown__header__title}>{defaultValue}</div>
           {!isItemsOnPageOpen ? (
             <img
               className={styles.dropdown__header__arrow__down}

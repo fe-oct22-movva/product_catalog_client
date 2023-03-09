@@ -3,8 +3,8 @@ import React from 'react';
 import logo from '../../assets/images/Logo.svg';
 import close from '../../images/CloseQuarter.svg';
 import './BurgerMenu.scss';
-import {FavouritesNavHeart} from '../FavouritesNavHeart/FavouritesNavHeart';
-import {CartNavBasket} from '../CartNavBasket/CartNavBasket';
+import {FavouritesNavHeart} from '../FavouritesNavHeart';
+import {CartNavBasket} from '../CartNavBasket';
 
 export interface Props {
   isBurger: boolean;

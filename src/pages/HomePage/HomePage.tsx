@@ -55,15 +55,9 @@ export const HomePage: React.FC = () => {
         <div>
           <Banner />
           <div className="main-container">
-            <Cards
-              newestPhones={newestPhones}
-              title="Brand new models"
-            />
+            <Cards newestPhones={newestPhones} title="Brand new models" />
             <ShopByCategory phonesNumber={phonesNumber} />
-            <Cards
-              newestPhones={cheapestPhones}
-              title="Hot prices"
-            />
+            <Cards newestPhones={cheapestPhones} title="Hot prices" />
           </div>
         </div>
       )}
