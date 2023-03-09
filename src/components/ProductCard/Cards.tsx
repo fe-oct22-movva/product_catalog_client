@@ -6,15 +6,10 @@ import {Phone} from '../../types/types';
 
 interface Props {
   newestPhones: Phone[];
-  setSelectedId: (newId: string) => void;
   title: string;
 }
 
-export const Cards: React.FC<Props> = ({
-  newestPhones,
-  setSelectedId,
-  title,
-}) => {
+export const Cards: React.FC<Props> = ({newestPhones, title}) => {
   const [position, setPosition] = useState(0);
   const [cardWidth, setCardWidth] = useState(0);
   const [cardCount, setCardCount] = useState(0);
@@ -52,8 +47,7 @@ export const Cards: React.FC<Props> = ({
                 setPosition((prev) => prev + cardWidth);
                 setCardCount((prev) => prev - 1);
               }
-            }}>
-          </button>
+            }}></button>
           <button
             className="scroll__right"
             onClick={() => {
@@ -61,8 +55,7 @@ export const Cards: React.FC<Props> = ({
                 setPosition((prev) => prev - cardWidth);
                 setCardCount((prev) => prev + 1);
               }
-            }}>
-          </button>
+            }}></button>
         </div>
       </div>
 
@@ -79,7 +72,6 @@ export const Cards: React.FC<Props> = ({
               capacity={phone.capacity}
               ram={phone.ram}
               phoneId={phone.phoneId}
-              setSelectedId={setSelectedId}
             />
           </div>
         ))}

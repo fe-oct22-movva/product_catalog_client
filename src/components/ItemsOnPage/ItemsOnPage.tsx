@@ -1,9 +1,9 @@
 /* eslint-disable  @typescript-eslint/no-explicit-any */
-import styles from '../ItemsOnPage/ItemsOnPage.module.scss';
 import arrowUp from '../../assets/images/ArrowUp.svg';
 import React, { Dispatch, SetStateAction, useEffect, useRef } from 'react';
 import { useSearchParams} from 'react-router-dom';
 import arrowDown from '../../assets/images/ArrowDown.svg';
+import styles from '../ItemsOnPage/ItemsOnPage.module.scss';
 
 const itemsOnPageOptions = [12, 16, 20];
 
@@ -62,6 +62,20 @@ export const ItemsOnPage: React.FC<Props> = ({
     };
   }, [dropdownRef]);
 
+  const stylesBlock = isItemsOnPageOpen
+    ? {
+      opacity: 1,
+      Visibility: 'visible',
+      transform: 'translateY(0)',
+      transition: '0.3s ease',
+    }
+    : {
+      opacity: 0,
+      Visibility: 'hidden',
+      transform: 'translateX(+20px)',
+      transition: '0.3s ease',
+    };
+
   return (
     <div
       ref={dropdownRef}
@@ -86,23 +100,19 @@ export const ItemsOnPage: React.FC<Props> = ({
           )}
         </button>
 
-        {!isItemsOnPageOpen ? (
-          <p></p>
-        ) : (
-          <div className={styles.dropdown__items}>
-            {itemsOnPageOptions.map((option) => (
-              <button
-                key={option}
-                value={option}
-                className={styles.dropdown__option}
-                onClick={() => {
-                  handleSearchParamsUpdate(option.toString());
-                }}>
-                {option}
-              </button>
-            ))}
-          </div>
-        )}
+        <div className={styles.dropdown__items} style={stylesBlock}>
+          {itemsOnPageOptions.map((option) => (
+            <button
+              key={option}
+              value={option}
+              className={styles.dropdown__option}
+              onClick={() => {
+                handleSearchParamsUpdate(option.toString());
+              }}>
+              {option}
+            </button>
+          ))}
+        </div>
       </div>
     </div>
   );

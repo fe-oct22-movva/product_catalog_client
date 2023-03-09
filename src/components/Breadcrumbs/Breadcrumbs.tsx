@@ -2,26 +2,10 @@ import styles from '../Breadcrumbs/Breadcrumbs.module.scss';
 import home from '../../assets/images/Home.svg';
 import arrowRight from '../../assets/images/ArrowRight.svg';
 import {Link, useLocation} from 'react-router-dom';
-import {useEffect, useState} from 'react';
 
 export const Breadcrumbs: React.FC = () => {
-  const [title, setTitle] = useState(document.title);
   const location = useLocation();
   let currentLink = '';
-
-  useEffect(() => {
-    const originalTitle = document.title;
-    setTitle(originalTitle);
-
-    const handleTitleChange = () => {
-      setTitle(document.title);
-    };
-    document.addEventListener('titleChange', handleTitleChange);
-
-    return () => {
-      document.removeEventListener('titleChange', handleTitleChange);
-    };
-  }, []);
 
   const crumbs = location.pathname
     .split('/')
@@ -31,7 +15,7 @@ export const Breadcrumbs: React.FC = () => {
 
       return (
         <Link key={crumb} to={currentLink} className={styles.breadcrumbs__link}>
-          {title}
+          {crumb.split('-').join(' ')}
         </Link>
       );
     });

@@ -2,19 +2,14 @@ import React from 'react';
 import logo from '../../assets/images/Logo.svg';
 import arrowUp from '../../assets/images/DefaultUp.svg';
 import cn from 'classnames';
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
+import {scrollTopDefault} from '../../utils/ScrollToTop';
 
 interface Props {
   isBurgerActivated: boolean;
 }
 
 export const Footer: React.FC<Props> = ({isBurgerActivated}) => {
-  const scrollTop = () => {
-    window.scrollTo({
-      top: 0,
-    });
-  };
-
   return (
     <footer
       className={cn('page__section page__section--footer footer', {
@@ -33,11 +28,11 @@ export const Footer: React.FC<Props> = ({isBurgerActivated}) => {
           <nav className="footer-nav">
             <ul className="footer-nav__list">
               <li className="footer-nav__item">
-                <a 
-                  href="https://github.com/fe-oct22-movva/product_catalog_client" 
+                <a
+                  href="https://github.com/fe-oct22-movva/product_catalog_client"
                   className="footer-nav__link"
                   target="_blank"
-                >
+                  rel="noreferrer">
                   Github
                 </a>
               </li>
@@ -49,11 +44,11 @@ export const Footer: React.FC<Props> = ({isBurgerActivated}) => {
               </li>
 
               <li className="footer-nav__item">
-                <a 
-                  href="https://creativecommons.org/licenses/by/4.0/" 
+                <a
+                  href="https://creativecommons.org/licenses/by/4.0/"
                   className="footer-nav__link"
                   target="_blank"
-                >
+                  rel="noreferrer">
                   Rights
                 </a>
               </li>
@@ -64,7 +59,7 @@ export const Footer: React.FC<Props> = ({isBurgerActivated}) => {
             <div className="scrollTop__container">
               <p className="scrollTop__title">Back to top</p>
 
-              <div className="scrollTop__block" onClick={scrollTop}>
+              <div className="scrollTop__block" onClick={scrollTopDefault}>
                 <a className="scrollTop__link">
                   <img
                     src={arrowUp}

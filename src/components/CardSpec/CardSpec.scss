@@ -2,6 +2,9 @@
 @import '../../styles/main.scss';
 @import '../../styles/normalize.scss';
 
+$selector-width: 32px;
+$selector-circle-width: 24px;
+
 .spec__page {
   max-width: 1200px;
   margin: 0 auto;
@@ -16,16 +19,82 @@
   }
 }
 
+.addToCart {
+  display: flex;
+  justify-content: space-between;
+
+  &__button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    width: 100%;
+
+    margin-right: 8px;
+
+    border: 1px solid #4219d0;
+    background-color: #4219d0;
+    color: #ffffff;
+    border-radius: 45px;
+    text-decoration: none;
+
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 21px;
+
+    &:hover {
+      box-shadow: 0 3px 13px rgba(23, 32, 49, 0.4);
+    }
+
+    &:active {
+      background-color: #ffffff;
+      color: #4219d0;
+      box-shadow: none;
+    }
+  }
+
+  &__like {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 40px;
+    height: 40px;
+
+    border: 1px solid #b4bdc4;
+    border-radius: 48px;
+
+    &:hover {
+      border-color: #0f0f11;
+      cursor: pointer;
+    }
+  }
+}
+
 .slick {
   &-image {
-    width: 100%;
+    object-fit: cover;
+    object-position: top;
 
     border: 1px solid #c4c4c4;
     border-radius: 4px;
 
-    margin: 5px;
+    padding: 5px;
 
     transition: border 0.3s, opacity 0.3s, transform 0.3s;
+
+    height: 50px;
+    width: 50px;
+
+    @include onTablet {
+      height: 60px;
+      width: 60px;
+    }
+
+    @include onDesktop {
+      height: 70px;
+      width: 70px;
+    }
   }
 
   &-image:hover {
@@ -41,7 +110,6 @@
   &-dots {
     position: absolute;
 
-    width: 100%;
     padding: 0;
     margin: 0;
 
@@ -52,8 +120,10 @@
 
   &-dots li {
     position: relative;
+    margin-bottom: 5px;
 
-    display: inline-block;
+    display: flex;
+    flex-direction: column;
 
     padding: 0;
 
@@ -64,7 +134,7 @@
     font-size: 0;
     line-height: 0;
 
-    display: block;
+    display: flex;
 
     width: 20px;
     height: 20px;
@@ -249,7 +319,7 @@
 .phone__specs .phone__specs-main .slick-slider .slick-dots {
   display: flex !important;
   justify-content: center;
-  gap: 8px;
+  gap: 10px;
 
   bottom: -73px;
 
@@ -257,12 +327,13 @@
     flex-direction: column;
     width: max-content;
     height: max-content;
+    gap: 15px;
 
-    top: 0;
+    top: 1px;
   }
 
   @include onDesktop {
-    gap: 16px;
+    gap: 5px;
   }
 }
 
@@ -309,12 +380,12 @@
         width: max-content !important;
         height: 274px;
 
-        @media screen and (min-width: 900px) {
-          height: 350px;
+        @include onTablet {
+          height: 340px;
         }
 
         @include onDesktop {
-          height: 442px;
+          height: 400px;
         }
       }
     }
@@ -448,6 +519,7 @@
 
         &-cart {
           display: flex;
+          justify-content: space-between;
           gap: 8px;
 
           @include onTablet {
@@ -533,14 +605,58 @@
   }
 }
 
+.memory__buttons {
+  background-color: #0f0f11;
+  border-color: #0f0f11;
+  color: #ffffff;
+}
+
+.color-selector {
+  width: $selector-width;
+  height: $selector-width;
+
+  border: 1px solid #e2e6e9;
+  border-radius: 50%;
+
+  position: relative;
+
+  transition: border-color 0.3s;
+
+  &__inside {
+    content: '';
+    position: absolute;
+    width: $selector-circle-width;
+    height: $selector-circle-width;
+
+    border-radius: 50%;
+
+    top: 50%;
+    left: 50%;
+
+    margin: calc($selector-circle-width / -2) 0px 0px
+      calc($selector-circle-width / -2);
+
+    transition: transform 0.3s;
+  }
+
+  &:hover {
+    border-color: #b4bdc4;
+  }
+
+  &:hover &__inside {
+    transform: scale(0.8, 0.8);
+  }
+}
+
+.color {
+  transform: scale(0.8, 0.8);
+}
+
 .about {
   margin: auto;
   color: $primary;
   font-weight: 600;
-
-  @include onTablet {
-    max-width: 600px;
-  }
+  margin-bottom: 80px;
 
   @include onDesktop {
     max-width: 1200px;
@@ -640,13 +756,5 @@
     line-height: 15px;
 
     color: #89939a;
-  }
-}
-
-.grid-shop-by {
-  @include onDesktop {
-    display: grid;
-    grid-template-columns: repeat(24, 1fr);
-    column-gap: 16px;
   }
 }

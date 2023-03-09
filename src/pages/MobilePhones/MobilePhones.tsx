@@ -129,6 +129,7 @@ export const MobilePhones: React.FC = () => {
                       screen={phone.screen}
                       capacity={phone.capacity}
                       ram={phone.ram}
+                      phoneId={phone.phoneId}
                     />
                   </div>
                 ))}

@@ -1,6 +1,6 @@
 @import '../../../styles/utils/mixins';
 
-.slick {
+.banner .slick {
   @include onTablet {
     &-prev,
     &-next {
@@ -194,11 +194,7 @@
       height: 320px;
 
       @include onTablet {
-        height: 220px;
-      }
-
-      @include onDesktop {
-        height: 400px;
+        height: max-content;
       }
     }
   }

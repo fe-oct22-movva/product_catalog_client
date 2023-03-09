@@ -53,6 +53,7 @@ export interface serverResponse {
   pages: number;
   prev: NextAndPrev;
   result: Phone[];
+  phoneSpec: PhoneSpec;
 }
 
 export interface cartItem {
@@ -61,6 +62,7 @@ export interface cartItem {
   name: string;
   amount: number;
   price: number;
+  phoneId: string;
 }
 
 export interface favouriteItem {
@@ -72,6 +74,7 @@ export interface favouriteItem {
   screen: string;
   capacity: string;
   ram: string;
+  phoneId: string;
 }
 
 export interface Cart {

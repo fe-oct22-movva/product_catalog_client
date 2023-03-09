@@ -52,6 +52,7 @@ export const Favourites = () => {
                     screen={favouritesItem.screen}
                     capacity={favouritesItem.capacity}
                     ram={favouritesItem.ram}
+                    phoneId={favouritesItem.phoneId}
                   />
                 </div>
               ))}
@@ -59,9 +60,15 @@ export const Favourites = () => {
           </section>
         ) : (
           <div className="favourites__empty">
-            <img className="favourites__empty-photo" src={heartEmpty} alt=""/>
+            <img className="favourites__empty-photo" src={heartEmpty} alt="" />
 
-            <h1 className="favourites__empty-title">Your favourites is empty</h1>
+            <h1 className="favourites__empty-title">
+              Your favourites is empty
+            </h1>
+
+            <a href="#/phones" className="button-40">
+              Add
+            </a>
           </div>
         )}
       </div>

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, {useEffect, useState} from 'react';
 import {Header} from './pages/HomePage/Header';
 import {Footer} from './components/Footer';
@@ -11,18 +12,15 @@ import {BurgerMenu} from './components/BurgerMenu';
 import {Cart} from './components/Cart/Cart';
 import {Phone} from './types/types';
 import {getAllPhones} from './api/phones';
-import {ItemCardPage} from './components/ItemCardPage/ItemCardPage';
 import {ScrollToTop} from './utils/ScrollToTop';
-import { Contacts } from './pages/Contacts';
+import {Contacts} from './pages/Contacts';
+import {CardSpec} from './components/CardSpec';
 
 export const App: React.FC = () => {
   const [phones, setPhones] = useState<Phone[]>([]);
   const [isBurgerActivated, setIsBurgerActivated] = useState<boolean>(false);
-  const [selectedId, setSelectedId] = useState('');
-  const location = useLocation();
 
-  const startValueCapacity
-    = phones.find((el) => el.phoneId === selectedId)?.capacity || '64GB';
+  const location = useLocation();
 
   useEffect(() => {
     getAllPhones()
@@ -44,23 +42,17 @@ export const App: React.FC = () => {
       <div className="sections">
         <ScrollToTop />
         <Routes>
-          <Route
-            path="/"
-            element={<HomePage setSelectedId={setSelectedId} />}
-          />
+          <Route path="/" element={<HomePage />} />
           <Route path="/phones" element={<MobilePhones />} />
+          <Route path="/phones/:phoneId" element={<CardSpec phones={phones} />} />
           <Route path="/contacts" element={<Contacts />} />
-          <Route
-            path={`/${selectedId}`}
-            element={
-              <ItemCardPage
-                selectedId={selectedId}
-                startValue={startValueCapacity}
-              />
-            }
-          />
           <Route path="/favourites" element={<Favourites />} />
+          <Route
+            path="favourites/:phoneId"
+            element={<CardSpec phones={phones} />}
+          />
           <Route path="/cart" element={<Cart />} />
+          <Route path="cart/:phoneId" element={<CardSpec phones={phones} />} />
           <Route
             path="/menu"
             element={

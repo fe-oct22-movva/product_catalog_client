@@ -5,6 +5,7 @@ import close from '../../assets/images/Close.svg';
 import plus from '../../assets/images/Plus.svg';
 import {cartItem} from '../../types/types';
 import {setItemLocalStorage} from '../../utils/setItemLocalStorage';
+import {Link} from 'react-router-dom';
 
 interface Props {
   cartItem: cartItem;
@@ -61,13 +62,17 @@ export const CartItem: React.FC<Props> = ({cartItem, handleDelete}) => {
           <img src={close} alt="delete" />
         </button>
 
-        <img
-          src={cartItem.img}
-          className="cart__item-phone__photo"
-          alt="phone"
-        />
+        <Link to={cartItem.phoneId}>
+          <img
+            src={cartItem.img}
+            className="cart__item-phone__photo"
+            alt="phone"
+          />
+        </Link>
 
-        <p className="cart__item-phone__name">{cartItem.name}</p>
+        <Link to={cartItem.phoneId}>
+          <p className="cart__item-phone__name">{cartItem.name}</p>
+        </Link>
       </div>
 
       <div className="cart__item-price">

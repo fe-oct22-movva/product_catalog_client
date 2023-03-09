@@ -1,0 +1,57 @@
+[
+  {
+    "id": 1,
+    "category": "tablets",
+    "name": "Apple iPad 10.2' (9 gen)",
+    "price": 400,
+    "screen": "10.2' IPS",
+    "capacity": "64GB",
+    "ram": "6GB",
+    "year": 2021,
+    "image": "https://raw.githubusercontent.com/fe-oct22-movva/product_catalog_client/master/src/assets/images/tablets/Apple%20iPad%2010.2''%20(9%20Gen)/Apple%20iPad%2010.2''%20(9%20Gen)-01.avif"
+  },
+  {
+    "id": 2,
+    "category": "tablets",
+    "name": "Apple iPad 10.9' (10 Gen)",
+    "price": 600,
+    "screen": "10.9' IPS",
+    "capacity": "128GB",
+    "ram": "6GB",
+    "year": 2022,
+    "image": "https://raw.githubusercontent.com/fe-oct22-movva/product_catalog_client/master/src/assets/images/tablets/Apple%20iPad%2010.9''%20(10%20Gen)/Apple%20iPad%2010.9''%20(10%20Gen)-01.avif"
+  },
+  {
+    "id": 3,
+    "category": "tablets",
+    "name": "Apple iPad Mini 6",
+    "price": 1000,
+    "screen": "8.3' Retina",
+    "capacity": "128GB",
+    "ram": "6GB",
+    "year": 2021,
+    "image": "https://raw.githubusercontent.com/fe-oct22-movva/product_catalog_client/master/src/assets/images/tablets/Apple%20iPad%20Mini%206/Apple%20iPad%20Mini%206-01.avif"
+  },
+  {
+    "id": 4,
+    "category": "tablets",
+    "name": "Apple iPad Pro 11' (4 Gen)",
+    "price": 4500,
+    "screen": "11' IPS",
+    "capacity": "2TB",
+    "ram": "12GB",
+    "year": 2021,
+    "image": "https://raw.githubusercontent.com/fe-oct22-movva/product_catalog_client/master/src/assets/images/tablets/Apple%20iPad%20Pro%2011''%20(4%20Gen)/Apple%20iPad%20Pro%2011''%20(4%20Gen)-01.avif"
+  },
+  {
+    "id": 5,
+    "category": "tablets",
+    "name": "Apple iPad Pro 12,9' (6 Gen)",
+    "price": 2000,
+    "screen": "12.9' IPS",
+    "capacity": "2TB",
+    "ram": "512GB",
+    "year": 2022,
+    "image": "https://raw.githubusercontent.com/fe-oct22-movva/product_catalog_client/master/src/assets/images/tablets/Apple%20iPad%20Pro%2012%2C9''%20(6%20Gen)/Apple%20iPad%20Pro%2012%2C9''%20(6%20Gen)-01.avif"
+  }
+]
