@@ -385,7 +385,7 @@ $selector-circle-width: 24px;
         }
 
         @include onDesktop {
-          height: 430px;
+          height: 400px;
         }
       }
     }
@@ -605,7 +605,7 @@ $selector-circle-width: 24px;
   }
 }
 
-.active {
+.memory__buttons {
   background-color: #0f0f11;
   border-color: #0f0f11;
   color: #ffffff;
@@ -656,6 +656,7 @@ $selector-circle-width: 24px;
   margin: auto;
   color: $primary;
   font-weight: 600;
+  margin-bottom: 80px;
 
   @include onDesktop {
     max-width: 1200px;
