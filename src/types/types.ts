@@ -22,6 +22,7 @@ export interface Tablet {
   price: number;
   screen: string;
   capacity: string;
+  fullPrice: number;
   ram: string;
   year: number;
   image: string;

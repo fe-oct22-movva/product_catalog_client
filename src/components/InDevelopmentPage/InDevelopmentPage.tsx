@@ -38,5 +38,4 @@ export const InDevelopmentPage = () => (
     </div>
     <h1 className="gear-text">In development</h1>
   </div>
-
 );

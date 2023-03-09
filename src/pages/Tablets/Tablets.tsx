@@ -4,13 +4,14 @@ import {Breadcrumbs} from '../../components/Breadcrumbs';
 import styles from '../MobilePhones/MobilePhones.module.scss';
 import {ProductCardSingle} from '../../components/ProductCardSingle';
 import {Tablet} from '../../types/types';
-import tabletsFromJSON from '../../tablets.json';
+import {getTablets} from '../../api/phones';
 
 export const Tablets = () => {
   const [tablets, setTablets] = useState<Tablet[]>([]);
 
   useEffect(() => {
-    setTablets(tabletsFromJSON);
+    getTablets()
+      .then(setTablets);
   }, []);
 
   return (
@@ -36,7 +37,7 @@ export const Tablets = () => {
                 screen={tablet.screen}
                 capacity={tablet.capacity}
                 ram={tablet.ram}
-                fullPrice={0}
+                fullPrice={tablet.fullPrice}
                 phoneId={tablet.name}
               />
             </div>
