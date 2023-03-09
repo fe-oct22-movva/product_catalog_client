@@ -31,7 +31,7 @@ export const Breadcrumbs: React.FC = () => {
 
       return (
         <Link key={crumb} to={currentLink} className={styles.breadcrumbs__link}>
-          {title}
+          {crumb.split('-').join(' ')}
         </Link>
       );
     });
