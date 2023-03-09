@@ -2,6 +2,7 @@ import styles from '../ProductCardSingle/ProductCardSingle.module.scss';
 import React from 'react';
 
 import {Button_addToCart} from '../Button_addToCart';
+import {Link} from 'react-router-dom';
 
 interface Props {
   id: string;
@@ -12,6 +13,7 @@ interface Props {
   screen: string;
   capacity: string;
   ram: string;
+  phoneId: string;
 }
 
 export const ProductCardSingle: React.FC<Props> = ({
@@ -23,15 +25,18 @@ export const ProductCardSingle: React.FC<Props> = ({
   screen,
   capacity,
   ram,
+  phoneId,
 }) => {
   return (
     <div className={styles.card}>
-      <img className={styles.card__icon} src={img} />
+      <Link to={phoneId}>
+        <img className={styles.card__icon} src={img} />
+      </Link>
 
       <h3 className={styles.card__title}>
-        <a href="#" className={styles.card__link}>
+        <Link to={phoneId} className={styles.card__link}>
           {name}
-        </a>
+        </Link>
       </h3>
 
       <div className={styles.card__prices}>

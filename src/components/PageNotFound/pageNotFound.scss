@@ -133,6 +133,7 @@
   -webkit-user-select: none;
   touch-action: manipulation;
   width: auto;
+  transition: transform 0.3s;
 }
 
 .button-40:hover {
