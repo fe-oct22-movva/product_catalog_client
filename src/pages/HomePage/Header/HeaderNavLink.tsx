@@ -7,16 +7,14 @@ type Props = {
   textToDisplay: string | ReactNode;
 };
 
-export const HeaderNavLink: React.FC<Props> = memo(
-  ({to, textToDisplay}) => (
-    <NavLink
-      to={to}
-      className={({isActive}) =>
-        cn('nav__link', {'nav__link--active': isActive})
-      }>
-      {textToDisplay}
-    </NavLink>
-  ),
-);
+export const HeaderNavLink: React.FC<Props> = memo(({to, textToDisplay}) => (
+  <NavLink
+    to={to}
+    className={({isActive}) =>
+      cn('nav__link', {'nav__link--active': isActive})
+    }>
+    {textToDisplay}
+  </NavLink>
+));
 
 HeaderNavLink.displayName = 'HeaderNavLink';

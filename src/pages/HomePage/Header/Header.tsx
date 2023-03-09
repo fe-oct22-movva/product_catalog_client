@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React, {memo} from 'react';
 import menu from '../../../assets/images/Menu.svg';
 import logo from '../../../assets/images/Logo.svg';
 import {HeaderNavLink} from './HeaderNavLink';
@@ -27,21 +27,21 @@ export const Header: React.FC<Props> = memo(
                   alt="Welcome to the Nice Gadgets"
                 />
               </NavLink>
-  
+
               <nav className="nav">
                 <ul className="nav__list">
                   <li className="nav__item" onClick={scrollTopDefault}>
                     <HeaderNavLink to="/" textToDisplay="Home" />
                   </li>
-  
+
                   <li className="nav__item">
                     <HeaderNavLink to="/phones" textToDisplay="Phones" />
                   </li>
-  
+
                   <li className="nav__item">
                     <HeaderNavLink to="/tablets" textToDisplay="Tablets" />
                   </li>
-  
+
                   <li className="nav__item">
                     <HeaderNavLink
                       to="/accessories"
@@ -50,11 +50,13 @@ export const Header: React.FC<Props> = memo(
                   </li>
                 </ul>
               </nav>
-  
+
               <div className="aside-container">
                 <div
                   className="aside-container--burger"
-                  onClick={() => setIsBurgerActivated((prevState) => !prevState)}>
+                  onClick={() =>
+                    setIsBurgerActivated((prevState) => !prevState)
+                  }>
                   <HeaderIconNavLink
                     to="/menu"
                     textToDisplay={
@@ -64,10 +66,10 @@ export const Header: React.FC<Props> = memo(
                     }
                   />
                 </div>
-  
+
                 <ul className="aside-container__list">
                   <FavouritesNavHeart />
-  
+
                   <CartNavBasket />
                 </ul>
               </div>
@@ -76,7 +78,7 @@ export const Header: React.FC<Props> = memo(
         )}
       </>
     );
-  },
+  }
 );
 
 Header.displayName = 'Header';
