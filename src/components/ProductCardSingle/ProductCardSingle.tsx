@@ -1,8 +1,8 @@
 import styles from '../ProductCardSingle/ProductCardSingle.module.scss';
 import React from 'react';
 
-import { Button_addToCart } from '../Button_addToCart';
-import { Link } from 'react-router-dom';
+import {Button_addToCart} from '../Button_addToCart';
+import {Link} from 'react-router-dom';
 
 interface Props {
   id: string;
