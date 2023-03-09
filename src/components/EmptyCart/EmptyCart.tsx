@@ -1,7 +1,8 @@
 /* eslint-disable max-len */
+import {memo} from 'react';
 import './EmptyCart.scss';
 
-export const EmptyCart = () => (
+export const EmptyCart = memo(() => (
   <div className="empty-cart">
     <svg
       className="empty-cart--main"
@@ -337,4 +338,6 @@ export const EmptyCart = () => (
       Add
     </a>
   </div>
-);
+));
+
+EmptyCart.displayName = 'EmptyCart';

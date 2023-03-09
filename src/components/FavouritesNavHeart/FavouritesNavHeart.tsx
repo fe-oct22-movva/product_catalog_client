@@ -1,14 +1,14 @@
-import React, {useEffect, useState} from 'react';
+import React, {memo, useEffect, useState} from 'react';
 import heart from '../../assets/images/Favourites.svg';
 import {HeaderIconNavLink} from '../../pages/HomePage/Header/HeaderIconNavLink';
 
-export const FavouritesNavHeart = () => {
+export const FavouritesNavHeart = memo(() => {
   const [favouritesFromLocal, setFavouritesFromLocal] = useState<string | null>(
     null
   );
 
-  const favouritesItems
-    = favouritesFromLocal === null ? [] : JSON.parse(favouritesFromLocal).length;
+  const favouritesItems =
+    favouritesFromLocal === null ? [] : JSON.parse(favouritesFromLocal).length;
 
   useEffect(() => {
     setFavouritesFromLocal(localStorage.getItem('Favourites'));
@@ -41,4 +41,6 @@ export const FavouritesNavHeart = () => {
       }
     />
   );
-};
+});
+
+FavouritesNavHeart.displayName = 'FavouritesNavHeart';

@@ -1,7 +1,8 @@
 /* eslint-disable max-len,react/no-unknown-property */
+import {memo} from 'react';
 import './pageNotFound.scss';
 
-export const PageNotFound = () => {
+export const PageNotFound = memo(() => {
   return (
     <div className="main">
       <svg
@@ -126,4 +127,6 @@ export const PageNotFound = () => {
       </a>
     </div>
   );
-};
+});
+
+PageNotFound.displayName = 'PageNotFound';

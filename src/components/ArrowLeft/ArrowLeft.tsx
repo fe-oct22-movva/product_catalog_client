@@ -1,12 +1,13 @@
 import {Link} from 'react-router-dom';
 import styles from '../ArrowLeft/ArrowLeft.module.scss';
 import {usePageParams} from '../../controllers/usePageParams';
+import {memo} from 'react';
 
 interface Props {
   handleSearchParamsUpdate: (givenParamValue: string) => string;
 }
 
-export const ArrowLeft: React.FC<Props> = ({handleSearchParamsUpdate}) => {
+export const ArrowLeft: React.FC<Props> = memo(({handleSearchParamsUpdate}) => {
   const [, , currentPage] = usePageParams();
 
   return (
@@ -18,4 +19,6 @@ export const ArrowLeft: React.FC<Props> = ({handleSearchParamsUpdate}) => {
         }}></Link>
     </li>
   );
-};
+});
+
+ArrowLeft.displayName = 'ArrowLeft';

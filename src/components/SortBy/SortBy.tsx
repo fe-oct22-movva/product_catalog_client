@@ -73,17 +73,17 @@ export const SortBy: React.FC<Props> = ({
 
   const stylesBlock = isSortByOpen
     ? {
-      opacity: 1,
-      Visibility: 'visible',
-      transform: 'translateY(0)',
-      transition: '0.3s ease',
-    }
+        opacity: 1,
+        Visibility: 'visible',
+        transform: 'translateY(0)',
+        transition: '0.3s ease',
+      }
     : {
-      opacity: 0,
-      Visibility: 'hidden',
-      transform: 'translateX(-20px)',
-      transition: '0.3s ease',
-    };
+        opacity: 0,
+        Visibility: 'hidden',
+        transform: 'translateX(-20px)',
+        transition: '0.3s ease',
+      };
 
   return (
     <div

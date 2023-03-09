@@ -1,18 +1,20 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import {Notify} from 'notiflix/build/notiflix-notify-aio';
-import {useEffect, useState} from 'react';
+import {memo, useEffect, useState} from 'react';
 import {getAllPhones} from '../../api/phones';
-import {Phone} from '../../types/types';
-import {Loader} from '../../components/Loader';
 import {Banner} from '../../components/Banner';
-import {Cards} from '../../components/ProductCard';
+import {Loader} from '../../components/Loader';
 import {ShopByCategory} from '../../components/ShopByCategory';
+import {Cards} from '../../components/SliderCards';
+import {Phone} from '../../types/types';
 
-export const HomePage: React.FC = () => {
+export const HomePage: React.FC = memo(() => {
   const [newestPhones, setNewestPhones] = useState<Phone[]>([]);
   const [cheapestPhones, setCheapestPhones] = useState<Phone[]>([]);
   const [phonesNumber, setPhonesNumber] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
+
+  console.log(newestPhones);
 
   useEffect(() => {
     setTimeout(() => setIsLoading(false), 2000);
@@ -63,4 +65,6 @@ export const HomePage: React.FC = () => {
       )}
     </>
   );
-};
+});
+
+HomePage.displayName = 'HomePage';

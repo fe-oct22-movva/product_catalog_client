@@ -1,8 +1,8 @@
 import React from 'react';
-import styles from '../Loader/Loader.module.scss';
 import {BouncyBallsLoader} from 'react-loaders-kit';
+import styles from '../Loader/Loader.module.scss';
 
-export const Loader: React.FC = () => {
+export const Loader: React.FC = React.memo(() => {
   const loaderProps = {
     loading: true,
     size: 100,
@@ -15,4 +15,6 @@ export const Loader: React.FC = () => {
       <BouncyBallsLoader {...loaderProps} />
     </div>
   );
-};
+});
+
+Loader.displayName = 'Loader';

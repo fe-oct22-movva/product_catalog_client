@@ -1,12 +1,12 @@
-import React, {useEffect, useState} from 'react';
+import React, {memo, useEffect, useState} from 'react';
 import cart from '../../assets/images/Cart.svg';
 import {HeaderIconNavLink} from '../../pages/HomePage/Header/HeaderIconNavLink';
 
-export const CartNavBasket = () => {
+export const CartNavBasket = memo(() => {
   const [cartFromLocal, setCartFromLocal] = useState<string | null>(null);
 
-  const cartItems
-    = cartFromLocal === null ? [] : JSON.parse(cartFromLocal).length;
+  const cartItems =
+    cartFromLocal === null ? [] : JSON.parse(cartFromLocal).length;
 
   useEffect(() => {
     setCartFromLocal(localStorage.getItem('Cart'));
@@ -33,4 +33,6 @@ export const CartNavBasket = () => {
       }
     />
   );
-};
+});
+
+CartNavBasket.displayName = 'CartNavBasket';

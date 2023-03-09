@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {memo} from 'react';
 
 import logo from '../../assets/images/Logo.svg';
 import close from '../../images/CloseQuarter.svg';
@@ -80,4 +80,6 @@ export const BurgerMenu: React.FC<Props> = ({
       )}
     </>
   );
-};
+});
+
+BurgerMenu.displayName = 'BurgerMenu';

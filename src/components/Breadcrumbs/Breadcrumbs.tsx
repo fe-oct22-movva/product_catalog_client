@@ -2,8 +2,9 @@ import styles from '../Breadcrumbs/Breadcrumbs.module.scss';
 import home from '../../assets/images/Home.svg';
 import arrowRight from '../../assets/images/ArrowRight.svg';
 import {Link, useLocation} from 'react-router-dom';
+import {memo} from 'react';
 
-export const Breadcrumbs: React.FC = () => {
+export const Breadcrumbs: React.FC = memo(() => {
   const location = useLocation();
   let currentLink = '';
 
@@ -32,4 +33,6 @@ export const Breadcrumbs: React.FC = () => {
       </div>
     </div>
   );
-};
+});
+
+Breadcrumbs.displayName = 'Breadcrumbs';

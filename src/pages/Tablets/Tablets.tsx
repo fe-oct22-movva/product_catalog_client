@@ -1,5 +1,5 @@
 import './Tabltes.scss';
-import React, {useEffect, useState} from 'react';
+import React, {memo, useEffect, useState} from 'react';
 import {Breadcrumbs} from '../../components/Breadcrumbs';
 import styles from '../MobilePhones/MobilePhones.module.scss';
 import {ProductCardSingle} from '../../components/ProductCardSingle';
@@ -8,7 +8,7 @@ import {getTablets} from '../../api/phones';
 import {Notify} from 'notiflix/build/notiflix-notify-aio';
 import {Loader} from '../../components/Loader';
 
-export const Tablets: React.FC = () => {
+export const Tablets: React.FC = memo(() => {
   const [tablets, setTablets] = useState<Tablet[]>([]);
   const [areTabletsLoading, setAreTabletsLoading] = useState(false);
 
@@ -62,4 +62,6 @@ export const Tablets: React.FC = () => {
       </div>
     </div>
   );
-};
+});
+
+Tablets.displayName = 'Tablets';
