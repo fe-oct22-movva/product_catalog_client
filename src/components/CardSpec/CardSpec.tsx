@@ -118,7 +118,7 @@ export const CardSpec: React.FC<Props> = ({phones}) => {
             ))}
           </Slider>
 
-          <div className="phone__specs-main__feature grid__item grid__item--tablet-8-11 grid__item--desktop-13-19">
+          <div className="phone__specs-main__feature grid__item grid__item--tablet-8-12 grid__item--desktop-13-19">
             <div className="phone__specs-main__feature__title">
               <h5 className="phone__specs-main__feature__title-available">
                 Available colors

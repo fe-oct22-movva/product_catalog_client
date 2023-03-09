@@ -182,7 +182,6 @@ $selector-circle-width: 24px;
   &-slider {
     position: relative;
 
-    display: block;
     box-sizing: border-box;
 
     -webkit-user-select: none;
@@ -195,6 +194,14 @@ $selector-circle-width: 24px;
     -ms-touch-action: pan-y;
     touch-action: pan-y;
     -webkit-tap-highlight-color: transparent;
+
+    display: flex;
+    justify-content: center;
+
+    @include onTablet {
+      display: block;
+
+    }
   }
 
   &-list {
@@ -329,11 +336,14 @@ $selector-circle-width: 24px;
     height: max-content;
     gap: 15px;
 
-    top: 1px;
+    top: 0;
+    left: -55px;
   }
 
   @include onDesktop {
     gap: 5px;
+
+    left: 0;
   }
 }
 
