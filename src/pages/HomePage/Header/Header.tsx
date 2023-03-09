@@ -14,7 +14,7 @@ interface Props {
   setLoc: React.Dispatch<React.SetStateAction<string>>;
 }
 
-export const Header: React.FC<Props> = ({
+export const Header: React.FC<Props> = memo(({
   setIsBurgerActivated,
   isBurger,
   setLoc,
@@ -33,28 +33,28 @@ export const Header: React.FC<Props> = ({
               />
             </NavLink>
 
-              <nav className="nav">
-                <ul className="nav__list">
-                  <li className="nav__item" onClick={scrollTopDefault}>
-                    <HeaderNavLink to="/" textToDisplay="Home" />
-                  </li>
+            <nav className="nav">
+              <ul className="nav__list">
+                <li className="nav__item" onClick={scrollTopDefault}>
+                  <HeaderNavLink to="/" textToDisplay="Home" />
+                </li>
 
-                  <li className="nav__item">
-                    <HeaderNavLink to="/phones" textToDisplay="Phones" />
-                  </li>
+                <li className="nav__item">
+                  <HeaderNavLink to="/phones" textToDisplay="Phones" />
+                </li>
 
-                  <li className="nav__item">
-                    <HeaderNavLink to="/tablets" textToDisplay="Tablets" />
-                  </li>
+                <li className="nav__item">
+                  <HeaderNavLink to="/tablets" textToDisplay="Tablets" />
+                </li>
 
-                  <li className="nav__item">
-                    <HeaderNavLink
-                      to="/accessories"
-                      textToDisplay="Accessories"
-                    />
-                  </li>
-                </ul>
-              </nav>
+                <li className="nav__item">
+                  <HeaderNavLink
+                    to="/accessories"
+                    textToDisplay="Accessories"
+                  />
+                </li>
+              </ul>
+            </nav>
 
             <div className="aside-container">
               <div
@@ -73,18 +73,17 @@ export const Header: React.FC<Props> = ({
                 />
               </div>
 
-                <ul className="aside-container__list">
-                  <FavouritesNavHeart />
+              <ul className="aside-container__list">
+                <FavouritesNavHeart />
 
-                  <CartNavBasket />
-                </ul>
-              </div>
+                <CartNavBasket />
+              </ul>
             </div>
-          </header>
-        )}
-      </>
-    );
-  }
-);
+          </div>
+        </header>
+      )}
+    </>
+  );
+});
 
 Header.displayName = 'Header';

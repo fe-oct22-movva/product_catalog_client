@@ -12,7 +12,7 @@ export interface Props {
   locationMenu: string;
 }
 
-export const BurgerMenu: React.FC<Props> = ({
+export const BurgerMenu: React.FC<Props> = memo(({
   isBurger,
   setIsBurger,
   locationMenu,
