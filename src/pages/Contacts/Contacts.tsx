@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './Contacts.module.scss';
 import Maksim from '../../assets/images/contacts/maksim.jfif';
 import Viktoriia from '../../assets/images/contacts/viktoriia.jfif';
-import Volodymyr from '../../assets/images/contacts/volodymyr.jfif';
+import Volodymyr from '../../assets/images/contacts/volodymyr.jpg';
 import Artem from '../../assets/images/contacts/artem.jpg';
 import Olena from '../../assets/images/contacts/olena.jpg';
 import {Breadcrumbs} from '../../components/Breadcrumbs';
