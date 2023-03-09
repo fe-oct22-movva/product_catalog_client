@@ -16,6 +16,7 @@ import {ScrollToTop} from './utils/ScrollToTop';
 import {Contacts} from './pages/Contacts';
 import {CardSpec} from './components/CardSpec';
 import {Tablets} from './pages/Tablets/Tablets';
+import {InDevelopmentPage} from './components/InDevelopmentPage/InDevelopmentPage';
 
 export const App: React.FC = () => {
   const [phones, setPhones] = useState<Phone[]>([]);
@@ -50,6 +51,7 @@ export const App: React.FC = () => {
           <Route path="/favourites" element={<Favourites />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/tablets" element={<Tablets />} />
+          <Route path="/accessories" element={<InDevelopmentPage />} />
           <Route
             path="/menu"
             element={

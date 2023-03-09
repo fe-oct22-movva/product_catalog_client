@@ -15,20 +15,15 @@ export const Tablets = () => {
 
   return (
     <div className="tablets">
-
       <head>
         <title>Mobile phones</title>
       </head>
 
       <div className="main-container">
         <Breadcrumbs />
-        <h1 className="tablets__title">
-          Tablets
-        </h1>
+        <h1 className="tablets__title">Tablets</h1>
 
-        <p className="tablets__counter">
-          5 tablets
-        </p>
+        <p className="tablets__counter">5 tablets</p>
 
         <div className={styles.catalog}>
           {tablets.map((tablet) => (
