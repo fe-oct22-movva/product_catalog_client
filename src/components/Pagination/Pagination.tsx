@@ -1,15 +1,15 @@
-import { ArrowLeft } from '../ArrowLeft';
-import { ArrowRight } from '../ArrowRight';
+import {ArrowLeft} from '../ArrowLeft';
+import {ArrowRight} from '../ArrowRight';
 import styles from '../Pagination/Pagination.module.scss';
 import cn from 'classnames';
-import { Link, useSearchParams } from 'react-router-dom';
-import { usePageParams } from '../../controllers/usePageParams';
+import {Link, useSearchParams} from 'react-router-dom';
+import {usePageParams} from '../../controllers/usePageParams';
 
 interface Props {
   pagesNumber: number;
 }
 
-export const Pagination: React.FC<Props> = ({ pagesNumber }) => {
+export const Pagination: React.FC<Props> = ({pagesNumber}) => {
   const paginationPages = [];
 
   for (let i = 1; i <= pagesNumber; i++) {
@@ -56,34 +56,28 @@ export const Pagination: React.FC<Props> = ({ pagesNumber }) => {
   return (
     <div className={styles.pagination}>
       <ul className={styles.pagination__list}>
-        <ArrowLeft
-          handleSearchParamsUpdate={handleSearchParamsUpdate}
-        />
+        <ArrowLeft handleSearchParamsUpdate={handleSearchParamsUpdate} />
 
         {paginationPages.map((page) => (
-          <li key={page}>
+          <li key={page} className={styles.pagination__list__numbers}>
             <Link
               className={cn(styles.pagination__item, {
                 [styles.pagination__item__chosen]: currentPage === page,
               })}
               to={{
                 search: handleSearchParamsUpdate(page.toString()),
-              }}
-            >
+              }}>
               <p
                 className={cn(styles.pagination__link, {
                   [styles.pagination__link__chosen]: currentPage === page,
-                })}
-              >
+                })}>
                 {page}
               </p>
             </Link>
           </li>
         ))}
 
-        <ArrowRight
-          handleSearchParamsUpdate={handleSearchParamsUpdate}
-        />
+        <ArrowRight handleSearchParamsUpdate={handleSearchParamsUpdate} />
       </ul>
     </div>
   );
