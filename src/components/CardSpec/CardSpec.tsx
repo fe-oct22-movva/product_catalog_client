@@ -1,25 +1,25 @@
 /* eslint-disable react/jsx-key */
 /* eslint-disable no-unsafe-optional-chaining */
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React, { useEffect, useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import './CardSpec.scss';
 
 import Slider from 'react-slick';
 import {getPhoneById} from '../../api/phones';
-import { Phone, PhoneSpec } from '../../types/types';
+import {Phone, PhoneSpec} from '../../types/types';
 import {Button_addToCart} from '../Button_addToCart';
 import {Breadcrumbs} from '../Breadcrumbs';
 import classNames from 'classnames';
 import {checkerColor, checkerId, colorToHex} from '../../utils/helpers';
-import { useNavigate, useParams } from 'react-router-dom';
-import { Cards } from '../ProductCard';
-import { Loader } from '../Loader';
+import {useNavigate, useParams} from 'react-router-dom';
+import {Cards} from '../ProductCard';
+import {Loader} from '../Loader';
 
 type Props = {
-  phones: Phone[]
-}
+  phones: Phone[];
+};
 
-export const CardSpec: React.FC<Props> = ({ phones }) => {
+export const CardSpec: React.FC<Props> = ({phones}) => {
   const {phoneId = '0'} = useParams();
 
   const [phoneSpec, setPhoneSpec] = useState<PhoneSpec | null>(null);
@@ -140,7 +140,7 @@ export const CardSpec: React.FC<Props> = ({ phones }) => {
                     className={classNames('color-selector__inside', {
                       color: color === phoneSpec.color,
                     })}
-                    style={{ backgroundColor: colorToHex(color) }}
+                    style={{backgroundColor: colorToHex(color)}}
                   />
                 </button>
               ))}
@@ -157,7 +157,7 @@ export const CardSpec: React.FC<Props> = ({ phones }) => {
                     key={memory.toString()}
                     className={classNames(
                       'phone__specs-main__feature__capacity-btn__item',
-                      { memory__buttons: memory === phoneSpec.capacity }
+                      {memory__buttons: memory === phoneSpec.capacity}
                     )}
                     onClick={() => hadleClick(memory)}>
                     {memory}

@@ -7,7 +7,6 @@ import {localStorageAdd} from '../../utils/localStorageAdd';
 import {cartItem, favouriteItem} from '../../types/types';
 import {handleDelete} from '../../utils/localStorageRemove';
 import {isIncludeItemLocalStorage} from '../../utils/isIncludeItemLocalStorage';
-import { useLocation } from 'react-router-dom';
 
 interface Props {
   id: string;
