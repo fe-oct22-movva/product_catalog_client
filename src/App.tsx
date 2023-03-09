@@ -21,7 +21,7 @@ import {InDevelopmentPage} from './components/InDevelopmentPage';
 export const App: React.FC = () => {
   const [phones, setPhones] = useState<Phone[]>([]);
   const [isBurgerActivated, setIsBurgerActivated] = useState<boolean>(false);
-
+  const [locationMenu, setLocationMenu] = useState('');
   const location = useLocation();
 
   useEffect(() => {
@@ -39,6 +39,7 @@ export const App: React.FC = () => {
       <Header
         setIsBurgerActivated={setIsBurgerActivated}
         isBurger={isBurgerActivated}
+        setLoc={setLocationMenu}
       />
 
       <div className="sections">
@@ -66,6 +67,7 @@ export const App: React.FC = () => {
               <BurgerMenu
                 isBurger={isBurgerActivated}
                 setIsBurger={setIsBurgerActivated}
+                locationMenu={locationMenu}
               />
             }
           />

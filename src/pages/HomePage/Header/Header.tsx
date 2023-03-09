@@ -3,7 +3,7 @@ import menu from '../../../assets/images/Menu.svg';
 import logo from '../../../assets/images/Logo.svg';
 import {HeaderNavLink} from './HeaderNavLink';
 import {HeaderIconNavLink} from './HeaderIconNavLink';
-import {NavLink} from 'react-router-dom';
+import {NavLink, useLocation} from 'react-router-dom';
 import {FavouritesNavHeart} from '../../../components/FavouritesNavHeart';
 import {CartNavBasket} from '../../../components/CartNavBasket';
 import {scrollTopDefault} from '../../../utils/ScrollToTop';
@@ -11,9 +11,15 @@ import {scrollTopDefault} from '../../../utils/ScrollToTop';
 interface Props {
   setIsBurgerActivated: React.Dispatch<React.SetStateAction<boolean>>;
   isBurger: boolean;
+  setLoc: React.Dispatch<React.SetStateAction<string>>;
 }
 
-export const Header: React.FC<Props> = ({setIsBurgerActivated, isBurger}) => {
+export const Header: React.FC<Props> = ({
+  setIsBurgerActivated,
+  isBurger,
+  setLoc,
+}) => {
+  const location = useLocation();
   return (
     <>
       {!isBurger && (
@@ -53,7 +59,10 @@ export const Header: React.FC<Props> = ({setIsBurgerActivated, isBurger}) => {
             <div className="aside-container">
               <div
                 className="aside-container--burger"
-                onClick={() => setIsBurgerActivated((prevState) => !prevState)}>
+                onClick={() => {
+                  setIsBurgerActivated((prevState) => !prevState);
+                  setLoc(location.pathname);
+                }}>
                 <HeaderIconNavLink
                   to="/menu"
                   textToDisplay={

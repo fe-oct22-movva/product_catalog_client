@@ -15,7 +15,7 @@ export const HomePage: React.FC = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    setTimeout(() => setIsLoading(false), 3000);
+    setTimeout(() => setIsLoading(false), 2000);
 
     getAllPhones([
       ['sort', 'newest'],
