@@ -22,9 +22,9 @@
 
 .main-container {
   max-width: 1200px;
-  min-width: 360px;
-  margin: 0 auto;
+  min-width: 320px;
   padding: 0 16px;
+  margin: 0 auto;
 
   @include onTablet {
     padding: 0 24px;
