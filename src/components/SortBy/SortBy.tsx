@@ -3,8 +3,8 @@ import {Dispatch, SetStateAction, useEffect, useRef} from 'react';
 import arrowDown from '../../assets/images/ArrowDown.svg';
 import arrowUp from '../../assets/images/ArrowUp.svg';
 import styles from '../SortBy/SortBy.module.scss';
-import { useSearchParams } from 'react-router-dom';
-import { usePageParams } from '../../controllers/usePageParams';
+import {useSearchParams} from 'react-router-dom';
+import {usePageParams} from '../../controllers/usePageParams';
 
 interface Props {
   options: string[][];
@@ -85,20 +85,6 @@ export const SortBy: React.FC<Props> = ({
       transition: '0.3s ease',
     };
 
-  const stylesBlock = isSortByOpen
-    ? {
-      opacity: 1,
-      Visibility: 'visible',
-      transform: 'translateY(0)',
-      transition: '0.3s ease',
-    }
-    : {
-      opacity: 0,
-      Visibility: '',
-      transform: 'translateX(-20px)',
-      transition: '0.3s ease',
-    };
-
   return (
     <div
       ref={dropdownRef}
@@ -112,7 +98,9 @@ export const SortBy: React.FC<Props> = ({
 
       <div className={styles.dropdown}>
         <button className={styles.dropdown__header}>
-          <div className={styles.dropdown__header__title}>{getDropdownHeader()}</div>
+          <div className={styles.dropdown__header__title}>
+            {getDropdownHeader()}
+          </div>
 
           {!isSortByOpen ? (
             <img
