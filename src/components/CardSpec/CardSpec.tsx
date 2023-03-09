@@ -185,7 +185,7 @@ export const CardSpec: React.FC<Props> = ({phones}) => {
                 screen={phoneSpec.screen}
                 capacity={phoneSpec.capacity}
                 ram={phoneSpec.ram}
-                phoneId={''}
+                phoneId={phoneId}
               />
             </div>
 
