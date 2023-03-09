@@ -62,6 +62,7 @@ export const CardHomePage: FC<Props> = ({
         capacity={capacity}
         ram={ram}
         screen={screen}
+        phoneId={phoneId}
       />
     </div>
   );

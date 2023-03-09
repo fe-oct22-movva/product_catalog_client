@@ -165,6 +165,7 @@ export const CardSpec: React.FC = () => {
                 screen={''}
                 capacity={''}
                 ram={''}
+                phoneId={''}
               />
             </div>
 
