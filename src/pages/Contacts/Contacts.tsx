@@ -17,7 +17,6 @@ export const Contacts: React.FC = () => {
 
       <div className="main-container">
         <Breadcrumbs />
-        <div className="grid grid--mobile grid--tablet grid--desktop">
           <div className={styles.contacts}>
             <h1 className={styles.contacts__title}>Contacts</h1>
             <div className={styles.contacts__description}>
@@ -70,8 +69,7 @@ export const Contacts: React.FC = () => {
               />
             </div>
           </div>
-        </div>
-      </div>
+       </div>
     </>
   );
 };
