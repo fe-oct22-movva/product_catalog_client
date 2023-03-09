@@ -1,24 +1,52 @@
 /* eslint-disable  @typescript-eslint/no-explicit-any */
-import {Dispatch, SetStateAction, useEffect, useRef} from 'react';
-import arrowDown from '../../assets/images/ArrowDown.svg';
 import arrowUp from '../../assets/images/ArrowUp.svg';
+import React, { Dispatch, SetStateAction, useEffect, useRef } from 'react';
+import { useSearchParams} from 'react-router-dom';
+import arrowDown from '../../assets/images/ArrowDown.svg';
 import styles from '../ItemsOnPage/ItemsOnPage.module.scss';
 
 const itemsOnPageOptions = [12, 16, 20];
 
 interface Props {
-  setSelectedPhonesPerPage: React.Dispatch<React.SetStateAction<number>>;
-  selectedPhonesPerPage: number;
+  defaultValue: number;
   isItemsOnPageOpen: boolean;
   setItemsOnPageOpen: Dispatch<SetStateAction<boolean>>;
 }
 
 export const ItemsOnPage: React.FC<Props> = ({
-  setSelectedPhonesPerPage,
+  defaultValue,
   isItemsOnPageOpen,
-  selectedPhonesPerPage,
   setItemsOnPageOpen,
 }) => {
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const handleSearchParamsUpdate = (givenParamValue: string) => {
+    const newParams = new URLSearchParams(searchParams.toString());
+
+    const paramsToUpdate = {
+      perPage: givenParamValue,
+      page: '1',
+    };
+
+    Object.entries(paramsToUpdate).forEach(([key, value]) => {
+      if (value === null) {
+        newParams.delete(key);
+      } else if (Array.isArray(value)) {
+        newParams.delete(key);
+
+        value.forEach((part) => {
+          newParams.append(key, part);
+        });
+      } else {
+        newParams.set(key, value);
+      }
+    });
+
+    const updatedParams = newParams.toString();
+
+    setSearchParams(updatedParams);
+  };
+
   const dropdownRef = useRef<any>();
 
   useEffect(() => {
@@ -33,10 +61,6 @@ export const ItemsOnPage: React.FC<Props> = ({
       document.removeEventListener('click', handleClickOutside, true);
     };
   }, [dropdownRef]);
-
-  const selectOption = (value: number) => {
-    setSelectedPhonesPerPage(value);
-  };
 
   const stylesBlock = isItemsOnPageOpen
     ? {
@@ -64,7 +88,7 @@ export const ItemsOnPage: React.FC<Props> = ({
       <div className={styles.dropdown}>
         <button className={styles.dropdown__header}>
           <div className={styles.dropdown__header__title}>
-            {selectedPhonesPerPage}
+            {defaultValue}
           </div>
           {!isItemsOnPageOpen ? (
             <img
@@ -80,9 +104,10 @@ export const ItemsOnPage: React.FC<Props> = ({
           {itemsOnPageOptions.map((option) => (
             <button
               key={option}
+              value={option}
               className={styles.dropdown__option}
               onClick={() => {
-                selectOption(option);
+                handleSearchParamsUpdate(option.toString());
               }}>
               {option}
             </button>

@@ -69,14 +69,6 @@ export interface serverResponse {
   phoneSpec: PhoneSpec;
 }
 
-export enum SortTypes {
-  NEWEST = 'newest',
-  OLDEST = 'oldest',
-  ALPHABETICALLY = 'alphabetically',
-  CHEAPEST = 'cheapest',
-  MORE_EXPENSIVE = 'moreExpensive',
-}
-
 export interface cartItem {
   id: string;
   img: string;
