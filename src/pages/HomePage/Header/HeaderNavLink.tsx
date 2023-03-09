@@ -1,4 +1,4 @@
-import React, {ReactNode} from 'react';
+import React, {memo, ReactNode} from 'react';
 import {NavLink, To} from 'react-router-dom';
 import cn from 'classnames';
 
@@ -7,12 +7,16 @@ type Props = {
   textToDisplay: string | ReactNode;
 };
 
-export const HeaderNavLink: React.FC<Props> = ({to, textToDisplay}) => (
-  <NavLink
-    to={to}
-    className={({isActive}) =>
-      cn('nav__link', {'nav__link--active': isActive})
-    }>
-    {textToDisplay}
-  </NavLink>
+export const HeaderNavLink: React.FC<Props> = memo(
+  ({to, textToDisplay}) => (
+    <NavLink
+      to={to}
+      className={({isActive}) =>
+        cn('nav__link', {'nav__link--active': isActive})
+      }>
+      {textToDisplay}
+    </NavLink>
+  ),
 );
+
+HeaderNavLink.displayName = 'HeaderNavLink';

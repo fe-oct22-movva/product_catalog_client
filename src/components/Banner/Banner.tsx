@@ -2,8 +2,8 @@
 
 import React from 'react';
 import Slider from 'react-slick';
-import './styles/banner.scss';
-import './styles/slider.scss';
+import '../../styles/blocks/banner.scss';
+import '../../styles/blocks/slider.scss';
 import '../../styles/grid.scss';
 import banner_first from '../../assets/images/banner.jpg';
 import banner_second from '../../assets/images/banner-phones.png';

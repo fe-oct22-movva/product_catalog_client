@@ -1,10 +1,9 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, {useEffect, useState} from 'react';
+import './styles/main.scss';
 import {Header} from './pages/HomePage/Header';
 import {Footer} from './components/Footer';
 import {HomePage} from './pages/HomePage/HomePage';
 import {Route, Routes, Navigate, useLocation} from 'react-router-dom';
-import './styles/main.scss';
 import {PageNotFound} from './components/PageNotFound';
 import {MobilePhones} from './pages/MobilePhones';
 import {Favourites} from './components/Favourites/Favourites';

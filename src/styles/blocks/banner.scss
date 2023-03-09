@@ -1,6 +1,6 @@
 @import './slider.scss';
-@import '../../../styles/utils/mixins.scss';
-@import '../../../styles/normalize';
+@import '../utils/mixins';
+@import '../normalize.scss';
 
 .banner {
   margin-bottom: 112px;
@@ -58,14 +58,14 @@
 
     &--first {
       height: max-content;
-      content: url('../../../assets/images/banner.jpg');
+      content: url('../../assets/images/banner.jpg');
 
       @include onTablet {
-        content: url('../../../assets/images/banner-tablet.jpg');
+        content: url('../../assets/images/banner-tablet.jpg');
       }
 
       @include onDesktop {
-        content: url('../../../assets/images/banner-desktop.jpg');
+        content: url('../../assets/images/banner-desktop.jpg');
       }
     }
   }
