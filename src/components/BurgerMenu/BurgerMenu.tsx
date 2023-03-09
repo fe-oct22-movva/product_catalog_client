@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 
 import logo from '../../assets/images/Logo.svg';
 import close from '../../images/CloseQuarter.svg';
@@ -30,7 +30,10 @@ export const BurgerMenu: React.FC<Props> = ({
               <img src={logo} className="burger__logo" alt="website logo" />
             </a>
 
-            <a href={`#${locationMenu}`} className="header__link-close" onClick={toggleMenu}>
+            <a
+              href={`#${locationMenu}`}
+              className="header__link-close"
+              onClick={toggleMenu}>
               <img src={close} className="burger__close" alt="Close button" />
             </a>
           </div>
