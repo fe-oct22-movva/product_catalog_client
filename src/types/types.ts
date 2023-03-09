@@ -70,6 +70,7 @@ export interface cartItem {
   name: string;
   amount: number;
   price: number;
+  phoneId: string;
 }
 
 export interface favouriteItem {
@@ -81,6 +82,7 @@ export interface favouriteItem {
   screen: string;
   capacity: string;
   ram: string;
+  phoneId: string;
 }
 
 export interface Cart {
