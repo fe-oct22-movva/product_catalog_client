@@ -29,7 +29,7 @@ export const ProductCardSingle: React.FC<Props> = ({
 }) => {
   return (
     <div className={styles.card}>
-      <Link to={phoneId}>
+      <Link to={phoneId} className={styles.card__icon}>
         <img className={styles.card__icon} src={img} />
       </Link>
 
@@ -69,6 +69,7 @@ export const ProductCardSingle: React.FC<Props> = ({
         capacity={capacity}
         ram={ram}
         fullPrice={fullPrice}
+        phoneId={phoneId}
       />
     </div>
   );
