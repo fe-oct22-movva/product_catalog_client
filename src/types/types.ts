@@ -15,6 +15,18 @@ export interface Phone {
   image: string;
 }
 
+export interface Tablet {
+  id: number;
+  category: string;
+  name: string;
+  price: number;
+  screen: string;
+  capacity: string;
+  ram: string;
+  year: number;
+  image: string;
+}
+
 interface description {
   title: string;
   text: string[];
