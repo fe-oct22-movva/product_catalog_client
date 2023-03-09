@@ -58,11 +58,11 @@ export const CardSpec: React.FC<Props> = ({phones}) => {
   const individualIdForPage = phoneId.split('-').slice(0, 3).join('-');
 
   const hadleClick = (memory: string) => {
-    pageHistory(`/${checkerId(phoneId, memory)}`);
+    pageHistory(`/phones/${checkerId(phoneId, memory)}`);
   };
 
   const hadleColor = (color: string) => {
-    pageHistory(`/${checkerColor(phoneId, color)}`);
+    pageHistory(`/phones/${checkerColor(phoneId, color)}`);
   };
 
   const listOfSpec = [
