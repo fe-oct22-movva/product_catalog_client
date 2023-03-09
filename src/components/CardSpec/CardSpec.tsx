@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-key */
 /* eslint-disable no-unsafe-optional-chaining */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React, {useEffect, useState} from 'react';
@@ -5,44 +6,63 @@ import './CardSpec.scss';
 
 import Slider from 'react-slick';
 import {getPhoneById} from '../../api/phones';
-import {PhoneSpec} from '../../types/types';
+import {Phone, PhoneSpec} from '../../types/types';
 import {Button_addToCart} from '../Button_addToCart';
 import {Breadcrumbs} from '../Breadcrumbs';
 import classNames from 'classnames';
 import {checkerColor, checkerId, colorToHex} from '../../utils/helpers';
 import {useNavigate, useParams} from 'react-router-dom';
+import {Cards} from '../ProductCard';
+import {Loader} from '../Loader';
 
-export const CardSpec: React.FC = () => {
+type Props = {
+  phones: Phone[];
+};
+
+export const CardSpec: React.FC<Props> = ({phones}) => {
   const {phoneId = '0'} = useParams();
 
   const [phoneSpec, setPhoneSpec] = useState<PhoneSpec | null>(null);
-  const [oldIdPhone, setOldIdPhone] = useState(phoneId);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
 
   const pageHistory = useNavigate();
 
   useEffect(() => {
-    getPhoneById(oldIdPhone)
+    setIsLoading(true);
+    getPhoneById(phoneId)
       .then((response: any) => {
         setPhoneSpec(response);
+        setIsLoading(false);
       })
       .catch((error) => console.warn(error));
-    if (oldIdPhone !== phoneId) {
-      pageHistory(`/phones/${oldIdPhone}`);
-    }
-  }, [oldIdPhone, pageHistory]);
+  }, [phoneId]);
 
-  if (phoneSpec === null) {
-    return null;
+  useEffect(() => {
+    const handleLocationChange = (event: PopStateEvent) => {
+      if (event.state && event.state.phoneId !== phoneId) {
+        pageHistory(`/phones/${event.state.phoneId}`);
+      }
+    };
+
+    window.addEventListener('popstate', handleLocationChange);
+
+    return () => {
+      window.removeEventListener('popstate', handleLocationChange);
+    };
+  }, [pageHistory, phoneId]);
+
+  if (isLoading || phoneSpec === null) {
+    return <Loader />;
   }
 
   const individualIdForPage = phoneId.split('-').slice(0, 3).join('-');
 
   const hadleClick = (memory: string) => {
-    setOldIdPhone(checkerId(oldIdPhone, memory));
+    pageHistory(`/${checkerId(phoneId, memory)}`);
   };
 
   const hadleColor = (color: string) => {
-    setOldIdPhone(checkerColor(oldIdPhone, color));
+    pageHistory(`/${checkerColor(phoneId, color)}`);
   };
 
   const listOfSpec = [
@@ -105,7 +125,7 @@ export const CardSpec: React.FC = () => {
               </h5>
 
               <p className="phone__specs-main__feature__title-id">
-                {individualIdForPage}
+                {`ID: ${individualIdForPage}`}
               </p>
             </div>
 
@@ -137,7 +157,7 @@ export const CardSpec: React.FC = () => {
                     key={memory.toString()}
                     className={classNames(
                       'phone__specs-main__feature__capacity-btn__item',
-                      {active: memory === phoneSpec.capacity}
+                      {memory__buttons: memory === phoneSpec.capacity}
                     )}
                     onClick={() => hadleClick(memory)}>
                     {memory}
@@ -157,14 +177,15 @@ export const CardSpec: React.FC = () => {
                 </p>
               </div>
               <Button_addToCart
-                id={''}
-                img={''}
-                price={0}
-                name={''}
-                fullPrice={0}
-                screen={''}
-                capacity={''}
-                ram={''}
+                id={phoneId}
+                img={`https://raw.githubusercontent.com/fe-oct22-movva/images_for_product_catalog_api/master/${phoneSpec.images[0]}`}
+                price={phoneSpec.priceDiscount}
+                name={phoneSpec.name}
+                fullPrice={phoneSpec.priceDiscount}
+                screen={phoneSpec.screen}
+                capacity={phoneSpec.capacity}
+                ram={phoneSpec.ram}
+                phoneId={phoneId}
               />
             </div>
 
@@ -240,6 +261,8 @@ export const CardSpec: React.FC = () => {
           </section>
         </div>
       </div>
+
+      <Cards newestPhones={phones} title={'You may also like'} />
     </div>
   );
 };

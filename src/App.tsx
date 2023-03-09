@@ -46,12 +46,17 @@ export const App: React.FC = () => {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/phones" element={<MobilePhones />} />
-          <Route path="phones/:phoneId" element={<CardSpec />} />
+          <Route path="/phones/:phoneId" element={<CardSpec phones={phones} />} />
           <Route path="/contacts" element={<Contacts />} />
           <Route path="/favourites" element={<Favourites />} />
+          <Route
+            path="favourites/:phoneId"
+            element={<CardSpec phones={phones} />}
+          />
           <Route path="/cart" element={<Cart />} />
           <Route path="/tablets" element={<Tablets />} />
           <Route path="/accessories" element={<InDevelopmentPage />} />
+          <Route path="cart/:phoneId" element={<CardSpec phones={phones} />} />
           <Route
             path="/menu"
             element={

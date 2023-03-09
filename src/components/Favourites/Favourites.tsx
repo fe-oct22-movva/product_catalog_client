@@ -52,6 +52,7 @@ export const Favourites = () => {
                     screen={favouritesItem.screen}
                     capacity={favouritesItem.capacity}
                     ram={favouritesItem.ram}
+                    phoneId={favouritesItem.phoneId}
                   />
                 </div>
               ))}
