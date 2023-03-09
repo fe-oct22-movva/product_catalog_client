@@ -48,7 +48,7 @@ export const SortBy: React.FC<Props> = ({
     }
     : {
       opacity: 0,
-      Visibility: 'hidden',
+      Visibility: '',
       transform: 'translateX(-20px)',
       transition: '0.3s ease',
     };
