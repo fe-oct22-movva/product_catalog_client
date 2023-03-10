@@ -62,7 +62,7 @@ export const Tablets: React.FC<Props> = memo(({
                     capacity={tablet.capacity}
                     ram={tablet.ram}
                     fullPrice={tablet.fullPrice}
-                    phoneId={tablet.name}
+                    phoneId='tablet-page'
                   />
                 </div>
               ))}

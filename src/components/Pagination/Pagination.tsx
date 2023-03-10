@@ -60,7 +60,7 @@ export const Pagination: React.FC<Props> = memo(({pagesNumber}) => {
         <ArrowLeft handleSearchParamsUpdate={handleSearchParamsUpdate} />
 
         {paginationPages.map((page) => (
-          <li key={page}>
+          <li key={page} className={styles.pagination__list__numbers}>
             <Link
               className={cn(styles.pagination__item, {
                 [styles.pagination__item__chosen]: currentPage === page,

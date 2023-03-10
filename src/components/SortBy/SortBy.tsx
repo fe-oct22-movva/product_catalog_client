@@ -88,10 +88,7 @@ export const SortBy: React.FC<Props> = ({
   return (
     <div
       ref={dropdownRef}
-      className={`
-      ${styles.sortBy}
-      
-    `}>
+      className={styles.sortBy}>
       <div>
         <p className={styles.sortBy__description}>Sort by</p>
       </div>
