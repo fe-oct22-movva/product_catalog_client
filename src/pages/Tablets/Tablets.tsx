@@ -12,9 +12,7 @@ interface Props {
   setIsLoader: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-export const Tablets: React.FC<Props> = memo(({
-  setIsLoader,
-}) => {
+export const Tablets: React.FC<Props> = memo(({setIsLoader}) => {
   const [tablets, setTablets] = useState<Tablet[]>([]);
   const [areTabletsLoading, setAreTabletsLoading] = useState(false);
 

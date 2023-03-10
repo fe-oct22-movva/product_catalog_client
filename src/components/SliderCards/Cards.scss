@@ -112,6 +112,12 @@
     border-radius: 20px;
   }
 
+  &__container {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+  }
+
   @include onTablet {
     width: 248px;
   }
@@ -160,6 +166,20 @@
     @include onDesktop {
       line-height: 21px;
       min-height: 42px;
+    }
+  }
+
+  &__Fullprice {
+    position: relative;
+    font-weight: 600;
+    font-size: 17px;
+    padding-left: 8px;
+
+    text-decoration-line: line-through;
+    color: #89939a;
+
+    &::before {
+      content: '$';
     }
   }
 

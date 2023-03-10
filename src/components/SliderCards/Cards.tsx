@@ -72,6 +72,7 @@ export const Cards: React.FC<Props> = ({newestPhones, title}) => {
               capacity={phone.capacity}
               ram={phone.ram}
               phoneId={phone.phoneId}
+              title={title}
             />
           </div>
         ))}

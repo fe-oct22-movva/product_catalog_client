@@ -12,13 +12,13 @@ interface Props {
   setIsLoader: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-export const HomePage: React.FC<Props> = memo(({
-  setIsLoader,
-}) => {
+export const HomePage: React.FC<Props> = memo(({setIsLoader}) => {
   const [newestPhones, setNewestPhones] = useState<Phone[]>([]);
   const [cheapestPhones, setCheapestPhones] = useState<Phone[]>([]);
   const [phonesNumber, setPhonesNumber] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
+
+  console.log('cheap', cheapestPhones);
 
   console.log(newestPhones);
 
@@ -30,7 +30,7 @@ export const HomePage: React.FC<Props> = memo(({
     }, 1000);
 
     getAllPhones([
-      ['sort', 'newest'],
+      ['sortBy', 'newest'],
       ['limit', '12'],
     ])
       .then((data) => {
@@ -46,7 +46,7 @@ export const HomePage: React.FC<Props> = memo(({
       });
 
     getAllPhones([
-      ['sort', 'cheapest'],
+      ['sortBy', 'hotPrice'],
       ['limit', '12'],
     ])
       .then((data) => {

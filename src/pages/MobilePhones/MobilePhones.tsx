@@ -16,9 +16,7 @@ interface Props {
   setIsLoader: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-export const MobilePhones: React.FC<Props> = memo(({
-  setIsLoader,
-}) => {
+export const MobilePhones: React.FC<Props> = memo(({setIsLoader}) => {
   const [phones, setPhones] = useState<Phone[]>([]);
   const [phonesNumber, setPhonesNumber] = useState(0);
   const [pagesNumber, setPagesNumber] = useState(0);
@@ -91,8 +89,7 @@ export const MobilePhones: React.FC<Props> = memo(({
                 {phonesNumber} models
               </p>
 
-              <div
-                className={`${styles.filter} grid`}>
+              <div className={`${styles.filter} grid`}>
                 <div
                   className={`
                   ${styles.filter__container} 
