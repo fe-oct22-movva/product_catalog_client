@@ -20,10 +20,7 @@ type Props = {
   setIsLoader: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-export const CardSpec: React.FC<Props> = memo(({
-  phones,
-  setIsLoader,
-}) => {
+export const CardSpec: React.FC<Props> = memo(({phones, setIsLoader}) => {
   const {phoneId = '0'} = useParams();
 
   const [phoneSpec, setPhoneSpec] = useState<PhoneSpec | null>(null);

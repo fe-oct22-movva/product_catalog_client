@@ -115,8 +115,8 @@
   &__container {
     display: flex;
     flex-direction: row;
-    justify-content: start
-   }
+    justify-content: start;
+  }
 
   @include onTablet {
     width: 248px;

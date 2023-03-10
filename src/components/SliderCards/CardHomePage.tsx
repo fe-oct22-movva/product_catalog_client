@@ -12,7 +12,7 @@ interface Props {
   capacity: string;
   ram: string;
   phoneId: string;
-  title?: string
+  title?: string;
 }
 
 export const CardHomePage: FC<Props> = ({
@@ -39,7 +39,9 @@ export const CardHomePage: FC<Props> = ({
 
       <div className="card__container">
         <p className="card__price">{price}</p>
-        {title === 'Hot prices' && <p className="card__Fullprice">{fullPrice}</p>}
+        {title === 'Hot prices' && (
+          <p className="card__Fullprice">{fullPrice}</p>
+        )}
       </div>
 
       <p className="card__break-line"></p>

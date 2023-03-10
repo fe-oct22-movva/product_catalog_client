@@ -47,30 +47,30 @@ export const App: React.FC = () => {
         <ScrollToTop />
         <Routes>
           <Route path="/" element={<HomePage setIsLoader={setIsLoader} />} />
-          <Route path="/phones" element={<MobilePhones setIsLoader={setIsLoader} />} />
+          <Route
+            path="/phones"
+            element={<MobilePhones setIsLoader={setIsLoader} />}
+          />
           <Route
             path="/phones/:phoneId"
-            element={<CardSpec
-              phones={phones}
-              setIsLoader={setIsLoader}
-            />}
+            element={<CardSpec phones={phones} setIsLoader={setIsLoader} />}
           />
           <Route path="/contacts" element={<Contacts />} />
           <Route path="/favourites" element={<Favourites />} />
           <Route
             path="favourites/:phoneId"
-            element={<CardSpec
-              phones={phones}
-              setIsLoader={setIsLoader}
-            />}
+            element={<CardSpec phones={phones} setIsLoader={setIsLoader} />}
           />
           <Route path="/cart" element={<Cart />} />
-          <Route path="/tablets" element={<Tablets setIsLoader={setIsLoader} />} />
+          <Route
+            path="/tablets"
+            element={<Tablets setIsLoader={setIsLoader} />}
+          />
           <Route path="/accessories" element={<InDevelopmentPage />} />
-          <Route path="cart/:phoneId" element={<CardSpec
-            phones={phones}
-            setIsLoader={setIsLoader}
-          />} />
+          <Route
+            path="cart/:phoneId"
+            element={<CardSpec phones={phones} setIsLoader={setIsLoader} />}
+          />
           <Route
             path="/menu"
             element={
@@ -86,11 +86,7 @@ export const App: React.FC = () => {
         </Routes>
       </div>
 
-      {
-        !isLoader && (
-          <Footer isBurgerActivated={isBurgerActivated} />
-        )
-      }
+      {!isLoader && <Footer isBurgerActivated={isBurgerActivated} />}
     </div>
   );
 };
