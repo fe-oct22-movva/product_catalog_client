@@ -24,6 +24,10 @@ export const Tablets: React.FC = memo(() => {
       .finally(() => setAreTabletsLoading(false));
   }, []);
 
+  const getTabletId = (tabletName: string) => {
+    return tabletName.toLowerCase().replace(/[()']/g, '').split(' ').join('-');
+  };
+
   return (
     <div className="tablets">
       <head>
@@ -52,7 +56,7 @@ export const Tablets: React.FC = memo(() => {
                     capacity={tablet.capacity}
                     ram={tablet.ram}
                     fullPrice={tablet.fullPrice}
-                    phoneId={tablet.name}
+                    phoneId={getTabletId(tablet.name)}
                   />
                 </div>
               ))}
