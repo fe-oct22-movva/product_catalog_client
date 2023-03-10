@@ -48,15 +48,15 @@
 
   &__title {
     margin-bottom: 8px;
-    min-height: 50px;
+    min-height: 42px;
 
     font-weight: 400;
     font-size: 15px;
-    line-height: 17px;
+    line-height: 21px;
 
     @include onTablet {
       line-height: 21px;
-      min-height: 42px;
+      min-height: 63px;
     }
 
     @include onDesktop {
