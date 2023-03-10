@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, {memo, useEffect, useMemo, useState} from 'react';
 import styles from './MobilePhones.module.scss';
 
@@ -83,7 +82,7 @@ export const MobilePhones: React.FC = memo(() => {
               </p>
 
               <div
-                className={`${styles.filter} grid grid--mobile grid--tablet grid--desktop`}>
+                className={`${styles.filter} grid`}>
                 <div
                   className={`
                   ${styles.filter__container} 
