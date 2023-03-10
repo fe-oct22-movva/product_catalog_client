@@ -38,7 +38,7 @@ export const Footer: React.FC<Props> = memo(({isBurgerActivated}) => {
                 <ul className="footer-nav__list">
                   <li className="footer-nav__item">
                     <a
-                      href="https://github.com/fe-oct22-movva/product_catalog_client"
+                      href="https://github.com/fe-oct22-movva"
                       className="footer-nav__link"
                       target="_blank"
                       rel="noreferrer">
