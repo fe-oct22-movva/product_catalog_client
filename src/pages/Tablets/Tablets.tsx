@@ -8,11 +8,18 @@ import {getTablets} from '../../api/phones';
 import {Notify} from 'notiflix/build/notiflix-notify-aio';
 import {Loader} from '../../components/Loader';
 
-export const Tablets: React.FC = memo(() => {
+interface Props {
+  setIsLoader: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+export const Tablets: React.FC<Props> = memo(({
+  setIsLoader,
+}) => {
   const [tablets, setTablets] = useState<Tablet[]>([]);
   const [areTabletsLoading, setAreTabletsLoading] = useState(false);
 
   useEffect(() => {
+    setIsLoader(true);
     setAreTabletsLoading(true);
 
     getTablets()
@@ -21,7 +28,10 @@ export const Tablets: React.FC = memo(() => {
         console.log(error);
         Notify.failure('Oops, something went wrong. Please try again later.');
       })
-      .finally(() => setAreTabletsLoading(false));
+      .finally(() => {
+        setAreTabletsLoading(false);
+        setIsLoader(false);
+      });
   }, []);
 
   return (

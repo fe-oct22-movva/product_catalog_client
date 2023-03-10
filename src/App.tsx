@@ -21,6 +21,8 @@ export const App: React.FC = () => {
   const [phones, setPhones] = useState<Phone[]>([]);
   const [isBurgerActivated, setIsBurgerActivated] = useState<boolean>(false);
   const [locationMenu, setLocationMenu] = useState('');
+  const [isLoader, setIsLoader] = useState<boolean>(true);
+
   const location = useLocation();
 
   useEffect(() => {
@@ -44,24 +46,31 @@ export const App: React.FC = () => {
       <div className="sections">
         <ScrollToTop />
         <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/phones" element={<MobilePhones />} />
+          <Route path="/" element={<HomePage setIsLoader={setIsLoader} />} />
+          <Route path="/phones" element={<MobilePhones setIsLoader={setIsLoader} />} />
           <Route
             path="/phones/:phoneId"
-            element={<CardSpec phones={phones} />}
+            element={<CardSpec
+              phones={phones}
+              setIsLoader={setIsLoader}
+            />}
           />
           <Route path="/contacts" element={<Contacts />} />
           <Route path="/favourites" element={<Favourites />} />
           <Route
             path="favourites/:phoneId"
-            element={<CardSpec phones={phones} />}
+            element={<CardSpec
+              phones={phones}
+              setIsLoader={setIsLoader}
+            />}
           />
           <Route path="/cart" element={<Cart />} />
-          <Route path="/tablets" element={<Tablets />} />
-          <Route path="/tablets/:phoneId" element={<InDevelopmentPage />}
-          />
+          <Route path="/tablets" element={<Tablets setIsLoader={setIsLoader} />} />
           <Route path="/accessories" element={<InDevelopmentPage />} />
-          <Route path="cart/:phoneId" element={<CardSpec phones={phones} />} />
+          <Route path="cart/:phoneId" element={<CardSpec
+            phones={phones}
+            setIsLoader={setIsLoader}
+          />} />
           <Route
             path="/menu"
             element={
@@ -77,7 +86,11 @@ export const App: React.FC = () => {
         </Routes>
       </div>
 
-      <Footer isBurgerActivated={isBurgerActivated} />
+      {
+        !isLoader && (
+          <Footer isBurgerActivated={isBurgerActivated} />
+        )
+      }
     </div>
   );
 };
