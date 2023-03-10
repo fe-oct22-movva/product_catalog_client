@@ -20,6 +20,8 @@ export const HomePage: React.FC<Props> = memo(({
   const [phonesNumber, setPhonesNumber] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
 
+  console.log('cheap', cheapestPhones)
+
   console.log(newestPhones);
 
   useEffect(() => {
@@ -30,7 +32,7 @@ export const HomePage: React.FC<Props> = memo(({
     }, 1000);
 
     getAllPhones([
-      ['sort', 'newest'],
+      ['sortBy', 'newest'],
       ['limit', '12'],
     ])
       .then((data) => {
@@ -46,7 +48,7 @@ export const HomePage: React.FC<Props> = memo(({
       });
 
     getAllPhones([
-      ['sort', 'cheapest'],
+      ['sortBy', 'hotPrice'],
       ['limit', '12'],
     ])
       .then((data) => {
