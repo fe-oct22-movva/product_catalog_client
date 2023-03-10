@@ -19,7 +19,7 @@
   }
 
   @include onTablet {
-    height: 506px;
+    height: 520px;
   }
 
   @include onDesktop {
@@ -53,6 +53,16 @@
     font-weight: 400;
     font-size: 15px;
     line-height: 21px;
+
+    @include onTablet {
+      line-height: 21px;
+      min-height: 63px;
+    }
+
+    @include onDesktop {
+      line-height: 21px;
+      min-height: 42px;
+    }
   }
 
   &__link {
