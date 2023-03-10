@@ -14,76 +14,74 @@ interface Props {
   setLoc: React.Dispatch<React.SetStateAction<string>>;
 }
 
-export const Header: React.FC<Props> = memo(({
-  setIsBurgerActivated,
-  isBurger,
-  setLoc,
-}) => {
-  const location = useLocation();
-  return (
-    <>
-      {!isBurger && (
-        <header className="page__section header">
-          <div className="header__content">
-            <NavLink to="/" className="logo" onClick={scrollTopDefault}>
-              <img
-                className="logo__img"
-                src={logo}
-                alt="Welcome to the Nice Gadgets"
-              />
-            </NavLink>
-
-            <nav className="nav">
-              <ul className="nav__list">
-                <li className="nav__item" onClick={scrollTopDefault}>
-                  <HeaderNavLink to="/" textToDisplay="Home" />
-                </li>
-
-                <li className="nav__item">
-                  <HeaderNavLink to="/phones" textToDisplay="Phones" />
-                </li>
-
-                <li className="nav__item">
-                  <HeaderNavLink to="/tablets" textToDisplay="Tablets" />
-                </li>
-
-                <li className="nav__item">
-                  <HeaderNavLink
-                    to="/accessories"
-                    textToDisplay="Accessories"
-                  />
-                </li>
-              </ul>
-            </nav>
-
-            <div className="aside-container">
-              <div
-                className="aside-container--burger"
-                onClick={() => {
-                  setIsBurgerActivated((prevState) => !prevState);
-                  setLoc(location.pathname);
-                }}>
-                <HeaderIconNavLink
-                  to="/menu"
-                  textToDisplay={
-                    <li className="aside-container__item">
-                      <img src={menu} alt="menu" />
-                    </li>
-                  }
+export const Header: React.FC<Props> = memo(
+  ({setIsBurgerActivated, isBurger, setLoc}) => {
+    const location = useLocation();
+    return (
+      <>
+        {!isBurger && (
+          <header className="page__section header">
+            <div className="header__content">
+              <NavLink to="/" className="logo" onClick={scrollTopDefault}>
+                <img
+                  className="logo__img"
+                  src={logo}
+                  alt="Welcome to the Nice Gadgets"
                 />
+              </NavLink>
+
+              <nav className="nav">
+                <ul className="nav__list">
+                  <li className="nav__item" onClick={scrollTopDefault}>
+                    <HeaderNavLink to="/" textToDisplay="Home" />
+                  </li>
+
+                  <li className="nav__item">
+                    <HeaderNavLink to="/phones" textToDisplay="Phones" />
+                  </li>
+
+                  <li className="nav__item">
+                    <HeaderNavLink to="/tablets" textToDisplay="Tablets" />
+                  </li>
+
+                  <li className="nav__item">
+                    <HeaderNavLink
+                      to="/accessories"
+                      textToDisplay="Accessories"
+                    />
+                  </li>
+                </ul>
+              </nav>
+
+              <div className="aside-container">
+                <div
+                  className="aside-container--burger"
+                  onClick={() => {
+                    setIsBurgerActivated((prevState) => !prevState);
+                    setLoc(location.pathname);
+                  }}>
+                  <HeaderIconNavLink
+                    to="/menu"
+                    textToDisplay={
+                      <li className="aside-container__item">
+                        <img src={menu} alt="menu" />
+                      </li>
+                    }
+                  />
+                </div>
+
+                <ul className="aside-container__list">
+                  <FavouritesNavHeart />
+
+                  <CartNavBasket />
+                </ul>
               </div>
-
-              <ul className="aside-container__list">
-                <FavouritesNavHeart />
-
-                <CartNavBasket />
-              </ul>
             </div>
-          </div>
-        </header>
-      )}
-    </>
-  );
-});
+          </header>
+        )}
+      </>
+    );
+  }
+);
 
 Header.displayName = 'Header';

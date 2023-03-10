@@ -17,9 +17,13 @@ import {Cards} from '../SliderCards';
 
 type Props = {
   phones: Phone[];
+  setIsLoader: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-export const CardSpec: React.FC<Props> = memo(({phones}) => {
+export const CardSpec: React.FC<Props> = memo(({
+  phones,
+  setIsLoader,
+}) => {
   const {phoneId = '0'} = useParams();
 
   const [phoneSpec, setPhoneSpec] = useState<PhoneSpec | null>(null);
@@ -28,13 +32,17 @@ export const CardSpec: React.FC<Props> = memo(({phones}) => {
   const pageHistory = useNavigate();
 
   useEffect(() => {
+    setIsLoader(true);
     setIsLoading(true);
     getPhoneById(phoneId)
       .then((response: any) => {
         setPhoneSpec(response);
         setIsLoading(false);
       })
-      .catch((error) => console.warn(error));
+      .catch((error) => console.warn(error))
+      .finally(() => {
+        setIsLoader(false);
+      });
   }, [phoneId]);
 
   useEffect(() => {
