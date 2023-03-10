@@ -5,8 +5,8 @@ export const localStorageAdd = (
   key: string
 ) => {
   const itemsForKey = localStorage.getItem(key);
-  const itemsForKeyNotNull =
-    itemsForKey !== null ? JSON.parse(itemsForKey) : null;
+  const itemsForKeyNotNull
+    = itemsForKey !== null ? JSON.parse(itemsForKey) : null;
 
   if (!itemsForKeyNotNull) {
     localStorage.setItem(key, JSON.stringify([data]));
