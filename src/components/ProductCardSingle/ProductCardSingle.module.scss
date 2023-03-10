@@ -48,11 +48,21 @@
 
   &__title {
     margin-bottom: 8px;
-    min-height: 42px;
+    min-height: 50px;
 
     font-weight: 400;
     font-size: 15px;
-    line-height: 21px;
+    line-height: 17px;
+
+    @include onTablet {
+      line-height: 21px;
+      min-height: 42px;
+    }
+
+    @include onDesktop {
+      line-height: 21px;
+      min-height: 42px;
+    }
   }
 
   &__link {
