@@ -79,10 +79,7 @@ export const ItemsOnPage: React.FC<Props> = memo(
     return (
       <div
         ref={dropdownRef}
-        className={`
-        ${styles.itemsOnPage}
-        
-      `}>
+        className={styles.itemsOnPage}>
         <p className={styles.itemsOnPage__description}>Items on page</p>
 
         <div className={styles.dropdown}>
