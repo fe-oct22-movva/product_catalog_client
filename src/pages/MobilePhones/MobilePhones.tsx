@@ -13,7 +13,13 @@ import {Loader} from '../../components/Loader';
 import {Notify} from 'notiflix/build/notiflix-notify-aio';
 import {usePageParams} from '../../controllers/usePageParams';
 
-export const MobilePhones: React.FC = memo(() => {
+interface Props {
+  setIsLoader: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+export const MobilePhones: React.FC<Props> = memo(({
+  setIsLoader,
+}) => {
   const [phones, setPhones] = useState<Phone[]>([]);
   const [phonesNumber, setPhonesNumber] = useState(0);
   const [pagesNumber, setPagesNumber] = useState(0);
@@ -25,6 +31,7 @@ export const MobilePhones: React.FC = memo(() => {
 
   useEffect(() => {
     setArePhonesLoading(true);
+    setIsLoader(true);
 
     getAllPhones([
       ['limit', perPage.toString()],
@@ -40,7 +47,10 @@ export const MobilePhones: React.FC = memo(() => {
         console.log(error);
         Notify.failure('Oops, something went wrong. Please try again later.');
       })
-      .finally(() => setArePhonesLoading(false));
+      .finally(() => {
+        setArePhonesLoading(false);
+        setIsLoader(false);
+      });
   }, [sortBy, perPage, currentPage]);
 
   const changeSortbyStatus = () => {

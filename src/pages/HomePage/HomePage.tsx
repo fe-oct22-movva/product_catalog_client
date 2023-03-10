@@ -8,7 +8,13 @@ import {ShopByCategory} from '../../components/ShopByCategory';
 import {Cards} from '../../components/SliderCards';
 import {Phone} from '../../types/types';
 
-export const HomePage: React.FC = memo(() => {
+interface Props {
+  setIsLoader: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+export const HomePage: React.FC<Props> = memo(({
+  setIsLoader,
+}) => {
   const [newestPhones, setNewestPhones] = useState<Phone[]>([]);
   const [cheapestPhones, setCheapestPhones] = useState<Phone[]>([]);
   const [phonesNumber, setPhonesNumber] = useState(0);
@@ -17,7 +23,11 @@ export const HomePage: React.FC = memo(() => {
   console.log(newestPhones);
 
   useEffect(() => {
-    setTimeout(() => setIsLoading(false), 2000);
+    setIsLoader(true);
+    setTimeout(() => {
+      setIsLoading(false);
+      setIsLoader(false);
+    }, 1000);
 
     getAllPhones([
       ['sort', 'newest'],
@@ -30,6 +40,9 @@ export const HomePage: React.FC = memo(() => {
       .catch((error) => {
         console.log(error);
         Notify.failure('Oops, something went wrong. Please try again later.');
+      })
+      .finally(() => {
+        setIsLoader(false);
       });
 
     getAllPhones([
