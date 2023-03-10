@@ -1,25 +1,25 @@
 /* eslint-disable react/jsx-key */
 /* eslint-disable no-unsafe-optional-chaining */
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React, {useEffect, useState} from 'react';
+import React, {memo, useEffect, useState} from 'react';
 import './CardSpec.scss';
 
+import classNames from 'classnames';
+import {useNavigate, useParams} from 'react-router-dom';
 import Slider from 'react-slick';
 import {getPhoneById} from '../../api/phones';
 import {Phone, PhoneSpec} from '../../types/types';
-import {Button_addToCart} from '../Button_addToCart';
-import {Breadcrumbs} from '../Breadcrumbs';
-import classNames from 'classnames';
 import {checkerColor, checkerId, colorToHex} from '../../utils/helpers';
-import {useNavigate, useParams} from 'react-router-dom';
-import {Cards} from '../ProductCard';
+import {Breadcrumbs} from '../Breadcrumbs';
+import {Button_addToCart} from '../Button_addToCart';
 import {Loader} from '../Loader';
+import {Cards} from '../SliderCards';
 
 type Props = {
   phones: Phone[];
 };
 
-export const CardSpec: React.FC<Props> = ({phones}) => {
+export const CardSpec: React.FC<Props> = memo(({phones}) => {
   const {phoneId = '0'} = useParams();
 
   const [phoneSpec, setPhoneSpec] = useState<PhoneSpec | null>(null);
@@ -73,7 +73,6 @@ export const CardSpec: React.FC<Props> = ({phones}) => {
     {name: 'Built in memory', value: phoneSpec.capacity},
     {name: 'Camera', value: phoneSpec.camera},
     {name: 'Zoom', value: phoneSpec.zoom},
-    {name: 'Cell', value: phoneSpec.cell},
   ];
 
   const phonePhotos = phoneSpec.images;
@@ -118,7 +117,7 @@ export const CardSpec: React.FC<Props> = ({phones}) => {
             ))}
           </Slider>
 
-          <div className="phone__specs-main__feature grid__item grid__item--tablet-8-11 grid__item--desktop-13-19">
+          <div className="phone__specs-main__feature grid__item grid__item--tablet-8-12 grid__item--desktop-13-19">
             <div className="phone__specs-main__feature__title">
               <h5 className="phone__specs-main__feature__title-available">
                 Available colors
@@ -265,4 +264,6 @@ export const CardSpec: React.FC<Props> = ({phones}) => {
       <Cards newestPhones={phones} title={'You may also like'} />
     </div>
   );
-};
+});
+
+CardSpec.displayName = 'CardSpec';

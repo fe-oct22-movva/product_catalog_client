@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import React, {useEffect, useState} from 'react';
+import React, {memo, useEffect, useMemo, useState} from 'react';
 import styles from './MobilePhones.module.scss';
 
 import {Pagination} from '../../components/Pagination';
@@ -11,9 +11,9 @@ import {getAllPhones} from '../../api/phones';
 import {Breadcrumbs} from '../../components/Breadcrumbs';
 import {Loader} from '../../components/Loader';
 import {Notify} from 'notiflix/build/notiflix-notify-aio';
-import { usePageParams } from '../../controllers/usePageParams';
+import {usePageParams} from '../../controllers/usePageParams';
 
-export const MobilePhones: React.FC = () => {
+export const MobilePhones: React.FC = memo(() => {
   const [phones, setPhones] = useState<Phone[]>([]);
   const [phonesNumber, setPhonesNumber] = useState(0);
   const [pagesNumber, setPagesNumber] = useState(0);
@@ -41,11 +41,7 @@ export const MobilePhones: React.FC = () => {
         Notify.failure('Oops, something went wrong. Please try again later.');
       })
       .finally(() => setArePhonesLoading(false));
-  }, [
-    sortBy,
-    perPage,
-    currentPage
-  ]);
+  }, [sortBy, perPage, currentPage]);
 
   const changeSortbyStatus = () => {
     setIsSortByOpen(!isSortByOpen);
@@ -57,13 +53,15 @@ export const MobilePhones: React.FC = () => {
     setIsSortByOpen(false);
   };
 
-  const sortByOptions = [
-    ['newest', 'Newest'],
-    ['oldest', 'Oldest'],
-    ['alphabetically', 'Alphabetically'],
-    ['cheapest', 'Cheapest'],
-    ['moreExpensive', 'More expensive'],
-  ];
+  const sortByOptions = useMemo(() => {
+    return [
+      ['newest', 'Newest'],
+      ['oldest', 'Oldest'],
+      ['alphabetically', 'Alphabetically'],
+      ['cheapest', 'Cheapest'],
+      ['moreExpensive', 'More expensive'],
+    ];
+  }, []);
 
   return (
     <>
@@ -88,11 +86,11 @@ export const MobilePhones: React.FC = () => {
                 className={`${styles.filter} grid grid--mobile grid--tablet grid--desktop`}>
                 <div
                   className={`
-                ${styles.filter__container} 
-                grid__item--mobile-1-2
-                grid__item--tablet-1-4 
-                grid__item--desctop-1-4
-              `}
+                  ${styles.filter__container} 
+                  grid__item--mobile-1-2
+                  grid__item--tablet-1-4 
+                  grid__item--desctop-1-4
+                `}
                   onClick={changeSortbyStatus}>
                   <SortBy
                     options={sortByOptions}
@@ -103,11 +101,11 @@ export const MobilePhones: React.FC = () => {
 
                 <div
                   className={`
-                ${styles.filter__container} 
-                grid__item--mobile-3-4
-                grid__item--tablet-5-7 
-                grid__item--desctop-5-7
-              `}
+                  ${styles.filter__container} 
+                  grid__item--mobile-3-4
+                  grid__item--tablet-5-7 
+                  grid__item--desctop-5-7
+                `}
                   onClick={changeItemsOnPageStatus}>
                   <ItemsOnPage
                     defaultValue={perPage}
@@ -135,13 +133,13 @@ export const MobilePhones: React.FC = () => {
                 ))}
               </div>
 
-              {phonesNumber > 0 && (
-                <Pagination pagesNumber={pagesNumber} />
-              )}
+              {phonesNumber > 0 && <Pagination pagesNumber={pagesNumber} />}
             </>
           )}
         </div>
       </div>
     </>
   );
-};
+});
+
+MobilePhones.displayName = 'MobilePhones';

@@ -1,17 +1,17 @@
 import './Favourites.scss';
 import {ProductCardSingle} from '../ProductCardSingle';
 import {favouriteItem} from '../../types/types';
-import {useEffect, useState} from 'react';
+import {memo, useEffect, useState} from 'react';
 import {Breadcrumbs} from '../Breadcrumbs';
 import heartEmpty from '../../assets/images/icons/hearts-like-svgrepo-com.svg';
 
-export const Favourites = () => {
+export const Favourites = memo(() => {
   const [isFavouritesExist, setIsFavouritesExist] = useState<string | null>(
     null
   );
 
-  const favouritesItems
-    = isFavouritesExist === null ? [] : JSON.parse(isFavouritesExist);
+  const favouritesItems =
+    isFavouritesExist === null ? [] : JSON.parse(isFavouritesExist);
 
   useEffect(() => {
     setIsFavouritesExist(localStorage.getItem('Favourites'));
@@ -74,4 +74,6 @@ export const Favourites = () => {
       </div>
     </>
   );
-};
+});
+
+Favourites.displayName = 'Favourites';

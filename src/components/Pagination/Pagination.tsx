@@ -4,12 +4,13 @@ import styles from '../Pagination/Pagination.module.scss';
 import cn from 'classnames';
 import {Link, useSearchParams} from 'react-router-dom';
 import {usePageParams} from '../../controllers/usePageParams';
+import {memo} from 'react';
 
 interface Props {
   pagesNumber: number;
 }
 
-export const Pagination: React.FC<Props> = ({pagesNumber}) => {
+export const Pagination: React.FC<Props> = memo(({pagesNumber}) => {
   const paginationPages = [];
 
   for (let i = 1; i <= pagesNumber; i++) {
@@ -81,4 +82,6 @@ export const Pagination: React.FC<Props> = ({pagesNumber}) => {
       </ul>
     </div>
   );
-};
+});
+
+Pagination.displayName = 'Pagination';

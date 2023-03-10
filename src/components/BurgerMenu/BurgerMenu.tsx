@@ -1,17 +1,22 @@
-import React from 'react';
+import React, {memo} from 'react';
 
 import logo from '../../assets/images/Logo.svg';
 import close from '../../images/CloseQuarter.svg';
 import './BurgerMenu.scss';
-import {FavouritesNavHeart} from '../FavouritesNavHeart/FavouritesNavHeart';
-import {CartNavBasket} from '../CartNavBasket/CartNavBasket';
+import {FavouritesNavHeart} from '../FavouritesNavHeart';
+import {CartNavBasket} from '../CartNavBasket';
 
 export interface Props {
   isBurger: boolean;
   setIsBurger: (v: boolean) => void;
+  locationMenu: string;
 }
 
-export const BurgerMenu: React.FC<Props> = ({isBurger, setIsBurger}) => {
+export const BurgerMenu: React.FC<Props> = memo(({
+  isBurger,
+  setIsBurger,
+  locationMenu,
+}) => {
   const toggleMenu = () => {
     setIsBurger(!isBurger);
   };
@@ -25,7 +30,10 @@ export const BurgerMenu: React.FC<Props> = ({isBurger, setIsBurger}) => {
               <img src={logo} className="burger__logo" alt="website logo" />
             </a>
 
-            <a href="#/" className="header__link-close" onClick={toggleMenu}>
+            <a
+              href={`#${locationMenu}`}
+              className="header__link-close"
+              onClick={toggleMenu}>
               <img src={close} className="burger__close" alt="Close button" />
             </a>
           </div>
@@ -72,4 +80,6 @@ export const BurgerMenu: React.FC<Props> = ({isBurger, setIsBurger}) => {
       )}
     </>
   );
-};
+});
+
+BurgerMenu.displayName = 'BurgerMenu';

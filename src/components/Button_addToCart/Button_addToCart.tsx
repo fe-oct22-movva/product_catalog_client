@@ -2,7 +2,7 @@ import styles from '../Button_addToCart/Button_addToCart.module.scss';
 
 import likeEmpty from '../../assets/images/icons/favourites-like.svg';
 import likeFull from '../../assets/images/icons/favourites-likeFull.svg';
-import React, {useEffect, useState} from 'react';
+import React, {memo, useEffect, useState} from 'react';
 import {localStorageAdd} from '../../utils/localStorageAdd';
 import {cartItem, favouriteItem} from '../../types/types';
 import {handleDelete} from '../../utils/localStorageRemove';
@@ -20,145 +20,143 @@ interface Props {
   phoneId: string;
 }
 
-export const Button_addToCart: React.FC<Props> = ({
-  id,
-  img,
-  price,
-  fullPrice,
-  name,
-  screen,
-  capacity,
-  ram,
-  phoneId,
-}) => {
-  const [isInFavourites, setIsInFavourites] = useState(false);
-  const [isInCart, setIsInCart] = useState(false);
+export const Button_addToCart: React.FC<Props> = memo(
+  ({id, img, price, fullPrice, name, screen, capacity, ram, phoneId}) => {
+    const [isInFavourites, setIsInFavourites] = useState(false);
+    const [isInCart, setIsInCart] = useState(false);
 
-  useEffect(() => {
-    const isIncludeFav = isIncludeItemLocalStorage('Favourites', id);
-    const isIncludeCart = isIncludeItemLocalStorage('Cart', id);
-
-    if (isIncludeFav) {
-      setIsInFavourites(true);
-    }
-
-    if (isIncludeCart) {
-      setIsInCart(true);
-    }
-
-    const handleFav = () => {
+    useEffect(() => {
       const isIncludeFav = isIncludeItemLocalStorage('Favourites', id);
+      const isIncludeCart = isIncludeItemLocalStorage('Cart', id);
 
       if (isIncludeFav) {
         setIsInFavourites(true);
       }
-    };
-
-    const handleCart = () => {
-      const isIncludeCart = isIncludeItemLocalStorage('Cart', id);
 
       if (isIncludeCart) {
         setIsInCart(true);
       }
-    };
 
-    window.addEventListener('storage', handleFav);
-    window.addEventListener('storage', handleCart);
-    return () => {
-      window.removeEventListener('storage', handleFav);
-      window.removeEventListener('storage', handleCart);
-    };
-  }, [isInFavourites, isInCart]);
+      const handleFav = () => {
+        const isIncludeFav = isIncludeItemLocalStorage('Favourites', id);
 
-  const handleAddToCart = () => {
-    const items = localStorage.getItem('Cart');
-    const parsedItems = items !== null ? JSON.parse(items) : null;
+        if (isIncludeFav) {
+          setIsInFavourites(true);
+        }
+      };
 
-    if (isInCart) {
-      setIsInCart(false);
-    }
+      const handleCart = () => {
+        const isIncludeCart = isIncludeItemLocalStorage('Cart', id);
 
-    if (parsedItems) {
-      const includeItem = parsedItems.find((item: cartItem) => item.id === id);
+        if (isIncludeCart) {
+          setIsInCart(true);
+        }
+      };
 
-      if (includeItem) {
-        handleDelete(id, 'Cart');
+      window.addEventListener('storage', handleFav);
+      window.addEventListener('storage', handleCart);
+      return () => {
+        window.removeEventListener('storage', handleFav);
+        window.removeEventListener('storage', handleCart);
+      };
+    }, [isInFavourites, isInCart]);
 
-        return;
+    const handleAddToCart = () => {
+      const items = localStorage.getItem('Cart');
+      const parsedItems = items !== null ? JSON.parse(items) : null;
+
+      if (isInCart) {
+        setIsInCart(false);
       }
-    }
 
-    localStorageAdd(
-      {
-        id,
-        img,
-        name,
-        price,
-        amount: 1,
-        phoneId,
-      },
-      'Cart'
-    );
-  };
+      if (parsedItems) {
+        const includeItem = parsedItems.find(
+          (item: cartItem) => item.id === id
+        );
 
-  const handleLike = () => {
-    const items = localStorage.getItem('Favourites');
-    const parsedItems = items !== null ? JSON.parse(items) : null;
+        if (includeItem) {
+          handleDelete(id, 'Cart');
 
-    if (parsedItems) {
-      const includeItem = parsedItems.find(
-        (item: favouriteItem) => item.id === id
+          return;
+        }
+      }
+
+      localStorageAdd(
+        {
+          id,
+          img,
+          name,
+          price,
+          amount: 1,
+          phoneId,
+        },
+        'Cart'
       );
-      if (isInFavourites) {
-        setIsInFavourites(false);
+    };
+
+    const handleLike = () => {
+      const items = localStorage.getItem('Favourites');
+      const parsedItems = items !== null ? JSON.parse(items) : null;
+
+      if (parsedItems) {
+        const includeItem = parsedItems.find(
+          (item: favouriteItem) => item.id === id
+        );
+        if (isInFavourites) {
+          setIsInFavourites(false);
+        }
+
+        if (includeItem) {
+          handleDelete(id, 'Favourites');
+
+          return;
+        }
       }
 
-      if (includeItem) {
-        handleDelete(id, 'Favourites');
+      localStorageAdd(
+        {
+          id,
+          img,
+          name,
+          price,
+          screen,
+          fullPrice,
+          capacity,
+          ram,
+          phoneId,
+        },
+        'Favourites'
+      );
+    };
 
-        return;
-      }
-    }
-
-    localStorageAdd(
-      {
-        id,
-        img,
-        name,
-        price,
-        screen,
-        fullPrice,
-        capacity,
-        ram,
-        phoneId,
-      },
-      'Favourites'
-    );
-  };
-
-  return (
-    <div className={styles.addToCart}>
-      {!isInCart ? (
-        <button className={styles.addToCart__button} onClick={handleAddToCart}>
-          Add to cart
-        </button>
-      ) : (
-        <button
-          className={styles.addToCart__button__active}
-          onClick={handleAddToCart}>
-          Added
-        </button>
-      )}
-
+    return (
       <div className={styles.addToCart}>
-        <button className={styles.addToCart__like} onClick={handleLike}>
-          {!isInFavourites ? (
-            <img src={likeEmpty} alt="Like" />
-          ) : (
-            <img src={likeFull} alt="Like" />
-          )}
-        </button>
+        {!isInCart ? (
+          <button
+            className={styles.addToCart__button}
+            onClick={handleAddToCart}>
+            Add to cart
+          </button>
+        ) : (
+          <button
+            className={styles.addToCart__button__active}
+            onClick={handleAddToCart}>
+            Added
+          </button>
+        )}
+
+        <div className={styles.addToCart}>
+          <button className={styles.addToCart__like} onClick={handleLike}>
+            {!isInFavourites ? (
+              <img src={likeEmpty} alt="Like" />
+            ) : (
+              <img src={likeFull} alt="Like" />
+            )}
+          </button>
+        </div>
       </div>
-    </div>
-  );
-};
+    );
+  }
+);
+
+Button_addToCart.displayName = 'Button_addToCart';

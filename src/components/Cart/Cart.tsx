@@ -1,14 +1,14 @@
 import './Cart.scss';
-import React, {useEffect, useState} from 'react';
+import React, {memo, useEffect, useState} from 'react';
 import {cartItem} from '../../types/types';
-import {CartItem} from '../CartItem/CartItem';
+import {CartItem} from '../CartItem';
 import {Breadcrumbs} from '../Breadcrumbs';
 import {handleDelete} from '../../utils/localStorageRemove';
-import {EmptyCart} from '../EmptyCart/EmptyCart';
-import {CartCheckout} from '../CartCheckout/CartCheckout';
-import {ModalWindowCart} from '../ModalWindowCart/ModalWindowCart';
+import {EmptyCart} from '../EmptyCart';
+import {CartCheckout} from '../CartCheckout';
+import {ModalWindowCart} from '../ModalWindowCart';
 
-export const Cart = () => {
+export const Cart = memo(() => {
   const [isCartExist, setIsCartExist] = useState<string | null>(null);
   const [isModalWindow, setIsModalWindow] = useState(false);
 
@@ -82,4 +82,6 @@ export const Cart = () => {
       </div>
     </div>
   );
-};
+});
+
+Cart.displayName = 'Cart';

@@ -1,11 +1,11 @@
-import React, {useEffect, useState} from 'react';
+import React, {memo, useEffect, useState} from 'react';
 import './ModalWindowCart.scss';
 
 interface Props {
   setIsModalWindow: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-export const ModalWindowCart: React.FC<Props> = ({setIsModalWindow}) => {
+export const ModalWindowCart: React.FC<Props> = memo(({setIsModalWindow}) => {
   const [counter, setCounter] = useState(3);
 
   useEffect(() => {
@@ -29,4 +29,6 @@ export const ModalWindowCart: React.FC<Props> = ({setIsModalWindow}) => {
       </div>
     </div>
   );
-};
+});
+
+ModalWindowCart.displayName = 'ModalWindowCart';
