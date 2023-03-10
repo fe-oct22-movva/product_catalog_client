@@ -58,6 +58,8 @@ export const App: React.FC = () => {
           />
           <Route path="/cart" element={<Cart />} />
           <Route path="/tablets" element={<Tablets />} />
+          <Route path="/tablets/:phoneId" element={<InDevelopmentPage />}
+          />
           <Route path="/accessories" element={<InDevelopmentPage />} />
           <Route path="cart/:phoneId" element={<CardSpec phones={phones} />} />
           <Route
